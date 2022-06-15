@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -9,7 +12,6 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -112,3 +114,10 @@ Route::prefix('/dashboard')
 
 // email verification
 // Auth::routes(['verify' => true]);
+
+// TODO only for create tokens
+// Route::get('/tokens/create/{token_name}', function (Request $request) {
+//   $token = $request->user()->createToken($request->token_name);
+
+//   return ['token' => $token->plainTextToken];
+// });
