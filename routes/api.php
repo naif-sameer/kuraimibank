@@ -18,6 +18,6 @@ Route::prefix('v1')
   // ->middleware('auth:sanctum')
   ->group(function () {
     Route::get('/test', function (Request $request) {
-      return response('test');
+      return response('Hello world!');
     });
   });
