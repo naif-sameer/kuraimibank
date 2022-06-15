@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('website_info', function (Blueprint $table) {
+        Schema::create('user_education', function (Blueprint $table) {
             $table->id();
-            $table->string('table_key');
-            $table->json('table_value');
+            $table->string('title');
+            $table->string('description');
 
             $table->boolean('is_active')->default(1);
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('website_info');
+        Schema::dropIfExists('user_education');
     }
 };

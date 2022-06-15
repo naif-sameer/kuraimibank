@@ -13,19 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('service_points', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
-            $table->json('address');
-            $table->string('phone');
-            $table->string('second_phone');
-            $table->json('working_hours');
-
-            $table
-                ->foreignId('city_id')
-                ->references('id')
-                ->on('cities')
-                ->onDelete('cascade');
+            $table->json('title');
+            $table->json('description');
 
             $table->boolean('is_active')->default(1);
             $table->timestamps();
@@ -39,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_points');
+        Schema::dropIfExists('jobs');
     }
 };

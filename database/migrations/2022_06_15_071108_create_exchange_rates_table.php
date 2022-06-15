@@ -18,7 +18,9 @@ return new class extends Migration
             $table->json('name');
             $table->string('sale');
             $table->string('buy');
+
             $table->boolean('is_active')->default(1);
+
             $table->timestamps();
         });
     }

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_educations', function (Blueprint $table) {
+        Schema::create('website_info', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
+            $table->string('table_key')->unique();
+            $table->json('table_value');
+
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_educations');
+        Schema::dropIfExists('website_infos');
     }
 };
