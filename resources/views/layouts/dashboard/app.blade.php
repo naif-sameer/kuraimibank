@@ -19,12 +19,9 @@
 </head>
 
 <body class="font-sans antialiased">
-  <div class="min-h-screen bg-gray-100">
+  <div class="grid min-h-screen bg-gray-100 md:grid-cols-2">
     <!-- Page sidebar -->
     @include('layouts.dashboard.sidebar')
-
-
-    <!-- Page Heading -->
 
     <!-- Page Content -->
     <main>
@@ -34,6 +31,11 @@
       @yield('content')
     </main>
   </div>
+
+
+  {{-- ionicons --}}
+  <script def type="module" src="{{ asset('js/ionicons.esm.js') }}"></script>
+  <script def nomodule src="{{ asset('js/ionicons.js') }}"></script>
 </body>
 
 </html>
