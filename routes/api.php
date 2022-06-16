@@ -93,6 +93,15 @@ Route::prefix('v1')
       Route::put('/news/{id}/edit',  'update');
       Route::put('/news/{id}/toggle',  'activeToggle');
     });
+
+    // categories
+    Route::controller(api\CategoryController::class)->group(function () {
+      Route::get('/categories',  'getAll');
+      Route::get('/categories/{id}',  'getOne');
+      Route::post('/categories/create',  'save');
+      Route::put('/categories/{id}/edit',  'update');
+      Route::put('/categories/{id}/toggle',  'activeToggle');
+    });
   });
 
 
