@@ -129,6 +129,15 @@ Route::prefix('v1')
       Route::put('/service-advantages/{id}/edit',  'update');
       Route::put('/service-advantages/{id}/toggle',  'activeToggle');
     });
+
+    // countries
+    Route::controller(api\CountryController::class)->group(function () {
+      Route::get('/countries',  'getAll');
+      Route::get('/countries/{id}',  'getOne');
+      Route::post('/countries/create',  'save');
+      Route::put('/countries/{id}/edit',  'update');
+      Route::put('/countries/{id}/toggle',  'activeToggle');
+    });
   });
 
 
