@@ -39,6 +39,15 @@ Route::prefix('v1')
       Route::put('/jobs/{id}/edit',  'update');
       Route::put('/jobs/{id}/toggle',  'activeToggle');
     });
+
+    // exchange rates
+    Route::controller(api\ExchangeRateController::class)->group(function () {
+      Route::get('/exchange-rates',  'getAll');
+      Route::get('/exchange-rates/{id}',  'getOne');
+      Route::post('/exchange-rates/create',  'save');
+      Route::put('/exchange-rates/{id}/edit',  'update');
+      Route::put('/exchange-rates/{id}/toggle',  'activeToggle');
+    });
   });
 
 
