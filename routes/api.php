@@ -120,6 +120,15 @@ Route::prefix('v1')
       Route::put('/services/{id}/edit',  'update');
       Route::put('/services/{id}/toggle',  'activeToggle');
     });
+
+    // service-advantages
+    Route::controller(api\ServiceAdvantageController::class)->group(function () {
+      Route::get('/service-advantages',  'getAll');
+      Route::get('/service-advantages/{id}',  'getOne');
+      Route::post('/service-advantages/create',  'save');
+      Route::put('/service-advantages/{id}/edit',  'update');
+      Route::put('/service-advantages/{id}/toggle',  'activeToggle');
+    });
   });
 
 

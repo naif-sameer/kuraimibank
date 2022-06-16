@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceAdvantage extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = ['name', 'icon', 'service_id'];
 }
