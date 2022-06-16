@@ -48,6 +48,15 @@ Route::prefix('v1')
       Route::put('/exchange-rates/{id}/edit',  'update');
       Route::put('/exchange-rates/{id}/toggle',  'activeToggle');
     });
+
+    // social media
+    Route::controller(api\SocialMediaController::class)->group(function () {
+      Route::get('/social-media',  'getAll');
+      Route::get('/social-media/{id}',  'getOne');
+      Route::post('/social-media/create',  'save');
+      Route::put('/social-media/{id}/edit',  'update');
+      Route::put('/social-media/{id}/toggle',  'activeToggle');
+    });
   });
 
 
