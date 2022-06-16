@@ -114,10 +114,3 @@ Route::prefix('/dashboard')
 
 // email verification
 // Auth::routes(['verify' => true]);
-
-// TODO only for create tokens
-// Route::get('/tokens/create/{token_name}', function (Request $request) {
-//   $token = $request->user()->createToken($request->token_name);
-
-//   return ['token' => $token->plainTextToken];
-// });
