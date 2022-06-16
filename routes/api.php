@@ -138,6 +138,15 @@ Route::prefix('v1')
       Route::put('/countries/{id}/edit',  'update');
       Route::put('/countries/{id}/toggle',  'activeToggle');
     });
+
+    // cities
+    Route::controller(api\CityController::class)->group(function () {
+      Route::get('/cities',  'getAll');
+      Route::get('/cities/{id}',  'getOne');
+      Route::post('/cities/create',  'save');
+      Route::put('/cities/{id}/edit',  'update');
+      Route::put('/cities/{id}/toggle',  'activeToggle');
+    });
   });
 
 
