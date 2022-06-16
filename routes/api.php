@@ -111,6 +111,15 @@ Route::prefix('v1')
       Route::put('/sub-categories/{id}/edit',  'update');
       Route::put('/sub-categories/{id}/toggle',  'activeToggle');
     });
+
+    // services
+    Route::controller(api\ServiceController::class)->group(function () {
+      Route::get('/services',  'getAll');
+      Route::get('/services/{id}',  'getOne');
+      Route::post('/services/create',  'save');
+      Route::put('/services/{id}/edit',  'update');
+      Route::put('/services/{id}/toggle',  'activeToggle');
+    });
   });
 
 

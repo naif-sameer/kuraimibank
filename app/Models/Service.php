@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = ['image', 'name', 'description', 'other_advantage', 'service_conditions', 'category_id'];
 }
