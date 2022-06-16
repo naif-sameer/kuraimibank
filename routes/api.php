@@ -102,6 +102,15 @@ Route::prefix('v1')
       Route::put('/categories/{id}/edit',  'update');
       Route::put('/categories/{id}/toggle',  'activeToggle');
     });
+
+    // sub-categories
+    Route::controller(api\SubCategoryController::class)->group(function () {
+      Route::get('/sub-categories',  'getAll');
+      Route::get('/sub-categories/{id}',  'getOne');
+      Route::post('/sub-categories/create',  'save');
+      Route::put('/sub-categories/{id}/edit',  'update');
+      Route::put('/sub-categories/{id}/toggle',  'activeToggle');
+    });
   });
 
 
