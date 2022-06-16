@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServicePoint extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = ['name', 'address', 'working_hours', 'phone', 'second_phone', 'city_id'];
 }
