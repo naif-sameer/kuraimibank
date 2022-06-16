@@ -84,6 +84,15 @@ Route::prefix('v1')
       Route::put('/pages/{id}/edit',  'update');
       Route::put('/pages/{id}/toggle',  'activeToggle');
     });
+
+    // news
+    Route::controller(api\NewsController::class)->group(function () {
+      Route::get('/news',  'getAll');
+      Route::get('/news/{id}',  'getOne');
+      Route::post('/news/create',  'save');
+      Route::put('/news/{id}/edit',  'update');
+      Route::put('/news/{id}/toggle',  'activeToggle');
+    });
   });
 
 
