@@ -75,6 +75,15 @@ Route::prefix('v1')
       Route::put('/financial-reports/{id}/edit',  'update');
       Route::put('/financial-reports/{id}/toggle',  'activeToggle');
     });
+
+    // pages
+    Route::controller(api\PageController::class)->group(function () {
+      Route::get('/pages',  'getAll');
+      Route::get('/pages/{id}',  'getOne');
+      Route::post('/pages/create',  'save');
+      Route::put('/pages/{id}/edit',  'update');
+      Route::put('/pages/{id}/toggle',  'activeToggle');
+    });
   });
 
 
