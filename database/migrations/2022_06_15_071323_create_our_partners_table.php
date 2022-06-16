@@ -6,31 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('our_partners', function (Blueprint $table) {
-            $table->id();
-            $table->json('title');
-            $table->string('image');
-            $table->json('description');
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('our_partners', function (Blueprint $table) {
+      $table->id();
+      $table->json('title');
+      $table->json('description');
+      $table->string('image');
 
-            $table->boolean('is_active')->default(1);
-            $table->timestamps();
-        });
-    }
+      $table->boolean('is_active')->default(1);
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('our_partners');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('our_partners');
+  }
 };

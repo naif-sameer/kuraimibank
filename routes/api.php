@@ -57,6 +57,15 @@ Route::prefix('v1')
       Route::put('/social-media/{id}/edit',  'update');
       Route::put('/social-media/{id}/toggle',  'activeToggle');
     });
+
+    // our-partners
+    Route::controller(api\OurPartnerController::class)->group(function () {
+      Route::get('/our-partners',  'getAll');
+      Route::get('/our-partners/{id}',  'getOne');
+      Route::post('/our-partners/create',  'save');
+      Route::put('/our-partners/{id}/edit',  'update');
+      Route::put('/our-partners/{id}/toggle',  'activeToggle');
+    });
   });
 
 
