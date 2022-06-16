@@ -30,3 +30,10 @@ php artisan make:model WebsiteInfo -m
 ```bash
  php artisan optimize:clear
 ```
+
+## controller
+
+```bash
+# api
+php artisan make:controller api/NameController
+```
