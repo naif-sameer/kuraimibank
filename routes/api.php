@@ -66,6 +66,15 @@ Route::prefix('v1')
       Route::put('/our-partners/{id}/edit',  'update');
       Route::put('/our-partners/{id}/toggle',  'activeToggle');
     });
+
+    // financial-reports
+    Route::controller(api\FinancialReportController::class)->group(function () {
+      Route::get('/financial-reports',  'getAll');
+      Route::get('/financial-reports/{id}',  'getOne');
+      Route::post('/financial-reports/create',  'save');
+      Route::put('/financial-reports/{id}/edit',  'update');
+      Route::put('/financial-reports/{id}/toggle',  'activeToggle');
+    });
   });
 
 

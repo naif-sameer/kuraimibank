@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FinancialReport extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = ['title', 'description', 'pdf'];
 }
