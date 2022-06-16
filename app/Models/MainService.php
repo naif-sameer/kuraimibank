@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MainService extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = ['name', 'image', 'link'];
 }

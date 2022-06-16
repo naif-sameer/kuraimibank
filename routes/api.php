@@ -156,6 +156,15 @@ Route::prefix('v1')
       Route::put('/service-points/{id}/edit',  'update');
       Route::put('/service-points/{id}/toggle',  'activeToggle');
     });
+
+    // main-services
+    Route::controller(api\MainServiceController::class)->group(function () {
+      Route::get('/main-services',  'getAll');
+      Route::get('/main-services/{id}',  'getOne');
+      Route::post('/main-services/create',  'save');
+      Route::put('/main-services/{id}/edit',  'update');
+      Route::put('/main-services/{id}/toggle',  'activeToggle');
+    });
   });
 
 
