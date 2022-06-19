@@ -1,0 +1,63 @@
+{
+  "dashboard-title": "Dashboard title",
+  "dashboard": "Dashboard",
+  "website-info": "Website Info",
+
+  "about_us": {
+    "title": "About us",
+    "arabic_title": "about_us (arabic) ",
+    "english_title": "about_us (english) "
+  },
+
+  "apply_for_service": {
+    "title": "Apply for service",
+    "arabic_title": "apply for service (arabic) ",
+    "english_title": "apply for service (english) "
+  },
+
+  "values_principles": {
+    "title": "Values Principles",
+    "arabic_title": "Values Principles (arabic) ",
+    "english_title": "Values Principles (english) "
+  },
+
+  "strategy_statement": {
+    "title": "Strategy Statement",
+    "arabic_title": "Strategy Statement (arabic) ",
+    "english_title": "Strategy Statement (english) "
+  },
+
+  "board_members": {
+    "title": "Board Members",
+    "arabic_title": "Board Members (arabic) ",
+    "english_title": "Board Members (english) "
+  },
+
+  "contact_us": {
+    "title": "Contact us",
+    "phone": "Phone",
+    "free_phone": "Free phone",
+    "fax": "Fax",
+    "mail_box": "Mail box",
+    "email": "Email"
+  },
+
+  "main-service": "Main Service",
+  "jobs": "Jobs",
+
+  "exchange-rates": "Exchange Rates",
+  "social-media": "Social Media",
+  "our-partners": "Our partners",
+  "financial-report": "Financial report",
+  "pages": "Pages",
+  "news": "News",
+  "categories": "Categories",
+  "sub-categories": "Sub Categories",
+  "services": "Services",
+  "service-advantages": "Service Advantages",
+  "countries": "Countries",
+  "cities": "Cities",
+  "service-point": "Service Point",
+
+  "update": "Update"
+}
