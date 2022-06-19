@@ -20,27 +20,12 @@ class WebsiteInfoSeeder extends Seeder
                 'table_key'     => 'apply_for_service',
                 'table_value'     => '{"ar": "<p>apply_for_service</p>", "en": "<p>apply_for_service</p>"}',
             ],
-            [
-                'table_key'     => 'phone',
-                'table_value'     => '{"ar": "تلفون : 503888 1 967+"}',
-            ],
-            [
-                'table_key'     => 'fax',
-                'table_value'     => '{"ar": "<p>fax</p>"}',
-            ],
-            [
-                'table_key'     => 'free_phone',
-                'table_value'     => '{"ar": "<p>free_phone</p>"}',
-            ],
-            [
-                'table_key'     => 'mail_box',
-                'table_value'     => '{"ar": "<p>mail_box</p>"}',
-            ],
-            [
-                'table_key'     => 'email',
-                'table_value'     => '{"ar": "<p>email</p>"}',
-            ],
 
+
+            [
+                'table_key'     => 'contact_us',
+                'table_value'     => '{"phone":123,"fax":234,"free_phone":123456,"mail_box":"bla bla","email":"email"}',
+            ],
 
             [
                 'table_key'     => 'about_us',
