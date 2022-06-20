@@ -25,7 +25,7 @@ const { t } = useI18n();
           to="/exchange-rates"
         />
 
-        <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />
+        <!-- <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />
 
         <SidebarItem icon="bank" :text="t('our-partners')" to="/our-partners" />
 
@@ -51,9 +51,9 @@ const { t } = useI18n();
           icon="bank"
           :text="t('service-point')"
           to="/service-point"
-        />
+        /> -->
 
-        <li class="relative px-6 py-3">
+        <!-- <li class="relative px-6 py-3">
           <a
             class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
             href="/app/buttons"
@@ -152,7 +152,7 @@ const { t } = useI18n();
               ></path>
             </svg>
           </button>
-        </li>
+        </li> -->
       </ul>
     </div>
   </aside>

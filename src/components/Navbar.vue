@@ -1,11 +1,11 @@
 <template>
-  <header class="shadow-sm">
-    <div class="max-w-screen-xl px-4 py-4 mx-auto sm:px-6 lg:px-8">
+  <header class="shadow-sm sticky top-0 z-10 bg-white">
+    <div class="max-w-screen-xl px-4 py-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-start gap-4">
         <a href="" class="block shrink-0">
           <img
             class="object-cover w-10 h-10 rounded-full"
-            src="https://www.hyperui.dev/photos/man-4.jpeg"
+            src="@/assets/images/avatar.png"
             alt="Simon Lewis"
           />
         </a>
