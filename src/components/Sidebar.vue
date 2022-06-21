@@ -32,7 +32,15 @@ const { t } = useI18n();
 
         <SidebarItem icon="city" :text="t('cities.title')" to="/cities" />
 
-        <!-- <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />
+        <SidebarItem
+          icon="swatchbook"
+          :text="t('categories.title')"
+          to="/categories"
+        />
+
+        <!--
+          
+          <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />
 
         <SidebarItem icon="bank" :text="t('our-partners')" to="/our-partners" />
 
@@ -46,7 +54,6 @@ const { t } = useI18n();
 
         <SidebarItem icon="bank" :text="t('news')" to="/news" />
 
-        <SidebarItem icon="bank" :text="t('categories')" to="/categories" />
 
         <SidebarItem icon="bank" :text="t('services')" to="/services" />
 

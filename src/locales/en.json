@@ -70,12 +70,18 @@
     "english-name": "English name"
   },
 
+  "categories": {
+    "title": "Categories",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name"
+  },
+
   "social-media": "Social Media",
   "our-partners": "Our partners",
   "financial-report": "Financial report",
   "pages": "Pages",
   "news": "News",
-  "categories": "Categories",
   "sub-categories": "Sub Categories",
   "services": "Services",
   "service-advantages": "Service Advantages",

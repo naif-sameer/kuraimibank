@@ -23,6 +23,12 @@ const router = createRouter({
       name: 'cities',
       component: () => import('@/views/cities/CitiesView.vue'),
     },
+
+    {
+      path: '/categories',
+      name: 'categories',
+      component: () => import('@/views/categories/CategoriesView.vue'),
+    },
   ],
 });
 
