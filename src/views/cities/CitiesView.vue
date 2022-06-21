@@ -115,7 +115,7 @@ const getCountriesList = () => {
           <!------ country ------>
           <Select
             v-model="store.item.country_id"
-            :label="t('county')"
+            :label="t('country')"
             :options="countriesList"
           ></Select>
         </template>
@@ -137,7 +137,6 @@ const getCountriesList = () => {
         :hide-modal="() => (editModal = false)"
         :modal-title="t('cities.title')"
       >
-        <div>test</div>
         <template #body>
           <!------ arabic name ------>
           <Input
@@ -156,7 +155,7 @@ const getCountriesList = () => {
           <!------ country ------>
           <Select
             v-model="store.item.country_id"
-            :label="t('county')"
+            :label="t('country')"
             :options="countriesList"
           ></Select>
         </template>

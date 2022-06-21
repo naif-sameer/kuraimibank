@@ -133,7 +133,6 @@ const updateExchangeRates = () => {
         :hide-modal="() => (editModal = false)"
         :modal-title="t('exchange-rates')"
       >
-        <div>test</div>
         <template #body>
           <!------ arabic name ------>
           <Input

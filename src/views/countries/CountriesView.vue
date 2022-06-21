@@ -117,7 +117,6 @@ const updateCountry = () => {
         :hide-modal="() => (editModal = false)"
         :modal-title="t('countries.title')"
       >
-        <div>test</div>
         <template #body>
           <!------ arabic name ------>
           <Input

@@ -118,7 +118,6 @@ const updateCategory = () => {
         :hide-modal="() => (editModal = false)"
         :modal-title="t('categories.title')"
       >
-        <div>test</div>
         <template #body>
           <!------ arabic name ------>
           <Input

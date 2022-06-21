@@ -147,7 +147,6 @@ const updateJob = () => {
         :hide-modal="() => (editModal = false)"
         :modal-title="t('jobs.title')"
       >
-        <div>test</div>
         <template #body>
           <!------ arabic title ------>
           <Input

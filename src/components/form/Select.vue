@@ -6,8 +6,6 @@ import { CountriesType } from '@/types';
 
 import Label from './Label.vue';
 
-// randomInputID;
-
 defineProps<{
   label: string;
   options: Array<CountriesType>;
