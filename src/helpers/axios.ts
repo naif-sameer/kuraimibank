@@ -6,9 +6,9 @@ export default axios.create({
   baseURL: 'http://localhost:8000/api/v1',
   headers: {
     'Content-Type': 'application/json; charset=UTF-8',
-    Authorization: 'Bearer t0fSSpN7jq5d1uopfyOl1JstcK0Q04I0BbWm0wkO',
+    Authorization: 'Bearer LuB8yjJ0DEbxsWIkacZox9h8CgxD11cxV8YmASJM',
     'X-Requested-With': 'XMLHttpRequest',
     'X-CSRF-TOKEN':
-      'eyJpdiI6InMyUlA5b0JWN1pCYW8vTXpYSklZYkE9PSIsInZhbHVlIjoiQ0ZDQmVDaXdpNUtPc0pPN2VUSHVYM1JmVTE1T3VSWEJWSXNwMGZ1NmwvSFFrMEVvNG1mMHNGOFpFRWtkc1gyVGlFSTV6RkxzQlhFQkNwdEErUlg1ZWZuRnZLSFc4eGpLcmZvdlJEM2tqZ0V5OUZ5cFl2a1E3dFNVWGtBQUpQVGwiLCJtYWMiOiJkMTFlYjUxNjVjYzYzNWRiZDBjZWIzYjZiMWIwOTJhOTVlMmZhMjliMzRjNjQxZTc3ZjY1YmZiNGYxMjZlNzk2IiwidGFnIjoiIn0',
+      'eyJpdiI6Ik5PRldaM3g5dldlVjNKbVVUa0d3WkE9PSIsInZhbHVlIjoiL2QzcW5YdEptSCt5aXN6eHp2bmk1VzRkdDB1elg0U1A0MmVaNmlnVTZ1c1A2ZjlzeEM3MXMwVlNZNnNJbTNxZnVqRkQvRWV6dDd6UmlncU5IMVJLajhmOXg2eGFHNkhXRXVGQk1hemoySmxVbEpCTXNUcXY4dWhKTVA5Qk1lMHYiLCJtYWMiOiJkNzM0ZTc3M2QyMjQ1Mjc2NzFjMjVhNThiNjcyMzMzNTIzN2FlMzJjMWM5ZDFiMjQ1ZTAwY2M1ODUxY2M1Y2E0IiwidGFnIjoiIn0',
   },
 });
