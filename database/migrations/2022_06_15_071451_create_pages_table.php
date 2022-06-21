@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            $table->string('table_key')->unique();
             $table->json('title');
             $table->json('sub_title');
             $table->json('description');

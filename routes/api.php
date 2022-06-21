@@ -20,7 +20,7 @@ use App\Http\Controllers\api;
 */
 
 Route::prefix('v1')
-  ->middleware('auth:sanctum')
+  // ->middleware('auth:sanctum')
   ->group(function () {
 
     // website info
@@ -79,10 +79,10 @@ Route::prefix('v1')
     // pages
     Route::controller(api\PageController::class)->group(function () {
       Route::get('/pages',  'getAll');
-      Route::get('/pages/{id}',  'getOne');
+      Route::get('/pages/{table_key}',  'getOne');
       Route::post('/pages/create',  'save');
-      Route::put('/pages/{id}/edit',  'update');
-      Route::put('/pages/{id}/toggle',  'activeToggle');
+      Route::put('/pages/{table_key}/edit',  'update');
+      Route::put('/pages/{table_key}/toggle',  'activeToggle');
     });
 
     // news
