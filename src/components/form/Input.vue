@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useAttrs } from 'vue';
-
 const randomInputID = Math.floor(Math.random() * 1e8 * Date.now());
 
 defineProps(['modelValue', 'label', 'type', 'required']);
