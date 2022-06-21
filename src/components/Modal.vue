@@ -44,7 +44,7 @@ defineProps<IModalType>();
         </header>
 
         <!------ modal body ------>
-        <div class="p-6 space-y-6 text-white">
+        <div class="p-6 space-y-6 text-white max-h-[70vh] overflow-auto">
           <slot name="body" />
         </div>
 
