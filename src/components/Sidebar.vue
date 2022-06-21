@@ -40,6 +40,12 @@ const { t } = useI18n();
 
         <SidebarItem icon="toolbox" :text="t('jobs.title')" to="/jobs" />
 
+        <SidebarItem
+          icon="lock"
+          :text="t('privacy_policy.title')"
+          to="/privacy-policy"
+        />
+
         <!--
           
           <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />

@@ -42,6 +42,21 @@
     "email": "Email"
   },
 
+  "privacy_policy": {
+    "title": "Privacy and Policy",
+    "sub_title": "sub title",
+    "description": "description",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-sub_title": "Arabic sub_title",
+    "english-sub_title": "English sub_title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
   "main-service": "Main Service",
 
   "exchange-rates": "Currencies",
@@ -54,7 +69,7 @@
     "updated-date": "Updated date"
   },
 
-  "county": "Country",
+  "country": "Country",
   "countries": {
     "title": "Countries",
 
