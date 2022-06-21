@@ -37,3 +37,19 @@ php artisan make:model WebsiteInfo -m
 # api
 php artisan make:controller api/NameController
 ```
+
+## Resources
+
+```bash
+php artisan make:resource UserResource
+
+# collection
+php artisan make:resource UserCollection
+```
+
+## Request
+
+```bash
+php artisan make:request UserRequest
+
+```
