@@ -6,6 +6,6 @@ export type ExchangeRatesType = {
   };
   sale: string | number;
   buy: string | number;
-  is_active: number;
+  is_active: boolean;
   updated_at?: string;
 };
