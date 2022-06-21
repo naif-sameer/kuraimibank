@@ -13,6 +13,11 @@ const router = createRouter({
       name: 'exchange-rates',
       component: () => import('@/views/exchange-rates/ExchangeRatesView.vue'),
     },
+    {
+      path: '/countries',
+      name: 'countries',
+      component: () => import('@/views/countries/CountriesView.vue'),
+    },
   ],
 });
 

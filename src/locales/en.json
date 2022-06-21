@@ -55,6 +55,13 @@
     "updated-date": "Updated date"
   },
 
+  "countries": {
+    "title": "Countries",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name"
+  },
+
   "social-media": "Social Media",
   "our-partners": "Our partners",
   "financial-report": "Financial report",
@@ -64,7 +71,7 @@
   "sub-categories": "Sub Categories",
   "services": "Services",
   "service-advantages": "Service Advantages",
-  "countries": "Countries",
+
   "cities": "Cities",
   "service-point": "Service Point",
 

@@ -25,6 +25,12 @@ const { t } = useI18n();
           to="/exchange-rates"
         />
 
+        <SidebarItem
+          icon="map-marker-alt"
+          :text="t('countries')"
+          to="/countries"
+        />
+
         <!-- <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />
 
         <SidebarItem icon="bank" :text="t('our-partners')" to="/our-partners" />
@@ -43,7 +49,6 @@ const { t } = useI18n();
 
         <SidebarItem icon="bank" :text="t('services')" to="/services" />
 
-        <SidebarItem icon="bank" :text="t('countries')" to="/countries" />
 
         <SidebarItem icon="bank" :text="t('cities')" to="/cities" />
 
