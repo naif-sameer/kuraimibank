@@ -24,7 +24,7 @@ const showCreateModal = () => {
   createModal.value = true;
 };
 
-const addExchangeRates = () => {
+const addCountry = () => {
   store.addCountry();
 
   // close the modal
@@ -44,7 +44,7 @@ const showEditModal = (data: any) => {
   store.item.id = data.id;
 };
 
-const updateExchangeRates = () => {
+const updateCountry = () => {
   store.updateCountry();
 
   // close the modal
@@ -78,7 +78,7 @@ const updateExchangeRates = () => {
 
   <!------ create item modal ------>
   <Teleport to="#app-modal">
-    <form class="space-y-4" @submit.prevent="addExchangeRates">
+    <form class="space-y-4" @submit.prevent="addCountry">
       <Modal
         :open="createModal"
         :hide-modal="() => (createModal = false)"
@@ -111,7 +111,7 @@ const updateExchangeRates = () => {
 
   <!------ edit modal ------>
   <Teleport to="#app-modal">
-    <form class="space-y-4" @submit.prevent="updateExchangeRates">
+    <form class="space-y-4" @submit.prevent="updateCountry">
       <Modal
         :open="editModal"
         :hide-modal="() => (editModal = false)"
