@@ -11,13 +11,13 @@ import Button from '@/components/form/Button.vue';
 
 import Table from './Table.vue';
 
+let store = useExchangeRatesStore();
+const { t } = useI18n();
+
 // render data from store
 onMounted(async () => {
   store.getExchangeRates();
 });
-
-const { t } = useI18n();
-let store = useExchangeRatesStore();
 
 const createModal = ref(false);
 const showCreateModal = () => {
