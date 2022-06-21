@@ -38,6 +38,8 @@ const { t } = useI18n();
           to="/categories"
         />
 
+        <SidebarItem icon="toolbox" :text="t('jobs.title')" to="/jobs" />
+
         <!--
           
           <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />

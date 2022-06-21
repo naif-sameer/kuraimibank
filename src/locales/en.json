@@ -43,7 +43,6 @@
   },
 
   "main-service": "Main Service",
-  "jobs": "Jobs",
 
   "exchange-rates": "Currencies",
   "exchange_rates": {
@@ -75,6 +74,17 @@
 
     "arabic-name": "Arabic name",
     "english-name": "English name"
+  },
+
+  "jobs": {
+    "title": "Jobs",
+    "description": "job description",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
   },
 
   "social-media": "Social Media",
