@@ -45,7 +45,16 @@
   "main-service": "Main Service",
   "jobs": "Jobs",
 
-  "exchange-rates": "Exchange Rates",
+  "exchange-rates": "Currencies",
+  "exchange_rates": {
+    "currency-name": "Currency name",
+    "currency-arabic-name": "Currency Arabic name",
+    "currency-english-name": "Currency English name",
+    "sale": "Sale",
+    "buy": "Buy",
+    "updated-date": "Updated date"
+  },
+
   "social-media": "Social Media",
   "our-partners": "Our partners",
   "financial-report": "Financial report",
@@ -59,5 +68,11 @@
   "cities": "Cities",
   "service-point": "Service Point",
 
-  "update": "Update"
+  "update": "Update",
+  "add": "Add",
+  "status": "Status",
+  "edit": "Edit",
+  "action": "Action",
+  "active": "Active",
+  "not-active": "Not Active"
 }
