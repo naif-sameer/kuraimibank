@@ -55,8 +55,16 @@
     "updated-date": "Updated date"
   },
 
+  "county": "Country",
   "countries": {
     "title": "Countries",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name"
+  },
+
+  "cities": {
+    "title": "Cities",
 
     "arabic-name": "Arabic name",
     "english-name": "English name"
@@ -72,7 +80,6 @@
   "services": "Services",
   "service-advantages": "Service Advantages",
 
-  "cities": "Cities",
   "service-point": "Service Point",
 
   "update": "Update",

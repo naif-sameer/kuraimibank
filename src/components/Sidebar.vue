@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { RouterLink } from 'vue-router';
 import SidebarItem from './SidebarItem.vue';
 
 const { t } = useI18n();
@@ -27,9 +26,11 @@ const { t } = useI18n();
 
         <SidebarItem
           icon="map-marker-alt"
-          :text="t('countries')"
+          :text="t('countries.title')"
           to="/countries"
         />
+
+        <SidebarItem icon="city" :text="t('cities.title')" to="/cities" />
 
         <!-- <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />
 
@@ -50,7 +51,6 @@ const { t } = useI18n();
         <SidebarItem icon="bank" :text="t('services')" to="/services" />
 
 
-        <SidebarItem icon="bank" :text="t('cities')" to="/cities" />
 
         <SidebarItem
           icon="bank"
