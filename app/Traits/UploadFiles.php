@@ -7,7 +7,7 @@ trait UploadFiles
   public function storeFile($file, $filePath): bool|string
   {
     if ($file != null) {
-      $fileName = $this->generateRandomName() . $file->extension();
+      $fileName = $this->generateRandomName($file->extension());
 
       $file->move(public_path('uploads/' . $filePath), $fileName);
 
@@ -24,7 +24,7 @@ trait UploadFiles
     }
 
     if ($file != null) {
-      $fileName = $this->generateRandomName() . $file->extension();
+      $fileName = $this->generateRandomName($file->extension());
 
       $file->move(public_path('uploads/' . $filePath), $fileName);
 
@@ -44,8 +44,8 @@ trait UploadFiles
     return false;
   }
 
-  private function generateRandomName()
+  private function generateRandomName($fileExtension)
   {
-    return time() . rand(1111111, 9999999) . '.';
+    return time() . rand(11111111, 99999999) . (time() * rand(5000, 100000)) . '.' . $fileExtension;
   }
 }
