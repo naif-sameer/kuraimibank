@@ -63,7 +63,7 @@ Route::prefix('v1')
       Route::get('/our-partners',  'getAll');
       Route::get('/our-partners/{id}',  'getOne');
       Route::post('/our-partners/create',  'save');
-      Route::put('/our-partners/{id}/edit',  'update');
+      Route::post('/our-partners/{id}/edit',  'update');
       Route::put('/our-partners/{id}/toggle',  'activeToggle');
     });
 
