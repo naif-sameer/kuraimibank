@@ -53,14 +53,15 @@ const { t } = useI18n();
           :text="t('our_partners.title')"
           to="/our-partners"
         />
+
+        <SidebarItem
+          icon="square-poll-vertical"
+          :text="t('financial-reports')"
+          to="/financial-reports"
+        />
         <!--
 
 
-        <SidebarItem
-          icon="bank"
-          :text="t('financial-report')"
-          to="/financial-report"
-        />
 
         <SidebarItem icon="bank" :text="t('pages')" to="/pages" />
 

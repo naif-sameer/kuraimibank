@@ -6,3 +6,4 @@ export * from './job.types';
 export * from './privacy-policy.types';
 export * from './social-media.types';
 export * from './our-partner.types';
+export * from './financial-report.types';

@@ -53,6 +53,13 @@ const router = createRouter({
       name: 'our-partners',
       component: () => import('@/views/our-partners/OurPartnersView.vue'),
     },
+
+    {
+      path: '/financial-reports',
+      name: 'financial-reports',
+      component: () =>
+        import('@/views/financial-reports/FinancialReportsView.vue'),
+    },
   ],
 });
 

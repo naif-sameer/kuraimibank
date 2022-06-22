@@ -115,7 +115,18 @@
     "english-description": "English description"
   },
 
-  "financial-report": "Financial report",
+  "financial-reports": "Financial report",
+
+  "financial_report": {
+    "title": "Financial report",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
   "pages": "Pages",
   "news": "News",
   "sub-categories": "Sub Categories",
@@ -135,7 +146,13 @@
   "not-active": "Not Active",
   "link": "Link",
   "icon": "Icon",
+  "title": "title",
+
+  "description": "description",
+
   "image": "Image",
+  "pdf": "PDF file",
+  "pdf-link": "PDF link",
   "drag-and-drop-here": "Drag and Drop Your files here",
   "or-select-file": "Or Select File"
 }
