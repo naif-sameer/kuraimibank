@@ -162,7 +162,7 @@ Route::prefix('v1')
       Route::get('/main-services',  'getAll');
       Route::get('/main-services/{id}',  'getOne');
       Route::post('/main-services/create',  'save');
-      Route::put('/main-services/{id}/edit',  'update');
+      Route::post('/main-services/{id}/edit',  'update');
       Route::put('/main-services/{id}/toggle',  'activeToggle');
     });
   });
