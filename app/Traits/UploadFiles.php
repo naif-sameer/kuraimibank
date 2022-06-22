@@ -17,6 +17,11 @@ trait UploadFiles
     return false;
   }
 
+  public function storeImage($file): bool|string
+  {
+    return  $this->storeFile($file, 'images');
+  }
+
   public function updateFile($file, $filePath, $oldName): bool|string
   {
     if (file_exists($oldName)) {
@@ -32,6 +37,11 @@ trait UploadFiles
     }
 
     return false;
+  }
+
+  public function updateImage($file, $oldName): bool|string
+  {
+    return $this->updateFile($file, 'images', $oldName);
   }
 
   public function deleteFile($oldName): bool
