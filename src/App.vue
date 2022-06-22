@@ -6,11 +6,11 @@ import Navbar from '@/components/Navbar.vue';
 </script>
 
 <template>
-  <div class="flex justify-between">
-    <Sidebar />
+  <div class="lg:grid lg:auto-cols-fr grid-cols-12">
+    <Sidebar class="col-span-3 lg:col-span-2" />
 
     <!-- main content -->
-    <main class="w-full">
+    <main class="col-span-9 lg:col-span-10">
       <Navbar />
 
       <div class="px-4 bg-gray-100 py-4 min-h-screen">

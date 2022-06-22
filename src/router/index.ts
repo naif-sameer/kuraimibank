@@ -66,6 +66,12 @@ const router = createRouter({
       name: 'news',
       component: () => import('@/views/news/NewsView.vue'),
     },
+
+    {
+      path: '/service-points',
+      name: 'service-points',
+      component: () => import('@/views/service-points/ServicePointsView.vue'),
+    },
   ],
 });
 

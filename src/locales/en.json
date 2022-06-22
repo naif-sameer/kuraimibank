@@ -142,7 +142,21 @@
   "services": "Services",
   "service-advantages": "Service Advantages",
 
-  "service-point": "Service Point",
+  "service_points": {
+    "title": "Service Points",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name",
+
+    "arabic-address": "Arabic address",
+    "english-address": "English address",
+
+    "arabic-working_hours": "Arabic working_hours",
+    "english-working_hours": "English working_hours",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
 
   "update": "Update",
   "updated-date": "Updated date",
@@ -158,6 +172,13 @@
   "title": "title",
 
   "description": "description",
+
+  "phone": "Phone",
+  "second-phone": "second Phone",
+  "city": "City",
+
+  "working-hours": "Working hours",
+  "address": "Address",
 
   "image": "Image",
   "pdf": "PDF file",

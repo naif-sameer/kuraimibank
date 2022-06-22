@@ -9,3 +9,4 @@ export * from './social-media';
 export * from './our-partners';
 export * from './financial-reports';
 export * from './news';
+export * from './service-points';

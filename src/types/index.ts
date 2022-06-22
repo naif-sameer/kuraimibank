@@ -8,3 +8,4 @@ export * from './social-media.types';
 export * from './our-partner.types';
 export * from './financial-report.types';
 export * from './news.types';
+export * from './service-point.types';

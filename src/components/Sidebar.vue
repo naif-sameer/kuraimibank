@@ -5,9 +5,7 @@ import SidebarItem from './SidebarItem.vue';
 const { t } = useI18n();
 </script>
 <template>
-  <aside
-    class="flex-shrink-0 hidden w-64 bg-white dark:bg-gray-800 lg:block min-h-screen"
-  >
+  <aside class="hidden bg-white dark:bg-gray-800 lg:block min-h-screen">
     <div class="py-4 text-gray-500 dark:text-gray-400 sticky top-0">
       <a
         class="ms-6 text-lg font-bold text-gray-800 dark:text-gray-200"
@@ -61,6 +59,12 @@ const { t } = useI18n();
         />
 
         <SidebarItem icon="newspaper" :text="t('news.title')" to="/news" />
+
+        <SidebarItem
+          icon="map-location-dot"
+          :text="t('service_points.title')"
+          to="/service-points"
+        />
         <!--
 
 
@@ -72,12 +76,7 @@ const { t } = useI18n();
         <SidebarItem icon="bank" :text="t('services')" to="/services" />
 
 
-
-        <SidebarItem
-          icon="bank"
-          :text="t('service-point')"
-          to="/service-point"
-        /> -->
+ -->
 
         <!-- <li class="relative px-6 py-3">
           <a
