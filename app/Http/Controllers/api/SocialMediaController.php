@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SocialMediaRequest;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
@@ -13,35 +14,41 @@ class SocialMediaController extends Controller
     return SocialMedia::all();
   }
 
-  public function getOne(Request $request)
+  public function getOne(Request $request, $id)
   {
-    return SocialMedia::where('id', $request->id)->first();
+    return SocialMedia::where('id', $id)->first();
   }
 
-  public function save(Request $request)
+  public function save(SocialMediaRequest $request)
   {
+    $fileName = $this->storeImage($request->file('icon'));
+
     return SocialMedia::create([
       'name'       =>  $request->input('name'),
       'link'       =>  $request->input('link'),
-      'icon'       =>  $request->input('icon')
+      'icon'       =>  $fileName
     ]);
   }
 
-  public function update(Request $request)
+  public function update(SocialMediaRequest $request, $id)
   {
-    $res = SocialMedia::where('id', $request->id)
-      ->update([
-        'name'       =>  $request->input('name'),
-        'link'       =>  $request->input('link'),
-        'icon'       =>  $request->input('icon')
-      ]);
+    $oldFileName = SocialMedia::where('id', $id)->first()->icon;
+
+    if ($request->file('icon')) $fileName = $this->updateImage($request->file('icon'), $oldFileName);
+    else $fileName = $oldFileName;
+
+    $res = SocialMedia::where('id', $id)->update([
+      'name'       =>  $request->input('name'),
+      'link'       =>  $request->input('link'),
+      'icon'       =>  $fileName
+    ]);
 
     return $res ? ['message' => "SocialMedia data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request)
+  public function activeToggle(Request $request, $id)
   {
-    $res = SocialMedia::where('id', $request->id)->update(['is_active' => $request->is_active]);
+    $res = SocialMedia::where('id', $id)->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

@@ -54,7 +54,7 @@ Route::prefix('v1')
       Route::get('/social-media',  'getAll');
       Route::get('/social-media/{id}',  'getOne');
       Route::post('/social-media/create',  'save');
-      Route::put('/social-media/{id}/edit',  'update');
+      Route::post('/social-media/{id}/edit',  'update');
       Route::put('/social-media/{id}/toggle',  'activeToggle');
     });
 
