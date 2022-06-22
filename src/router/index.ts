@@ -60,6 +60,12 @@ const router = createRouter({
       component: () =>
         import('@/views/financial-reports/FinancialReportsView.vue'),
     },
+
+    {
+      path: '/news',
+      name: 'news',
+      component: () => import('@/views/news/NewsView.vue'),
+    },
   ],
 });
 

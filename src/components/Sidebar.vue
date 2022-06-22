@@ -59,13 +59,14 @@ const { t } = useI18n();
           :text="t('financial-reports')"
           to="/financial-reports"
         />
+
+        <SidebarItem icon="newspaper" :text="t('news.title')" to="/news" />
         <!--
 
 
 
         <SidebarItem icon="bank" :text="t('pages')" to="/pages" />
 
-        <SidebarItem icon="bank" :text="t('news')" to="/news" />
 
 
         <SidebarItem icon="bank" :text="t('services')" to="/services" />

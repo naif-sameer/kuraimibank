@@ -127,8 +127,17 @@
     "english-description": "English description"
   },
 
+  "news": {
+    "title": "News",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
   "pages": "Pages",
-  "news": "News",
   "sub-categories": "Sub Categories",
   "services": "Services",
   "service-advantages": "Service Advantages",
