@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PageRequest;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
@@ -18,37 +19,23 @@ class PageController extends Controller
     return Page::where('table_key', $table_key)->first();
   }
 
-  public function save(Request $request)
+  public function save(PageRequest $request)
   {
-    $request->validate([
-      'table_key' => 'required|unique:pages',
-      'title' => 'required',
-      'sub_title' => 'required',
-      'description' => 'required',
-    ]);
-
     return Page::create([
-      'table_key'         =>  "{$request->input('table_key')}",
+      'table_key'         =>  $request->input('table_key'),
       'title'             =>  $request->input('title'),
       'sub_title'         =>  $request->input('sub_title'),
       'description'       =>  $request->input('description'),
     ]);
   }
 
-  public function update(Request $request, $table_key)
+  public function update(PageRequest $request, $table_key)
   {
-    $request->validate([
-      'title' => 'required',
-      'sub_title' => 'required',
-      'description' => 'required',
+    $res = Page::where('table_key', $table_key)->update([
+      'title'             =>  $request->input('title'),
+      'sub_title'         =>  $request->input('sub_title'),
+      'description'       =>  $request->input('description'),
     ]);
-
-    $res = Page::where('table_key', $table_key)
-      ->update([
-        'title'             =>  $request->input('title'),
-        'sub_title'         =>  $request->input('sub_title'),
-        'description'       =>  $request->input('description'),
-      ]);
 
     return $res ? ['message' => "Page data updated"] : ['error' => true];
   }
