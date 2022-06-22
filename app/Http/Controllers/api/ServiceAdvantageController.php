@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ServiceAdvantageRequest;
 use App\Models\ServiceAdvantage;
 use Illuminate\Http\Request;
 
@@ -13,37 +14,41 @@ class ServiceAdvantageController extends Controller
     return ServiceAdvantage::all();
   }
 
-  public function getOne(Request $request)
+  public function getOne(Request $request, $id)
   {
-    return ServiceAdvantage::where('id', $request->id)->first();
+    return ServiceAdvantage::where('id', $id)->first();
   }
 
-  public function save(Request $request)
+  public function save(ServiceAdvantageRequest $request)
   {
-    // TODO add file upload trait
+    $fileName = $this->storeImage($request->file('icon'));
+
     return ServiceAdvantage::create([
       'name'             =>  $request->input('name'),
-      'icon'             =>  $request->input('icon'),
       'service_id'       =>  $request->input('service_id'),
-
+      'icon'             =>  $fileName,
     ]);
   }
 
-  public function update(Request $request)
+  public function update(ServiceAdvantageRequest $request, $id)
   {
-    // TODO add file  upload trait
-    $res = ServiceAdvantage::where('id', $request->id)->update([
+    $oldFileName = ServiceAdvantage::where('id', $id)->first()->icon;
+
+    if ($request->file('icon')) $fileName = $this->updateImage($request->file('icon'), $oldFileName);
+    else $fileName = $oldFileName;
+
+    $res = ServiceAdvantage::where('id', $id)->update([
       'name'             =>  $request->input('name'),
-      'icon'             =>  $request->input('icon'),
       'service_id'       =>  $request->input('service_id'),
+      'icon'             =>  $fileName,
     ]);
 
     return $res ? ['message' => "ServiceAdvantage data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request)
+  public function activeToggle(Request $request, $id)
   {
-    $res = ServiceAdvantage::where('id', $request->id)->update(['is_active' => $request->is_active]);
+    $res = ServiceAdvantage::where('id', $id)->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

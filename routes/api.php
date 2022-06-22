@@ -117,7 +117,7 @@ Route::prefix('v1')
       Route::get('/services',  'getAll');
       Route::get('/services/{id}',  'getOne');
       Route::post('/services/create',  'save');
-      Route::put('/services/{id}/edit',  'update');
+      Route::post('/services/{id}/edit',  'update');
       Route::put('/services/{id}/toggle',  'activeToggle');
     });
 
@@ -126,7 +126,7 @@ Route::prefix('v1')
       Route::get('/service-advantages',  'getAll');
       Route::get('/service-advantages/{id}',  'getOne');
       Route::post('/service-advantages/create',  'save');
-      Route::put('/service-advantages/{id}/edit',  'update');
+      Route::post('/service-advantages/{id}/edit',  'update');
       Route::put('/service-advantages/{id}/toggle',  'activeToggle');
     });
 
