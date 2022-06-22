@@ -72,7 +72,7 @@ Route::prefix('v1')
       Route::get('/financial-reports',  'getAll');
       Route::get('/financial-reports/{id}',  'getOne');
       Route::post('/financial-reports/create',  'save');
-      Route::put('/financial-reports/{id}/edit',  'update');
+      Route::post('/financial-reports/{id}/edit',  'update');
       Route::put('/financial-reports/{id}/toggle',  'activeToggle');
     });
 
