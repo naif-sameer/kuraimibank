@@ -14,3 +14,4 @@ yarn-error.log
 /.vscode
 
 /vue-dashboard
+public/uploads/**/[0-9]*
