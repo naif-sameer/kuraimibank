@@ -47,6 +47,12 @@ const router = createRouter({
       name: 'social-media',
       component: () => import('@/views/social-media/SocialMediaView.vue'),
     },
+
+    {
+      path: '/our-partners',
+      name: 'our-partners',
+      component: () => import('@/views/our-partners/OurPartnersView.vue'),
+    },
   ],
 });
 

@@ -48,9 +48,13 @@ const { t } = useI18n();
 
         <SidebarItem icon="link" :text="t('social-media')" to="/social-media" />
 
+        <SidebarItem
+          icon="user-group"
+          :text="t('our_partners.title')"
+          to="/our-partners"
+        />
         <!--
 
-        <SidebarItem icon="bank" :text="t('our-partners')" to="/our-partners" />
 
         <SidebarItem
           icon="bank"

@@ -6,3 +6,4 @@ export * from './categories';
 export * from './jobs';
 export * from './privacy-policy';
 export * from './social-media';
+export * from './our-partners';

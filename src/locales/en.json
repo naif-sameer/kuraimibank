@@ -105,7 +105,16 @@
   "social-media": "Social Media",
   "name": "name",
 
-  "our-partners": "Our partners",
+  "our_partners": {
+    "title": "Our partners",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
   "financial-report": "Financial report",
   "pages": "Pages",
   "news": "News",
