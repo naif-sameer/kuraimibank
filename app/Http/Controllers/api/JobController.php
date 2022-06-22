@@ -13,23 +13,22 @@ class JobController extends Controller
     return Job::all();
   }
 
-  public function getOne(Request $request)
+  public function getOne(Request $request, $id)
   {
-    return Job::where('id', $request->id)->first();
+    return Job::where('id', $id)->first();
   }
 
   public function save(Request $request)
   {
-
     return Job::create([
       'title'       =>  $request->input('title'),
       'description' =>  $request->input('description')
     ]);
   }
 
-  public function update(Request $request)
+  public function update(Request $request, $id)
   {
-    $res = Job::where('id', $request->id)
+    $res = Job::where('id', $id)
       ->update([
         'title'       => $request->input('title'),
         'description' => $request->input('description')
@@ -38,9 +37,9 @@ class JobController extends Controller
     return $res ? ['message' => "job data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request)
+  public function activeToggle(Request $request, $id)
   {
-    $res = Job::where('id', $request->id)->update(['is_active' => $request->is_active]);
+    $res = Job::where('id', $id)->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }
