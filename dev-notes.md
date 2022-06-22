@@ -50,6 +50,38 @@ php artisan make:resource UserCollection
 ## Request
 
 ```bash
-php artisan make:request UserRequest
+php artisan make:request CreateUserRequest
+php artisan make:request UpdateUserRequest
 
+
+php artisan make:request WebsiteInfoRequest
+
+```
+
+## roles
+
+```
+name    =>     'required|max:255'
+sale    =>     'required|numeric'
+image   =>     "required|image|mimes:jpeg,jpg,png|max:2048",
+
+```
+
+## commits
+
+update: WebsiteInfoController validation roles
+
+update: City Controller RequestFile validation roles
+
+## file upload
+
+```php
+# add
+$fileName = $this->storeImage($request->file('image'));
+
+# update
+$oldFileName = MainService::where('id', $id)->first()->image;
+
+if ($request->file('image')) $fileName = $this->updateImage($request->file('image'), $oldFileName);
+else $fileName = $oldFileName;
 ```
