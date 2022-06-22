@@ -41,6 +41,12 @@ const router = createRouter({
       name: 'privacy-policy',
       component: () => import('@/views/privacy-policy/PrivacyPolicyView.vue'),
     },
+
+    {
+      path: '/social-media',
+      name: 'social-media',
+      component: () => import('@/views/social-media/SocialMediaView.vue'),
+    },
   ],
 });
 

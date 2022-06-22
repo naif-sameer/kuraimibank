@@ -103,6 +103,8 @@
   },
 
   "social-media": "Social Media",
+  "name": "name",
+
   "our-partners": "Our partners",
   "financial-report": "Financial report",
   "pages": "Pages",
@@ -114,10 +116,17 @@
   "service-point": "Service Point",
 
   "update": "Update",
+  "updated-date": "Updated date",
+
   "add": "Add",
   "status": "Status",
   "edit": "Edit",
   "action": "Action",
   "active": "Active",
-  "not-active": "Not Active"
+  "not-active": "Not Active",
+  "link": "Link",
+  "icon": "Icon",
+  "image": "Image",
+  "drag-and-drop-here": "Drag and Drop Your files here",
+  "or-select-file": "Or Select File"
 }

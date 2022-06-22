@@ -46,9 +46,9 @@ const { t } = useI18n();
           to="/privacy-policy"
         />
 
+        <SidebarItem icon="link" :text="t('social-media')" to="/social-media" />
+
         <!--
-          
-          <SidebarItem icon="bank" :text="t('social-media')" to="/social-media" />
 
         <SidebarItem icon="bank" :text="t('our-partners')" to="/our-partners" />
 
