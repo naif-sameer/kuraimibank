@@ -90,7 +90,7 @@ Route::prefix('v1')
       Route::get('/news',  'getAll');
       Route::get('/news/{id}',  'getOne');
       Route::post('/news/create',  'save');
-      Route::put('/news/{id}/edit',  'update');
+      Route::post('/news/{id}/edit',  'update');
       Route::put('/news/{id}/toggle',  'activeToggle');
     });
 
