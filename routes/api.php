@@ -108,7 +108,7 @@ Route::prefix('v1')
       Route::get('/sub-categories',  'getAll');
       Route::get('/sub-categories/{id}',  'getOne');
       Route::post('/sub-categories/create',  'save');
-      Route::put('/sub-categories/{id}/edit',  'update');
+      Route::post('/sub-categories/{id}/edit',  'update');
       Route::put('/sub-categories/{id}/toggle',  'activeToggle');
     });
 

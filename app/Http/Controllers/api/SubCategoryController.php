@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SubCategoryRequest;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
@@ -13,40 +14,45 @@ class SubCategoryController extends Controller
     return SubCategory::all();
   }
 
-  public function getOne(Request $request)
+  public function getOne(Request $request, $id)
   {
-    return SubCategory::where('id', $request->id)->first();
+    return SubCategory::where('id', $id)->first();
   }
 
-  public function save(Request $request)
+  public function save(SubCategoryRequest $request)
   {
-    // TODO add file upload trait
+    $fileName = $this->storeImage($request->file('icon'));
+
     return SubCategory::create([
       'name'                =>  $request->input('name'),
       'link'                =>  $request->input('link'),
-      'icon'                =>  $request->input('icon'),
       'category_id'         =>  $request->input('category_id'),
       'parent_category'     =>  $request->input('parent_category'),
+      'icon'                =>  $fileName,
     ]);
   }
 
-  public function update(Request $request)
+  public function update(SubCategoryRequest $request, $id)
   {
-    // TODO add file  upload trait
-    $res = SubCategory::where('id', $request->id)->update([
+    $oldFileName = SubCategory::where('id', $id)->first()->image;
+
+    if ($request->file('icon')) $fileName = $this->updateImage($request->file('icon'), $oldFileName);
+    else $fileName = $oldFileName;
+
+    $res = SubCategory::where('id', $id)->update([
       'name'                =>  $request->input('name'),
       'link'                =>  $request->input('link'),
-      'icon'                =>  $request->input('icon'),
       'category_id'         =>  $request->input('category_id'),
       'parent_category'     =>  $request->input('parent_category'),
+      'icon'                =>  $fileName,
     ]);
 
     return $res ? ['message' => "SubCategory data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request)
+  public function activeToggle(Request $request, $id)
   {
-    $res = SubCategory::where('id', $request->id)->update(['is_active' => $request->is_active]);
+    $res = SubCategory::where('id', $id)->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }
