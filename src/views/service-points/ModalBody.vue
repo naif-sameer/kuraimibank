@@ -11,16 +11,16 @@ defineProps<{ item: ServicePointType }>();
 
 const { t } = useI18n();
 
-const categoriesList = reactive([]);
-const getCountriesList = () => {
+const citiesList = reactive([]);
+const getCitiesList = () => {
   getCitiesApi().then((res) => {
     //@ts-ignore
-    categoriesList.push(...res);
+    citiesList.push(...res);
   });
 };
 
 onMounted(() => {
-  getCountriesList();
+  getCitiesList();
 });
 </script>
 
@@ -79,6 +79,6 @@ onMounted(() => {
   <hr />
 
   <!------ city_id ------>
-  <Select :label="t('city')" v-model="item.city_id" :options="categoriesList" />
+  <Select :label="t('city')" v-model="item.city_id" :options="citiesList" />
   <hr />
 </template>
