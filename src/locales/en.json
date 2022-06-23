@@ -57,7 +57,13 @@
     "english-description": "English description"
   },
 
-  "main-service": "Main Service",
+  "main_services": {
+    "title": "Main Service",
+
+    "ar-name": "arabic name",
+    "en-name": "english name"
+  },
+  "service-name": "Service name",
 
   "exchange-rates": "Currencies",
   "exchange_rates": {

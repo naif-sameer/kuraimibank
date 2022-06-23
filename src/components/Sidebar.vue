@@ -65,15 +65,22 @@ const { t } = useI18n();
           :text="t('service_points.title')"
           to="/service-points"
         />
-        <!--
 
+        <SidebarItem
+          icon="hand-holding-box"
+          :text="t('main_services.title')"
+          to="/main-services"
+        />
+
+        <!--
+          
+          <SidebarItem icon="bank" :text="t('services')" to="/services" />
 
 
         <SidebarItem icon="bank" :text="t('pages')" to="/pages" />
 
 
 
-        <SidebarItem icon="bank" :text="t('services')" to="/services" />
 
 
  -->
