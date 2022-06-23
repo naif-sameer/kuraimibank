@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ServicePointRequest;
 use App\Models\ServicePoint;
 use Illuminate\Http\Request;
 
@@ -13,12 +14,12 @@ class ServicePointController extends Controller
     return ServicePoint::all();
   }
 
-  public function getOne(Request $request)
+  public function getOne(Request $request, $id)
   {
-    return ServicePoint::where('id', $request->id)->first();
+    return ServicePoint::where('id', $id)->first();
   }
 
-  public function save(Request $request)
+  public function save(ServicePointRequest $request)
   {
     return ServicePoint::create([
       'name'          =>  $request->input('name'),
@@ -30,9 +31,9 @@ class ServicePointController extends Controller
     ]);
   }
 
-  public function update(Request $request)
+  public function update(ServicePointRequest $request, $id)
   {
-    $res = ServicePoint::where('id', $request->id)->update([
+    $res = ServicePoint::where('id', $id)->update([
       'name'          =>  $request->input('name'),
       'address'       =>  $request->input('address'),
       'working_hours' =>  $request->input('working_hours'),
@@ -44,9 +45,9 @@ class ServicePointController extends Controller
     return $res ? ['message' => "ServicePoint data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request)
+  public function activeToggle(Request $request, $id)
   {
-    $res = ServicePoint::where('id', $request->id)->update(['is_active' => $request->is_active]);
+    $res = ServicePoint::where('id', $id)->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }
