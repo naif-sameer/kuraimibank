@@ -34,7 +34,7 @@ class SubCategoryController extends Controller
 
   public function update(SubCategoryRequest $request, $id)
   {
-    $oldFileName = SubCategory::where('id', $id)->first()->image;
+    $oldFileName = SubCategory::where('id', $id)->first()->icon;
 
     if ($request->file('icon')) $fileName = $this->updateImage($request->file('icon'), $oldFileName);
     else $fileName = $oldFileName;

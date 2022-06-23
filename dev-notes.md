@@ -54,7 +54,7 @@ php artisan make:request CreateUserRequest
 php artisan make:request UpdateUserRequest
 
 
-php artisan make:request WebsiteInfoRequest
+php artisan make:request ServicePointRequest
 
 ```
 
@@ -63,13 +63,13 @@ php artisan make:request WebsiteInfoRequest
 ```
 name    =>     'required|max:255'
 sale    =>     'required|numeric'
-image   =>     "required|image|mimes:jpeg,jpg,png|max:2048",
+image   =>     "image|mimes:jpeg,jpg,png|max:2048",
 
 ```
 
 ## commits
 
-update: WebsiteInfoController validation roles
+update: ServicePointController validation roles
 
 update: City Controller RequestFile validation roles
 
