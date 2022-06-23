@@ -1,0 +1,23 @@
+{
+  "include": ["src/**/*", "src/**/*.vue", "src/**/**/*.vue"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vite/client"]
+  },
+  "exclude": ["node_modules"]
+}
