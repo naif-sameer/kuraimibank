@@ -6,11 +6,11 @@ import Navbar from '@/components/Navbar.vue';
 </script>
 
 <template>
-  <div class="lg:grid lg:auto-cols-fr grid-cols-12">
-    <Sidebar class="col-span-3 lg:col-span-2" />
+  <div class="flex">
+    <Sidebar class="w-72 min-w-[16rem]" />
 
     <!-- main content -->
-    <main class="col-span-9 lg:col-span-10">
+    <main class="overflow-hidden w-full">
       <Navbar />
 
       <div class="px-4 bg-gray-100 py-4 min-h-screen">
@@ -29,5 +29,9 @@ import Navbar from '@/components/Navbar.vue';
   min-height: 10rem;
   max-height: 15rem;
   overflow-y: scroll;
+}
+
+.dashboard {
+  grid-template-columns: 16rem 1fr;
 }
 </style>
