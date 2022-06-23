@@ -5,8 +5,35 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'website-info',
+      redirect: '/about-us',
       component: () => import('@/views/website-info/WebsiteInfoView.vue'),
+      children: [
+        {
+          path: '/about-us',
+          component: () => import('@/views/website-info/AboutUs.vue'),
+        },
+        {
+          path: '/apply-fo-service',
+          component: () => import('@/views/website-info/ApplyForService.vue'),
+        },
+        {
+          path: '/values-principles',
+          component: () => import('@/views/website-info/ValuesPrinciples.vue'),
+        },
+        {
+          path: '/strategy-statement',
+          component: () => import('@/views/website-info/StrategyStatement.vue'),
+        },
+        {
+          path: '/board-members',
+          component: () => import('@/views/website-info/BoardMembers.vue'),
+        },
+        {
+          path: '/contact-us',
+          component: () => import('@/views/website-info/ContactUs.vue'),
+        },
+      ],
     },
     {
       path: '/exchange-rates',

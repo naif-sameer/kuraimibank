@@ -4,7 +4,7 @@ add: components/
 update: components/
 add: types/
 update: types/
-add: services | view, api, route and store
+add: service-advantages | view, api, route and store
 
 ## front end
 
@@ -16,6 +16,7 @@ add: services | view, api, route and store
 - add cities passed on countries
 - move user to another page when click on table row title
 - add store.resetItem(); for every showCreateModal
-- add
-  `// add image if user select new one if (data.image !== 'string') formData.append('image', data.image);`
-  for every update api method
+
+## best practices
+
+- make a folder for holding your file template like api, store, type, and view

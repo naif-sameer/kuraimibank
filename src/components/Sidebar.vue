@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import SidebarItem from './SidebarItem.vue';
+import Accordion from './Accordion.vue';
+import { RouterLink } from 'vue-router';
 
 const { t } = useI18n();
 </script>
@@ -14,7 +16,27 @@ const { t } = useI18n();
         {{ t('dashboard-title') }}
       </a>
       <ul class="mt-6 overflow-y-scroll snap-y max-h-[85vh] pb-28">
-        <SidebarItem icon="home" :text="t('website-info')" to="/" />
+        <!-- <SidebarItem icon="home" :text="t('website-info')" to="/" /> -->
+        <Accordion :label="t('website-info')" class="px-6">
+          <RouterLink class="relative px-6 py-3" to="/about-us"
+            >about us</RouterLink
+          >
+          <RouterLink class="relative px-6 py-3" to="/apply-fo-service"
+            >apply fo-service</RouterLink
+          >
+          <RouterLink class="relative px-6 py-3" to="/values-principles"
+            >values principles</RouterLink
+          >
+          <RouterLink class="relative px-6 py-3" to="/strategy-statement"
+            >strategy statement</RouterLink
+          >
+          <RouterLink class="relative px-6 py-3" to="/board-members"
+            >board members</RouterLink
+          >
+          <RouterLink class="relative px-6 py-3" to="/contact-us"
+            >contact us</RouterLink
+          >
+        </Accordion>
 
         <SidebarItem
           icon="bank"
