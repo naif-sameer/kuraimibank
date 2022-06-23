@@ -24,7 +24,10 @@ export async function updateSocialMediaApi(data: SocialMediaType) {
 
   formData.append('name', data.name);
   formData.append('link', data.link);
-  formData.append('icon', data.icon);
+
+  // add icon if user select new one
+
+  if (typeof data.icon !== 'string') formData.append('icon', data.icon);
 
   return await axios.post(`/social-media/${data.id}/edit`, formData);
 }
