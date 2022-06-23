@@ -26,7 +26,7 @@ class MainServiceRequest extends FormRequest
     return [
       "name"          => "required|max:255",
       "link"          => "required|url",
-      "image"         => "required|image|mimes:jpeg,jpg,png|max:2048",
+      "image"         => "image|mimes:jpeg,jpg,png|max:2048",
     ];
   }
 }

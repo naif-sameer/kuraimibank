@@ -26,7 +26,7 @@ class SocialMediaRequest extends FormRequest
     return [
       'name'         => 'required|unique:social_media,name,' . $this->id,
       'link'         => 'required|url',
-      'icon'         => 'required|image|mimes:jpeg,jpg,png|max:2048',
+      'icon'         => 'image|mimes:jpeg,jpg,png|max:2048',
     ];
   }
 }

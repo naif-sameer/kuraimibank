@@ -26,7 +26,7 @@ class ServiceAdvantageRequest extends FormRequest
     return [
       'name'           => 'required',
       'service_id'     => 'required',
-      'icon'           => 'required|image|mimes:jpeg,jpg,png|max:2048',
+      'icon'           => 'image|mimes:jpeg,jpg,png|max:2048',
     ];
   }
 }

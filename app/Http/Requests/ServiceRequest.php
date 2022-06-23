@@ -29,7 +29,7 @@ class ServiceRequest extends FormRequest
       'other_advantage'     => 'required',
       'service_conditions'  => 'required',
       'category_id'         => 'required',
-      'image'               => 'required|image|mimes:jpeg,jpg,png|max:2048',
+      'image'               => 'image|mimes:jpeg,jpg,png|max:2048',
     ];
   }
 }
