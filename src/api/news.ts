@@ -30,7 +30,7 @@ export async function updateNewsApi(data: NewsType) {
   formData.append('description', JSON.stringify(data.description));
 
   // add image if user select new one
-  if (data.image !== 'string') formData.append('image', data.image);
+  if (typeof data.image !== 'string') formData.append('image', data.image);
 
   return await axios.post(`/news/${data.id}/edit`, formData);
 }
