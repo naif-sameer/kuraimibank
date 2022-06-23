@@ -78,6 +78,12 @@ const router = createRouter({
       name: 'main-services',
       component: () => import('@/views/main-services/MainServicesView.vue'),
     },
+
+    {
+      path: '/services',
+      name: 'services',
+      component: () => import('@/views/services/ServicesView.vue'),
+    },
   ],
 });
 

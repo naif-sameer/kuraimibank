@@ -145,8 +145,24 @@
 
   "pages": "Pages",
   "sub-categories": "Sub Categories",
-  "services": "Services",
-  "service-advantages": "Service Advantages",
+
+  "services": {
+    "title": "Services",
+
+    "ar-name": "arabic name",
+    "en-name": "english name",
+
+    "ar-description": "Arabic description",
+    "en-description": "English description",
+
+    "ar-other-advantage": "ar other advantage",
+    "en-other-advantage": "en other advantage",
+
+    "ar-service-condition": "ar service condition",
+    "en-service-condition": "en service condition"
+  },
+
+  "service_advantages": { "title": "Service Advantages" },
 
   "service_points": {
     "title": "Service Points",
@@ -178,6 +194,9 @@
   "title": "title",
 
   "description": "description",
+  "service-conation": "service conation",
+  "other-advantage": "other advantage",
+  "category": "category",
 
   "phone": "Phone",
   "second-phone": "second Phone",

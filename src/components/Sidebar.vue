@@ -72,9 +72,13 @@ const { t } = useI18n();
           to="/main-services"
         />
 
+        <SidebarItem
+          icon="user-headset"
+          :text="t('services.title')"
+          to="/services"
+        />
         <!--
           
-          <SidebarItem icon="bank" :text="t('services')" to="/services" />
 
 
         <SidebarItem icon="bank" :text="t('pages')" to="/pages" />

@@ -10,3 +10,4 @@ export * from './financial-report.types';
 export * from './news.types';
 export * from './service-point.types';
 export * from './main-service.types';
+export * from './services.types';
