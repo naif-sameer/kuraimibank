@@ -26,16 +26,10 @@ export async function createServicePointApi(data: ServicePointType) {
 }
 
 export async function updateServicePointApi(data: ServicePointType) {
-  let formData = new FormData();
-
-  formData.append('name', JSON.stringify(data.name));
-  formData.append('address', JSON.stringify(data.address));
-  formData.append('working_hours', JSON.stringify(data.working_hours));
-  formData.append('phone', `${data.phone}`);
-  formData.append('second_phone', `${data.second_phone}`);
-  formData.append('city_id', data.city_id);
-
-  return await axios.put(`/service-points/${data.id}/edit`, formData);
+  return await axios.put(
+    `/service-points/${data.id}/edit`,
+    JSON.stringify(data)
+  );
 }
 
 export async function deleteServicePointApi(id: number, is_active: boolean) {
