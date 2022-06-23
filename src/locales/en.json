@@ -144,7 +144,12 @@
   },
 
   "pages": "Pages",
-  "sub-categories": "Sub Categories",
+  "sub_categories": {
+    "title": "Sub Categories",
+
+    "ar-name": "arabic name",
+    "en-name": "english name"
+  },
 
   "services": {
     "title": "Services",
@@ -204,6 +209,8 @@
 
   "working-hours": "Working hours",
   "address": "Address",
+
+  "category-name": "Category Name",
 
   "image": "Image",
   "pdf": "PDF file",

@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'categories',
       component: () => import('@/views/categories/CategoriesView.vue'),
     },
+    {
+      path: '/sub-categories',
+      name: 'sub-categories',
+      component: () => import('@/views/sub-categories/SubCategoriesView.vue'),
+    },
 
     {
       path: '/jobs',

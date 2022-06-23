@@ -11,3 +11,4 @@ export * from './news.types';
 export * from './service-point.types';
 export * from './main-service.types';
 export * from './services.types';
+export * from './sub-category.types';

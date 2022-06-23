@@ -36,6 +36,12 @@ const { t } = useI18n();
           to="/categories"
         />
 
+        <SidebarItem
+          icon="swatchbook"
+          :text="t('sub_categories.title')"
+          to="/sub-categories"
+        />
+
         <SidebarItem icon="toolbox" :text="t('jobs.title')" to="/jobs" />
 
         <SidebarItem

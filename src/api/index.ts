@@ -12,3 +12,4 @@ export * from './news';
 export * from './service-points';
 export * from './main-services';
 export * from './services';
+export * from './sub-categories';
