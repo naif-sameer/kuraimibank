@@ -26,7 +26,9 @@ export async function updateOurPartnerApi(data: OurPartnerType) {
 
   formData.append('title', JSON.stringify(data.title));
   formData.append('description', JSON.stringify(data.description));
-  formData.append('image', data.image);
+
+  // add image if user select new one
+  if (typeof data.image !== 'string') formData.append('image', data.image);
 
   return await axios.post(`/our-partners/${data.id}/edit`, formData);
 }
