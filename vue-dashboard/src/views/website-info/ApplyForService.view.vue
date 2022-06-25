@@ -7,6 +7,7 @@ import Button from '@/components/form/Button.vue';
 import Label from '@/components/form/Label.vue';
 import Card from '@/components/Card.vue';
 import { getApplyForServiceData, updateApplyForServiceData } from '@/api';
+import SectionTitle from '@/components/SectionTitle.vue';
 
 const { t } = useI18n();
 
@@ -24,32 +25,23 @@ onMounted(() => {
 </script>
 
 <template>
+  <!-- title -->
+  <SectionTitle> {{ t('apply_for_service.title') }} </SectionTitle>
+
   <Card>
-    <h3 class="text-xl mb-4">{{ t('apply_for_service.title') }}</h3>
-    <form
-      class="space-y-8"
-      @submit.prevent="updateApplyForServiceData(applyForServiceData)"
-    >
+    <form class="space-y-8" @submit.prevent="updateApplyForServiceData(applyForServiceData)">
       <!-- arabic section -->
       <div>
         <Label>{{ t('apply_for_service.arabic_title') }} </Label>
 
-        <ckeditor
-          :editor="ClassicEditor"
-          v-model="applyForServiceData.ar"
-          tag-name="textarea"
-        />
+        <ckeditor :editor="ClassicEditor" v-model="applyForServiceData.ar" tag-name="textarea" />
       </div>
 
       <!-- english section -->
       <div>
         <Label>{{ t('apply_for_service.english_title') }} </Label>
 
-        <ckeditor
-          :editor="ClassicEditor"
-          v-model="applyForServiceData.en"
-          tag-name="textarea"
-        />
+        <ckeditor :editor="ClassicEditor" v-model="applyForServiceData.en" tag-name="textarea" />
       </div>
 
       <Button>{{ t('update') }} </Button>

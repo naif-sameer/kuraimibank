@@ -8,6 +8,7 @@ import Card from '@/components/Card.vue';
 import Input from '@/components/form/Input.vue';
 
 import { getContactUsData, updateContactUsData } from '@/api';
+import SectionTitle from '@/components/SectionTitle.vue';
 
 const { t } = useI18n();
 
@@ -31,12 +32,11 @@ onMounted(() => {
 </script>
 
 <template>
+  <!-- title -->
+  <SectionTitle> {{ t('contact_us.title') }} </SectionTitle>
+
   <Card>
-    <h3 class="text-xl mb-4">{{ t('contact_us.title') }}</h3>
-    <form
-      class="space-y-8"
-      @submit.prevent="updateContactUsData(ContactUsData)"
-    >
+    <form class="space-y-8" @submit.prevent="updateContactUsData(ContactUsData)">
       <!-- phone -->
       <div>
         <Label>{{ t('contact_us.phone') }} </Label>

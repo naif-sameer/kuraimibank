@@ -6,32 +6,76 @@ const router = createRouter({
     {
       path: '/',
       name: 'website-info',
-      redirect: '/about-us',
       component: () => import('@/views/website-info/WebsiteInfoView.vue'),
+      meta: {
+        module: 'website-info',
+      },
       children: [
         {
-          path: '/about-us',
-          component: () => import('@/views/website-info/AboutUs.vue'),
+          path: '/',
+          component: () => import('@/views/website-info/AboutUs.view.vue'),
+          meta: {
+            module: 'website-info',
+            subModule: 'about-us',
+          },
         },
         {
-          path: '/apply-fo-service',
-          component: () => import('@/views/website-info/ApplyForService.vue'),
+          path: '/apply-for-service',
+          component: () => import('@/views/website-info/ApplyForService.view.vue'),
+          meta: {
+            module: 'website-info',
+            subModule: 'apply-for-service',
+          },
         },
         {
           path: '/values-principles',
-          component: () => import('@/views/website-info/ValuesPrinciples.vue'),
+          component: () => import('@/views/website-info/ValuesPrinciples.view.vue'),
+          meta: {
+            module: 'website-info',
+            subModule: 'values-principles',
+          },
         },
         {
           path: '/strategy-statement',
-          component: () => import('@/views/website-info/StrategyStatement.vue'),
+          component: () => import('@/views/website-info/StrategyStatement.view.vue'),
+          meta: {
+            module: 'website-info',
+            subModule: 'strategy-statement',
+          },
         },
         {
           path: '/board-members',
-          component: () => import('@/views/website-info/BoardMembers.vue'),
+          component: () => import('@/views/website-info/BoardMembers.view.vue'),
+          meta: {
+            module: 'website-info',
+            subModule: 'board-members',
+          },
         },
         {
           path: '/contact-us',
-          component: () => import('@/views/website-info/ContactUs.vue'),
+          component: () => import('@/views/website-info/ContactUs.view.vue'),
+          meta: {
+            module: 'website-info',
+            subModule: 'contact-us',
+          },
+        },
+        {
+          path: '/privacy-policy',
+          name: 'privacy-policy',
+          component: () => import('@/views/privacy-policy/PrivacyPolicyView.vue'),
+          meta: {
+            module: 'website-info',
+            subModule: 'privacy-policy',
+          },
+        },
+        {
+          path: '/social-media',
+          name: 'social-media',
+          meta: {
+            module: 'website-info',
+            subModule: 'social-media',
+          },
+          component: () => import('@/views/social-media/SocialMediaView.vue'),
         },
       ],
     },
@@ -69,18 +113,6 @@ const router = createRouter({
     },
 
     {
-      path: '/privacy-policy',
-      name: 'privacy-policy',
-      component: () => import('@/views/privacy-policy/PrivacyPolicyView.vue'),
-    },
-
-    {
-      path: '/social-media',
-      name: 'social-media',
-      component: () => import('@/views/social-media/SocialMediaView.vue'),
-    },
-
-    {
       path: '/our-partners',
       name: 'our-partners',
       component: () => import('@/views/our-partners/OurPartnersView.vue'),
@@ -89,8 +121,7 @@ const router = createRouter({
     {
       path: '/financial-reports',
       name: 'financial-reports',
-      component: () =>
-        import('@/views/financial-reports/FinancialReportsView.vue'),
+      component: () => import('@/views/financial-reports/FinancialReportsView.vue'),
     },
 
     {
@@ -117,6 +148,11 @@ const router = createRouter({
       component: () => import('@/views/services/ServicesView.vue'),
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      top: 0,
+    };
+  },
 });
 
 export default router;
