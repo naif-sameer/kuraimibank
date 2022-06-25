@@ -28,13 +28,15 @@ watch(isActive, () => (isOpen.value = isActive.value));
       />
 
       <div
-        class="flex relative cursor-pointer"
+        class="flex relative cursor-pointer items-center"
         @click.prevent="isOpen = !isOpen"
-        :class="isActive ? 'text-gray-200' : 'text-gray-500'"
+        :class="isActive ? 'text-gray-200' : 'text-gray-400'"
       >
         <i class="fa" :class="`fa-${icon}`"></i>
 
-        <div class="ms-4">{{ label }}</div>
+        <div class="ms-4 text-sm font-semibold">
+          {{ label }}
+        </div>
 
         <div class="absolute right-0 top-1/2 transform -translate-y-1/2 text-sm">
           {{ isOpen ? '&#9650;' : '&#9660;' }}
