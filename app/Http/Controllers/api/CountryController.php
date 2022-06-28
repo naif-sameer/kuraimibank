@@ -14,30 +14,31 @@ class CountryController extends Controller
     return Country::all();
   }
 
-  public function getOne(Request $request, $id)
+  public function getOne(Country $country)
   {
-    return Country::where('id', $id)->first();
+    return $country->first();
   }
 
   public function save(CountryRequest $request)
   {
     return Country::create([
-      'name' =>  $request->input('name'),
+      'name'         =>  $request->input('name'),
+      'country_code' =>  $request->input('country_code'),
     ]);
   }
 
-  public function update(CountryRequest $request, $id)
+  public function update(CountryRequest $request, Country $country)
   {
-    $res = Country::where('id', $id)->update([
-      'name' =>  $request->input('name'),
-    ]);
+    $res = $country->update(['name' => $request->input('name')]);
 
     return $res ? ['message' => "Country data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request, $id)
+  public function activeToggle(Request $request, Country $country)
   {
-    $res = Country::where('id', $id)->update(['is_active' => $request->is_active]);
+    // return $request->all();
+
+    $res = $country->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }
