@@ -15,4 +15,15 @@ class ServicePoint extends Model
   {
     return $this->belongsTo(City::class, 'city_id');;
   }
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'name'            => 'array',
+    'address'         => 'array',
+    'working_hours'   => 'array',
+  ];
 }
