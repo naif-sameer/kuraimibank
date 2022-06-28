@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CountryRequest extends FormRequest
 {
@@ -24,7 +25,8 @@ class CountryRequest extends FormRequest
   public function rules()
   {
     return [
-      "name"    => "required|max:255"
+      "name"           => "required|max:255",
+      'country_code'   =>  Rule::when($this->method() === 'POST', 'required|unique:countries,country_code'),
     ];
   }
 }

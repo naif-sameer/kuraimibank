@@ -26,10 +26,10 @@ class ServicePointRequest extends FormRequest
     return [
       'name'            => 'required',
       'address'         => 'required',
+      'addressDetails'  => 'required',
       'working_hours'   => 'required',
       'phone'           => 'required',
       'second_phone'    => 'required',
-      'city_id'         => 'required',
     ];
   }
 }
