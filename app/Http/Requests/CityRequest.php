@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CityRequest extends FormRequest
 {
@@ -25,7 +26,9 @@ class CityRequest extends FormRequest
   {
     return [
       'name'              => 'required|max:255',
-      'country_id'        => 'required'
+      'country_id'        => 'required',
+      'city_code'         =>  Rule::when($this->method() === 'POST', 'required|unique:cities,city_code')
     ];
   }
 }
+// 'name' => 'required|string|max:255|unique:products,'.$this->id,
