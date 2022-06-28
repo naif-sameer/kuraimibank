@@ -50,8 +50,8 @@ php artisan make:resource UserCollection
 ## Request
 
 ```bash
-php artisan make:request CreateUserRequest
 php artisan make:request UpdateUserRequest
+php artisan make:request StoreCityRequest
 
 
 php artisan make:request ServicePointRequest
