@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
-use App\Http\Controllers\api;
+use App\Http\Controllers\Api;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +24,7 @@ Route::prefix('v1')
   ->group(function () {
 
     // website info
-    Route::controller(api\WebsiteInfoController::class)->group(function () {
+    Route::controller(Api\WebsiteInfoController::class)->group(function () {
       Route::get('/website-info',  'getAll');
       Route::get('/website-info/{table_key}',  'getOne');
       Route::put('/website-info/{table_key}/edit',  'update');
@@ -32,7 +32,7 @@ Route::prefix('v1')
     });
 
     // jobs
-    Route::controller(api\JobController::class)->group(function () {
+    Route::controller(Api\JobController::class)->group(function () {
       Route::get('/jobs',  'getAll');
       Route::get('/jobs/{id}',  'getOne');
       Route::post('/jobs/create',  'save');
@@ -41,7 +41,7 @@ Route::prefix('v1')
     });
 
     // exchange rates
-    Route::controller(api\ExchangeRateController::class)->group(function () {
+    Route::controller(Api\ExchangeRateController::class)->group(function () {
       Route::get('/exchange-rates',  'getAll');
       Route::get('/exchange-rates/{id}',  'getOne');
       Route::post('/exchange-rates/create',  'save');
@@ -50,7 +50,7 @@ Route::prefix('v1')
     });
 
     // social media
-    Route::controller(api\SocialMediaController::class)->group(function () {
+    Route::controller(Api\SocialMediaController::class)->group(function () {
       Route::get('/social-media',  'getAll');
       Route::get('/social-media/{id}',  'getOne');
       Route::post('/social-media/create',  'save');
@@ -59,7 +59,7 @@ Route::prefix('v1')
     });
 
     // our-partners
-    Route::controller(api\OurPartnerController::class)->group(function () {
+    Route::controller(Api\OurPartnerController::class)->group(function () {
       Route::get('/our-partners',  'getAll');
       Route::get('/our-partners/{id}',  'getOne');
       Route::post('/our-partners/create',  'save');
@@ -68,7 +68,7 @@ Route::prefix('v1')
     });
 
     // financial-reports
-    Route::controller(api\FinancialReportController::class)->group(function () {
+    Route::controller(Api\FinancialReportController::class)->group(function () {
       Route::get('/financial-reports',  'getAll');
       Route::get('/financial-reports/{id}',  'getOne');
       Route::post('/financial-reports/create',  'save');
@@ -77,7 +77,7 @@ Route::prefix('v1')
     });
 
     // pages
-    Route::controller(api\PageController::class)->group(function () {
+    Route::controller(Api\PageController::class)->group(function () {
       Route::get('/pages',  'getAll');
       Route::get('/pages/{table_key}',  'getOne');
       Route::post('/pages/create',  'save');
@@ -86,7 +86,7 @@ Route::prefix('v1')
     });
 
     // news
-    Route::controller(api\NewsController::class)->group(function () {
+    Route::controller(Api\NewsController::class)->group(function () {
       Route::get('/news',  'getAll');
       Route::get('/news/{id}',  'getOne');
       Route::post('/news/create',  'save');
@@ -95,7 +95,7 @@ Route::prefix('v1')
     });
 
     // categories
-    Route::controller(api\CategoryController::class)->group(function () {
+    Route::controller(Api\CategoryController::class)->group(function () {
       Route::get('/categories',  'getAll');
       Route::get('/categories/{id}',  'getOne');
       Route::post('/categories/create',  'save');
@@ -104,7 +104,7 @@ Route::prefix('v1')
     });
 
     // sub-categories
-    Route::controller(api\SubCategoryController::class)->group(function () {
+    Route::controller(Api\SubCategoryController::class)->group(function () {
       Route::get('/sub-categories',  'getAll');
       Route::get('/sub-categories/{id}',  'getOne');
       Route::post('/sub-categories/create',  'save');
@@ -113,7 +113,7 @@ Route::prefix('v1')
     });
 
     // services
-    Route::controller(api\ServiceController::class)->group(function () {
+    Route::controller(Api\ServiceController::class)->group(function () {
       Route::get('/services',  'getAll');
       Route::get('/services/{id}',  'getOne');
       Route::post('/services/create',  'save');
@@ -122,7 +122,7 @@ Route::prefix('v1')
     });
 
     // service-advantages
-    Route::controller(api\ServiceAdvantageController::class)->group(function () {
+    Route::controller(Api\ServiceAdvantageController::class)->group(function () {
       Route::get('/service-advantages',  'getAll');
       Route::get('/service-advantages/{id}',  'getOne');
       Route::post('/service-advantages/create',  'save');
@@ -131,34 +131,36 @@ Route::prefix('v1')
     });
 
     // countries
-    Route::controller(api\CountryController::class)->group(function () {
+    Route::controller(Api\CountryController::class)->group(function () {
       Route::get('/countries',  'getAll');
-      Route::get('/countries/{id}',  'getOne');
+      Route::get('/countries/{country}',  'getOne');
       Route::post('/countries/create',  'save');
-      Route::put('/countries/{id}/edit',  'update');
-      Route::put('/countries/{id}/toggle',  'activeToggle');
+      Route::put('/countries/{country}/edit',  'update');
+      Route::put('/countries/{country}/toggle',  'activeToggle');
     });
 
     // cities
-    Route::controller(api\CityController::class)->group(function () {
+    Route::controller(Api\CityController::class)->group(function () {
       Route::get('/cities',  'getAll');
-      Route::get('/cities/{id}',  'getOne');
+      Route::get('/cities/{city}',  'getOne');
       Route::post('/cities/create',  'save');
-      Route::put('/cities/{id}/edit',  'update');
-      Route::put('/cities/{id}/toggle',  'activeToggle');
+      Route::put('/cities/{city}/edit',  'update');
+      Route::put('/cities/{city}/toggle',  'activeToggle');
     });
 
     // service-points
-    Route::controller(api\ServicePointController::class)->group(function () {
+    Route::controller(Api\ServicePointController::class)->group(function () {
       Route::get('/service-points',  'getAll');
-      Route::get('/service-points/{id}',  'getOne');
+      Route::get('/service-points/{servicePoint}',  'getOne');
       Route::post('/service-points/create',  'save');
       Route::put('/service-points/{id}/edit',  'update');
       Route::put('/service-points/{id}/toggle',  'activeToggle');
+
+      Route::post('/naif', 'getCityId');
     });
 
     // main-services
-    Route::controller(api\MainServiceController::class)->group(function () {
+    Route::controller(Api\MainServiceController::class)->group(function () {
       Route::get('/main-services',  'getAll');
       Route::get('/main-services/{id}',  'getOne');
       Route::post('/main-services/create',  'save');
