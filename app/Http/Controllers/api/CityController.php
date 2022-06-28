@@ -11,35 +11,36 @@ class CityController extends Controller
 {
   public function getAll()
   {
-    return City::all();
+    return City::with('country')->get();
   }
 
-  public function getOne(Request $request, $id)
+  public function getOne(City $city)
   {
-    return City::where('id', $id)->first();
+    return $city->load('country');
   }
 
   public function save(CityRequest $request)
   {
     return City::create([
-      'name'        =>  $request->input('name'),
-      'country_id'  =>  $request->input('country_id'),
+      'name'          =>  $request->input('name'),
+      'country_id'    =>  $request->input('country_id'),
+      'city_code'  =>  $request->input('city_code'),
     ]);
   }
 
-  public function update(CityRequest $request, $id)
+  public function update(CityRequest $request, City $city)
   {
-    $res = City::where('id', $id)->update([
-      'name'        =>  $request->input('name'),
-      'country_id'  =>  $request->input('country_id'),
+    $res = $city->update([
+      'name'          =>  $request->input('name'),
+      'country_id'    =>  $request->input('country_id')
     ]);
 
     return $res ? ['message' => "City data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request, $id)
+  public function activeToggle(Request $request, City $city)
   {
-    $res = City::where('id', $id)->update(['is_active' => $request->is_active]);
+    $res = $city->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }
