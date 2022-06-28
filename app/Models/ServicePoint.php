@@ -10,4 +10,9 @@ class ServicePoint extends Model
   use HasFactory;
 
   protected $fillable = ['name', 'address', 'working_hours', 'phone', 'second_phone', 'city_id'];
+
+  public function city()
+  {
+    return $this->belongsTo(City::class, 'city_id');;
+  }
 }
