@@ -11,3 +11,17 @@ export const dateFormat = (data: Date | string | undefined) => {
     return date;
   }
 };
+
+export const timeFormat = (time: string) => {
+  if (time === undefined) return '';
+
+  const timeConvert = (param: number) => `${(param - 12).toFixed(2)}`.replace('.', ':');
+
+  if (time.includes(':')) {
+    let newTime = Number(time.replace(':', '.'));
+
+    return newTime > 12 ? timeConvert(newTime) : newTime;
+  }
+
+  return Number(time) > 12 ? Number(time) - 12 : time;
+};
