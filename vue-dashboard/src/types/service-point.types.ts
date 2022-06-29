@@ -6,18 +6,23 @@ export type ServicePointType = {
     en: string;
   };
   address: {
-    ar: string;
-    en: string;
+    lat: number;
+    lon: number;
   };
+
+  addressDetails?: any;
+
   working_hours: {
-    ar: string;
-    en: string;
+    start: string;
+    end: string;
   };
   phone: string;
   second_phone: string;
-  city_id: string;
 
-  city?: string;
+  city?: {
+    ar: string;
+    en: string;
+  };
 
   is_active: boolean;
   updated_at?: string;

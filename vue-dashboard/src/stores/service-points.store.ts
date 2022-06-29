@@ -1,12 +1,7 @@
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/helpers/useLocalStorage';
 import { ServicePointType } from '@/types';
-import {
-  getServicePointsApi,
-  createServicePointApi,
-  updateServicePointApi,
-  deleteServicePointApi,
-} from '@/api';
+import { getServicePointsApi, createServicePointApi, updateServicePointApi, deleteServicePointApi } from '@/api';
 
 export const useServicePointStore = defineStore({
   id: 'service-points',
@@ -16,22 +11,12 @@ export const useServicePointStore = defineStore({
   } => ({
     item: {
       id: 0,
-      name: {
-        ar: '',
-        en: '',
-      },
-      address: {
-        ar: '',
-        en: '',
-      },
-      working_hours: {
-        ar: '',
-        en: '',
-      },
+      name: { ar: '', en: '' },
+      address: { lat: 0, lon: 0 },
+      working_hours: { start: '', end: '' },
 
       phone: '',
       second_phone: '',
-      city_id: '',
 
       is_active: true,
     },
@@ -43,21 +28,11 @@ export const useServicePointStore = defineStore({
       this.item = {
         id: 0,
 
-        name: {
-          ar: '',
-          en: '',
-        },
-        address: {
-          ar: '',
-          en: '',
-        },
-        working_hours: {
-          ar: '',
-          en: '',
-        },
+        name: { ar: '', en: '' },
+        address: { lat: 0, lon: 0 },
+        working_hours: { start: '', end: '' },
         phone: '',
         second_phone: '',
-        city_id: '',
 
         is_active: true,
       };
@@ -77,6 +52,12 @@ export const useServicePointStore = defineStore({
         this.items = res;
         setData(res);
       });
+    },
+
+    getServicePoint(id: number) {
+      let servicePoint = this.items.find((item) => item.id === id);
+
+      if (servicePoint) this.item = servicePoint;
     },
 
     addServicePoint() {

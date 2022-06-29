@@ -6,34 +6,21 @@ export async function getServicePointsApi() {
     ...item,
     is_active: !!item.is_active,
 
-    name: JSON.parse(item.name),
-    address: JSON.parse(item.address),
-    working_hours: JSON.parse(item.working_hours),
+    name: item.name,
+    address: item.address,
+    working_hours: item.working_hours,
+    city: JSON.parse(item.city.name),
   }));
 }
 
 export async function createServicePointApi(data: ServicePointType) {
-  let formData = new FormData();
-
-  formData.append('name', JSON.stringify(data.name));
-  formData.append('address', JSON.stringify(data.address));
-  formData.append('working_hours', JSON.stringify(data.working_hours));
-  formData.append('phone', data.phone);
-  formData.append('second_phone', data.second_phone);
-  formData.append('city_id', data.city_id);
-
-  return await axios.post(`service-points/create`, formData);
+  return await axios.post(`service-points/create`, data);
 }
 
 export async function updateServicePointApi(data: ServicePointType) {
-  return await axios.put(
-    `/service-points/${data.id}/edit`,
-    JSON.stringify(data)
-  );
+  return await axios.put(`/service-points/${data.id}/edit`, JSON.stringify(data));
 }
 
 export async function deleteServicePointApi(id: number, is_active: boolean) {
-  return await axios.put(`service-points/${id}/toggle`, {
-    is_active: !is_active,
-  });
+  return await axios.put(`service-points/${id}/toggle`, { is_active: !is_active });
 }
