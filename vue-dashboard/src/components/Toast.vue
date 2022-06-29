@@ -36,7 +36,7 @@ const toastStore = useToastStore();
                     'text-orange-700': item.variant === 'warning',
                   }"
                 >
-                  <span> {{ item.title }} </span>
+                  <span class="capitalize"> {{ item.title ?? item.variant }} </span>
                 </h3>
               </header>
 

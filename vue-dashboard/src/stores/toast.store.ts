@@ -12,11 +12,9 @@ export const useToastStore = defineStore({
   actions: {
     resetItem() {
       this.item = { id: 0, title: '', body: '' };
-
-      // this.$;
     },
 
-    makeToast({ body, title, autoHideDelay = 50300, variant = 'primary' }: ToastType) {
+    makeToast({ body, title, autoHideDelay = 3000, variant = 'primary' }: ToastType) {
       const toastID = getUniqueID();
 
       this.items.push({ id: toastID, body, title, variant });
