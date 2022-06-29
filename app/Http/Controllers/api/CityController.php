@@ -24,7 +24,7 @@ class CityController extends Controller
     return City::create([
       'name'          =>  $request->input('name'),
       'country_id'    =>  $request->input('country_id'),
-      'city_code'  =>  $request->input('city_code'),
+      'city_code'     =>  $request->input('city_code'),
     ]);
   }
 
