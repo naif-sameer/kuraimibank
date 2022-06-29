@@ -189,8 +189,9 @@
   "updated-date": "Updated date",
 
   "add": "Add",
-  "status": "Status",
   "edit": "Edit",
+  "show": "Show",
+  "status": "Status",
   "action": "Action",
   "active": "Active",
   "not-active": "Not Active",
@@ -206,6 +207,9 @@
   "phone": "Phone",
   "second-phone": "second Phone",
   "city": "City",
+  "road": "Road",
+  "district": "District",
+  "address-details": "Address Details",
 
   "working-hours": "Working hours",
   "address": "Address",
@@ -216,5 +220,12 @@
   "pdf": "PDF file",
   "pdf-link": "PDF link",
   "drag-and-drop-here": "Drag and Drop Your files here",
-  "or-select-file": "Or Select File"
+  "or-select-file": "Or Select File",
+
+  "time": {
+    "from": "من",
+    "am": "صباحا",
+    "pm": "مساءً",
+    "to": "وحتى"
+  }
 }
