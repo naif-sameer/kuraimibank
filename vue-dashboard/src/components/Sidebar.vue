@@ -69,10 +69,6 @@ const websiteInfoList: Array<{ to: string; text: string; module: string }> = [
 
         <SidebarItem icon="toolbox" :text="t('jobs.title')" to="/jobs" />
 
-        <!-- <SidebarItem icon="lock" :text="t('privacy_policy.title')" to="/privacy-policy" /> -->
-
-        <!-- <SidebarItem icon="link" :text="t('social-media')" to="/social-media" /> -->
-
         <SidebarItem icon="user-group" :text="t('our_partners.title')" to="/our-partners" />
 
         <SidebarItem icon="square-poll-vertical" :text="t('financial-reports')" to="/financial-reports" />
