@@ -20,9 +20,7 @@ const { t, locale } = useI18n();
 <template>
   <table class="w-full whitespace-no-wrap">
     <!------ table head ------>
-    <thead
-      class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50"
-    >
+    <thead class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
       <tr>
         <TableTd> {{ t('countries.title') }} </TableTd>
         <TableTd>{{ t('status') }}</TableTd>
@@ -49,18 +47,14 @@ const { t, locale } = useI18n();
           <span class="text-sm">{{ dateFormat(item.updated_at) }}</span>
         </TableTd>
 
-        <TableTd class="gap-3 flex">
-          <!-- edit modal button -->
-          <i
-            @click="showEditModal(item)"
-            class="fa fa-edit cursor-pointer text-purple-600"
-          ></i>
+        <TableTd>
+          <div class="gap-3 flex">
+            <!-- edit modal button -->
+            <i @click="showEditModal(item)" class="fa fa-edit cursor-pointer text-purple-600"></i>
 
-          <!-- active toggle button -->
-          <Switch
-            :is-active="item.is_active"
-            @click="store.activeToggle(item.id, item.is_active)"
-          />
+            <!-- active toggle button -->
+            <Switch :is-active="item.is_active" @click="store.activeToggle(item.id, item.is_active)" />
+          </div>
         </TableTd>
       </tr>
     </tbody>
