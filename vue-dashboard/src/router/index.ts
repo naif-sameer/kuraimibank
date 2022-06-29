@@ -1,84 +1,119 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+const websiteInfoRoutes = {
+  path: '/',
+  name: 'website-info',
+  component: () => import('@/views/website-info/WebsiteInfoView.vue'),
+  meta: {
+    module: 'website-info',
+  },
+  children: [
+    {
+      path: '/',
+      component: () => import('@/views/website-info/AboutUs.view.vue'),
+      meta: {
+        module: 'website-info',
+        subModule: 'about-us',
+      },
+    },
+    {
+      path: '/apply-for-service',
+      component: () => import('@/views/website-info/ApplyForService.view.vue'),
+      meta: {
+        module: 'website-info',
+        subModule: 'apply-for-service',
+      },
+    },
+    {
+      path: '/values-principles',
+      component: () => import('@/views/website-info/ValuesPrinciples.view.vue'),
+      meta: {
+        module: 'website-info',
+        subModule: 'values-principles',
+      },
+    },
+    {
+      path: '/strategy-statement',
+      component: () => import('@/views/website-info/StrategyStatement.view.vue'),
+      meta: {
+        module: 'website-info',
+        subModule: 'strategy-statement',
+      },
+    },
+    {
+      path: '/board-members',
+      component: () => import('@/views/website-info/BoardMembers.view.vue'),
+      meta: {
+        module: 'website-info',
+        subModule: 'board-members',
+      },
+    },
+    {
+      path: '/contact-us',
+      component: () => import('@/views/website-info/ContactUs.view.vue'),
+      meta: {
+        module: 'website-info',
+        subModule: 'contact-us',
+      },
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: () => import('@/views/privacy-policy/PrivacyPolicyView.vue'),
+      meta: {
+        module: 'website-info',
+        subModule: 'privacy-policy',
+      },
+    },
+    {
+      path: '/social-media',
+      name: 'social-media',
+      meta: {
+        module: 'website-info',
+        subModule: 'social-media',
+      },
+      component: () => import('@/views/social-media/SocialMediaView.vue'),
+    },
+  ],
+};
+
+const servicePointsRoutes = {
+  path: '/service-points',
+  name: 'service-points',
+  component: () => import('@/views/service-points/Index.view.vue'),
+  children: [
+    {
+      path: '',
+      name: 'service-points-page',
+      meta: { module: 'getAll' },
+      component: () => import('@/views/service-points/Table.view.vue'),
+    },
+    {
+      path: '/service-points/add',
+      name: 'add-service-points',
+      meta: { module: 'add' },
+      component: () => import('@/views/service-points/Add.view.vue'),
+    },
+    {
+      path: '/service-points/:id/edit',
+      name: 'edit-service-point',
+      meta: { module: 'edit' },
+      component: () => import('@/views/service-points/Edit.view.vue'),
+    },
+    {
+      path: '/service-points/:id/show',
+      name: 'show-service-point',
+      meta: { module: 'show' },
+      component: () => import('@/views/service-points/Show.view.vue'),
+    },
+  ],
+};
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/',
-      name: 'website-info',
-      component: () => import('@/views/website-info/WebsiteInfoView.vue'),
-      meta: {
-        module: 'website-info',
-      },
-      children: [
-        {
-          path: '/',
-          component: () => import('@/views/website-info/AboutUs.view.vue'),
-          meta: {
-            module: 'website-info',
-            subModule: 'about-us',
-          },
-        },
-        {
-          path: '/apply-for-service',
-          component: () => import('@/views/website-info/ApplyForService.view.vue'),
-          meta: {
-            module: 'website-info',
-            subModule: 'apply-for-service',
-          },
-        },
-        {
-          path: '/values-principles',
-          component: () => import('@/views/website-info/ValuesPrinciples.view.vue'),
-          meta: {
-            module: 'website-info',
-            subModule: 'values-principles',
-          },
-        },
-        {
-          path: '/strategy-statement',
-          component: () => import('@/views/website-info/StrategyStatement.view.vue'),
-          meta: {
-            module: 'website-info',
-            subModule: 'strategy-statement',
-          },
-        },
-        {
-          path: '/board-members',
-          component: () => import('@/views/website-info/BoardMembers.view.vue'),
-          meta: {
-            module: 'website-info',
-            subModule: 'board-members',
-          },
-        },
-        {
-          path: '/contact-us',
-          component: () => import('@/views/website-info/ContactUs.view.vue'),
-          meta: {
-            module: 'website-info',
-            subModule: 'contact-us',
-          },
-        },
-        {
-          path: '/privacy-policy',
-          name: 'privacy-policy',
-          component: () => import('@/views/privacy-policy/PrivacyPolicyView.vue'),
-          meta: {
-            module: 'website-info',
-            subModule: 'privacy-policy',
-          },
-        },
-        {
-          path: '/social-media',
-          name: 'social-media',
-          meta: {
-            module: 'website-info',
-            subModule: 'social-media',
-          },
-          component: () => import('@/views/social-media/SocialMediaView.vue'),
-        },
-      ],
-    },
+    websiteInfoRoutes,
+    servicePointsRoutes,
     {
       path: '/exchange-rates',
       name: 'exchange-rates',
@@ -131,12 +166,6 @@ const router = createRouter({
     },
 
     {
-      path: '/service-points',
-      name: 'service-points',
-      component: () => import('@/views/service-points/ServicePointsView.vue'),
-    },
-
-    {
       path: '/main-services',
       name: 'main-services',
       component: () => import('@/views/main-services/MainServicesView.vue'),
@@ -149,9 +178,7 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    return {
-      top: 0,
-    };
+    return { top: 0 };
   },
 });
 
