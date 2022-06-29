@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 
+import { useToastStore } from '@/stores/toast.store';
+
 import Sidebar from '@/components/Sidebar.vue';
 import Navbar from '@/components/Navbar.vue';
+import Toast from '@/components/Toast.vue';
+
+const toastStore = useToastStore();
 </script>
 
 <template>
@@ -18,6 +23,8 @@ import Navbar from '@/components/Navbar.vue';
       </div>
     </main>
   </div>
+
+  <Teleport to="#toast-container" :disabled="toastStore.items.length === 0"> <Toast /> </Teleport>
 </template>
 
 <style>

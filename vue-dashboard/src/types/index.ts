@@ -13,3 +13,4 @@ export * from './main-service.types';
 export * from './services.types';
 export * from './sub-category.types';
 export * from './service-advantage.types';
+export * from './toast.types';
