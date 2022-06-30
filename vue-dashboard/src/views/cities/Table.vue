@@ -10,10 +10,6 @@ import TableTd from '@/components/table/TableTd.vue';
 
 let store = useCitiesStore();
 
-defineProps<{
-  showEditModal: any;
-}>();
-
 const { t, locale } = useI18n();
 </script>
 
@@ -32,10 +28,8 @@ const { t, locale } = useI18n();
     <!------ table body ------>
     <tbody class="bg-white divide-y text-gray-700">
       <tr v-for="item in store.items">
-        <TableTd>
-          <span class="font-semibold">
-            {{ locale === 'en' ? item.name.en : item.name.ar }}
-          </span>
+        <TableTd long primary>
+          {{ locale === 'en' ? item.name.en : item.name.ar }}
         </TableTd>
 
         <TableTd>
@@ -50,7 +44,7 @@ const { t, locale } = useI18n();
         <TableTd>
           <div class="gap-3 flex">
             <!-- edit modal button -->
-            <i @click="showEditModal(item)" class="fa fa-edit cursor-pointer text-purple-600"></i>
+            <i @click="store.showEditModal(item)" class="fa fa-edit cursor-pointer text-purple-600"></i>
 
             <!-- active toggle button -->
             <Switch :is-active="item.is_active" @click="store.activeToggle(item.id, item.is_active)" />

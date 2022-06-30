@@ -1,29 +1,22 @@
 import axios from '@/helpers/axios';
 import { CityType } from '@/types';
 
-export async function getCitiesApi() {
-  return (await axios.get('cities')).data.map((item: any) => ({
+export const getCitiesApi = async () => {
+  let { data, status } = await axios.get('cities');
+
+  let items = data.map((item: any) => ({
     ...item,
     name: JSON.parse(item.name),
     is_active: !!item.is_active,
   }));
-}
 
-export async function createCityApi(data: CityType) {
-  let formData = new FormData();
+  return { status, items };
+};
 
-  formData.append('name', JSON.stringify(data.name));
-  formData.append('country_id', `${data.country_id}`);
+export const createCityApi = (data: CityType) => axios.post(`cities/create`, data);
 
-  return await axios.post(`cities/create`, formData);
-}
+export const updateCityApi = (data: CityType) => axios.put(`/cities/${data.id}/edit`, JSON.stringify(data));
 
-export async function updateCityApi(data: CityType) {
-  return await axios.put(`/cities/${data.id}/edit`, JSON.stringify(data));
-}
-
-export async function deleteCityApi(id: number, is_active: boolean) {
-  return await axios.put(`cities/${id}/toggle`, {
-    is_active: !is_active,
-  });
-}
+export const deleteCityApi = (id: number, is_active: boolean) => {
+  return axios.put(`cities/${id}/toggle`, { is_active: !is_active });
+};

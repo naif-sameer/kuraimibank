@@ -1,81 +1,94 @@
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/helpers/useLocalStorage';
 import { CityType } from '@/types';
-import {
-  getCitiesApi,
-  createCityApi,
-  updateCityApi,
-  deleteCityApi,
-} from '@/api';
+import { getCitiesApi, createCityApi, updateCityApi, deleteCityApi } from '@/api';
+import { useToastStore } from './toast.store';
+import { HttpCodeEnum } from '@/Enum';
+
+const toastStore = useToastStore();
+
+type StateType = { item: CityType; items: Array<CityType>; editModal: boolean };
 
 export const useCitiesStore = defineStore({
   id: 'cities',
-  state: (): {
-    item: CityType;
-    items: Array<CityType>;
-  } => ({
-    item: {
-      id: 0,
-      name: {
-        ar: '',
-        en: '',
-      },
-      country_id: 0,
-      is_active: true,
-    },
+  state: (): StateType => ({
+    item: { id: 0, name: { ar: '', en: '' }, country_id: 0, is_active: true },
     items: [],
+    editModal: false,
   }),
-
-  getters: {
-    getData: ({ item }) => item,
-  },
 
   actions: {
     resetItem() {
-      this.item = {
-        id: 0,
-        name: {
-          ar: '',
-          en: '',
-        },
-        country_id: 0,
-        is_active: true,
-      };
+      this.item = { id: 0, name: { ar: '', en: '' }, country_id: 0, is_active: true };
     },
 
-    getCities() {
-      const { getData, setData } = useLocalStorage('cities');
+    showEditModal(data: any) {
+      this.editModal = true;
+      this.item = data;
+    },
 
-      if (getData().length > 1) {
-        // @ts-ignore
-        this.items = getData();
-      }
+    closeEditModal() {
+      this.editModal = false;
+    },
+
+    getCache() {
+      const { getData } = useLocalStorage('cities');
+
+      // @ts-ignore
+      if (getData().length > 1) this.items = getData();
+    },
+
+    setItems(items: Array<CityType>) {
+      const { setData } = useLocalStorage('cities');
+
+      this.items = items;
+      setData(items);
+    },
+
+    async getCities() {
+      this.getCache();
 
       // api call
-      getCitiesApi().then((res) => {
-        // @ts-ignore
-        this.items = res;
-        setData(res);
-      });
+      let { status, items } = await getCitiesApi();
+
+      if (status === HttpCodeEnum.Ok) {
+        if (this.items.length === 0) toastStore.makeSuccessToast('get cities list successfully');
+
+        this.setItems(items);
+      } else toastStore.makeServerErrorToast();
     },
 
-    addCity() {
-      createCityApi(this.getData);
+    async addCity() {
+      let { status } = await createCityApi(this.item);
 
-      this.getCities();
+      if (status === HttpCodeEnum.Ok) toastStore.makeSuccessToast('add new city successfully');
+      else toastStore.makeServerErrorToast();
     },
 
-    updateCity() {
-      updateCityApi(this.getData);
+    async updateCity() {
+      const { status } = await updateCityApi(this.item);
 
-      this.getCities();
+      if (status === HttpCodeEnum.Ok) {
+        this.resetItem();
+
+        let items = this.items.map((item) => (item.id === this.item.id ? this.item : item));
+        this.setItems(items);
+
+        this.editModal = false;
+
+        toastStore.makeSuccessToast(`'${this.item.name.ar}' city updated successfully `);
+      } else toastStore.makeServerErrorToast();
     },
 
-    activeToggle(id: number, is_active: boolean) {
-      deleteCityApi(id, is_active);
+    async activeToggle(id: number, is_active: boolean) {
+      let { status } = await deleteCityApi(id, is_active);
 
-      // fetch new data
-      this.getCities();
+      if (status === HttpCodeEnum.Ok) {
+        const items = this.items.map((item) => (item.id === id ? { ...item, is_active: !item.is_active } : item));
+        this.setItems(items);
+
+        toastStore.makeSuccessToast(`'${this.item.name.ar}' city active toggle updated successfully `);
+      } else toastStore.makeServerErrorToast();
     },
   },
 });

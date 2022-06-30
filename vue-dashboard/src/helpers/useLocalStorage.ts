@@ -7,8 +7,7 @@ export const useLocalStorage = (itemName: string) => {
     return [];
   };
 
-  let setData = (data: []) =>
-    localStorage.setItem(itemName, JSON.stringify(data));
+  let setData = (data: Array<any>) => localStorage.setItem(itemName, JSON.stringify(data));
 
   return {
     getData,
