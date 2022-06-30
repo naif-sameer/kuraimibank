@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import '@/assets/base.css';
 import { createI18n } from 'vue-i18n';
+//@ts-ignore
 import CKEditor from '@ckeditor/ckeditor5-vue';
 
 import App from './App.vue';
