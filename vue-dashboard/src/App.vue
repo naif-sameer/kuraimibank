@@ -6,6 +6,7 @@ import { useToastStore } from '@/stores/toast.store';
 import Sidebar from '@/components/Sidebar.vue';
 import Navbar from '@/components/Navbar.vue';
 import Toast from '@/components/Toast.vue';
+import Loading from '@/components/Loading.vue';
 
 const toastStore = useToastStore();
 </script>
@@ -15,11 +16,21 @@ const toastStore = useToastStore();
     <Sidebar class="w-72 min-w-[16rem]" />
 
     <!-- main content -->
-    <main class="overflow-hidden w-full">
+    <main class="overflow-hidden w-full min-h-screen">
       <Navbar />
 
-      <div class="px-4 bg-gray-100 py-4 min-h-screen">
-        <RouterView />
+      <div class="px-4 bg-gray-100 py-4 min-h-full">
+        <RouterView v-slot="{ Component }">
+          <template v-if="Component">
+            <Suspense>
+              <!-- main content -->
+              <component :is="Component"></component>
+
+              <!-- loading state -->
+              <template #fallback> <Loading /> </template>
+            </Suspense>
+          </template>
+        </RouterView>
       </div>
     </main>
   </div>
