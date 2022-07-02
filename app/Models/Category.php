@@ -10,4 +10,13 @@ class Category extends Model
   use HasFactory;
 
   protected $fillable = ['name'];
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'name'            => 'array',
+  ];
 }

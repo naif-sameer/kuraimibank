@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class WebsiteInfo extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $table = 'website_info';
+  protected $table = 'website_info';
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'table_value'   => 'array',
+  ];
 }

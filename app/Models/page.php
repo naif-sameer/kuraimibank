@@ -9,5 +9,16 @@ class page extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['title', 'sub_title', 'description', 'table_key'];
+  protected $fillable = ['table_key', 'title', 'sub_title', 'description'];
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'title'              => 'array',
+    'sub_title'          => 'array',
+    'description'        => 'array',
+  ];
 }

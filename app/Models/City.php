@@ -15,4 +15,13 @@ class City extends Model
   {
     return $this->belongsTo(Country::class, 'country_id');
   }
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'name'            => 'array',
+  ];
 }

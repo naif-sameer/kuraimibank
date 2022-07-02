@@ -9,5 +9,15 @@ class OurPartner extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['title', 'image', 'description'];
+  protected $fillable = ['title',  'description', 'image',];
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'title'              => 'array',
+    'description'        => 'array',
+  ];
 }

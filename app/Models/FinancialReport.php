@@ -10,4 +10,14 @@ class FinancialReport extends Model
   use HasFactory;
 
   protected $fillable = ['title', 'description', 'pdf'];
+
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'title'              => 'array',
+    'description'        => 'array',
+  ];
 }
