@@ -24,7 +24,7 @@ class WebsiteInfoRequest extends FormRequest
   public function rules()
   {
     return [
-      'table_value'     => 'required'
+      'table_value'     => ['required']
     ];
   }
 }

@@ -24,9 +24,9 @@ class MainServiceRequest extends FormRequest
   public function rules()
   {
     return [
-      "name"          => "required|max:255",
-      "link"          => "required|url",
-      "image"         => "image|mimes:jpeg,jpg,png|max:2048",
+      'name'          => ['required', 'max:255'],
+      'link'          => ['required', 'url'],
+      'image'         => ['image', 'mimes:jpeg,jpg,png', 'max:2048'],
     ];
   }
 }

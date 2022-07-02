@@ -24,11 +24,11 @@ class SubCategoryRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'                    => 'required',
-      'link'                    => 'required|url',
-      'category_id'             => 'required',
-      'parent_category'         => 'nullable|numeric',
-      'icon'                    => 'image|mimes:jpeg,jpg,png|max:2048',
+      'name'                    => ['required'],
+      'link'                    => ['required', 'url'],
+      'category_id'             => ['required'],
+      'parent_category'         => ['nullable', 'numeric'],
+      'icon'                    => ['image', 'mimes:jpeg,jpg,png', 'max:2048'],
     ];
   }
 }

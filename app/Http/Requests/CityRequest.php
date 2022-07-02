@@ -25,10 +25,9 @@ class CityRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'              => 'required|max:255',
-      'country_id'        => 'required',
-      'city_code'         =>  Rule::when($this->method() === 'POST', 'required|unique:cities,city_code')
+      'name'              => ['required', 'max:255'],
+      'country_id'        => ['required'],
+      'city_code'         =>  Rule::when($this->method() === 'POST', ['required', 'unique:cities,city_code'])
     ];
   }
 }
-// 'name' => 'required|string|max:255|unique:products,'.$this->id,

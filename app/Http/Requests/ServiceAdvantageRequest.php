@@ -24,9 +24,9 @@ class ServiceAdvantageRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'           => 'required',
-      'service_id'     => 'required',
-      'icon'           => 'image|mimes:jpeg,jpg,png|max:2048',
+      'name'           => ['required'],
+      'service_id'     => ['required'],
+      'icon'           => ['image', 'mimes:jpeg,jpg,png', 'max:2048'],
     ];
   }
 }

@@ -24,8 +24,8 @@ class JobRequest extends FormRequest
   public function rules()
   {
     return [
-      "title"          => "required|max:255",
-      "description"    => "required",
+      'title'          => ['required', 'max:255'],
+      'description'    => ['required'],
     ];
   }
 }

@@ -24,9 +24,9 @@ class OurPartnerRequest extends FormRequest
   public function rules()
   {
     return [
-      "title"           => "required",
-      "description"     => "required",
-      "image"           => "image|mimes:jpeg,jpg,png|max:2048",
+      'title'           => ['required'],
+      'description'     => ['required'],
+      'image'           => ['image,', 'mimes:jpeg,jpg,png,', 'max:2048'],
     ];
   }
 }

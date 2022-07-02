@@ -24,12 +24,12 @@ class ServiceRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'                => 'required',
-      'description'         => 'required',
-      'other_advantage'     => 'required',
-      'service_conditions'  => 'required',
-      'category_id'         => 'required',
-      'image'               => 'image|mimes:jpeg,jpg,png|max:2048',
+      'name'                => ['required'],
+      'description'         => ['required'],
+      'other_advantage'     => ['required'],
+      'service_conditions'  => ['required'],
+      'category_id'         => ['required'],
+      'image'               => ['image', 'mimes:jpeg,jpg,png', 'max:2048'],
     ];
   }
 }

@@ -24,10 +24,10 @@ class PageRequest extends FormRequest
   public function rules()
   {
     return [
-      'table_key'     => 'unique:pages',
-      'title'         => 'required',
-      'sub_title'     => 'required',
-      'description'   => 'required',
+      'table_key'     => ['unique:pages'],
+      'title'         => ['required'],
+      'sub_title'     => ['required'],
+      'description'   => ['required'],
     ];
   }
 }

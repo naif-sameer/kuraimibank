@@ -24,9 +24,9 @@ class ExchangeRateRequest extends FormRequest
   public function rules()
   {
     return [
-      "name"    => "required|max:255",
-      "sale"    => "required",
-      "buy"     => "required"
+      'name'    => ['required', 'max:255'],
+      'sale'    => ['required'],
+      'buy'     => ['required']
     ];
   }
 }

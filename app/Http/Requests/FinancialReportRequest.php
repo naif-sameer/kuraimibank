@@ -24,9 +24,9 @@ class FinancialReportRequest extends FormRequest
   public function rules()
   {
     return [
-      "title"          => "required",
-      "description"    => "required",
-      "pdf"            => "mimes:pdf|max:10000"
+      'title'          => ['required'],
+      'description'    => ['required'],
+      'pdf'            => ['mimes:pdf', 'max:10000']
     ];
   }
 }

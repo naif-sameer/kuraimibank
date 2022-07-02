@@ -24,12 +24,12 @@ class ServicePointRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'            => 'required',
-      'address'         => 'required',
-      'addressDetails'  => 'required',
-      'working_hours'   => 'required',
-      'phone'           => 'required',
-      'second_phone'    => 'required',
+      'name'            => ['required'],
+      'address'         => ['required'],
+      'addressDetails'  => ['required'],
+      'working_hours'   => ['required'],
+      'phone'           => ['required'],
+      'second_phone'    => ['required'],
     ];
   }
 }
