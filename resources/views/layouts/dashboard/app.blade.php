@@ -11,14 +11,13 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+  <!------ vite ------>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/dashboard.js') }}" defer></script>
 </head>
 
 <body class="font-sans antialiased">
+
   <div class="grid min-h-screen bg-gray-100 md:grid-cols-2">
     <!-- Page sidebar -->
     @include('layouts.dashboard.sidebar')
@@ -32,10 +31,6 @@
     </main>
   </div>
 
-
-  {{-- ionicons --}}
-  <script def type="module" src="{{ asset('js/ionicons.esm.js') }}"></script>
-  <script def nomodule src="{{ asset('js/ionicons.js') }}"></script>
 </body>
 
 </html>

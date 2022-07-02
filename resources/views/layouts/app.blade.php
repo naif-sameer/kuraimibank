@@ -16,6 +16,7 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/dashboard.js') }}" defer></script>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="font-sans antialiased">
