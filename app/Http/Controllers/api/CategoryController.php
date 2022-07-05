@@ -21,9 +21,7 @@ class CategoryController extends Controller
 
   public function save(CategoryRequest $request)
   {
-    return Category::create([
-      'name'  =>  $request->input('name'),
-    ]);
+    return Category::create($request->validated());
   }
 
   public function update(CategoryRequest $request, $id)
