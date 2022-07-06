@@ -1,18 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-
+use App\Http\Controllers\Auth;
+use App\Http\Controllers\Web;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +17,24 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
+Route::controller(Web\HomeController::class)->group(function () {
+  Route::get('/', 'index');
+  Route::get('/about-us', 'aboutUS')->name('AboutUs');
+  Route::get('/contact-us', 'contactUs')->name('ContactUs');
+  Route::get('/our-partners', 'ourPartners')->name('OurPartners');
+  Route::get('/financial-reports', 'financialReports')->name('FinancialReports');
 });
+
+Route::controller(Web\ServicesController::class)->group(function () {
+  Route::get('/services/{id}', 'index')->name('Services');
+  Route::get('/services/{id}/{storyID}', 'story')->name('ServiceStory');
+});
+
+Route::controller(Web\ServicePointsController::class)->group(function () {
+  Route::get('/service-points/{id}', 'index')->name('ServicePoints');
+});
+
+
 
 
 /*
@@ -38,20 +45,20 @@ Route::get('/', function () {
 Route::middleware('guest')->group(function () {
 
   // register
-  Route::controller(RegisteredUserController::class)->group(function () {
+  Route::controller(Auth\RegisteredUserController::class)->group(function () {
     Route::get('register', 'create')->name('register');
     Route::post('register', 'store');
   });
 
 
   // login
-  Route::controller(AuthenticatedSessionController::class)->group(function () {
+  Route::controller(Auth\AuthenticatedSessionController::class)->group(function () {
     Route::get('login', 'create')->name('login');
     Route::post('login',  'store');
   });
 
   // reset password
-  Route::controller(PasswordResetLinkController::class)
+  Route::controller(Auth\PasswordResetLinkController::class)
     ->name('password.')
     ->group(function () {
       Route::get('forgot-password', 'create')->name('request');
@@ -59,40 +66,33 @@ Route::middleware('guest')->group(function () {
     });
 
   // new password
-  Route::controller(NewPasswordController::class)->group(function () {
+  Route::controller(Auth\NewPasswordController::class)->group(function () {
     Route::get('reset-password/{token}', 'create')->name('password.reset');
     Route::post('reset-password', 'store')->name('password.update');
   });
 });
 
 Route::middleware('auth')->group(function () {
-  Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
+  Route::get('verify-email', [Auth\EmailVerificationPromptController::class, '__invoke'])
     ->name('verification.notice');
 
-  Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+  Route::get('verify-email/{id}/{hash}', [Auth\VerifyEmailController::class, '__invoke'])
     ->middleware(['signed', 'throttle:6,1'])
     ->name('verification.verify');
 
-  Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+  Route::post('email/verification-notification', [Auth\EmailVerificationNotificationController::class, 'store'])
     ->middleware('throttle:6,1')
     ->name('verification.send');
 
 
-  Route::controller(ConfirmablePasswordController::class)->group(function () {
+  Route::controller(Auth\ConfirmablePasswordController::class)->group(function () {
     Route::get('confirm-password',  'show')->name('password.confirm');
     Route::post('confirm-password',  'store');
   });
 
-  Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+  Route::post('logout', [Auth\AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 });
-
-
-/*
-|--------------------------------------------------------------------------
-| User Routes
-|--------------------------------------------------------------------------
-*/
 
 
 /*
@@ -112,5 +112,6 @@ Route::prefix('/dashboard')
   });
 
 
-// email verification
-// Auth::routes(['verify' => true]);
+Route::get('/test', function () {
+  return view('welcome');
+});
