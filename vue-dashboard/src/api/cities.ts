@@ -6,7 +6,7 @@ export const getCitiesApi = async () => {
 
   let items = data.map((item: any) => ({
     ...item,
-    name: JSON.parse(item.name),
+    name: item.name,
     is_active: !!item.is_active,
   }));
 

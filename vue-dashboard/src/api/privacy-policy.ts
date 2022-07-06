@@ -4,9 +4,9 @@ import { PrivacyPolicyType } from '@/types';
 export async function getPrivacyPolicyApi() {
   let res = (await axios.get('pages/privacy_policy')).data;
 
-  res.title = JSON.parse(res.title);
-  res.sub_title = JSON.parse(res.sub_title);
-  res.description = JSON.parse(res.description);
+  res.title = res.title;
+  res.sub_title = res.sub_title;
+  res.description = res.description;
   res.is_active = !!res.is_active;
 
   return res;

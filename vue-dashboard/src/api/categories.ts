@@ -4,7 +4,7 @@ import { CategoryType } from '@/types';
 export async function getCategoriesApi() {
   return (await axios.get('categories')).data.map((item: any) => ({
     ...item,
-    name: JSON.parse(item.name),
+    name: item.name,
     is_active: !!item.is_active,
   }));
 }

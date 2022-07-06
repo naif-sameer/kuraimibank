@@ -9,7 +9,7 @@ export async function getServicePointsApi() {
     name: item.name,
     address: item.address,
     working_hours: item.working_hours,
-    city: JSON.parse(item.city.name),
+    city: item.city.name,
   }));
 }
 

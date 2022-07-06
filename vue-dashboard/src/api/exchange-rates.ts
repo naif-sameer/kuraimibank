@@ -4,7 +4,7 @@ import { ExchangeRatesType } from '@/types';
 export async function getExchangeRatesData() {
   return (await axios.get('exchange-rates')).data.map((item: any) => ({
     ...item,
-    name: JSON.parse(item.name),
+    name: item.name,
     is_active: !!item.is_active,
   }));
 }
@@ -20,10 +20,7 @@ export async function createExchangeRatesData(data: ExchangeRatesType) {
 }
 
 export async function updateExchangeRatesData(data: ExchangeRatesType) {
-  return await axios.put(
-    `/exchange-rates/${data.id}/edit`,
-    JSON.stringify(data)
-  );
+  return await axios.put(`/exchange-rates/${data.id}/edit`, JSON.stringify(data));
 }
 
 export async function deleteExchangeRatesData(id: number, is_active: boolean) {

@@ -6,7 +6,7 @@ export async function getSubCategoriesApi() {
     ...item,
     is_active: !!item.is_active,
 
-    name: JSON.parse(item.name),
+    name: item.name,
     icon: `http://localhost:8000/uploads/images/${item.icon}`,
   }));
 }
@@ -19,8 +19,7 @@ export async function createSubCategoryApi(data: SubCategoryType) {
   formData.append('category_id', data.category_id);
   formData.append('icon', data.icon);
 
-  if (data.parent_category)
-    formData.append('parent_category', data.parent_category);
+  if (data.parent_category) formData.append('parent_category', data.parent_category);
 
   return await axios.post(`sub-categories/create`, formData);
 }
@@ -32,8 +31,7 @@ export async function updateSubCategoryApi(data: SubCategoryType) {
   formData.append('link', data.link);
   formData.append('category_id', data.category_id);
 
-  if (data.parent_category)
-    formData.append('parent_category', data.parent_category);
+  if (data.parent_category) formData.append('parent_category', data.parent_category);
 
   // update icon if user select new one
   if (typeof data.icon !== 'string') formData.append('icon', data.icon);

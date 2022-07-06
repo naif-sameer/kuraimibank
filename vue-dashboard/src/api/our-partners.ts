@@ -5,8 +5,8 @@ export async function getOurPartnersApi() {
   return (await axios.get('our-partners')).data.map((item: any) => ({
     ...item,
     is_active: !!item.is_active,
-    title: JSON.parse(item.title),
-    description: JSON.parse(item.description),
+    title: item.title,
+    description: item.description,
     image: `http://localhost:8000/uploads/images/${item.image}`,
   }));
 }

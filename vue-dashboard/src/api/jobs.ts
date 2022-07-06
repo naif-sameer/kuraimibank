@@ -4,8 +4,8 @@ import { JobType } from '@/types';
 export async function getJobsApi() {
   return (await axios.get('jobs')).data.map((item: any) => ({
     ...item,
-    title: JSON.parse(item.title),
-    description: JSON.parse(item.description),
+    title: item.title,
+    description: item.description,
     is_active: !!item.is_active,
   }));
 }

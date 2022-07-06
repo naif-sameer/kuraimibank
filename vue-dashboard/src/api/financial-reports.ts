@@ -6,8 +6,8 @@ export async function getFinancialReportsApi() {
     ...item,
     is_active: !!item.is_active,
 
-    title: JSON.parse(item.title),
-    description: JSON.parse(item.description),
+    title: item.title,
+    description: item.description,
     pdf: `http://localhost:8000/uploads/pdf/${item.pdf}`,
   }));
 }

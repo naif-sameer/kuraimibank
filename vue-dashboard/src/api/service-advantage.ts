@@ -6,7 +6,7 @@ export async function getServiceAdvantagesApi() {
     ...item,
     is_active: !!item.is_active,
 
-    name: JSON.parse(item.name),
+    name: item.name,
     icon: `http://localhost:8000/uploads/images/${item.icon}`,
   }));
 }
@@ -33,10 +33,7 @@ export async function updateServiceAdvantageApi(data: ServiceAdvantageType) {
   return await axios.post(`/service-advantages/${data.id}/edit`, formData);
 }
 
-export async function deleteServiceAdvantageApi(
-  id: number,
-  is_active: boolean
-) {
+export async function deleteServiceAdvantageApi(id: number, is_active: boolean) {
   return await axios.put(`service-advantages/${id}/toggle`, {
     is_active: !is_active,
   });

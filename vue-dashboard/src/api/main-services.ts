@@ -6,7 +6,7 @@ export async function getMainServicesApi() {
     ...item,
     is_active: !!item.is_active,
 
-    name: JSON.parse(item.name),
+    name: item.name,
     image: `http://localhost:8000/uploads/images/${item.image}`,
   }));
 }
