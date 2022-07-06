@@ -10,14 +10,13 @@ import Input from '@/components/form/Input.vue';
 import Button from '@/components/form/Button.vue';
 
 import Table from './Table.vue';
-
-// render data from store
-onMounted(async () => {
-  store.getCountries();
-});
+import { CountriesType } from '@/types';
 
 const { t } = useI18n();
 let store = useCountriesStore();
+
+// render data from store
+// store.getCountries();
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -35,13 +34,11 @@ const addCountry = () => {
 };
 
 const editModal = ref(false);
-const showEditModal = (data: any) => {
+const showEditModal = (data: CountriesType) => {
   editModal.value = true;
 
   // update store item data
-  store.item.name.ar = data.name.ar;
-  store.item.name.en = data.name.en;
-  store.item.id = data.id;
+  store.item = data;
 };
 
 const updateCountry = () => {
@@ -55,11 +52,9 @@ const updateCountry = () => {
 <template>
   <!-- title -->
   <SectionTitle class="flex justify-between">
-    <span>
-      {{ t('countries.title') }}
-    </span>
+    <span> {{ t('countries.title') }} </span>
 
-    <Button @click="showCreateModal" size="sm">{{ t('add') }}</Button>
+    <!-- <Button @click="showCreateModal" size="sm">{{ t('add') }}</Button> -->
   </SectionTitle>
 
   <!-- content -->
@@ -79,25 +74,13 @@ const updateCountry = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addCountry">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('countries.title')"
-      >
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('countries.title')">
         <template #body>
           <!------ arabic name ------>
-          <Input
-            v-model="store.item.name.ar"
-            type="text"
-            :label="t('countries.arabic-name')"
-          />
+          <Input v-model="store.item.name.ar" type="text" :label="t('countries.arabic-name')" />
 
           <!------ english name ------>
-          <Input
-            v-model="store.item.name.en"
-            type="text"
-            :label="t('countries.english-name')"
-          />
+          <Input v-model="store.item.name.en" type="text" :label="t('countries.english-name')" />
         </template>
 
         <template #footer>
@@ -112,25 +95,13 @@ const updateCountry = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateCountry">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('countries.title')"
-      >
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('countries.title')">
         <template #body>
           <!------ arabic name ------>
-          <Input
-            v-model="store.item.name.ar"
-            type="text"
-            :label="t('countries.arabic-name')"
-          />
+          <Input v-model="store.item.name.ar" type="text" :label="t('countries.arabic-name')" />
 
           <!------ english name ------>
-          <Input
-            v-model="store.item.name.en"
-            type="text"
-            :label="t('countries.english-name')"
-          />
+          <Input v-model="store.item.name.en" type="text" :label="t('countries.english-name')" />
         </template>
 
         <template #footer>

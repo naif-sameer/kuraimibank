@@ -7,8 +7,10 @@ import Sidebar from '@/components/Sidebar.vue';
 import Navbar from '@/components/Navbar.vue';
 import Toast from '@/components/Toast.vue';
 import Loading from '@/components/Loading.vue';
+import { useLoadingStore } from './stores/loading.store';
 
 const toastStore = useToastStore();
+let loadingStore = useLoadingStore();
 </script>
 
 <template>
@@ -20,17 +22,9 @@ const toastStore = useToastStore();
       <Navbar />
 
       <div class="px-4 bg-gray-100 py-4 min-h-full">
-        <RouterView v-slot="{ Component }">
-          <template v-if="Component">
-            <Suspense>
-              <!-- main content -->
-              <component :is="Component"></component>
+        <Loading v-if="loadingStore.loading" />
 
-              <!-- loading state -->
-              <template #fallback> <Loading /> </template>
-            </Suspense>
-          </template>
-        </RouterView>
+        <RouterView v-else />
       </div>
     </main>
   </div>

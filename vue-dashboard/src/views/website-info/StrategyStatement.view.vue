@@ -16,11 +16,10 @@ let StrategyStatementData = reactive({
   en: '',
 });
 
-onMounted(() => {
-  getStrategyStatementData().then((res) => {
-    StrategyStatementData.ar = JSON.parse(res).ar;
-    StrategyStatementData.en = JSON.parse(res).en;
-  });
+// render data from store
+getStrategyStatementData().then((res) => {
+  StrategyStatementData.ar = res.ar;
+  StrategyStatementData.en = res.en;
 });
 </script>
 

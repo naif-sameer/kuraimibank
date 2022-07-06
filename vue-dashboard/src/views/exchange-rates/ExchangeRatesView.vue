@@ -10,14 +10,10 @@ import Input from '@/components/form/Input.vue';
 import Button from '@/components/form/Button.vue';
 
 import Table from './Table.vue';
+import { ExchangeRatesType } from '@/types';
 
 let store = useExchangeRatesStore();
 const { t } = useI18n();
-
-// render data from store
-onMounted(async () => {
-  store.getExchangeRates();
-});
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -35,15 +31,11 @@ const addExchangeRates = () => {
 };
 
 const editModal = ref(false);
-const showEditModal = (data: any) => {
+const showEditModal = (data: ExchangeRatesType) => {
   editModal.value = true;
 
   // update store item data
-  store.item.name.ar = data.name.ar;
-  store.item.name.en = data.name.en;
-  store.item.buy = data.buy;
-  store.item.sale = data.sale;
-  store.item.id = data.id;
+  store.item = data;
 };
 
 const updateExchangeRates = () => {
@@ -81,39 +73,19 @@ const updateExchangeRates = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addExchangeRates">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('exchange-rates')"
-      >
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('exchange-rates')">
         <template #body>
           <!------ arabic name ------>
-          <Input
-            v-model="store.item.name.ar"
-            type="text"
-            :label="t('exchange_rates.currency-arabic-name')"
-          />
+          <Input v-model="store.item.name.ar" type="text" :label="t('exchange_rates.currency-arabic-name')" />
 
           <!------ english name ------>
-          <Input
-            v-model="store.item.name.en"
-            type="text"
-            :label="t('exchange_rates.currency-english-name')"
-          />
+          <Input v-model="store.item.name.en" type="text" :label="t('exchange_rates.currency-english-name')" />
 
           <!------ sale ------>
-          <Input
-            v-model="store.item.sale"
-            type="number"
-            :label="t('exchange_rates.sale')"
-          />
+          <Input v-model="store.item.sale" type="number" :label="t('exchange_rates.sale')" />
 
           <!------ buy ------>
-          <Input
-            v-model="store.item.buy"
-            type="number"
-            :label="t('exchange_rates.buy')"
-          />
+          <Input v-model="store.item.buy" type="number" :label="t('exchange_rates.buy')" />
         </template>
 
         <template #footer>
@@ -128,39 +100,19 @@ const updateExchangeRates = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateExchangeRates">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('exchange-rates')"
-      >
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('exchange-rates')">
         <template #body>
           <!------ arabic name ------>
-          <Input
-            v-model="store.item.name.ar"
-            type="text"
-            :label="t('exchange_rates.currency-arabic-name')"
-          />
+          <Input v-model="store.item.name.ar" type="text" :label="t('exchange_rates.currency-arabic-name')" />
 
           <!------ english name ------>
-          <Input
-            v-model="store.item.name.en"
-            type="text"
-            :label="t('exchange_rates.currency-english-name')"
-          />
+          <Input v-model="store.item.name.en" type="text" :label="t('exchange_rates.currency-english-name')" />
 
           <!------ sale ------>
-          <Input
-            v-model="store.item.sale"
-            type="number"
-            :label="t('exchange_rates.sale')"
-          />
+          <Input v-model="store.item.sale" type="number" :label="t('exchange_rates.sale')" />
 
           <!------ buy ------>
-          <Input
-            v-model="store.item.buy"
-            type="number"
-            :label="t('exchange_rates.buy')"
-          />
+          <Input v-model="store.item.buy" type="number" :label="t('exchange_rates.buy')" />
         </template>
 
         <template #footer>

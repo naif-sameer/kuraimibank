@@ -14,13 +14,11 @@ import { JobType } from '@/types';
 import Table from './Table.vue';
 import Label from '@/components/form/Label.vue';
 
-// render data from store
-onMounted(async () => {
-  store.getJobs();
-});
-
 const { t } = useI18n();
 let store = useJobsStore();
+
+// render data from store
+// await store.getJobs();
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -44,12 +42,7 @@ const showEditModal = (data: JobType) => {
   editModal.value = true;
 
   // update store item data
-  store.item.title.ar = data.title.ar;
-  store.item.title.en = data.title.en;
-
-  store.item.description.ar = data.description.ar;
-  store.item.description.en = data.description.en;
-  store.item.id = data.id;
+  store.item = data;
 };
 
 const updateJob = () => {
@@ -87,46 +80,26 @@ const updateJob = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addJob">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('jobs.title')"
-      >
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('jobs.title')">
         <template #body>
           <!------ arabic title ------>
-          <Input
-            v-model="store.item.title.ar"
-            type="text"
-            :label="t('jobs.arabic-title')"
-          />
+          <Input v-model="store.item.title.ar" type="text" :label="t('jobs.arabic-title')" />
 
           <!------ english title ------>
-          <Input
-            v-model="store.item.title.en"
-            type="text"
-            :label="t('jobs.english-title')"
-          />
+          <Input v-model="store.item.title.en" type="text" :label="t('jobs.english-title')" />
 
           <hr />
 
           <!------ arabic description ------>
           <div class="text-gray-800">
             <Label>{{ t('jobs.arabic-description') }}</Label>
-            <ckeditor
-              :editor="ClassicEditor"
-              v-model="store.item.description.ar"
-              tag-name="textarea"
-            />
+            <ckeditor :editor="ClassicEditor" v-model="store.item.description.ar" tag-name="textarea" />
           </div>
 
           <!------ english description ------>
           <div class="text-gray-800">
             <Label>{{ t('jobs.english-description') }}</Label>
-            <ckeditor
-              :editor="ClassicEditor"
-              v-model="store.item.description.en"
-              tag-name="textarea"
-            />
+            <ckeditor :editor="ClassicEditor" v-model="store.item.description.en" tag-name="textarea" />
           </div>
         </template>
 
@@ -142,46 +115,26 @@ const updateJob = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateJob">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('jobs.title')"
-      >
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('jobs.title')">
         <template #body>
           <!------ arabic title ------>
-          <Input
-            v-model="store.item.title.ar"
-            type="text"
-            :label="t('jobs.arabic-title')"
-          />
+          <Input v-model="store.item.title.ar" type="text" :label="t('jobs.arabic-title')" />
 
           <!------ english title ------>
-          <Input
-            v-model="store.item.title.en"
-            type="text"
-            :label="t('jobs.english-title')"
-          />
+          <Input v-model="store.item.title.en" type="text" :label="t('jobs.english-title')" />
 
           <hr />
 
           <!------ arabic description ------>
           <div class="text-gray-800">
             <Label>{{ t('jobs.arabic-description') }}</Label>
-            <ckeditor
-              :editor="ClassicEditor"
-              v-model="store.item.description.ar"
-              tag-name="textarea"
-            />
+            <ckeditor :editor="ClassicEditor" v-model="store.item.description.ar" tag-name="textarea" />
           </div>
 
           <!------ english description ------>
           <div class="text-gray-800">
             <Label>{{ t('jobs.english-description') }}</Label>
-            <ckeditor
-              :editor="ClassicEditor"
-              v-model="store.item.description.en"
-              tag-name="textarea"
-            />
+            <ckeditor :editor="ClassicEditor" v-model="store.item.description.en" tag-name="textarea" />
           </div>
         </template>
 

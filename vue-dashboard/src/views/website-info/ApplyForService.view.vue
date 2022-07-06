@@ -16,11 +16,10 @@ let applyForServiceData = reactive({
   en: '',
 });
 
-onMounted(() => {
-  getApplyForServiceData().then((res) => {
-    applyForServiceData.ar = JSON.parse(res).ar;
-    applyForServiceData.en = JSON.parse(res).en;
-  });
+// render data from store
+getApplyForServiceData().then((res) => {
+  applyForServiceData.ar = res.ar;
+  applyForServiceData.en = res.en;
 });
 </script>
 

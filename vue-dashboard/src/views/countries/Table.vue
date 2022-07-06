@@ -10,9 +10,7 @@ import TableTd from '@/components/table/TableTd.vue';
 
 let store = useCountriesStore();
 
-defineProps<{
-  showEditModal: any;
-}>();
+defineProps<{ showEditModal: any }>();
 
 const { t, locale } = useI18n();
 </script>

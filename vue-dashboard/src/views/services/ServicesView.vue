@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 import { ServiceType } from '@/types';
 import { useServiceStore } from '@/stores/services.store';
@@ -12,13 +12,11 @@ import Button from '@/components/form/Button.vue';
 import Table from './Table.vue';
 import ModalBody from './ModalBody.vue';
 
-// render data from store
-onMounted(async () => {
-  store.getServices();
-});
-
 const { t } = useI18n();
 let store = useServiceStore();
+
+// render data from store
+// await store.getServices();
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -42,14 +40,7 @@ const showEditModal = (data: ServiceType) => {
   editModal.value = true;
 
   // update store item data
-  store.item.id = data.id;
-
-  store.item.name = data.name;
-  store.item.description = data.description;
-  store.item.other_advantage = data.other_advantage;
-  store.item.service_conditions = data.service_conditions;
-  store.item.category_id = data.category_id;
-  store.item.image = data.image;
+  store.item = data;
 };
 
 const updateItem = () => {
@@ -71,6 +62,7 @@ const updateItem = () => {
   <!-- content -->
   <div class="w-full overflow-hidden rounded-lg shadow-xs mb-8">
     <!-- table content -->
+
     <Table :showEditModal="showEditModal" />
 
     <!-- TODO pagination -->
@@ -81,19 +73,11 @@ const updateItem = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addItem">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('services.title')"
-      >
-        <template #body>
-          <ModalBody :item="store.item" />
-        </template>
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('services.title')">
+        <template #body> <ModalBody :item="store.item" /> </template>
 
         <template #footer>
-          <Button type="submit">
-            {{ t('add') }}
-          </Button>
+          <Button type="submit"> {{ t('add') }} </Button>
         </template>
       </Modal>
     </form>
@@ -102,19 +86,11 @@ const updateItem = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateItem">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('services.title')"
-      >
-        <template #body>
-          <ModalBody :item="store.item" />
-        </template>
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('services.title')">
+        <template #body> <ModalBody :item="store.item" /> </template>
 
         <template #footer>
-          <Button type="submit">
-            {{ t('update') }}
-          </Button>
+          <Button type="submit"> {{ t('update') }} </Button>
         </template>
       </Modal>
     </form>

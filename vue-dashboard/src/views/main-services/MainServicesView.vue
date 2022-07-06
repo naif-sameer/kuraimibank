@@ -12,13 +12,11 @@ import Button from '@/components/form/Button.vue';
 import Table from './Table.vue';
 import ModalBody from './ModalBody.vue';
 
-// render data from store
-onMounted(async () => {
-  store.getMainServices();
-});
-
 const { t } = useI18n();
 let store = useMainServiceStore();
+
+// render data from store
+// await store.getMainServices();
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -42,11 +40,7 @@ const showEditModal = (data: MainServiceType) => {
   editModal.value = true;
 
   // update store item data
-  store.item.id = data.id;
-
-  store.item.name = data.name;
-  store.item.link = data.link;
-  store.item.image = data.image;
+  store.item = data;
 };
 
 const updateItem = () => {
@@ -78,11 +72,7 @@ const updateItem = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addItem">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('main_services.title')"
-      >
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('main_services.title')">
         <template #body>
           <ModalBody :item="store.item" />
         </template>
@@ -99,11 +89,7 @@ const updateItem = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateItem">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('main_services.title')"
-      >
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('main_services.title')">
         <template #body>
           <ModalBody :item="store.item" />
         </template>

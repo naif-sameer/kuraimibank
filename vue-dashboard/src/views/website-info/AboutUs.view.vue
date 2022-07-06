@@ -16,11 +16,10 @@ let aboutUsData = reactive({
   en: '',
 });
 
-onMounted(() => {
-  getAboutUs().then((res) => {
-    aboutUsData.ar = JSON.parse(res).ar;
-    aboutUsData.en = JSON.parse(res).en;
-  });
+// render data from store
+getAboutUs().then((res) => {
+  aboutUsData.ar = res.ar;
+  aboutUsData.en = res.en;
 });
 </script>
 

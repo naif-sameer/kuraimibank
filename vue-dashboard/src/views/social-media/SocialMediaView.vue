@@ -15,13 +15,11 @@ import { useSocialMediaStore } from '@/stores/social-media.store';
 import DragDropImage from '@/components/DragDropImage.vue';
 import Label from '@/components/form/Label.vue';
 
-// render data from store
-onMounted(async () => {
-  store.getSocialMedia();
-});
-
 const { t } = useI18n();
 let store = useSocialMediaStore();
+
+// render data from store
+// await store.getSocialMedia();
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -45,11 +43,7 @@ const showEditModal = (data: SocialMediaType) => {
   editModal.value = true;
 
   // update store item data
-  store.item.id = data.id;
-
-  store.item.name = data.name;
-  store.item.link = data.link;
-  store.item.icon = data.icon;
+  store.item = data;
 };
 
 const updateSocialMedia = () => {
@@ -85,11 +79,7 @@ const updateSocialMedia = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addSocialMedia">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('social-media')"
-      >
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('social-media')">
         <template #body>
           <!------ name ------>
           <Input v-model="store.item.name" type="text" :label="t('name')" />
@@ -118,11 +108,7 @@ const updateSocialMedia = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateSocialMedia">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('social-media')"
-      >
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('social-media')">
         <template #body>
           <!------ name ------>
           <Input v-model="store.item.name" type="text" :label="t('name')" />

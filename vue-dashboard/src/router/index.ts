@@ -1,12 +1,32 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
-const websiteInfoRoutes = {
+import { useLoadingStore } from '@/stores/loading.store';
+import { useCountriesStore } from '@/stores/countries.store';
+import { useExchangeRatesStore } from '@/stores/exchange-rates';
+import { useCitiesStore } from '@/stores/cities.store';
+import { useCategoriesStore } from '@/stores/categories.store';
+import { useSubCategoryStore } from '@/stores/sub-categories.store';
+import { useJobsStore } from '@/stores/jobs.store';
+import { useOurPartnerStore } from '@/stores/our-partners.store';
+import { useFinancialReportStore } from '@/stores/financial-reports.store';
+import { useNewsStore } from '@/stores/news.store';
+import { useMainServiceStore } from '@/stores/main-services.store';
+import { useServicePointStore } from '@/stores/service-points.store';
+import { useServiceStore } from '@/stores/services.store';
+
+const websiteInfoRoutes: RouteRecordRaw = {
   path: '/',
   name: 'website-info',
   component: () => import('@/views/website-info/WebsiteInfoView.vue'),
   meta: {
     module: 'website-info',
   },
+  beforeEnter() {
+    let loadingStore = useLoadingStore();
+
+    loadingStore.loading = true;
+  },
+
   children: [
     {
       path: '/',
@@ -77,16 +97,34 @@ const websiteInfoRoutes = {
   ],
 };
 
-const servicePointsRoutes = {
+const servicePointsRoutes: RouteRecordRaw = {
   path: '/service-points',
   name: 'service-points',
   component: () => import('@/views/service-points/Index.view.vue'),
+
+  async beforeEnter() {
+    const citiesStore = useCitiesStore();
+    let servicePointStore = useServicePointStore();
+
+    await servicePointStore.getServicePoints();
+    await citiesStore.getCities();
+  },
+
   children: [
     {
       path: '',
       name: 'service-points-page',
       meta: { module: 'getAll' },
       component: () => import('@/views/service-points/Table.view.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        const citiesStore = useCitiesStore();
+        let servicePointStore = useServicePointStore();
+
+        await servicePointStore.getServicePoints();
+        await citiesStore.getCities();
+      },
     },
     {
       path: '/service-points/add',
@@ -118,63 +156,118 @@ const router = createRouter({
       path: '/exchange-rates',
       name: 'exchange-rates',
       component: () => import('@/views/exchange-rates/ExchangeRatesView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useExchangeRatesStore().getExchangeRates();
+      },
     },
     {
       path: '/countries',
       name: 'countries',
       component: () => import('@/views/countries/CountriesView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useCountriesStore().getCountries();
+      },
     },
     {
       path: '/cities',
       name: 'cities',
       component: () => import('@/views/cities/CitiesView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useCitiesStore().getCities();
+      },
     },
 
     {
       path: '/categories',
       name: 'categories',
       component: () => import('@/views/categories/CategoriesView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useCategoriesStore().getCategories();
+      },
     },
     {
       path: '/sub-categories',
       name: 'sub-categories',
       component: () => import('@/views/sub-categories/SubCategoriesView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useSubCategoryStore().getSubCategories();
+      },
     },
 
     {
       path: '/jobs',
       name: 'jobs',
       component: () => import('@/views/jobs/JobsView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useJobsStore().getJobs();
+      },
     },
 
     {
       path: '/our-partners',
       name: 'our-partners',
       component: () => import('@/views/our-partners/OurPartnersView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useOurPartnerStore().getOurPartners();
+      },
     },
 
     {
       path: '/financial-reports',
       name: 'financial-reports',
       component: () => import('@/views/financial-reports/FinancialReportsView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useFinancialReportStore().getFinancialReports();
+      },
     },
 
     {
       path: '/news',
       name: 'news',
       component: () => import('@/views/news/NewsView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useNewsStore().getNews();
+      },
     },
 
     {
       path: '/main-services',
       name: 'main-services',
       component: () => import('@/views/main-services/MainServicesView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useMainServiceStore().getMainServices();
+      },
     },
 
     {
       path: '/services',
       name: 'services',
       component: () => import('@/views/services/ServicesView.vue'),
+      async beforeEnter() {
+        useLoadingStore().loading = true;
+
+        await useServiceStore().getServices();
+      },
     },
   ],
   scrollBehavior(to, from, savedPosition) {
@@ -182,4 +275,9 @@ const router = createRouter({
   },
 });
 
+router.afterEach(() => {
+  let loadingStore = useLoadingStore();
+
+  loadingStore.loading = false;
+});
 export default router;

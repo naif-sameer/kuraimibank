@@ -16,9 +16,7 @@ const { t } = useI18n();
 let store = useSubCategoryStore();
 
 // render data from store
-onMounted(async () => {
-  store.getSubCategories();
-});
+// await store.getSubCategories();
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -42,13 +40,7 @@ const showEditModal = (data: SubCategoryType) => {
   editModal.value = true;
 
   // update store item data
-  store.item.id = data.id;
-
-  store.item.name = data.name;
-  store.item.link = data.link;
-  store.item.category_id = data.category_id;
-  store.item.parent_category = data.parent_category;
-  store.item.icon = data.icon;
+  store.item = data;
 };
 
 const updateItem = () => {
@@ -80,11 +72,7 @@ const updateItem = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addItem">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('sub_categories.title')"
-      >
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('sub_categories.title')">
         <template #body>
           <ModalBody :item="store.item" />
         </template>
@@ -101,11 +89,7 @@ const updateItem = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateItem">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('sub_categories.title')"
-      >
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('sub_categories.title')">
         <template #body>
           <ModalBody :item="store.item" />
         </template>

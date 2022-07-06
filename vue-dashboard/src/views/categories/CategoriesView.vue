@@ -10,13 +10,11 @@ import Button from '@/components/form/Button.vue';
 import Table from './Table.vue';
 import { useCategoriesStore } from '@/stores/categories.store';
 
-// render data from store
-onMounted(async () => {
-  store.getCategories();
-});
-
 const { t } = useI18n();
 let store = useCategoriesStore();
+// render data from store
+
+// await store.getCategories();
 
 const createModal = ref(false);
 const showCreateModal = () => {
@@ -80,25 +78,13 @@ const updateCategory = () => {
   <!------ create item modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="addCategory">
-      <Modal
-        :open="createModal"
-        :hide-modal="() => (createModal = false)"
-        :modal-title="t('categories.title')"
-      >
+      <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('categories.title')">
         <template #body>
           <!------ arabic name ------>
-          <Input
-            v-model="store.item.name.ar"
-            type="text"
-            :label="t('categories.arabic-name')"
-          />
+          <Input v-model="store.item.name.ar" type="text" :label="t('categories.arabic-name')" />
 
           <!------ english name ------>
-          <Input
-            v-model="store.item.name.en"
-            type="text"
-            :label="t('categories.english-name')"
-          />
+          <Input v-model="store.item.name.en" type="text" :label="t('categories.english-name')" />
         </template>
 
         <template #footer>
@@ -113,25 +99,13 @@ const updateCategory = () => {
   <!------ edit modal ------>
   <Teleport to="#app-modal">
     <form class="space-y-4" @submit.prevent="updateCategory">
-      <Modal
-        :open="editModal"
-        :hide-modal="() => (editModal = false)"
-        :modal-title="t('categories.title')"
-      >
+      <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('categories.title')">
         <template #body>
           <!------ arabic name ------>
-          <Input
-            v-model="store.item.name.ar"
-            type="text"
-            :label="t('categories.arabic-name')"
-          />
+          <Input v-model="store.item.name.ar" type="text" :label="t('categories.arabic-name')" />
 
           <!------ english name ------>
-          <Input
-            v-model="store.item.name.en"
-            type="text"
-            :label="t('categories.english-name')"
-          />
+          <Input v-model="store.item.name.en" type="text" :label="t('categories.english-name')" />
         </template>
 
         <template #footer>

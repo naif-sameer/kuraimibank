@@ -20,14 +20,13 @@ let ContactUsData = reactive({
   mail_box: '',
 });
 
-onMounted(() => {
-  getContactUsData().then((res) => {
-    ContactUsData.email = JSON.parse(res).email;
-    ContactUsData.phone = JSON.parse(res).phone;
-    ContactUsData.fax = JSON.parse(res).fax;
-    ContactUsData.free_phone = JSON.parse(res).free_phone;
-    ContactUsData.mail_box = JSON.parse(res).mail_box;
-  });
+// render data from store
+getContactUsData().then((res) => {
+  ContactUsData.email = res.email;
+  ContactUsData.phone = res.phone;
+  ContactUsData.fax = res.fax;
+  ContactUsData.free_phone = res.free_phone;
+  ContactUsData.mail_box = res.mail_box;
 });
 </script>
 
@@ -38,39 +37,19 @@ onMounted(() => {
   <Card>
     <form class="space-y-8" @submit.prevent="updateContactUsData(ContactUsData)">
       <!-- phone -->
-      <div>
-        <Label>{{ t('contact_us.phone') }} </Label>
-
-        <Input required type="number" v-model="ContactUsData.phone" />
-      </div>
+      <Input required type="number" v-model="ContactUsData.phone" :label="t('contact_us.phone')" />
 
       <!-- email -->
-      <div>
-        <Label>{{ t('contact_us.email') }} </Label>
-
-        <Input required type="email" v-model="ContactUsData.email" />
-      </div>
+      <Input required type="email" v-model="ContactUsData.email" :label="t('contact_us.email')" />
 
       <!-- fax -->
-      <div>
-        <Label>{{ t('contact_us.fax') }} </Label>
-
-        <Input required type="number" v-model="ContactUsData.fax" />
-      </div>
+      <Input required type="number" v-model="ContactUsData.fax" :label="t('contact_us.fax')" />
 
       <!-- free_phone -->
-      <div>
-        <Label>{{ t('contact_us.free_phone') }} </Label>
-
-        <Input required type="number" v-model="ContactUsData.free_phone" />
-      </div>
+      <Input required type="number" v-model="ContactUsData.free_phone" :label="t('contact_us.free_phone')" />
 
       <!-- mail_box -->
-      <div>
-        <Label>{{ t('contact_us.mail_box') }} </Label>
-
-        <Input required type="text" v-model="ContactUsData.mail_box" />
-      </div>
+      <Input required type="text" v-model="ContactUsData.mail_box" :label="t('contact_us.mail_box')" />
 
       <Button>{{ t('update') }} </Button>
     </form>

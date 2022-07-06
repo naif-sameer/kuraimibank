@@ -17,11 +17,10 @@ let ValuesPrinciplesData = reactive({
   en: '',
 });
 
-onMounted(() => {
-  getValuesPrinciplesData().then((res) => {
-    ValuesPrinciplesData.ar = JSON.parse(res).ar;
-    ValuesPrinciplesData.en = JSON.parse(res).en;
-  });
+// render data from store
+getValuesPrinciplesData().then((res) => {
+  ValuesPrinciplesData.ar = res.ar;
+  ValuesPrinciplesData.en = res.en;
 });
 </script>
 

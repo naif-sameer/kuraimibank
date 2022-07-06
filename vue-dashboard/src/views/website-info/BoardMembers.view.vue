@@ -17,11 +17,10 @@ let BoardMembersData = reactive({
   en: '',
 });
 
-onMounted(() => {
-  getBoardMembersData().then((res) => {
-    BoardMembersData.ar = JSON.parse(res).ar;
-    BoardMembersData.en = JSON.parse(res).en;
-  });
+// render data from store
+getBoardMembersData().then((res) => {
+  BoardMembersData.ar = res.ar;
+  BoardMembersData.en = res.en;
 });
 </script>
 

@@ -23,9 +23,7 @@ const { t, locale } = useI18n();
     <div class="w-full overflow-x-auto">
       <table class="w-full whitespace-no-wrap">
         <!------ table head ------>
-        <thead
-          class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50"
-        >
+        <thead class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
           <tr>
             <TableTd> {{ t('title') }} </TableTd>
             <TableTd> {{ t('description') }} </TableTd>
@@ -40,12 +38,7 @@ const { t, locale } = useI18n();
         <tbody class="bg-white divide-y text-gray-700">
           <tr v-for="item in store.items">
             <TableTd>
-              <a
-                class="hover:text-blue-600 hover:underline"
-                :href="item.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="hover:text-blue-600 hover:underline" :href="item.pdf" target="_blank" rel="noopener noreferrer">
                 {{ locale === 'en' ? item.title.en : item.title.ar }}
               </a>
             </TableTd>
@@ -53,9 +46,7 @@ const { t, locale } = useI18n();
             <TableTdDescription :description="item.description" />
 
             <TableTd class="w-36">
-              <Badge v-if="item.is_active" type="primary">
-                {{ t('active') }}</Badge
-              >
+              <Badge v-if="item.is_active" type="primary">{{ t('active') }}</Badge>
               <Badge v-else type="danger"> {{ t('not-active') }}</Badge>
             </TableTd>
 
@@ -66,16 +57,10 @@ const { t, locale } = useI18n();
             <TableTd>
               <div class="gap-3 flex">
                 <!-- edit modal button -->
-                <i
-                  @click="showEditModal(item)"
-                  class="fa fa-edit cursor-pointer text-purple-600"
-                ></i>
+                <i @click="showEditModal(item)" class="fa fa-edit cursor-pointer text-purple-600"></i>
 
                 <!-- active toggle button -->
-                <Switch
-                  :is-active="item.is_active"
-                  @click="store.activeToggle(item.id, item.is_active)"
-                />
+                <Switch :is-active="item.is_active" @click="store.activeToggle(item.id, item.is_active)" />
               </div>
             </TableTd>
           </tr>

@@ -14,7 +14,7 @@ const { t } = useI18n();
 let citiesStore = useCitiesStore();
 
 // render data from store
-await citiesStore.getCities();
+// await citiesStore.getCities();
 </script>
 
 <template>

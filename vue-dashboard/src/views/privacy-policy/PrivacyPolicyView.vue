@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { onMounted, ref } from 'vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import SectionTitle from '@/components/SectionTitle.vue';
@@ -11,11 +10,6 @@ import { usePrivacyPolicyStore } from '@/stores/privacy-policy.store';
 
 import Label from '@/components/form/Label.vue';
 import Card from '@/components/Card.vue';
-
-// render data from store
-onMounted(async () => {
-  store.getPrivacyPolicy();
-});
 
 const { t } = useI18n();
 let store = usePrivacyPolicyStore();
