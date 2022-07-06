@@ -1,0 +1,99 @@
+@use "../abstracts/mixins" as *;
+
+:root {
+  --primary-light-color: rgb(240, 244, 249);
+  --primary-base-color: #73659a;
+  --primary-dark-color: #423064;
+
+  --secondary-base-color: #e26e0b;
+
+  --neutral-light-color: #ffffff;
+  --neutral-base-color: #686868;
+  --neutral-dark-color: #393e41;
+}
+
+.footer {
+  background-color: var(--primary-base-color);
+  min-height: 500px;
+
+  padding: {
+    top: 2rem;
+    bottom: 2rem;
+  }
+
+  &-logo {
+    @include mx(auto);
+    max-width: 250px;
+  }
+
+  .list {
+    display: grid;
+    gap: 3rem;
+
+    @include grid-cols(2);
+
+    @include breakpoints(md) {
+      @include grid-cols(3);
+    }
+
+    @include breakpoints(xl) {
+      @include grid-cols(6);
+    }
+
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .item {
+    &-title {
+      color: white;
+      font-weight: 600;
+    }
+
+    .item-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item-list-item {
+      color: var(--primary-dark-color);
+    }
+  }
+
+  &-info {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .download-app {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        display: flex;
+      }
+    }
+
+    .social-media {
+      display: flex;
+      gap: 4rem;
+
+      a {
+        display: flex;
+      }
+
+      svg {
+        fill: white;
+        width: 25px;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 5rem;
+    font-size: 0.8rem;
+    color: var(--neutral-light-color);
+  }
+}

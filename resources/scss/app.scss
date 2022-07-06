@@ -1,0 +1,25 @@
+// base
+@use "base/normalize";
+@use "base/reset";
+@use "base/typography";
+@use "base/global";
+
+// components
+@use "components/buttons";
+@use "components/heading";
+@use "components/slider";
+
+// layout
+@use "layout/grid";
+@use "layout/header";
+@use "layout/navigation";
+@use "layout/forms";
+@use "layout/sidebar";
+@use "layout/footer";
+
+// pages
+@use "pages/home";
+
+body {
+  min-height: 5000px;
+}

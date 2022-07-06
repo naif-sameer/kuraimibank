@@ -1,0 +1,18 @@
+$gutter-width: 1rem; // 16px;
+$grid-columns: 12;
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+
+:root {
+  --primary-light-color: #f2f5fa;
+  --primary-base-color: #73659a;
+  --primary-dark-color: #423064;
+
+  --secondary-base-color: #e26e0b;
+
+  --neutral-light-color: #ffffff;
+  --neutral-base-color: #686868;
+  --neutral-dark-color: #393e41;
+}

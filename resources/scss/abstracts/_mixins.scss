@@ -1,0 +1,149 @@
+@use "variables" as *;
+@use "placeholders" as *;
+
+@mixin grid-cols($value) {
+  @if $value == null or $value > 12 or $value < 1 {
+    @warn 'You should pass value between 1 to 12';
+  }
+
+  grid-template-columns: repeat($value, minmax(0, 1fr));
+}
+
+@mixin grid-rows($value) {
+  @if $value == null or $value > 12 or $value < 1 {
+    @warn 'You should pass value between 1 to 12';
+  }
+
+  grid-template-rows: repeat($value, minmax(0, 1fr));
+}
+
+// grid mixin
+@mixin col($value: 0) {
+  @if $value > $grid-columns {
+    @warn 'you should use value between 1 and #{$grid-columns}';
+  }
+
+  @if $value > 0 {
+    flex: 0 0 percentage(($value / 12));
+    max-width: percentage(($value / 12));
+  } @else {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  padding-inline-start: $gutter-width;
+  padding-inline-end: $gutter-width;
+}
+
+/*********** Breakpoint  ****************/
+
+@mixin breakpoints($point) {
+  @if $point == sm {
+    @media (min-width: $sm) {
+      @content;
+    }
+  }
+
+  @if $point == md {
+    @media (min-width: $md) {
+      @content;
+    }
+  }
+
+  @if $point == lg {
+    @media (min-width: $lg) {
+      @content;
+    }
+  }
+
+  @if $point == xl {
+    @media (min-width: $xl) {
+      @content;
+    }
+  }
+}
+
+/*********** padding  ****************/
+
+@mixin ps($value) {
+  padding-inline-start: $value;
+}
+
+@mixin pe($value) {
+  padding-inline-end: $value;
+}
+
+@mixin py($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin px($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+/*********** margin  ****************/
+
+@mixin ms($value) {
+  margin-inline-start: $value;
+}
+
+@mixin me($value) {
+  margin-inline-end: $value;
+}
+
+@mixin my($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+
+@mixin mx($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+/*********** space  ****************/
+/*
+  - here I use `lobotomized owl selector`
+  - read more about it
+  https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/
+*/
+@mixin space-x($value) {
+  & > * + * {
+    margin-right: $value;
+    margin-left: $value;
+  }
+}
+
+/*********** shadow  ****************/
+
+@mixin shadow($value: "default") {
+  @if $value == "default" {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  }
+
+  @if $value == sm {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+
+  @if $value == md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  @if $value == lg {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05),
+      0 4px 6px -4px rgb(0 0 0 / 0.05);
+  }
+
+  @if $value == xl {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05),
+      0 8px 10px -6px rgb(0 0 0 / 0.05);
+  }
+
+  @if $value == 2xl {
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+}

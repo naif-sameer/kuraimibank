@@ -1,0 +1,41 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.nav {
+  @include py(2rem);
+  position: relative;
+
+  &-list {
+    border: 1px solid transparent;
+    border-top-color: var(--primary-light-color);
+    border-bottom-color: var(--primary-light-color);
+
+    @extend %list-none, %flex, %justify-between;
+  }
+
+  &-item {
+    @include py(1rem);
+    @include px(1rem);
+    transition: all 0.5s ease-in;
+
+    &.is-active {
+      font-weight: 600;
+    }
+
+    &.is-active,
+    &:hover {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0.2rem;
+        height: 25%;
+        background-color: var(--neutral-light-color);
+      }
+    }
+  }
+}

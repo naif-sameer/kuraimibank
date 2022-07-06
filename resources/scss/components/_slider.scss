@@ -1,0 +1,10 @@
+.slider-wrapper {
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  display: flex;
+  transition: transform var(--slider-duration, 0.3s)
+    var(--slider-timing-function, ease-in);
+}
