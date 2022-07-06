@@ -5,7 +5,7 @@ const randomInputID = Math.floor(Math.random() * 1e8 * Date.now());
 
 withDefaults(
   defineProps<{
-    modelValue?: string;
+    modelValue: string | number;
     label: string;
     type?: string;
     required?: boolean;
