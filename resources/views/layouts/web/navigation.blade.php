@@ -40,27 +40,16 @@
       <li class="nav-item is-active">
         <a href="/"> @lang('navbar.home') </a>
       </li>
+
       <li class="nav-item">
         <a href="{{ route('AboutUs') }}"> @lang('navbar.about-bank') </a>
       </li>
-      <li class="nav-item">
-        <a href="{{ route('Services', ['id' => 1]) }}"> @lang('navbar.individual-services') </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('Services', ['id' => 1]) }}"> @lang('navbar.corporate-services') </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('Services', ['id' => 1]) }}"> @lang('navbar.karimi-express') </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('Services', ['id' => 1]) }}"> @lang('navbar.am-fulus') </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('Services', ['id' => 1]) }}"> @lang('navbar.finance') </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('Services', ['id' => 1]) }}"> @lang('navbar.bank-apps') </a>
-      </li>
+
+      @foreach ($navItems as $item)
+        <li class="nav-item">
+          <a href="{{ $item['link'] }}">{{ $item['name']['ar'] }} </a>
+        </li>
+      @endforeach
     </ul>
   </nav>
 </header>
