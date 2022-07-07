@@ -26,18 +26,16 @@
     </section>
 
 
-    <!------ price ------>
-    <section class="price">
+    <!------ currencies ------>
+    <section class="currencies">
       <div class="container">
-        <div class="price-content">
-          <h3 class="btn">@lang('heading.currency-exchange')</h3>
-
+        <div class="currencies-content">
           <div class="list">
 
-            @for ($i = 0; $i < 3; $i++)
+            @foreach ($currencies as $currency)
               <div class="item">
                 <div class="item-name">
-                  <h3 class="item-title">Youro</h3>
+                  <h3 class="item-title">{{ $currency->name['ar'] }}</h3>
 
                   <x-icon icon='arrow-trend-down' />
                 </div>
@@ -45,17 +43,19 @@
                 <div class="item-sale">
                   <h3 class="item-subtitle">Sale</h3>
 
-                  <div class="item-value">600</div>
+                  <div class="item-value">{{ $currency->sale }}</div>
                 </div>
 
                 <div class="item-buy">
                   <h3 class="item-subtitle">buy</h3>
 
-                  <div class="item-value">500</div>
+                  <div class="item-value">{{ $currency->buy }}</div>
                 </div>
               </div>
-            @endfor
+            @endforeach
           </div>
+
+          <h3 class="btn">@lang('heading.currency-exchange')</h3>
         </div>
       </div>
     </section>
@@ -71,44 +71,28 @@
 
         <section class="services-slider">
           <div class="services-slider-pagination">
-            <div class="services-slider-pagination-item">البطاقات الإئتمانية</div>
-            <div class="services-slider-pagination-item">البطاقات الإئتمانية</div>
-            <div class="services-slider-pagination-item">البطاقات الإئتمانية</div>
-            <div class="services-slider-pagination-item">البطاقات الإئتمانية</div>
-            <div class="services-slider-pagination-item">البطاقات الإئتمانية</div>
+            @foreach ($mainServices as $service)
+              <div class="services-slider-pagination-item">{{ $service['title']['ar'] }}</div>
+            @endforeach
           </div>
 
           <div class="services-slider-body">
             <div class="slider-wrapper">
               <div class="slider">
 
-
-                @for ($i = 0; $i < 5; $i++)
+                @foreach ($mainServices as $service)
                   <div class="slider-item">
-
-
                     <div class="slide-content">
-                      <h3 class="slide-title">
-                        ماكينات الصراف الآلي
-                      </h3>
+                      <h3 class="slide-title">{{ $service['title']['ar'] }}</h3>
 
-                      <p class="slide-description">
-                        هذا النص هو مثال لنص يمكن أن يستبدل
-                        في نفس المساحة، لقد تم توليد هذا
-                        النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
-                        نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
-                        مثال لنص يمكن أن يستبدل
-                      </p>
+                      <p class="slide-description">{{ $service['description']['ar'] }}</p>
 
-                      <button class="slide-btn btn">@lang('heading.more')</button>
+                      <a href="services/{{ $service['id'] }}" class="slide-btn btn">@lang('heading.more')</a>
                     </div>
 
-
-                    <div class="slide-bg">
-                      <img src="{{ asset('images/atm.png') }}" alt="slider images" />
-                    </div>
+                    <div class="slide-bg"> <img src="{{ $service['image'] }}" alt="slider images" /> </div>
                   </div>
-                @endfor
+                @endforeach
               </div>
             </div>
 

@@ -76,8 +76,8 @@
   }
 }
 
-.home  // price
-.price {
+// currencies
+.home .currencies {
   position: relative;
 
   &::before,
@@ -109,10 +109,10 @@
     position: relative;
     z-index: 20;
     background-color: var(--neutral-light-color);
-
     padding: 2rem;
     display: flex;
     justify-content: space-between;
+    gap: 4rem;
   }
 
   &-title {
@@ -127,6 +127,7 @@
     display: flex;
     font-size: 0.8rem;
     gap: 1rem;
+    flex-grow: 2;
   }
 
   .item {
@@ -134,6 +135,7 @@
     gap: 2rem;
     padding: 1rem 2rem;
     border: 2px solid rgb(250, 249, 249);
+    flex-grow: 1;
 
     &-title {
       font-weight: 600;
@@ -161,124 +163,124 @@
   }
 }
 
-.home {
-  // services section
-  .services {
+// services section
+.home .services {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    bottom: 40px;
+    width: 100%;
+    height: 300px;
+    opacity: 0.1;
+    background-image: url("@/images/pattern-bg.png");
+  }
+
+  &-wrapper {
+    @include mx(auto);
+    margin-top: 5rem;
+    width: 90%;
+    max-width: $xl;
+  }
+
+  &-slider {
     position: relative;
+    margin-top: 1rem;
 
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: 5;
-      bottom: 40px;
-      width: 100%;
-      height: 300px;
-      opacity: 0.1;
-      background-image: url("@/images/pattern-bg.png");
-    }
-
-    &-wrapper {
+    &-pagination {
       @include mx(auto);
-      margin-top: 5rem;
-      width: 90%;
-      max-width: $xl;
+      display: flex;
+      justify-content: space-between;
     }
 
-    &-slider {
+    &-pagination-item {
       position: relative;
-      margin-top: 1rem;
+      @include py(3rem);
+      cursor: pointer;
 
-      &-pagination {
-        @include mx(auto);
-        display: flex;
-        justify-content: space-between;
-      }
-
-      &-pagination-item {
-        position: relative;
-        @include py(3rem);
-        cursor: pointer;
-
-        &.is-active::after {
-          content: "";
-          position: absolute;
-          bottom: 16px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 1px;
-          height: 20%;
-          background-color: var(--primary-dark-color);
-        }
-      }
-
-      &-body {
-        @include shadow(md);
-
-        position: relative;
-        margin-top: 0.5rem;
-        z-index: 10;
-      }
-
-      .slider-wrapper {
-        background-color: white;
-        @include mx(auto);
-        position: relative;
-      }
-
-      .slider-item {
-        min-width: 100%;
-        height: 400px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border: 1px solid #eee;
-      }
-
-      .slide-content {
-        width: 70%;
-        padding: 2.5rem;
-        padding-bottom: 1rem;
-      }
-
-      .slide-title {
-        font-size: 1.5rem;
-        color: var(--primary-base-color);
-      }
-
-      .slide-description {
-        color: var(--neutral-base-color);
-        font-size: 0.9rem;
-      }
-
-      .slide-btn {
-        @include px(3rem);
-
-        margin-top: 2rem;
-      }
-
-      .slide-bg {
-        padding: 0.5rem;
-        width: 30%;
-        height: 100%;
-        display: flex;
-        background-color: var(--primary-base-color);
-      }
-
-      &-action {
+      &.is-active::after {
+        content: "";
         position: absolute;
-        z-index: 10;
-        top: 65%;
+        bottom: 16px;
         left: 50%;
-        width: 100%;
-        max-width: calc(#{$xl} + 15rem);
-        display: flex;
-        justify-content: space-between;
         transform: translateX(-50%);
+        width: 1px;
+        height: 20%;
+        background-color: var(--primary-dark-color);
+      }
+    }
 
-        button {
-          color: var(--primary-base-color);
-          font-size: 2rem;
-        }
+    &-body {
+      @include shadow(md);
+
+      position: relative;
+      margin-top: 0.5rem;
+      z-index: 10;
+    }
+
+    .slider-wrapper {
+      background-color: white;
+      @include mx(auto);
+      position: relative;
+    }
+
+    .slider-item {
+      min-width: 100%;
+      height: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #eee;
+    }
+
+    .slide-content {
+      width: 70%;
+      padding: 2.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .slide-title {
+      font-size: 1.5rem;
+      color: var(--primary-base-color);
+    }
+
+    .slide-description {
+      margin-top: 2rem;
+      color: var(--neutral-base-color);
+      font-size: 0.9rem;
+      max-width: 80%;
+    }
+
+    .slide-btn {
+      margin-top: 5rem;
+
+      @include px(3rem);
+    }
+
+    .slide-bg {
+      padding: 0.5rem;
+      width: 30%;
+      height: 100%;
+      display: flex;
+      background-color: var(--primary-base-color);
+    }
+
+    &-action {
+      position: absolute;
+      z-index: 10;
+      top: 65%;
+      left: 50%;
+      width: 100%;
+      max-width: calc(#{$xl} + 15rem);
+      display: flex;
+      justify-content: space-between;
+      transform: translateX(-50%);
+
+      button {
+        color: var(--primary-base-color);
+        font-size: 2rem;
       }
     }
   }
@@ -289,6 +291,7 @@
   margin-top: 6rem;
   padding-top: 5rem;
   min-height: 750px;
+  overflow-x: hidden;
 
   .wrapper {
     min-height: 500px;
