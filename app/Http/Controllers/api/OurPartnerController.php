@@ -4,52 +4,52 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OurPartnerRequest;
+use App\Http\Resources\OurPartnerResource;
 use App\Models\OurPartner;
 use Illuminate\Http\Request;
 
 class OurPartnerController extends Controller
 {
-  public function getAll()
+  public function index(Request $request)
   {
-    return OurPartner::all();
+    return OurPartnerResource::collection(OurPartner::paginate($request->resultsPerPage ?? 10));
   }
 
-  public function getOne(Request $request, $id)
+  public function show(OurPartner $ourPartner)
   {
-    return OurPartner::where('id', $id)->first();
+    return new OurPartnerResource($ourPartner);
   }
 
-  public function save(OurPartnerRequest $request)
+  public function store(OurPartnerRequest $request)
   {
     $fileName = $this->storeImage($request->file('image'));
 
     return OurPartner::create([
-      'title'             =>  $request->input('title'),
-      'description'       =>  $request->input('description'),
+      'title'             =>  $request->title,
+      'description'       =>  $request->description,
       'image'             =>  $fileName,
     ]);
   }
 
-  public function update(OurPartnerRequest $request, $id)
+  public function update(OurPartnerRequest $request, OurPartner $ourPartner)
   {
-    $oldFileName = OurPartner::where('id', $id)->first()->image;
+    $oldFileName = $ourPartner->image;
 
     if ($request->file('image')) $fileName = $this->updateImage($request->file('image'), $oldFileName);
     else $fileName = $oldFileName;
 
-
-    $res = OurPartner::where('id', $id)->update([
-      'title'             =>  $request->input('title'),
-      'description'       =>  $request->input('description'),
+    $res = $ourPartner->update([
+      'title'             =>  $request->title,
+      'description'       =>  $request->description,
       'image'             =>  $fileName,
     ]);
 
     return $res ? ['message' => "OurPartner data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request, $id)
+  public function activeToggle(Request $request, OurPartner $ourPartner)
   {
-    $res = OurPartner::where('id', $id)->update(['is_active' => $request->is_active]);
+    $res = $ourPartner->update($request->only(['is_active']));
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

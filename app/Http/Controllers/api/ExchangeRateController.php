@@ -4,45 +4,37 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExchangeRateRequest;
+use App\Http\Resources\ExchangeRateResource;
 use App\Models\ExchangeRate;
 use Illuminate\Http\Request;
 
 class ExchangeRateController extends Controller
 {
-  public function getAll()
+  public function index(Request $request)
   {
-    return ExchangeRate::all();
+    return ExchangeRateResource::collection(ExchangeRate::paginate($request->resultsPerPage ?? 10));
   }
 
-  public function getOne(Request $request, $id)
+  public function show(ExchangeRate $exchangeRate)
   {
-    return ExchangeRate::where('id', $id)->first();
+    return new ExchangeRateResource($exchangeRate);
   }
 
-  public function save(ExchangeRateRequest $request)
+  public function store(ExchangeRateRequest $request)
   {
-    return ExchangeRate::create([
-      'name'       =>  $request->input('name'),
-      'sale'       =>  $request->input('sale'),
-      'buy'        =>  $request->input('buy')
-    ]);
+    return ExchangeRate::create($request->only(['title', 'sale', 'buy']));
   }
 
-  public function update(ExchangeRateRequest $request, $id)
+  public function update(ExchangeRateRequest $request, ExchangeRate $exchangeRate)
   {
-    $res = ExchangeRate::where('id', $id)
-      ->update([
-        'name'       =>  $request->input('name'),
-        'sale'       =>  $request->input('sale'),
-        'buy'        =>  $request->input('buy')
-      ]);
+    $res = $exchangeRate->update($request->only(['title', 'sale', 'buy']));
 
     return $res ? ['message' => "ExchangeRate data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request, $id)
+  public function activeToggle(Request $request, ExchangeRate $exchangeRate)
   {
-    $res = ExchangeRate::where('id', $id)->update(['is_active' => $request->is_active]);
+    $res = $exchangeRate->update($request->only(['is_active']));
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

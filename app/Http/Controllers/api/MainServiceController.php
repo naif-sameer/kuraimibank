@@ -4,51 +4,51 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MainServiceRequest;
+use App\Http\Resources\MainServiceResource;
 use App\Models\MainService;
 use Illuminate\Http\Request;
 
 class MainServiceController extends Controller
 {
-  public function getAll()
+  public function index(Request $request)
   {
-    return MainService::all();
+    return MainServiceResource::collection(MainService::paginate($request->resultsPerPage ?? 10));
   }
 
-  public function getOne(Request $request, $id)
+  public function show(MainService $mainService)
   {
-    return MainService::where('id', $id)->first();
+    return new MainServiceResource($mainService);
   }
 
-  public function save(MainServiceRequest $request)
+  public function store(MainServiceRequest $request)
   {
     $fileName = $this->storeImage($request->file('image'));
 
     return MainService::create([
-      'name'    =>  $request->input('name'),
-      'link'    =>  $request->input('link'),
+      'title'   =>  $request->title,
       'image'   =>  $fileName,
     ]);
   }
 
-  public function update(MainServiceRequest $request, $id)
+  public function update(MainServiceRequest $request, MainService $mainService)
   {
-    $oldFileName = MainService::where('id', $id)->first()->image;
+    $oldFileName = $mainService->image;
 
     if ($request->file('image')) $fileName = $this->updateImage($request->file('image'), $oldFileName);
     else $fileName = $oldFileName;
 
-    $res = MainService::where('id', $id)->update([
-      'name'    =>  $request->input('name'),
-      'link'    =>  $request->input('link'),
+    $res = $mainService->update([
+      'title'   =>  $request->title,
+      'link'    =>  $request->link,
       'image'   =>  $fileName,
     ]);
 
     return $res ? ['message' => "MainService data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request, $id)
+  public function activeToggle(Request $request, MainService $mainService)
   {
-    $res = MainService::where('id', $id)->update(['is_active' => $request->is_active]);
+    $res = $mainService->update($request->only(['is_active']));
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

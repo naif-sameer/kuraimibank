@@ -4,43 +4,37 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CityRequest;
+use App\Http\Resources\CityResource;
 use App\Models\City;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
-  public function getAll()
+  public function index(Request $request)
   {
-    return City::with('country')->get();
+    return CityResource::collection(City::paginate($request->resultsPerPage ?? 10));
   }
 
-  public function getOne(City $city)
+  public function show(City $city)
   {
-    return $city->load('country');
+    return new CityResource($city);
   }
 
-  public function save(CityRequest $request)
+  public function store(CityRequest $request)
   {
-    return City::create([
-      'name'          =>  $request->input('name'),
-      'country_id'    =>  $request->input('country_id'),
-      'city_code'     =>  $request->input('city_code'),
-    ]);
+    return City::create($request->only(['title', 'country_id', 'city_code']));
   }
 
   public function update(CityRequest $request, City $city)
   {
-    $res = $city->update([
-      'name'          =>  $request->input('name'),
-      'country_id'    =>  $request->input('country_id')
-    ]);
+    $res = $city->update($request->only(['title', 'country_id']));
 
     return $res ? ['message' => "City data updated"] : ['error' => true];
   }
 
   public function activeToggle(Request $request, City $city)
   {
-    $res = $city->update(['is_active' => $request->is_active]);
+    $res = $city->update($request->only(['is_active']));
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

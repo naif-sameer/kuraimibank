@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ServicePointRequest;
+use App\Http\Resources\ServicePointResource;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\ServicePoint;
@@ -11,14 +12,14 @@ use Illuminate\Http\Request;
 
 class ServicePointController extends Controller
 {
-  public function getAll()
+  public function index(Request $request)
   {
-    return ServicePoint::with('city')->get();
+    return ServicePointResource::collection(ServicePoint::paginate($request->resultsPerPage ?? 10));
   }
 
-  public function getOne(ServicePoint $servicePoint)
+  public function show(ServicePoint $servicePoint)
   {
-    return $servicePoint->load('city');
+    return new ServicePointResource($servicePoint);
   }
 
   public function getCityId($address)
@@ -32,14 +33,14 @@ class ServicePointController extends Controller
     // create country if not exists
     if (!$country) {
       $country = Country::create([
-        "name"            => json_encode($address['country_name']),
+        "title"           => $address['country_name'],
         "country_code"    => $address['country_code'],
       ]);
     }
 
     // create city
     $city = City::create([
-      "name"        => json_encode($address['city_name']),
+      "title"       => $address['city_name'],
       "city_code"   => $address['city_code'],
       "country_id"  => $country->id,
     ]);
@@ -47,38 +48,32 @@ class ServicePointController extends Controller
     return $city->id;
   }
 
-
-  public function save(ServicePointRequest $request)
+  public function store(ServicePointRequest $request)
   {
-    $cityID =  $this->getCityId($request->input('addressDetails'));
+    $cityID =  $this->getCityId($request->addressDetails);
 
     return ServicePoint::create([
-      'name'          =>  $request->input('name'),
-      'address'       =>  $request->input('address'),
-      'working_hours' =>  $request->input('working_hours'),
-      'phone'         =>  $request->input('phone'),
-      'second_phone'  =>  $request->input('second_phone'),
+      'title'         =>  $request->title,
+      'address'       =>  $request->address,
+      'working_hours' =>  $request->working_hours,
+      'phone'         =>  $request->phone,
+      'second_phone'  =>  $request->second_phone,
       'city_id'       =>  $cityID,
     ]);
   }
 
-  public function update(ServicePointRequest $request, $id)
+  public function update(ServicePointRequest $request, ServicePoint $servicePoint)
   {
-    $res = ServicePoint::where('id', $id)->update([
-      'name'          =>  $request->input('name'),
-      'address'       =>  $request->input('address'),
-      'working_hours' =>  $request->input('working_hours'),
-      'phone'         =>  $request->input('phone'),
-      'second_phone'  =>  $request->input('second_phone'),
-      'city_id'       =>  $request->input('city_id'),
-    ]);
+    $res = $servicePoint->update($request->only([
+      'title', 'address', 'working_hours', 'phone', 'second_phone', 'city_id'
+    ]));
 
     return $res ? ['message' => "ServicePoint data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request, $id)
+  public function activeToggle(Request $request, ServicePoint $servicePoint)
   {
-    $res = ServicePoint::where('id', $id)->update(['is_active' => $request->is_active]);
+    $res = $servicePoint->update($request->only(['is_active']));
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

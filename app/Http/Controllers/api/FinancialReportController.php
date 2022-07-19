@@ -4,56 +4,51 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FinancialReportRequest;
+use App\Http\Resources\FinancialReportResource;
 use App\Models\FinancialReport;
 use Illuminate\Http\Request;
 
 class FinancialReportController extends Controller
 {
-  public function getAll()
+  public function index(Request $request)
   {
-    return FinancialReport::all();
+    return FinancialReportResource::collection(FinancialReport::paginate($request->resultsPerPage ?? 10));
   }
 
-  public function getOne(Request $request, $id)
+  public function show(FinancialReport $financialReport)
   {
-    return FinancialReport::where('id', $id)->first();
+    return new FinancialReportResource($financialReport);
   }
 
-  public function save(FinancialReportRequest $request)
+  public function store(FinancialReportRequest $request)
   {
-
     $fileName = $this->storeFile($request->file('pdf'), 'pdf');
 
     return FinancialReport::create([
-      'title'             =>  $request->input('title'),
-      'description'       =>  $request->input('description'),
+      'title'             =>  $request->title,
+      'description'       =>  $request->description,
       'pdf'               =>  $fileName,
     ]);
   }
 
-  public function update(FinancialReportRequest $request, $id)
+  public function update(FinancialReportRequest $request, FinancialReport $financialReport)
   {
+    $oldFileName = $financialReport->pdf;
 
-    $oldFileName = FinancialReport::where('id', $id)->first()->pdf;
+    if ($request->file('pdf')) $fileName = $this->updateFile($request->file('pdf'), 'pdf', $oldFileName);
 
-    if ($request->file('pdf')) {
-      $fileName = $this->updateFile($request->file('pdf'), 'pdf', $oldFileName);
-    } else {
-      $fileName = $oldFileName;
-    }
-
-    $res = FinancialReport::where('id', $id)->update([
-      'title'             =>  $request->input('title'),
-      'description'       =>  $request->input('description'),
-      'pdf'               =>  $fileName
+    $res = $financialReport->update([
+      'title'             =>  $request->title,
+      'description'       =>  $request->description,
+      'pdf'               =>  $fileName ?? $oldFileName,
     ]);
 
     return $res ? ['message' => "FinancialReport data updated"] : ['error' => true];
   }
 
-  public function activeToggle(Request $request, $id)
+  public function activeToggle(Request $request, FinancialReport $financialReport)
   {
-    $res = FinancialReport::where('id', $id)->update(['is_active' => $request->is_active]);
+    $res = $financialReport->update(['is_active' => $request->is_active]);
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }

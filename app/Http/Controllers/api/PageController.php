@@ -4,37 +4,38 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PageRequest;
+use App\Http\Resources\PageResource;
 use App\Models\Page;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-  public function getAll()
+  public function index()
   {
-    return Page::all();
+    return PageResource::collection(Page::all());
   }
 
-  public function getOne(Request $request, $table_key)
+  public function show($table_key)
   {
-    return Page::where('table_key', $table_key)->first();
+    return new PageResource(Page::where('table_key', $table_key)->first());
   }
 
-  public function save(PageRequest $request)
+  public function store(PageRequest $request)
   {
     return Page::create([
-      'table_key'         =>  $request->input('table_key'),
-      'title'             =>  $request->input('title'),
-      'sub_title'         =>  $request->input('sub_title'),
-      'description'       =>  $request->input('description'),
+      'table_key'         =>  $request->table_key,
+      'title'             =>  $request->title,
+      'sub_title'         =>  $request->sub_title,
+      'description'       =>  $request->description,
     ]);
   }
 
   public function update(PageRequest $request, $table_key)
   {
     $res = Page::where('table_key', $table_key)->update([
-      'title'             =>  $request->input('title'),
-      'sub_title'         =>  $request->input('sub_title'),
-      'description'       =>  $request->input('description'),
+      'title'             =>  $request->title,
+      'sub_title'         =>  $request->sub_title,
+      'description'       =>  $request->description,
     ]);
 
     return $res ? ['message' => "Page data updated"] : ['error' => true];

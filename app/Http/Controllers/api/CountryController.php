@@ -4,41 +4,37 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CountryRequest;
+use App\Http\Resources\CountryResource;
 use App\Models\Country;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-  public function getAll()
+  public function index(Request $request)
   {
-    return Country::all();
+    return CountryResource::collection(Country::paginate($request->resultsPerPage ?? 10));
   }
 
-  public function getOne(Country $country)
+  public function show(Country $country)
   {
-    return $country->first();
+    return new CountryResource($country);
   }
 
-  public function save(CountryRequest $request)
+  public function store(CountryRequest $request)
   {
-    return Country::create([
-      'name'         =>  $request->input('name'),
-      'country_code' =>  $request->input('country_code'),
-    ]);
+    return Country::create($request->only(['title', 'country_code']));
   }
 
   public function update(CountryRequest $request, Country $country)
   {
-    $res = $country->update(['name' => $request->input('name')]);
+    $res = $country->update($request->only(['title']));
 
     return $res ? ['message' => "Country data updated"] : ['error' => true];
   }
 
   public function activeToggle(Request $request, Country $country)
   {
-    // return $request->all();
-
-    $res = $country->update(['is_active' => $request->is_active]);
+    $res = $country->update($request->only(['is_active']));
 
     return $res ? ['message' => "active toggle updated"] : ['error' => true];
   }
