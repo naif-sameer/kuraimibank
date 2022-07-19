@@ -9,7 +9,7 @@ class Service extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'description', 'other_advantage', 'service_conditions', 'category_id', 'image',];
+  protected $fillable = ['title', 'description', 'other_advantage', 'service_conditions', 'service_id', 'image',];
 
   /**
    * The attributes that should be cast.
@@ -17,9 +17,19 @@ class Service extends Model
    * @var array
    */
   protected $casts = [
-    'name'                  => 'array',
+    'title'                 => 'array',
     'description'           => 'array',
     'other_advantage'       => 'array',
     'service_conditions'    => 'array',
   ];
+
+  public function subServices()
+  {
+    return $this->hasMany(Service::class, 'service_id');
+  }
+
+  public function serviceAdvantages()
+  {
+    return $this->hasMany(ServiceAdvantage::class, 'service_id');
+  }
 }

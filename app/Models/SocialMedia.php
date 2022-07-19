@@ -9,5 +9,5 @@ class SocialMedia extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'link', 'icon'];
+  protected $fillable = ['title', 'link', 'icon'];
 }

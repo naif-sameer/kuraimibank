@@ -9,7 +9,7 @@ class ServicePoint extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'address', 'working_hours', 'phone', 'second_phone', 'city_id'];
+  protected $fillable = ['title', 'address', 'working_hours', 'phone', 'second_phone', 'city_id'];
 
   public function city()
   {
@@ -22,7 +22,7 @@ class ServicePoint extends Model
    * @var array
    */
   protected $casts = [
-    'name'            => 'array',
+    'title'           => 'array',
     'address'         => 'array',
     'working_hours'   => 'array',
   ];

@@ -9,7 +9,7 @@ class Country extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'country_code', 'is_active'];
+  protected $fillable = ['title', 'country_code', 'is_active'];
 
   /**
    * The attributes that should be cast.
@@ -17,6 +17,6 @@ class Country extends Model
    * @var array
    */
   protected $casts = [
-    'name'            => 'array',
+    'title'            => 'array',
   ];
 }

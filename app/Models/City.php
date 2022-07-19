@@ -9,7 +9,7 @@ class City extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'country_id', 'city_code', 'is_active'];
+  protected $fillable = ['title', 'country_id', 'city_code', 'is_active'];
 
   public function country()
   {
@@ -22,6 +22,6 @@ class City extends Model
    * @var array
    */
   protected $casts = [
-    'name'            => 'array',
+    'title'            => 'array',
   ];
 }

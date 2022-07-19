@@ -9,7 +9,7 @@ class ExchangeRate extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'sale', 'buy'];
+  protected $fillable = ['title', 'sale', 'buy'];
 
   /**
    * The attributes that should be cast.
@@ -17,6 +17,6 @@ class ExchangeRate extends Model
    * @var array
    */
   protected $casts = [
-    'name'            => 'array',
+    'title'            => 'array',
   ];
 }

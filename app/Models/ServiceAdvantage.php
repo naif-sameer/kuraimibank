@@ -9,7 +9,7 @@ class ServiceAdvantage extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['name', 'icon', 'service_id'];
+  protected $fillable = ['title', 'description', 'service_id'];
 
   /**
    * The attributes that should be cast.
@@ -17,6 +17,7 @@ class ServiceAdvantage extends Model
    * @var array
    */
   protected $casts = [
-    'name'    => 'array',
+    'title'    => 'array',
+    'description'    => 'array',
   ];
 }
