@@ -15,17 +15,18 @@ return new class extends Migration
   {
     Schema::create('services', function (Blueprint $table) {
       $table->id();
-      $table->json('name');
+      $table->json('title');
       $table->json('description');
       $table->json('other_advantage');
       $table->json('service_conditions');
       $table->string('image');
 
       $table
-        ->foreignId('category_id')
+        ->foreignId('service_id')
+        ->nullable()
         ->references('id')
-        ->on('sub_categories')
-        ->onDelete('cascade');
+        ->on('services')
+        ->cascadeOnDelete();
 
       $table->boolean('is_active')->default(1);
       $table->timestamps();

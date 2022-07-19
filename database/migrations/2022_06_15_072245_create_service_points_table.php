@@ -15,7 +15,7 @@ return new class extends Migration
   {
     Schema::create('service_points', function (Blueprint $table) {
       $table->id();
-      $table->json('name');
+      $table->json('title');
       $table->json('address');
       $table->json('working_hours');
       $table->string('phone');

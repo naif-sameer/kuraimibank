@@ -15,7 +15,7 @@ return new class extends Migration
   {
     Schema::create('cities', function (Blueprint $table) {
       $table->id();
-      $table->json('name');
+      $table->json('title');
       $table->string('city_code')->uniqid();
 
       $table
