@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SocialMediaRequest extends FormRequest
 {
@@ -24,7 +25,9 @@ class SocialMediaRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'         => ['required', 'unique:social_media,name,' . $this->id],
+      // 'title'        => ['required', 'unique:social_media,title, ' . $this->id],
+      // TODO
+      'title'        => [Rule::unique('social_media', 'title')->ignore($this->id), 'required'],
       'link'         => ['required', 'url'],
       'icon'         => ['image', 'mimes:jpeg,jpg,png', 'max:2048'],
     ];

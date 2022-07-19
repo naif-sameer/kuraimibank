@@ -26,7 +26,7 @@ class OurPartnerRequest extends FormRequest
     return [
       'title'           => ['required'],
       'description'     => ['required'],
-      'image'           => ['image,', 'mimes:jpeg,jpg,png,', 'max:2048'],
+      'image'           => ['image', 'mimes:jpeg,jpg,png,', 'max:2048'],
     ];
   }
 }

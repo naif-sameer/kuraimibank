@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ServiceAdvantageRequest extends FormRequest
 {
@@ -24,9 +25,9 @@ class ServiceAdvantageRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'           => ['required'],
-      'service_id'     => ['required'],
-      'icon'           => ['image', 'mimes:jpeg,jpg,png', 'max:2048'],
+      'title'           => ['required'],
+      'description'     => ['required'],
+      'service_id'      => Rule::when($this->method() === 'POST', ['required']),
     ];
   }
 }

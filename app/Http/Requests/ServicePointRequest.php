@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ServicePointRequest extends FormRequest
 {
@@ -24,12 +25,12 @@ class ServicePointRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'            => ['required'],
+      'title'           => ['required'],
       'address'         => ['required'],
-      'addressDetails'  => ['required'],
       'working_hours'   => ['required'],
       'phone'           => ['required'],
       'second_phone'    => ['required'],
+      'addressDetails'  => Rule::when($this->method() === 'POST', ['required']),
     ];
   }
 }

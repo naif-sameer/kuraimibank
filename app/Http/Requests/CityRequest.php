@@ -25,7 +25,7 @@ class CityRequest extends FormRequest
   public function rules()
   {
     return [
-      'name'              => ['required', 'max:255'],
+      'title'             => ['required', 'max:255'],
       'country_id'        => ['required'],
       'city_code'         =>  Rule::when($this->method() === 'POST', ['required', 'unique:cities,city_code'])
     ];
