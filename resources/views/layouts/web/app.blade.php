@@ -31,7 +31,7 @@
 
   <script src="{{ asset('js/slider.js') }}"></script>
   @yield('script')
-
+  @stack('script')
 </body>
 
 </html>
