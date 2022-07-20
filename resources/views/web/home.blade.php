@@ -3,7 +3,6 @@
 
 @section('content')
   <main class="home">
-
     <!------ hero ------>
     <section class="hero">
       <div class="container">
@@ -13,49 +12,25 @@
             يسهم في التنمية الاقتصادية والاجتماعية
           </p>
 
-
           <div class="hero-navigation">
             <div class="hero-navigation-item is-active"></div>
             <div class="hero-navigation-item"></div>
             <div class="hero-navigation-item"></div>
           </div>
-
-
         </div>
       </div>
     </section>
-
 
     <!------ currencies ------>
     <section class="currencies">
       <div class="container">
         <div class="currencies-content">
           <div class="list">
-
             @foreach ($currencies as $currency)
-              <div class="item">
-                <div class="item-name">
-                  <h3 class="item-title">{{ $currency->name['ar'] }}</h3>
-
-                  <x-icon icon='arrow-trend-down' />
-                </div>
-
-                <div class="item-sale">
-                  <h3 class="item-subtitle">Sale</h3>
-
-                  <div class="item-value">{{ $currency->sale }}</div>
-                </div>
-
-                <div class="item-buy">
-                  <h3 class="item-subtitle">buy</h3>
-
-                  <div class="item-value">{{ $currency->buy }}</div>
-                </div>
-              </div>
+              <x-web.home.currency-item :title="$currency->title[$locale]" :sale="$currency->sale" :buy="$currency->buy" />
             @endforeach
           </div>
-
-          <h3 class="btn">@lang('heading.currency-exchange')</h3>
+          <a href="/currencies" class="btn currencies-title">@lang('heading.currency-exchange')</a>
         </div>
       </div>
     </section>
@@ -79,34 +54,22 @@
           <div class="services-slider-body">
             <div class="slider-wrapper">
               <div class="slider">
-
                 @foreach ($mainServices as $service)
-                  <div class="slider-item">
-                    <div class="slide-content">
-                      <h3 class="slide-title">{{ $service['title']['ar'] }}</h3>
-
-                      <p class="slide-description">{{ $service['description']['ar'] }}</p>
-
-                      <a href="services/{{ $service['id'] }}" class="slide-btn btn">@lang('heading.more')</a>
-                    </div>
-
-                    <div class="slide-bg"> <img src="{{ $service['image'] }}" alt="slider images" /> </div>
-                  </div>
+                  <x-web.home.main-service-item :id="$service->id" :title="$service['title']['ar']" :description="$service['description']['ar']" :image="$service['image']" />
                 @endforeach
               </div>
             </div>
-
           </div>
         </section>
       </div>
 
       <div class="services-slider-action">
         {{-- slider controller --}}
-        <button id="services-slider-back-btn">
+        <button id="services-slider-back-btn" aria-label="slider back btn">
           <x-icon icon="angle-right" />
         </button>
 
-        <button id="services-slider-forward-btn">
+        <button id="services-slider-forward-btn" aria-label="slider forward btn">
           <x-icon icon="angle-left" />
         </button>
       </div>
@@ -132,7 +95,7 @@
           <div class="bank-app-slider-wrapper">
             <div class="slider bank-app-slider">
               <div class="slide">
-                <h4 class="slide-title">الكريمي جوال</h4>
+                <h3 class="slide-title">الكريمي جوال</h3>
                 <ul class="slide-list">
                   <li>الكريمي جوال</li>
                   <li>الكريمي جوال</li>
@@ -185,76 +148,23 @@
       <div class="container">
         <h2 class="section-title text-center">@lang('heading.bank-news')</h2>
 
-
         <div class="news-content">
           <div class="slider-wrapper">
             <div class="slider news-slider">
-              <div class="slide">
-                <img src="{{ asset('images/home-hero-bg.jpg') }}" alt="news images" class="slide-img">
-
-                <div class="slide-content">
-
-                  <h3 class="slide-title">مشروع تحديث أنظمة البنك</h3>
-
-                  <p class="slide-description">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في
-                    نفس المساحة، لقد تم توليد هذا النص من مولد
-                    النص العربى هذا النص هو مثال لنص يمكن أن
-                    يستبدل في نفس المساحة، لقد تم توليد هذا
-                    النص من مولد النص العربى هذا النص هو مثال
-                    لنص يمكن أن يستبدل
-                  </p>
-
-                  <a href="#" class="slide-link">@lang('heading.more')</a>
-                </div>
-
-              </div>
-              <div class="slide">
-                <img src="{{ asset('images/home-hero-bg.jpg') }}" alt="news images" class="slide-img">
-                <div class="slide-content">
-
-                  <h3 class="slide-title">مشروع تحديث أنظمة البنك</h3>
-
-                  <p class="slide-description">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في
-                    نفس المساحة، لقد تم توليد هذا النص من مولد
-                    النص العربى هذا النص هو مثال لنص يمكن أن
-                    يستبدل في نفس المساحة، لقد تم توليد هذا
-                    النص من مولد النص العربى هذا النص هو مثال
-                    لنص يمكن أن يستبدل
-                  </p>
-
-                  <a href="#" class="slide-link">@lang('heading.more')</a>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="{{ asset('images/home-hero-bg.jpg') }}" alt="news images" class="slide-img">
-
-                <div class="slide-content">
-
-                  <h3 class="slide-title">مشروع تحديث أنظمة البنك</h3>
-
-                  <p class="slide-description">
-                    هذا النص هو مثال لنص يمكن أن يستبدل في
-                    نفس المساحة، لقد تم توليد هذا النص من مولد
-                    النص العربى هذا النص هو مثال لنص يمكن أن
-                    يستبدل في نفس المساحة، لقد تم توليد هذا
-                    النص من مولد النص العربى هذا النص هو مثال
-                    لنص يمكن أن يستبدل
-                  </p>
-
-                  <a href="#" class="slide-link">@lang('heading.more')</a>
-                </div>
-              </div>
+              @isset($news)
+                @foreach ($news as $item)
+                  <x-web.news-item :id="$item->id" :title="$item->getTranslation('title', 'ar')" :description="$item->getTranslation('description', 'ar')" :image="$item->image" />
+                @endforeach
+              @endisset
             </div>
           </div>
 
           <div class="news-slider-actions">
-            <button id="news-slider-back-btn" class="back-btn">
+            <button id="news-slider-back-btn" class="back-btn" aria-label="slider back btn">
               <x-icon icon="angle-right" />
             </button>
 
-            <button id="news-slider-forward-btn" class="forward-btn">
+            <button id="news-slider-forward-btn" class="forward-btn" aria-label="slider forward btn">
               <x-icon icon="angle-left" />
             </button>
           </div>
@@ -272,9 +182,8 @@
         <div class="list">
           @for ($i = 1; $i <= 8; $i++)
             <div class="item" data-number="{{ 100 * $i }}">
-              <h4 class="item-title">+{{ 100 * $i }}</h4>
-              <p class="item-description">تمويل عقاري تم تمويله
-                تمويلا شامل</p>
+              <h3 class="item-title">+{{ 100 * $i }}</h3>
+              <p class="item-description">@lang('heading.fully-financed-real-estate-financing')</p>
             </div>
           @endfor
         </div>
@@ -291,18 +200,18 @@
 
             <div class="list">
               <div class="item">
-                <h4 class="item-value">400</h4>
-                <h5 class="item-title">@lang('heading.bank-branch')</h5>
+                <h3 class="item-value">400</h3>
+                <h4 class="item-title">@lang('heading.bank-branch')</h4>
               </div>
 
               <div class="item">
-                <h4 class="item-value">200</h4>
-                <h5 class="item-title">@lang('heading.atm')</h5>
+                <h3 class="item-value">200</h3>
+                <h4 class="item-title">@lang('heading.atm')</h4>
               </div>
 
               <div class="item">
-                <h4 class="item-value">500</h4>
-                <h5 class="item-title">@lang('heading.service-point')</h5>
+                <h3 class="item-value">500</h3>
+                <h4 class="item-title">@lang('heading.service-point')</h4>
               </div>
             </div>
 

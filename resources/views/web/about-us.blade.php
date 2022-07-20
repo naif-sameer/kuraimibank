@@ -2,5 +2,9 @@
 
 
 @section('content')
-  about us
+  <main class="about-us">
+    <section class="hero">
+      About us
+    </section>
+  </main>
 @endsection
