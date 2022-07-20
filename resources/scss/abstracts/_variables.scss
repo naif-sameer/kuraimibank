@@ -15,4 +15,15 @@ $xl: 1280px;
   --neutral-light-color: #ffffff;
   --neutral-base-color: #686868;
   --neutral-dark-color: #393e41;
+
+  --primary-gradient: linear-gradient(
+    90deg,
+    rgba(66, 48, 100, 1) 0%,
+    rgba(38, 26, 60, 1) 100%
+  );
+  --secondary-gradient: linear-gradient(
+    239deg,
+    rgba(66, 48, 100, 1) 0%,
+    rgba(115, 101, 154, 1) 0%
+  );
 }

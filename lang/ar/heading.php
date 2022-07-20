@@ -29,6 +29,9 @@ return [
   "telephone"                             => "تلفون",
   "fax"                                   => "فاكس",
 
+  "sale"                                  => "بيع",
+  "buy"                                   => "شراء",
+
 
   "bank"                                  => "البنك",
   "about-the-bank"                        => "عن البنك",
@@ -40,10 +43,31 @@ return [
   "mukafahat-ghasl"                       => "مكافحة غسل",
   "our-partners"                          => "شركائنا",
 
+
+  "fully-financed-real-estate-financing"  => "تمويل عقاري تم تمويله تمويل شامل",
+  "send-message-to-email"                 => "راسلنا على البريد الالكتروني",
+  "how-we-can-help-you"                   => "كيف يمكننا مساعدك؟",
+  "contact-us-description"                => "تواصل معنا بالطريقة التي تناسبك، نحن هنا لخدمتك",
+
   "individual-services"                   => "خدمات الأفراد",
   "corporate-services"                    => "خدمات الشركات",
 
   "branches-and-atms"                     => "الفروع وماكينات الصرافة",
+
+  "service-request"                       => "طلب الخدمة",
+  "advantages"                            => "المميزات",
+  "the-conditions"                        => "الشروط",
+  "subscription"                          => "الاشتراك",
+  "frequently-asked-questions"            => "أسئلة شائعة",
+  "success-stories"                       => "قصص نجاح",
+  "read-more"                             => "قراءة المزيد",
+  "other-services-may-be-interested-in"   => "خدمات أخرى قد تهمك",
+
+
+  "name"                                  => "الاسم",
+  "email"                                 => "البريد الالكتروني",
+  "send"                                  => "ارسال",
+
   // ""                => "",
   // ""                => "",
   // ""                => "",

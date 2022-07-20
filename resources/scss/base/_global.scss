@@ -22,16 +22,12 @@
 
   @include breakpoints(lg) {
     max-width: $lg;
-    left: 2rem;
-    right: 2rem;
+    // left: 2rem;
+    // right: 2rem;
   }
 
   @include breakpoints(xl) {
-    max-width: $xl;
-  }
-
-  @include breakpoints(xl) {
-    max-width: $xl;
+    max-width: 1200px;
   }
 
   @media (min-width: 1536px) {
@@ -46,4 +42,8 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.breadcrumb {
+  @include my(2rem);
 }

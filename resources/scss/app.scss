@@ -1,3 +1,7 @@
+// vendor
+// @use "vendor/font-awesome.scss";
+// @use "vendor/font.min.scss";
+
 // base
 @use "base/normalize";
 @use "base/reset";
@@ -10,8 +14,8 @@
 @use "components/slider";
 
 // layout
+@use "layout/hero";
 @use "layout/grid";
-@use "layout/header";
 @use "layout/navigation";
 @use "layout/forms";
 @use "layout/sidebar";
@@ -19,7 +23,10 @@
 
 // pages
 @use "pages/home";
+@use "pages/about-us";
+@use "pages/contact-us";
+@use "pages/service";
 
-body {
-  min-height: 5000px;
-}
+// body {
+//   min-height: 5000px;
+// }

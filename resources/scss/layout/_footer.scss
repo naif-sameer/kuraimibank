@@ -13,7 +13,7 @@
 }
 
 .footer {
-  background-color: var(--primary-base-color);
+  background-image: var(--secondary-gradient);
   min-height: 500px;
 
   padding: {
@@ -48,16 +48,24 @@
   .item {
     &-title {
       color: white;
-      font-weight: 600;
+      font-family: "alkreme";
+      font-size: 1.1rem;
     }
 
-    .item-list {
+    .item-links {
       display: flex;
       flex-direction: column;
+      gap: 0.25rem;
+      font-family: "alkreme";
     }
 
-    .item-list-item {
-      color: var(--primary-dark-color);
+    .item-links-link {
+      color: #cdcdcd;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--primary-dark-color);
+      }
     }
   }
 
@@ -66,6 +74,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include breakpoints(maxSm) {
+      flex-direction: column;
+      gap: 2rem;
+    }
 
     .download-app {
       display: flex;

@@ -1,0 +1,53 @@
+@use "../abstracts/mixins" as *;
+
+.service {
+  .hero {
+    background-image: url(@/images/service-bg.png);
+    background-size: cover;
+
+    @include breakpoints(md) {
+      padding-top: 10rem;
+    }
+
+    @include breakpoints(xl) {
+      padding-top: 0;
+    }
+
+    .hero-title {
+      font-size: xxx-large;
+      font-weight: bold;
+    }
+
+    .hero-description {
+      @include breakpoints(md) {
+        max-width: 500px;
+      }
+    }
+
+    .hero-image {
+      width: 260px;
+      height: 225px;
+      background-image: url(@/images/service-hero-image.png);
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-width: 60%;
+      }
+    }
+
+    @include breakpoints(md) {
+      .hero-wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .hero-content {
+        @include col(7);
+      }
+    }
+  }
+}

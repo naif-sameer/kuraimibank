@@ -1,0 +1,169 @@
+@use "../abstracts/mixins" as *;
+
+.contact-us {
+  .hero {
+    background-image: url(@/images/contact-us-bg.png);
+    background-size: cover;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background-color: var(--primary-dark-color);
+      opacity: 0.7;
+    }
+  }
+
+  .contact-us-info {
+    @include shadow(lg);
+
+    position: relative;
+    background-color: var(--neutral-light-color);
+    padding: 4rem 6rem;
+
+    @include breakpoints(maxSm) {
+      padding: 4rem;
+    }
+
+    @include breakpoints(maxXl) {
+      margin-top: -15rem;
+    }
+
+    @include breakpoints(xl) {
+      margin-top: -30rem;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: xxx-large;
+      color: var(--neutral-base-color);
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -3.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #73659a;
+        width: 3rem;
+        height: 2px;
+      }
+    }
+
+    .description {
+      font-size: x-large;
+      color: var(--neutral-base-color);
+    }
+
+    .list {
+      margin-top: 4rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .item {
+      display: flex;
+      gap: 2rem;
+      flex: 1 1 300px;
+
+      &-icon {
+        font-size: 1.2rem;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--neutral-light-color);
+        background-image: url(@/images/sticker-bg.png);
+        background-position: center;
+        background-size: 100%;
+      }
+
+      &-title {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        margin-top: 1.25rem;
+      }
+    }
+
+    .form {
+      margin-top: 5rem;
+
+      .form-title {
+        font-size: xxx-large;
+        text-align: center;
+        color: var(--neutral-base-color);
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+
+        & + * {
+          margin-top: 2rem;
+        }
+      }
+
+      input {
+        order: 2;
+        border: 1px solid transparent;
+        border-bottom-color: rgb(104 104 104 / 40%);
+
+        &:focus {
+          outline: none;
+          border-bottom-color: var(--primary-dark-color);
+
+          & + label {
+            color: var(--primary-base-color);
+            font-weight: 600;
+          }
+        }
+      }
+
+      .form-btn {
+        margin-top: 4rem;
+        display: block;
+        margin: {
+          left: auto;
+          right: auto;
+        }
+        background-color: var(--primary-base-color);
+        color: white;
+        padding: 1rem 3rem;
+        font-size: 1.2rem;
+
+        &:hover {
+          color: var(--primary-base-color);
+          background-color: white;
+
+          border: 2px solid var(--primary-base-color);
+        }
+      }
+    }
+
+    @include breakpoints(maxMd) {
+      &.container {
+        width: 90%;
+      }
+
+      .list {
+        gap: 3rem;
+      }
+
+      .form-title {
+        margin: {
+          top: 5rem;
+          bottom: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+section.hero {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  max-height: 940px;
+  position: relative;
+  color: var(--neutral-light-color);
+}

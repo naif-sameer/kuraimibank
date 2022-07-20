@@ -1,5 +1,76 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/placeholders" as *;
+.header {
+  @include py(2.5rem);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  color: white;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    // background-color: rgba(115, 101, 154, 0.4);
+    height: 200px;
+    background: linear-gradient(
+      180deg,
+      rgba(115, 101, 154, 0.4430147058823529) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    z-index: -1;
+  }
+
+  &-list {
+    @extend %flex, %justify-between, %items-center;
+  }
+
+  &-item-wrapper {
+    @extend %flex, %justify-between;
+    gap: 3rem;
+  }
+
+  .header-item {
+    display: flex;
+    align-items: center;
+
+    .item-label {
+      @include ms(0.5rem);
+    }
+  }
+
+  &-logo {
+    width: 300px;
+  }
+
+  .change-lang-link {
+    text-transform: uppercase;
+  }
+
+  @include breakpoints(maxMd) {
+    .header-item-wrapper:not(.only-mobile) {
+      display: none;
+    }
+
+    .header-item:not(.change-lang) {
+      display: none;
+    }
+  }
+
+  .mobile-open-menu {
+    font-size: 1.5rem;
+    display: none;
+
+    @include breakpoints(maxMd) {
+      display: block;
+    }
+  }
+}
 
 .nav {
   @include py(2rem);
@@ -10,7 +81,9 @@
     border-top-color: var(--primary-light-color);
     border-bottom-color: var(--primary-light-color);
 
-    @extend %list-none, %flex, %justify-between;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
   }
 
   &-item {
@@ -20,6 +93,10 @@
 
     &.is-active {
       font-weight: 600;
+    }
+
+    &:hover {
+      color: var(--neutral-light-color);
     }
 
     &.is-active,
@@ -35,6 +112,62 @@
         width: 0.2rem;
         height: 25%;
         background-color: var(--neutral-light-color);
+      }
+    }
+  }
+
+  .mobile-close-menu {
+    display: none;
+  }
+
+  @include breakpoints(maxMd) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    transition: all 0.3s ease-in;
+    transform: translateX(100%);
+
+    .mobile-close-menu {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+
+    &.is-active {
+      transform: translateX(0);
+    }
+
+    .nav-list {
+      padding: 4rem 2rem;
+      margin: 0;
+      flex-direction: column;
+      justify-content: start;
+      background-color: rgb(66 48 100 / 95%);
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .nav-item {
+      &.is-active,
+      &:hover {
+        &::after {
+          top: 50%;
+          right: -0.5rem;
+          transform: translateY(-50%);
+          width: 1rem;
+          height: 4%;
+          background-color: var(--neutral-light-color);
+        }
       }
     }
   }

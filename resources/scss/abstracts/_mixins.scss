@@ -62,6 +62,31 @@
       @content;
     }
   }
+
+  // max media
+  @if $point == maxSm {
+    @media (max-width: $sm) {
+      @content;
+    }
+  }
+
+  @if $point == maxMd {
+    @media (max-width: $md) {
+      @content;
+    }
+  }
+
+  @if $point == maxLg {
+    @media (max-width: $lg) {
+      @content;
+    }
+  }
+
+  @if $point == maxXl {
+    @media (max-width: $xl) {
+      @content;
+    }
+  }
 }
 
 /*********** padding  ****************/
