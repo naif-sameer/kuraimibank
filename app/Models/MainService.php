@@ -9,7 +9,7 @@ class MainService extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['title', 'image'];
+  protected $fillable = ['title', 'description', 'image'];
 
   /**
    * The attributes that should be cast.
@@ -18,5 +18,6 @@ class MainService extends Model
    */
   protected $casts = [
     'title'              => 'array',
+    'description'        => 'array',
   ];
 }

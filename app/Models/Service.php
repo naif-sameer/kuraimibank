@@ -9,7 +9,17 @@ class Service extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['title', 'description', 'other_advantage', 'service_conditions', 'service_id', 'image',];
+  protected $fillable = [
+    'title',
+    'description',
+    'other_advantage',
+    'service_conditions',
+    'service_id',
+    'image',
+    'service_slogan',
+    'subscription_in_service',
+    'questions'
+  ];
 
   /**
    * The attributes that should be cast.
@@ -17,10 +27,13 @@ class Service extends Model
    * @var array
    */
   protected $casts = [
-    'title'                 => 'array',
-    'description'           => 'array',
-    'other_advantage'       => 'array',
-    'service_conditions'    => 'array',
+    'title'                     => 'array',
+    'description'               => 'array',
+    'other_advantage'           => 'array',
+    'service_conditions'        => 'array',
+    'service_slogan'            => 'array',
+    'subscription_in_service'   => 'array',
+    'questions'                 => 'array',
   ];
 
   public function subServices()
