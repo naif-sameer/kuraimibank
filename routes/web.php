@@ -25,9 +25,9 @@ Route::controller(Web\HomeController::class)->group(function () {
   Route::get('/financial-reports', 'financialReports')->name('FinancialReports');
 });
 
-Route::controller(Web\ServicesController::class)->group(function () {
-  Route::get('/services/{id}', 'index')->name('Services');
-  Route::get('/services/{id}/{storyID}', 'story')->name('ServiceStory');
+Route::controller(Web\ServiceController::class)->group(function () {
+  Route::get('/services/{service}', 'service')->name('Service');
+  Route::get('/services/{id}/{storyID}', 'serviceStory')->name('ServiceStory');
 });
 
 Route::controller(Web\ServicePointsController::class)->group(function () {
