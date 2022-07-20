@@ -17,9 +17,14 @@ return new class extends Migration
       $table->id();
       $table->json('title');
       $table->json('description');
-      $table->json('other_advantage');
-      $table->json('service_conditions');
+      $table->json('other_advantage')->nullable();
+      $table->json('service_conditions')->nullable();
+      $table->json('subscription_in_service')->nullable();
+      $table->json('questions')->nullable();
+      $table->json('service_slogan')->nullable();
+
       $table->string('image');
+      $table->boolean('is_main_service')->default(0);
 
       $table
         ->foreignId('service_id')

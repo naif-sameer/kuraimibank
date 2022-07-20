@@ -28,34 +28,33 @@ class AppServiceProvider extends ServiceProvider
     // navbar data :)
     $navItems = [
       [
+        "id" => "1",
         "name" => ["ar" => "خدمات الأفراد", "en" => ""],
-        "link" => "/services/1"
       ],
       [
+        "id" => "2",
         "name" => ["ar" => "خدمات الشركات", "en" => ""],
-        "link" => "/services/2"
       ],
       [
+        "id" => "3",
         "name" => ["ar" => "كريمي اكسبرس", "en" => ""],
-        "link" => "/services/3"
       ],
       [
+        "id" => "4",
         "name" => ["ar" => "أم فلوس", "en" => ""],
-        "link" => "/services/4"
       ],
       [
+        "id" => "5",
         "name" => ["ar" => "التمويل", "en" => ""],
-        "link" => "/services/5"
       ],
       [
+        "id" => "6",
         "name" => ["ar" => "تطبيقات البنك", "en" => ""],
-        "link" => "/services/6"
       ],
     ];
 
     View::share([
       'locale'  => App::getLocale(),
-      'naif' => 'value',
       "navItems" => $navItems
     ]);
   }
