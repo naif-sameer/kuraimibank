@@ -22,151 +22,100 @@ use App\Http\Controllers\Api;
 Route::prefix('v1')
   // ->middleware('auth:sanctum')
   ->group(function () {
-
-    // website info
-    Route::controller(Api\WebsiteInfoController::class)->group(function () {
-      Route::get('/website-info',  'getAll');
-      Route::get('/website-info/{table_key}',  'getOne');
-      Route::put('/website-info/{table_key}/edit',  'update');
-      Route::put('/website-info/{table_key}/toggle',  'activeToggle');
-    });
-
-    // jobs
-    Route::controller(Api\JobController::class)->group(function () {
-      Route::get('/jobs',  'getAll');
-      Route::get('/jobs/{id}',  'getOne');
-      Route::post('/jobs/create',  'save');
-      Route::put('/jobs/{id}/edit',  'update');
-      Route::put('/jobs/{id}/toggle',  'activeToggle');
-    });
-
     // exchange rates
-    Route::controller(Api\ExchangeRateController::class)->group(function () {
-      Route::get('/exchange-rates',  'getAll');
-      Route::get('/exchange-rates/{id}',  'getOne');
-      Route::post('/exchange-rates/create',  'save');
-      Route::put('/exchange-rates/{id}/edit',  'update');
-      Route::put('/exchange-rates/{id}/toggle',  'activeToggle');
-    });
-
-    // social media
-    Route::controller(Api\SocialMediaController::class)->group(function () {
-      Route::get('/social-media',  'getAll');
-      Route::get('/social-media/{id}',  'getOne');
-      Route::post('/social-media/create',  'save');
-      Route::post('/social-media/{id}/edit',  'update');
-      Route::put('/social-media/{id}/toggle',  'activeToggle');
-    });
-
-    // our-partners
-    Route::controller(Api\OurPartnerController::class)->group(function () {
-      Route::get('/our-partners',  'getAll');
-      Route::get('/our-partners/{id}',  'getOne');
-      Route::post('/our-partners/create',  'save');
-      Route::post('/our-partners/{id}/edit',  'update');
-      Route::put('/our-partners/{id}/toggle',  'activeToggle');
-    });
+    Route::apiResource('exchange-rates', Api\ExchangeRateController::class, ['except' => ['destroy']]);
+    Route::put('/exchange-rates/{exchangeRate}/toggle', [Api\ExchangeRateController::class, 'activeToggle']);
 
     // financial-reports
     Route::controller(Api\FinancialReportController::class)->group(function () {
-      Route::get('/financial-reports',  'getAll');
-      Route::get('/financial-reports/{id}',  'getOne');
-      Route::post('/financial-reports/create',  'save');
-      Route::post('/financial-reports/{id}/edit',  'update');
-      Route::put('/financial-reports/{id}/toggle',  'activeToggle');
+      Route::get('/financial-reports', 'index');
+      Route::get('/financial-reports/{financialReport}', 'show');
+      Route::post('/financial-reports', 'store');
+      Route::post('/financial-reports/{financialReport}', 'update');
+      Route::put('/financial-reports/{financialReport}/toggle', 'activeToggle');
     });
 
-    // pages
-    Route::controller(Api\PageController::class)->group(function () {
-      Route::get('/pages',  'getAll');
-      Route::get('/pages/{table_key}',  'getOne');
-      Route::post('/pages/create',  'save');
-      Route::put('/pages/{table_key}/edit',  'update');
-      Route::put('/pages/{table_key}/toggle',  'activeToggle');
+    // jobs
+    Route::apiResource('jobs', Api\JobController::class, ['except' => ['destroy']]);
+    Route::put('/jobs/{job}/toggle', [Api\JobController::class, 'activeToggle']);
+
+    // main-services
+    Route::controller(Api\MainServiceController::class)->group(function () {
+      Route::get('/main-services', 'index');
+      Route::get('/main-services/{mainService}', 'show');
+      Route::post('/main-services', 'store');
+      Route::post('/main-services/{mainService}', 'update');
+      Route::put('/main-services/{mainService}/toggle', 'activeToggle');
     });
 
     // news
     Route::controller(Api\NewsController::class)->group(function () {
-      Route::get('/news',  'getAll');
-      Route::get('/news/{id}',  'getOne');
-      Route::post('/news/create',  'save');
-      Route::post('/news/{id}/edit',  'update');
-      Route::put('/news/{id}/toggle',  'activeToggle');
+      Route::get('/news',  'index');
+      Route::get('/news/{news}',  'show');
+      Route::post('/news',  'store');
+      Route::post('/news/{news}',  'update');
+      Route::put('/news/{news}/toggle',  'activeToggle');
     });
 
-    // categories
-    Route::controller(Api\CategoryController::class)->group(function () {
-      Route::get('/categories',  'getAll');
-      Route::get('/categories/{id}',  'getOne');
-      Route::post('/categories/create',  'save');
-      Route::put('/categories/{id}/edit',  'update');
-      Route::put('/categories/{id}/toggle',  'activeToggle');
+    // our-partners
+    Route::controller(Api\OurPartnerController::class)->group(function () {
+      Route::get('/our-partners',  'index');
+      Route::get('/our-partners/{ourPartner}',  'show');
+      Route::post('/our-partners',  'store');
+      Route::post('/our-partners/{ourPartner}',  'update');
+      Route::put('/our-partners/{ourPartner}/toggle',  'activeToggle');
     });
 
-    // sub-categories
-    Route::controller(Api\SubCategoryController::class)->group(function () {
-      Route::get('/sub-categories',  'getAll');
-      Route::get('/sub-categories/{id}',  'getOne');
-      Route::post('/sub-categories/create',  'save');
-      Route::post('/sub-categories/{id}/edit',  'update');
-      Route::put('/sub-categories/{id}/toggle',  'activeToggle');
+    // pages
+    Route::controller(Api\PageController::class)->group(function () {
+      Route::get('/pages',  'index');
+      Route::get('/pages/{table_key}',  'show');
+      Route::post('/pages',  'store');
+      Route::put('/pages/{table_key}',  'update');
+      Route::put('/pages/{table_key}/toggle',  'activeToggle');
     });
 
     // services
     Route::controller(Api\ServiceController::class)->group(function () {
-      Route::get('/services',  'getAll');
-      Route::get('/services/{id}',  'getOne');
-      Route::post('/services/create',  'save');
-      Route::post('/services/{id}/edit',  'update');
-      Route::put('/services/{id}/toggle',  'activeToggle');
+      Route::get('/services',  'index');
+      Route::get('/services/{service}',  'show');
+      Route::post('/services',  'store');
+      Route::post('/services/{service}',  'update');
+      Route::put('/services/{service}/toggle',  'activeToggle');
     });
 
     // service-advantages
-    Route::controller(Api\ServiceAdvantageController::class)->group(function () {
-      Route::get('/service-advantages',  'getAll');
-      Route::get('/service-advantages/{id}',  'getOne');
-      Route::post('/service-advantages/create',  'save');
-      Route::post('/service-advantages/{id}/edit',  'update');
-      Route::put('/service-advantages/{id}/toggle',  'activeToggle');
+    Route::apiResource('service-advantages', Api\ServiceAdvantageController::class, ['except' => ['destroy']]);
+    Route::put('/service-advantages/{serviceAdvantage}/toggle', [Api\ServiceAdvantageController::class, 'activeToggle']);
+
+    // service-points
+    Route::apiResource('service-points', Api\ServicePointController::class, ['except' => ['destroy']]);
+    Route::put('/service-points/{servicePoint}/toggle', [Api\ServicePointController::class, 'activeToggle']);
+
+    // social media
+    Route::controller(Api\SocialMediaController::class)->group(function () {
+      Route::get('/social-media',  'index');
+      Route::get('/social-media/{socialMedia}',  'show');
+      Route::post('/social-media',  'store');
+      Route::post('/social-media/{socialMedia}',  'update');
+      Route::put('/social-media/{socialMedia}/toggle',  'activeToggle');
+    });
+
+    // website info
+    Route::controller(Api\WebsiteInfoController::class)->group(function () {
+      Route::get('/website-info',  'index');
+      Route::get('/website-info/{table_key}',  'show');
+      Route::put('/website-info/{table_key}',  'update');
+      Route::put('/website-info/{table_key}/toggle',  'activeToggle');
     });
 
     // countries
-    Route::controller(Api\CountryController::class)->group(function () {
-      Route::get('/countries',  'getAll');
-      Route::get('/countries/{country}',  'getOne');
-      Route::post('/countries/create',  'save');
-      Route::put('/countries/{country}/edit',  'update');
-      Route::put('/countries/{country}/toggle',  'activeToggle');
-    });
+    Route::apiResource('countries', Api\CountryController::class, ['except' => ['destroy']]);
+    Route::put('/countries/{country}/toggle', [Api\CountryController::class, 'activeToggle']);
 
     // cities
-    Route::controller(Api\CityController::class)->group(function () {
-      Route::get('/cities',  'getAll');
-      Route::get('/cities/{city}',  'getOne');
-      Route::post('/cities/create',  'save');
-      Route::put('/cities/{city}/edit',  'update');
-      Route::put('/cities/{city}/toggle',  'activeToggle');
-    });
-
-    // service-points
-    Route::controller(Api\ServicePointController::class)->group(function () {
-      Route::get('/service-points',  'getAll');
-      Route::get('/service-points/{servicePoint}',  'getOne');
-      Route::post('/service-points/create',  'save');
-      Route::put('/service-points/{id}/edit',  'update');
-      Route::put('/service-points/{id}/toggle',  'activeToggle');
-
-      Route::post('/naif', 'getCityId');
-    });
-
-    // main-services
-    Route::controller(Api\MainServiceController::class)->group(function () {
-      Route::get('/main-services',  'getAll');
-      Route::get('/main-services/{id}',  'getOne');
-      Route::post('/main-services/create',  'save');
-      Route::post('/main-services/{id}/edit',  'update');
-      Route::put('/main-services/{id}/toggle',  'activeToggle');
-    });
+    Route::apiResource('cities', Api\CityController::class, ['except' => ['destroy']]);
+    Route::put('/cities/{city}/toggle', [Api\CityController::class, 'activeToggle']);
   });
 
 
@@ -174,7 +123,7 @@ Route::prefix('v1')
 
 
 // TODO only for create tokens
-Route::post('v1/tokens/create/{username}', function (Request $request) {
+Route::post('v1/tokens/{username}', function (Request $request) {
   $request->validate([
     'email' => 'required|email',
     'password' => 'required',
