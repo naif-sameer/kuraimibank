@@ -3,56 +3,28 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NewsResource;
 use App\Models\ExchangeRate;
 use App\Models\MainService;
+use App\Models\News;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
   public function index()
   {
 
-    $currencies  = ExchangeRate::all();
-    // $mainServices = MainService::all()->take(5);
+    $currencies  = ExchangeRate::take(3)->get();
 
-    $mainServices = [
-      [
-        "id" => "1",
-        "title" => ["ar" => "ماكينات الصراف الآلي"],
-        "description" => ["ar" => "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل"],
-        "image" => "/images/atm.png"
-      ],
-      [
-        "id" => "2",
-        "title" => ["ar" => "تمويل الملكة"],
-        "description" => ["ar" => "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل"],
-        "image" => "/images/atm.png"
-      ],
-      [
-        "id" => "3",
-        "title" => ["ar" => "حسابات الافراد"],
-        "description" => ["ar" => "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل"],
-        "image" => "/images/atm.png"
-      ],
-      [
-        "id" => "4",
-        "title" => ["ar" => "التمويل"],
-        "description" => ["ar" => "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل"],
-        "image" => "/images/atm.png"
-      ],
-      [
-        "id" => "5",
-        "title" => ["ar" => "البطاقات الإئتمانية"],
-        "description" => ["ar" => "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل"],
-        "image" => "/images/atm.png"
-      ],
-    ];
+    $mainServices =  Service::where('is_main_service', true)->take(5)->get();
 
-
+    $news = News::take(6)->get();
 
 
     return view('web.home')
       ->with('currencies', $currencies)
-      ->with('mainServices', $mainServices);
+      ->with('mainServices', $mainServices)
+      ->with('news', $news);
   }
 
   public function contactUs()
