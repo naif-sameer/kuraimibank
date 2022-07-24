@@ -55,15 +55,13 @@ body {
   background-color: var(--neutral-light-color);
   padding: 4rem 6rem;
 
-  @include breakpoints(maxSm) {
+  @include maxBreakpoints(sm) {
     padding: 4rem;
   }
 
-  @include breakpoints(maxXl) {
-    margin-top: -15rem;
-  }
+  margin-top: var(--super-section-margin-top, -15rem);
 
-  @include breakpoints(xl) {
-    margin-top: -30rem;
-  }
+  // @include breakpoints(xl) {
+  //   margin-top: -20rem;
+  // }
 }

@@ -38,54 +38,31 @@
 
 /*********** Breakpoint  ****************/
 
+$screenSize: (
+  "sm": $sm,
+  "md": $md,
+  "lg": $lg,
+  "xl": $xl,
+);
+
+// min width
 @mixin breakpoints($point) {
-  @if $point == sm {
-    @media (min-width: $sm) {
-      @content;
-    }
+  @media (min-width: map-get($screenSize, $point)) {
+    @content;
   }
+}
 
-  @if $point == md {
-    @media (min-width: $md) {
-      @content;
-    }
+// min width with max height
+@mixin breakpointsMaxHeight($point, $maxHeight) {
+  @media (min-width: map-get($screenSize, $point)) and (max-height: map-get($screenSize, $maxHeight)) {
+    @content;
   }
+}
 
-  @if $point == lg {
-    @media (min-width: $lg) {
-      @content;
-    }
-  }
-
-  @if $point == xl {
-    @media (min-width: $xl) {
-      @content;
-    }
-  }
-
-  // max media
-  @if $point == maxSm {
-    @media (max-width: $sm) {
-      @content;
-    }
-  }
-
-  @if $point == maxMd {
-    @media (max-width: $md) {
-      @content;
-    }
-  }
-
-  @if $point == maxLg {
-    @media (max-width: $lg) {
-      @content;
-    }
-  }
-
-  @if $point == maxXl {
-    @media (max-width: $xl) {
-      @content;
-    }
+//  max width
+@mixin maxBreakpoints($point) {
+  @media (max-width: map-get($screenSize, $point)) {
+    @content;
   }
 }
 

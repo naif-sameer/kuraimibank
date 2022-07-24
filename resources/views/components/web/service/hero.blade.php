@@ -14,11 +14,11 @@
         <a href="#" class="hero-action-btn btn">@lang('heading.service-request')</a>
       </div>
 
-      <div class="hero-image-wrapper">
+      {{-- <div class="hero-image-wrapper">
         <div class="hero-image">
           <img src="{{ asset('uploads/images/' . $service->image) }}" alt="hero image">
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </section>

@@ -1,4 +1,5 @@
 @use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
 
 .service {
   .section-title {
@@ -7,82 +8,77 @@
   }
 }
 
-.service {
-  .hero {
-    background-image: url(@/images/service-bg.png);
-    background-size: cover;
+.service .hero {
+  background-image: url(@/images/service-bg.png);
+  background-size: cover;
+
+  @include breakpoints(md) {
+    --hero-padding-top: 5rem;
+  }
+
+  .hero-title {
+    font-size: xxx-large;
+    font-weight: bold;
+  }
+
+  .hero-description {
+    font-size: large;
 
     @include breakpoints(md) {
-      padding-top: 15rem;
-    }
-
-    @include breakpoints(xl) {
-      padding-top: 15rem;
-    }
-
-    .hero-title {
-      font-size: xxx-large;
-      font-weight: bold;
-    }
-
-    .hero-description {
-      font-size: large;
-
-      @include breakpoints(md) {
-        max-width: 500px;
-      }
-    }
-
-    .hero-action-btn {
-      @include px(3rem);
-
-      background-color: var(--secondary-base-color);
-      color: white;
-      font-size: large;
-    }
-
-    .hero-image {
-      width: 430px;
-      height: 365px;
-      transform: translateY(30px);
-      background-image: url(@/images/service-hero-image.png);
-      background-size: cover;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        max-width: 60%;
-      }
-
-      @include breakpoints(maxMd) {
-        display: none;
-      }
-    }
-
-    @include breakpoints(md) {
-      .hero-wrapper {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .hero-content {
-        flex: 1 1 calc(100% / 7);
-      }
+      max-width: 500px;
     }
   }
 
-  .service-info {
-    .super-section {
-      @include breakpoints(maxMd) {
-        margin-top: -9rem;
-      }
+  .hero-action-btn {
+    @include px(3rem);
 
-      @include breakpoints(md) {
-        margin-top: -3rem;
-      }
+    background-color: var(--secondary-base-color);
+    color: white;
+    font-size: large;
+  }
+
+  @include breakpoints(md) {
+    .hero-wrapper {
+      display: flex;
+      justify-content: space-between;
     }
+
+    .hero-content {
+      flex: 1 1 calc(100% / 7);
+    }
+  }
+}
+
+.service .service-info {
+  position: relative;
+
+  .service-info-bg {
+    position: absolute;
+    top: -390px;
+    left: -125px;
+    z-index: 1;
+    width: 700px;
+    height: 600px;
+
+    background-image: url(@/images/service-hero-image.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 60%;
+    }
+
+    @include maxBreakpoints(md) {
+      display: none;
+    }
+  }
+
+  .super-section {
+    position: relative;
+    z-index: 2;
+    margin-top: -9.5rem;
   }
 
   .service-advantages {
@@ -91,7 +87,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
 
-      @include breakpoints(maxMd) {
+      @include maxBreakpoints(md) {
         gap: 3rem;
         text-align: center;
 
@@ -131,95 +127,95 @@
       }
     }
   }
-}
 
-.service .service-body {
-  margin-top: 6rem;
+  .service-body {
+    margin-top: 6rem;
 
-  .service-body-navigation {
-    max-width: 500px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-
-    @include breakpoints(maxMd) {
-      gap: 2rem;
-      white-space: nowrap;
-    }
-  }
-
-  .service-body-navigation-item {
-    cursor: pointer;
-    font-size: large;
-    padding-bottom: 0.25rem;
-    border-bottom: 2px solid transparent;
-    color: #9b9b9b;
-    min-width: 70px;
-    white-space: nowrap;
-    text-align: center;
-    transition: all 0.3s ease;
-
-    @include breakpoints(maxSm) {
-      font-size: medium;
-    }
-
-    &.is-active,
-    &:hover {
-      color: var(--primary-base-color);
-      border-bottom-color: var(--primary-base-color);
-      font-weight: 600;
-    }
-  }
-
-  .service-body-slider {
-    margin-top: 5rem;
-    display: flex;
-    gap: 1rem;
-
-    .service-body-image {
-      flex: 0 0 400px;
+    .service-body-navigation {
+      max-width: 500px;
+      margin: auto;
       display: flex;
+      justify-content: center;
+      gap: 4rem;
 
-      @include breakpoints(maxLg) {
-        display: none;
-      }
-
-      img {
-        object-fit: cover;
-        object-position: center;
+      @include maxBreakpoints(md) {
+        gap: 2rem;
+        white-space: nowrap;
       }
     }
 
-    .slider-wrapper {
-      flex: 1 1 auto;
-    }
+    .service-body-navigation-item {
+      cursor: pointer;
+      font-size: large;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid transparent;
+      color: #9b9b9b;
+      min-width: 70px;
+      white-space: nowrap;
+      text-align: center;
+      transition: all 0.3s ease;
 
-    .slider-item {
-      padding : {
-        top: 2rem;
-        bottom: 2rem;
-        inline-start: 3rem;
+      @include maxBreakpoints(sm) {
+        font-size: medium;
       }
 
-      @include breakpoints(maxMd) {
-        text-align: center;
-        padding-inline-start: 0;
+      &.is-active,
+      &:hover {
+        color: var(--primary-base-color);
+        border-bottom-color: var(--primary-base-color);
+        font-weight: 600;
       }
     }
 
-    .slider-item-title {
-      font-size: xx-large;
-      color: var(--primary-base-color);
-    }
+    .service-body-slider {
+      margin-top: 5rem;
+      display: flex;
+      gap: 1rem;
 
-    .slider-item-description {
-      margin-top: 2rem;
-      line-height: 2;
-    }
+      .service-body-image {
+        flex: 0 0 400px;
+        display: flex;
 
-    .slider-item-btn {
-      margin-top: 2px;
+        @include maxBreakpoints(lg) {
+          display: none;
+        }
+
+        img {
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      .slider-wrapper {
+        flex: 1 1 auto;
+      }
+
+      .slider-item {
+        padding : {
+          top: 2rem;
+          bottom: 2rem;
+          inline-start: 3rem;
+        }
+
+        @include maxBreakpoints(md) {
+          text-align: center;
+          padding-inline-start: 0;
+        }
+      }
+
+      .slider-item-title {
+        font-size: xx-large;
+        color: var(--primary-base-color);
+      }
+
+      .slider-item-description {
+        margin-top: 2rem;
+        line-height: 2;
+      }
+
+      .slider-item-btn {
+        margin-top: 2px;
+      }
     }
   }
 }

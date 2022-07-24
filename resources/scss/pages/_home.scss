@@ -162,7 +162,7 @@
   }
 
   // mobile screen
-  @include breakpoints(maxSm) {
+  @include maxBreakpoints(sm) {
     .currencies-content {
       flex-wrap: wrap;
       justify-content: center;
@@ -196,7 +196,7 @@
     max-width: $xl;
   }
 
-  @include breakpoints(maxSm) {
+  @include maxBreakpoints(sm) {
     .slider {
       scroll-snap-type: x mandatory;
       overflow: auto;
@@ -221,7 +221,7 @@
       display: flex;
       justify-content: space-between;
 
-      @include breakpoints(maxSm) {
+      @include maxBreakpoints(sm) {
         display: none;
       }
 
@@ -245,7 +245,7 @@
 
     &-body {
       @include shadow(md);
-      @include breakpoints(maxSm) {
+      @include maxBreakpoints(sm) {
         text-align: center;
       }
 
@@ -314,7 +314,7 @@
       display: flex;
       background-color: var(--primary-base-color);
 
-      @include breakpoints(maxSm) {
+      @include maxBreakpoints(sm) {
         display: none;
       }
     }
@@ -398,7 +398,7 @@
     transition: all 0.3s ease;
     transform: scale(0.9);
 
-    @include breakpoints(maxSm) {
+    @include maxBreakpoints(sm) {
       min-width: 80%;
     }
 
@@ -480,7 +480,7 @@
   }
 
   // mobile screen
-  @include breakpoints(maxMd) {
+  @include maxBreakpoints(md) {
     .wrapper {
       justify-content: center;
     }
@@ -802,7 +802,7 @@
       z-index: 0;
       font-weight: bold;
 
-      @include breakpoints(maxSm) {
+      @include maxBreakpoints(sm) {
         display: none;
       }
 
@@ -826,7 +826,7 @@
   .content {
     display: flex;
 
-    @include breakpoints(maxSm) {
+    @include maxBreakpoints(sm) {
       flex-direction: column;
       gap: 2rem;
       align-items: center;

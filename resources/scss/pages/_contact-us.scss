@@ -25,11 +25,7 @@
     // background-color: var(--neutral-light-color);
     // padding: 4rem 6rem;
 
-    // @include breakpoints(maxSm) {
-    //   padding: 4rem;
-    // }
-
-    // @include breakpoints(maxXl) {
+    // @include maxBreakpoints(xl) {
     //   margin-top: -15rem;
     // }
 
@@ -149,7 +145,7 @@
       }
     }
 
-    @include breakpoints(maxMd) {
+    @include maxBreakpoints(md) {
       &.container {
         width: 90%;
       }

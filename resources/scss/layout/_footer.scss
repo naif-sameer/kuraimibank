@@ -75,7 +75,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @include breakpoints(maxSm) {
+    @include maxBreakpoints(sm) {
       flex-direction: column;
       gap: 2rem;
     }

@@ -1,5 +1,11 @@
 <section class="super-section-wrapper service-info container">
+  <div class="service-info-bg">
+    <img src="{{ asset('uploads/images/' . $service->image) }}" alt="hero image">
+  </div>
+
+
   <div class="super-section">
+
     <!------ service advantages ------>
     <section class="service-advantages">
       <div class="list">
