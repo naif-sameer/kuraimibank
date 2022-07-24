@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Service;
 use App\Models\ServiceAdvantage;
+use App\Models\SuccessStory;
+use App\Models\SuccessStoryImage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,38 +18,41 @@ class ServicesSeeder extends Seeder
    */
   public function run()
   {
+    $loremText = 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل';
+
+
     Service::create([
       'title'               => ['ar' => 'ماكينات الصراف الآلي'],
       'description'         => ['ar' => 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل'],
-      'image'               => '/images/atm.png',
+      'image'               => 'atm.png',
       'is_main_service'     => true
     ]);
 
     Service::create([
       'title'               => ['ar' => 'تمويل الملكة'],
       'description'         => ['ar' => 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل'],
-      'image'               => '/images/atm.png',
+      'image'               => 'atm.png',
       'is_main_service'     => true
     ]);
 
     Service::create([
       'title'               => ['ar' => 'حسابات الافراد'],
       'description'         => ['ar' => 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل'],
-      'image'               => '/images/atm.png',
+      'image'               => 'atm.png',
       'is_main_service'     => true
     ]);
 
     $serviceFinance  = Service::create([
       'title'               => ['ar' => 'التمويل'],
       'description'         => ['ar' => 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل'],
-      'image'               => '/images/atm.png',
+      'image'               => 'atm.png',
       'is_main_service'     => true
     ]);
 
     Service::create([
       'title'               => ['ar' => 'البطاقات الإئتمانية'],
-      'description'         => ['ar' => 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل'],
-      'image'               => '/images/atm.png',
+      'description'         => ['ar' => $loremText, 'en' => $loremText],
+      'image'               => 'atm.png',
       'is_main_service'     => true
     ]);
 
@@ -169,6 +174,42 @@ class ServicesSeeder extends Seeder
       ],
 
       'service_id' => $service->id
+    ]);
+
+    $story = SuccessStory::create([
+      'title' => [
+        'ar' => 'دراسة مالية واقتصادية',
+        'en' => 'دراسة مالية واقتصادية',
+      ],
+      'description' => [
+        'ar' => $loremText,
+        'en' => $loremText,
+      ],
+
+      'service_id' => $service->id
+    ]);
+
+    SuccessStoryImage::insert([
+      'link' => 'story.png',
+      'success_story_id' => $story->id
+    ]);
+
+    $story = SuccessStory::create([
+      'title' => [
+        'ar' => 'مشروع تحديث أنظمة البنك',
+        'en' => 'مشروع تحديث أنظمة البنك',
+      ],
+      'description' => [
+        'ar' => $loremText,
+        'en' => $loremText,
+      ],
+
+      'service_id' => $service->id
+    ]);
+
+    SuccessStoryImage::insert([
+      'link' => 'story.png',
+      'success_story_id' => $story->id
     ]);
     /***********************************************************/
   }
