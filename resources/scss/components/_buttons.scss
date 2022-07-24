@@ -1,14 +1,31 @@
-.btn {
-  font-size: 0.9rem;
-  padding: 0.7rem 1rem;
-  color: var(--primary-base-color);
-  border: 2px solid var(--primary-base-color);
+%base-btn {
   align-self: center;
   transition: {
     property: color, background;
     duration: 0.3s;
     timing-function: ease-in-out;
   }
+}
+
+.btn {
+  @extend %base-btn;
+
+  font-size: 0.9rem;
+  padding: 0.7rem 1rem;
+  color: var(--primary-base-color);
+  border: 2px solid var(--primary-base-color);
+
+  &:hover {
+    background-color: var(--primary-base-color);
+    color: white;
+  }
+}
+
+.btn-outline {
+  @extend %base-btn;
+
+  border-bottom: 2px solid var(--primary-base-color);
+  color: var(--primary-base-color);
 
   &:hover {
     background-color: var(--primary-base-color);

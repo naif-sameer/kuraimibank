@@ -63,6 +63,10 @@ return [
   "read-more"                             => "قراءة المزيد",
   "other-services-may-be-interested-in"   => "خدمات أخرى قد تهمك",
 
+  "service-advantages"                    => "مميزات خدمة",
+  "service-terms"                         => "شروط  خدمة",
+  "service-subscribe"                     => "الاشتراك في خدمة",
+
 
   "name"                                  => "الاسم",
   "email"                                 => "البريد الالكتروني",

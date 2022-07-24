@@ -6,7 +6,7 @@
     <section class="hero">
     </section>
 
-    <section class="contact-us-info container">
+    <section class="contact-us-info super-section container">
       <h2 class="title">@lang('heading.connect-with-us')</h2>
       <p class="description">@lang('heading.contact-us-description') </p>
 

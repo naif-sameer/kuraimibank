@@ -7,4 +7,8 @@
   display: flex;
   transition: transform var(--slider-duration, 0.3s)
     var(--slider-timing-function, ease-in);
+
+  & > * {
+    min-width: var(--slider-item-width, 100%);
+  }
 }

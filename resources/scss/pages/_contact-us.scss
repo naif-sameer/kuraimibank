@@ -19,23 +19,23 @@
   }
 
   .contact-us-info {
-    @include shadow(lg);
+    // @include shadow(lg);
 
-    position: relative;
-    background-color: var(--neutral-light-color);
-    padding: 4rem 6rem;
+    // position: relative;
+    // background-color: var(--neutral-light-color);
+    // padding: 4rem 6rem;
 
-    @include breakpoints(maxSm) {
-      padding: 4rem;
-    }
+    // @include breakpoints(maxSm) {
+    //   padding: 4rem;
+    // }
 
-    @include breakpoints(maxXl) {
-      margin-top: -15rem;
-    }
+    // @include breakpoints(maxXl) {
+    //   margin-top: -15rem;
+    // }
 
-    @include breakpoints(xl) {
-      margin-top: -30rem;
-    }
+    // @include breakpoints(xl) {
+    //   margin-top: -30rem;
+    // }
 
     .title {
       font-weight: bold;

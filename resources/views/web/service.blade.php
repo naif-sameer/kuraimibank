@@ -1,28 +1,20 @@
 @extends('layouts.web.app')
 
-
 @section('content')
   <main class="service">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-wrapper">
+    <!------ hero ------>
+    <x-web.service.hero :service='$service' />
 
-          <div class="hero-content">
-            <div class="breadcrumb">التمويل/مشروعي</div>
+    <!------ service info ------>
+    <x-web.service.service-info :service='$service' />
 
-            <h1 class="hero-title">{{ $service->title[$locale] }}</h1>
+    <!------ service quote ------>
+    <x-web.service.service-quote :service='$service' />
 
-            <p class="hero-description">{{ $service->description[$locale] }}</p>
-          </div>
+    <!------ success story ------>
+    <x-web.service.success-story :service='$service' />
 
-          <div class="hero-image-wrapper">
-            <div class="hero-image">
-              <img src="{{ asset('uploads/images/' . $service->image) }}" alt="hero image">
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    <!------ other services ------>
+    <x-web.service.other-services :services="$otherServices" />
   </main>
 @endsection

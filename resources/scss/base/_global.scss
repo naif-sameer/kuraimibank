@@ -17,7 +17,7 @@
     max-width: $sm;
   }
   @include breakpoints(md) {
-    max-width: $md;
+    max-width: 98%;
   }
 
   @include breakpoints(lg) {
@@ -45,5 +45,25 @@ body {
 }
 
 .breadcrumb {
-  @include my(2rem);
+  margin-bottom: 2rem;
+}
+
+.super-section {
+  @include shadow(lg);
+
+  position: relative;
+  background-color: var(--neutral-light-color);
+  padding: 4rem 6rem;
+
+  @include breakpoints(maxSm) {
+    padding: 4rem;
+  }
+
+  @include breakpoints(maxXl) {
+    margin-top: -15rem;
+  }
+
+  @include breakpoints(xl) {
+    margin-top: -30rem;
+  }
 }
