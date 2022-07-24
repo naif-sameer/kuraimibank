@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class ServiceAdvantage extends Model
+class SuccessStory extends Model
 {
   use HasFactory, HasTranslations;
 
@@ -23,7 +23,17 @@ class ServiceAdvantage extends Model
    * @var array
    */
   protected $casts = [
-    'title'          => 'array',
-    'description'    => 'array',
+    'title'                     => 'array',
+    'description'               => 'array',
   ];
+
+  public function image()
+  {
+    return $this->hasOne(SuccessStoryImage::class, 'success_story_id');
+  }
+
+  public function images()
+  {
+    return $this->hasMany(SuccessStoryImage::class, 'success_story_id');
+  }
 }
