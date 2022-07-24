@@ -1,7 +1,8 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/placeholders" as *;
 .header {
-  @include py(2.5rem);
+  // @include py(2.5rem);
+  padding-top: 2.5rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -73,7 +74,8 @@
 }
 
 .nav {
-  @include py(2rem);
+  // @include py(2rem);
+  padding-top: 2rem;
   position: relative;
 
   &-list {

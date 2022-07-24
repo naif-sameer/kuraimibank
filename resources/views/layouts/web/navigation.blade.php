@@ -56,7 +56,7 @@
             'nav-item',
             'is-active' => Request::is('services/' . $item['id']),
         ])>
-          <a href="/services/{{ $item['id'] }}">{{ $item['name']['ar'] }} </a>
+          <a href="/services/{{ $item->id }}">{{ $item->title }} </a>
         </li>
       @endforeach
     </ul>
