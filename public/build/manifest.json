@@ -1,27 +1,27 @@
 {
-  "resources/fonts/HacenTunisiaBold.woff2": {
-    "file": "assets/HacenTunisiaBold.0abc26c9.woff2",
-    "src": "resources/fonts/HacenTunisiaBold.woff2"
-  },
   "resources/fonts/GESSTwoLight-Light.woff2": {
     "file": "assets/GESSTwoLight-Light.70c73ac3.woff2",
     "src": "resources/fonts/GESSTwoLight-Light.woff2"
   },
-  "resources/fonts/GESSTwoBold-Bold.woff2": {
-    "file": "assets/GESSTwoBold-Bold.1f746dcb.woff2",
-    "src": "resources/fonts/GESSTwoBold-Bold.woff2"
+  "resources/images/home-hero-bg.jpg": {
+    "file": "assets/home-hero-bg.69bcea83.jpg",
+    "src": "resources/images/home-hero-bg.jpg"
+  },
+  "resources/fonts/HacenTunisiaBold.woff2": {
+    "file": "assets/HacenTunisiaBold.0abc26c9.woff2",
+    "src": "resources/fonts/HacenTunisiaBold.woff2"
   },
   "resources/images/shape-bg.png": {
     "file": "assets/shape-bg.b6836ee8.png",
     "src": "resources/images/shape-bg.png"
   },
+  "resources/fonts/GESSTwoBold-Bold.woff2": {
+    "file": "assets/GESSTwoBold-Bold.1f746dcb.woff2",
+    "src": "resources/fonts/GESSTwoBold-Bold.woff2"
+  },
   "resources/images/pattern-bg.png": {
     "file": "assets/pattern-bg.7ddb2171.png",
     "src": "resources/images/pattern-bg.png"
-  },
-  "resources/images/home-hero-bg.jpg": {
-    "file": "assets/home-hero-bg.69bcea83.jpg",
-    "src": "resources/images/home-hero-bg.jpg"
   },
   "resources/images/sticker-bg.png": {
     "file": "assets/sticker-bg.a151f7d3.png",
@@ -31,17 +31,17 @@
     "file": "assets/service-bg.44c1d0b1.png",
     "src": "resources/images/service-bg.png"
   },
-  "resources/fonts/HacenTunisiaBold.woff": {
-    "file": "assets/HacenTunisiaBold.18952640.woff",
-    "src": "resources/fonts/HacenTunisiaBold.woff"
+  "resources/fonts/GESSTwoLight-Light.woff": {
+    "file": "assets/GESSTwoLight-Light.0b58daeb.woff",
+    "src": "resources/fonts/GESSTwoLight-Light.woff"
   },
   "resources/fonts/GESSTwoBold-Bold.woff": {
     "file": "assets/GESSTwoBold-Bold.5b1cfe95.woff",
     "src": "resources/fonts/GESSTwoBold-Bold.woff"
   },
-  "resources/fonts/GESSTwoLight-Light.woff": {
-    "file": "assets/GESSTwoLight-Light.0b58daeb.woff",
-    "src": "resources/fonts/GESSTwoLight-Light.woff"
+  "resources/fonts/HacenTunisiaBold.woff": {
+    "file": "assets/HacenTunisiaBold.18952640.woff",
+    "src": "resources/fonts/HacenTunisiaBold.woff"
   },
   "resources/images/service-hero-image.png": {
     "file": "assets/service-hero-image.f5ac18ed.png",
@@ -57,7 +57,7 @@
     "isEntry": true
   },
   "resources/scss/app.scss": {
-    "file": "assets/app.fee3aece.css",
+    "file": "assets/app.bcbd13bb.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   }
