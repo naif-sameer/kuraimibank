@@ -16,7 +16,8 @@ return new class extends Migration
     Schema::create('our_partners', function (Blueprint $table) {
       $table->id();
       $table->json('title');
-      $table->json('description');
+      $table->json('description')->nullable();
+      $table->text('bank_messaging_country')->nullable();
       $table->string('image');
 
       $table->boolean('is_active')->default(1);

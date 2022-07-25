@@ -51,6 +51,7 @@ body {
 .super-section {
   @include shadow(lg);
 
+  margin-top: var(--super-section-margin-top, -15rem);
   position: relative;
   background-color: var(--neutral-light-color);
   padding: 4rem 6rem;
@@ -59,9 +60,21 @@ body {
     padding: 4rem;
   }
 
-  margin-top: var(--super-section-margin-top, -15rem);
+  .super-section-title {
+    font-weight: bold;
+    font-size: var(--super-section-title-font-size, xxx-large);
+    color: var(--neutral-base-color);
+    position: relative;
 
-  // @include breakpoints(xl) {
-  //   margin-top: -20rem;
-  // }
+    &::after {
+      content: "";
+      position: absolute;
+      right: -3.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #73659a;
+      width: 3rem;
+      height: 2px;
+    }
+  }
 }

@@ -12,10 +12,11 @@ class OurPartner extends Model
 
   public $translatable = [
     'title',
-    'description'
+    'description',
+    'bank_messaging_country'
   ];
 
-  protected $fillable = ['title',  'description', 'image',];
+  protected $fillable = ['title',  'description', 'bank_messaging_country', 'image',];
 
   /**
    * The attributes that should be cast.
@@ -23,7 +24,8 @@ class OurPartner extends Model
    * @var array
    */
   protected $casts = [
-    'title'              => 'array',
-    'description'        => 'array',
+    'title'                         => 'array',
+    'description'                   => 'array',
+    'bank_messaging_country'        => 'array',
   ];
 }

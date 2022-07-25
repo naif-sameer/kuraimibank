@@ -21,7 +21,7 @@
           <a href="#" class="item-links-link">@lang('heading.values-and-principles')</a>
           <a href="#" class="item-links-link">@lang('heading.policy-statement')</a>
           <a href="#" class="item-links-link">@lang('heading.mukafahat-ghasl')</a>
-          <a href="#" class="item-links-link">@lang('heading.our-partners')</a>
+          <a href="{{ route('OurPartners') }}" class="item-links-link">@lang('heading.our-partners')</a>
         </div>
       </div>
 

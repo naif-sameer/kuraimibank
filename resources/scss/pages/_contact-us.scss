@@ -33,24 +33,6 @@
     //   margin-top: -30rem;
     // }
 
-    .title {
-      font-weight: bold;
-      font-size: xxx-large;
-      color: var(--neutral-base-color);
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        right: -3.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: #73659a;
-        width: 3rem;
-        height: 2px;
-      }
-    }
-
     .description {
       font-size: x-large;
       color: var(--neutral-base-color);

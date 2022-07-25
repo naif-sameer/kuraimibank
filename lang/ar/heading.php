@@ -67,6 +67,8 @@ return [
   "service-terms"                         => "شروط  خدمة",
   "service-subscribe"                     => "الاشتراك في خدمة",
 
+  "banks-messaging"                       => "البنوك المراسلة",
+
 
   "name"                                  => "الاسم",
   "email"                                 => "البريد الالكتروني",

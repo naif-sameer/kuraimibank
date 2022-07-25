@@ -1,0 +1,67 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.our-partners .hero {
+  background-image: url(@/images/our-partners-bg.png);
+  background-size: cover;
+  background-position: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(
+      270deg,
+      rgba(115, 101, 154, 0.4430147058823529) 97%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.our-partners .main-partners-list {
+  counter-reset: section;
+  .item {
+    margin-top: 4rem;
+    position: relative;
+    counter-increment: section;
+    padding: 2rem;
+    border: 1px solid rgb(104 104 104 / 15%);
+
+    & + * {
+      margin-top: 7rem;
+    }
+
+    &::before {
+      content: counter(section);
+      position: absolute;
+      top: -5rem;
+      left: 0.5rem;
+      font-weight: bold;
+      font-size: 8rem;
+      color: #ecf1fa;
+    }
+  }
+}
+
+.our-partners .messaging-banks {
+  margin-top: 7rem;
+
+  .title {
+    --super-section-title-font-size: xx-large;
+  }
+
+  .list {
+    @include grid-cols(3);
+
+    display: grid;
+  }
+}

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
       NewsSeeder::class,
       ExchangeRateSeeder::class,
       ServicesSeeder::class,
+      OurPartnerSeeder::class,
     ]);
   }
 }
