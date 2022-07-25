@@ -13,17 +13,19 @@ return new class extends Migration
    */
   public function up()
   {
-    Schema::create('success_stories', function (Blueprint $table) {
+    Schema::create('about_us', function (Blueprint $table) {
       $table->id();
 
       $table->json('title');
       $table->json('description');
+      $table->json('who_are_we');
+      $table->json('vision');
+      $table->json('message');
+      $table->json('clarity_transparency');
+      $table->json('purpose');
+      $table->json('commitment');
 
-      $table
-        ->foreignId('service_id')
-        ->references('id')
-        ->on('services')
-        ->cascadeOnDelete();
+      $table->text('image');
 
       $table->boolean('is_active')->default(1);
       $table->timestamps();
@@ -37,6 +39,6 @@ return new class extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('success_stories');
+    Schema::dropIfExists('about_us');
   }
 };

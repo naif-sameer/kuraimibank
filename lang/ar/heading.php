@@ -72,6 +72,11 @@ return [
   "financial-report"                      => "تقرير مالي",
   "share-page-in"                         => "مشاركة الصفحة في",
 
+  "who-are-we"                            => "من نحن",
+  "clarity-and-transparency"              => "الوضوح و الشفافية",
+  "purpose"                               => "الغايات",
+
+  "commitment"                            => "الالتزام",
 
   "name"                                  => "الاسم",
   "email"                                 => "البريد الالكتروني",

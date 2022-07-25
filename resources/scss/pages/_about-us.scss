@@ -1,0 +1,173 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.about-us .hero {
+  --hero-padding-top: 5rem;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.about-us .about-bank {
+  padding: {
+    top: 4rem;
+    bottom: 4rem;
+  }
+  background-color: var(--primary-base-color);
+  color: white;
+
+  .about-bank-content {
+    display: grid;
+
+    @include breakpoints(md) {
+      grid-template-columns: 30% 1fr;
+    }
+  }
+
+  .about-bank-pagination {
+    padding: {
+      top: 2rem;
+      bottom: 2rem;
+    }
+
+    .title {
+      font-size: xxx-large;
+    }
+
+    .list {
+      @include maxBreakpoints(md) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .about-bank-pagination-item {
+    @include py(1rem);
+
+    @include breakpoints(md) {
+      &:first-of-type {
+        padding-top: 2rem;
+      }
+    }
+
+    font-size: large;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+
+    &::before {
+      height: 1px;
+      margin-inline-end: 0.5rem;
+      content: "";
+      display: inline-block;
+      transition: all 0.3s ease;
+      width: 0;
+    }
+
+    &.is-active {
+      font-weight: 600;
+
+      @include maxBreakpoints(md) {
+        border-bottom-color: white;
+      }
+
+      @include breakpoints(md) {
+        &::before {
+          width: 2rem;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  .about-slider {
+    border: 0.5rem solid #a99dcd;
+    padding: 3rem;
+    min-height: 600px;
+  }
+
+  .slider-wrapper {
+    height: 94%;
+  }
+
+  .slider-item-title {
+    font-size: xx-large;
+  }
+
+  .slider-item-description {
+    line-height: 1.7;
+    max-width: 70%;
+  }
+
+  .slider-action > * {
+    color: inherit;
+
+    &:hover {
+      color: var(--primary-dark-color);
+    }
+  }
+}
+
+.about-us .info {
+  @include my(7rem);
+
+  .info-title {
+    font-size: xxx-large;
+    text-align: center;
+  }
+
+  .list {
+    margin-top: 5rem;
+  }
+
+  .item {
+    position: relative;
+
+    &-title {
+      font-size: x-large;
+      color: var(--primary-base-color);
+      position: relative;
+      font-weight: 600;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 6rem;
+        background-color: var(--secondary-base-color);
+        right: -10px;
+      }
+    }
+
+    &-description {
+      position: relative;
+      padding: 4rem;
+      color: white;
+      line-height: 2;
+
+      &::after {
+        content: "";
+        width: 70%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: var(--primary-base-color);
+        z-index: -1;
+      }
+    }
+
+    .item-description-content {
+      width: 60%;
+    }
+
+    &-image {
+      max-width: 300px;
+      position: absolute;
+      left: 0;
+    }
+  }
+}

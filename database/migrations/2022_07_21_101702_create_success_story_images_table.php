@@ -24,6 +24,7 @@ return new class extends Migration
         ->on('success_stories')
         ->cascadeOnDelete();
 
+      $table->boolean('is_active')->default(1);
       $table->timestamps();
     });
   }

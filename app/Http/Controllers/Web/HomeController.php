@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NewsResource;
+use App\Models\AboutUs;
 use App\Models\ExchangeRate;
 use App\Models\FinancialReport;
 use App\Models\MainService;
@@ -52,7 +53,8 @@ class HomeController extends Controller
 
   public function aboutUs()
   {
-    return view('web.about-us');
+    $aboutUs = AboutUs::first();
+    return view('web.about-us')->with('aboutUs', $aboutUs);
   }
 
   public function financialReports()

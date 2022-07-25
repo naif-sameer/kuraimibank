@@ -1,3 +1,6 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
 section.hero {
   padding-top: var(--hero-padding-top, 0);
   display: flex;
@@ -7,4 +10,37 @@ section.hero {
   height: 720px;
   position: relative;
   color: var(--neutral-light-color);
+
+  &.hero-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(
+      270deg,
+      rgba(115, 101, 154, 0.4430147058823529) 97%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  &.hero-overlay > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: xxx-large;
+    font-weight: bold;
+  }
+
+  .hero-description {
+    font-size: large;
+
+    @include breakpoints(md) {
+      max-width: 500px;
+    }
+  }
 }
