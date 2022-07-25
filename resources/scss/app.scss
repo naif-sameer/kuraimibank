@@ -12,6 +12,7 @@
 @use "components/buttons";
 @use "components/heading";
 @use "components/slider";
+@use "components/share-to-social";
 
 // layout
 @use "layout/hero";
@@ -27,6 +28,7 @@
 @use "pages/contact-us";
 @use "pages/service";
 @use "pages/our-partner";
+@use "pages/reports";
 
 // body {
 //   min-height: 5000px;

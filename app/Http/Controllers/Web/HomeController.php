@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NewsResource;
 use App\Models\ExchangeRate;
+use App\Models\FinancialReport;
 use App\Models\MainService;
 use App\Models\News;
 use App\Models\OurPartner;
@@ -47,13 +48,16 @@ class HomeController extends Controller
       ->with('bankMessagingPartners', $bankMessagingPartners);
   }
 
-  public function financialReports()
-  {
-    return view('web.financial-reports');
-  }
+
 
   public function aboutUs()
   {
     return view('web.about-us');
+  }
+
+  public function financialReports()
+  {
+    $reports = FinancialReport::all();
+    return view('web.financial-reports')->with('reports', $reports);
   }
 }

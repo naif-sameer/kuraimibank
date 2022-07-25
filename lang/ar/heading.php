@@ -69,6 +69,9 @@ return [
 
   "banks-messaging"                       => "البنوك المراسلة",
 
+  "financial-report"                      => "تقرير مالي",
+  "share-page-in"                         => "مشاركة الصفحة في",
+
 
   "name"                                  => "الاسم",
   "email"                                 => "البريد الالكتروني",

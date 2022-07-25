@@ -14,6 +14,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/font.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/custom-font.css') }}">
 
   <!-- Scripts -->
   @vite(['resources/scss/app.scss', 'resources/js/app.js'])

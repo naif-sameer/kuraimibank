@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
       ExchangeRateSeeder::class,
       ServicesSeeder::class,
       OurPartnerSeeder::class,
+      FinancialReportSeeder::class,
     ]);
   }
 }

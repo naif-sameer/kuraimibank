@@ -62,8 +62,8 @@
         </h4>
 
         <div class="item-links">
-          <a href="#" class="item-links-link">التقارير المالية</a>
-          <a href="#" class="item-links-link">القوائم المالية</a>
+          <a href="{{ route('FinancialReports') }}" class="item-links-link">التقارير المالية</a>
+          {{-- <a href="#" class="item-links-link">القوائم المالية</a> --}}
         </div>
       </div>
 

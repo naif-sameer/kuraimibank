@@ -1,0 +1,28 @@
+.share-to-social {
+  padding: 4rem 2rem;
+
+  &-title {
+    text-align: center;
+    font-size: xx-large;
+    color: var(--primary-base-color);
+    padding: 1rem;
+  }
+
+  &-list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-item {
+    color: #cdcdcd;
+    font-size: 1.5rem;
+    padding: {
+      left: 0.5rem;
+      right: 0.5rem;
+    }
+
+    &:hover {
+      color: var(--primary-base-color);
+    }
+  }
+}

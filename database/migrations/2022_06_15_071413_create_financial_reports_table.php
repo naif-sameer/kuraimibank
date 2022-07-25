@@ -6,31 +6,32 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('financial_reports', function (Blueprint $table) {
-            $table->id();
-            $table->json('title');
-            $table->json('description');
-            $table->string('pdf');
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('financial_reports', function (Blueprint $table) {
+      $table->id();
+      $table->json('title')->nullable();
+      $table->json('description')->nullable();
+      $table->string('year');
+      $table->string('pdf');
 
-            $table->boolean('is_active')->default(1);
-            $table->timestamps();
-        });
-    }
+      $table->boolean('is_active')->default(1);
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('financial_reports');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('financial_reports');
+  }
 };
