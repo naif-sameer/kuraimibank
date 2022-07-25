@@ -28,7 +28,10 @@
 }
 
 .our-partners .main-partners-list {
+  @include mx(-4rem);
+
   counter-reset: section;
+
   .item {
     margin-top: 4rem;
     position: relative;
