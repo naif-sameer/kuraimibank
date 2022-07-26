@@ -48,8 +48,11 @@
   }
 
   .list {
-    @include grid-cols(3);
-
     display: grid;
+    gap: 2rem;
+
+    @include breakpoints(md) {
+      @include grid-cols(3);
+    }
   }
 }
