@@ -58,6 +58,17 @@ class AboutUsSeeder extends Seeder
         'ar' => $lorem_text,
         'en' => $lorem_text
       ],
+
+      'respect' => [
+        'ar' => $lorem_text,
+        'en' => $lorem_text
+      ],
+
+      'philanthropy' => [
+        'ar' => $lorem_text,
+        'en' => $lorem_text
+      ],
+
       'image' => 'about-us.png',
     ]);
   }

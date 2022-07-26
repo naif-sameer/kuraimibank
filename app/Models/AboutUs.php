@@ -19,6 +19,8 @@ class AboutUs extends Model
     'clarity_transparency',
     'purpose',
     'commitment',
+    'respect',
+    'philanthropy',
   ];
 
   protected $fillable = [
@@ -30,6 +32,8 @@ class AboutUs extends Model
     'clarity_transparency',
     'purpose',
     'commitment',
+    'respect',
+    'philanthropy',
     'image',
   ];
 }

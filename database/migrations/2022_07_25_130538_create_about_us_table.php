@@ -23,6 +23,8 @@ return new class extends Migration
       $table->json('message');
       $table->json('clarity_transparency');
       $table->json('purpose');
+      $table->json('respect');
+      $table->json('philanthropy');
       $table->json('commitment');
 
       $table->text('image');

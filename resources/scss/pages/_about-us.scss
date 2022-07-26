@@ -120,13 +120,24 @@
   }
 
   .list {
+    display: grid;
+    gap: 8rem;
     margin-top: 5rem;
   }
 
   .item {
+    --image-position-size: 8rem;
     position: relative;
 
+    @include breakpoints(md) {
+      &:nth-last-of-type(odd) {
+        margin-top: var(--image-position-size);
+      }
+    }
+
     &-title {
+      @include py(1rem);
+
       font-size: x-large;
       color: var(--primary-base-color);
       position: relative;
@@ -144,30 +155,90 @@
 
     &-description {
       position: relative;
-      padding: 4rem;
       color: white;
       line-height: 2;
 
+      @include breakpoints(md) {
+        padding: 8rem 4rem;
+      }
+
+      @include maxBreakpoints(md) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
       &::after {
         content: "";
-        width: 70%;
+        width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         right: 0;
         background: var(--primary-base-color);
         z-index: -1;
+
+        @include breakpoints(md) {
+          width: 70%;
+        }
       }
     }
 
     .item-description-content {
-      width: 60%;
+      @include breakpoints(md) {
+        width: 56%;
+      }
+
+      @include maxBreakpoints(md) {
+        @include py(3rem);
+      }
     }
 
     &-image {
-      max-width: 300px;
-      position: absolute;
-      left: 0;
+      width: 100%;
+      height: 500px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @include breakpoints(md) {
+        position: absolute;
+        left: 0;
+        top: var(--image-position-size);
+        width: 40%;
+      }
+    }
+
+    @include breakpoints(md) {
+      &.item-end {
+        .item-image {
+          top: calc(var(--image-position-size) * -1);
+          right: 0;
+          left: unset;
+        }
+
+        .item-title {
+          padding-inline-start: 45%;
+
+          &::after {
+            right: 43%;
+          }
+        }
+
+        .item-description {
+          &::after {
+            right: auto;
+            left: 0;
+          }
+
+          &-content {
+            margin-right: auto;
+          }
+        }
+      }
     }
   }
 }

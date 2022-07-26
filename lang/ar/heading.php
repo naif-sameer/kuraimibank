@@ -77,6 +77,8 @@ return [
   "purpose"                               => "الغايات",
 
   "commitment"                            => "الالتزام",
+  "respect"                               => "نحترم",
+  "philanthropy"                          => "حب الخير",
 
   "name"                                  => "الاسم",
   "email"                                 => "البريد الالكتروني",
