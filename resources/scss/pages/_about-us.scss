@@ -87,6 +87,22 @@
     border: 0.5rem solid #a99dcd;
     padding: 3rem;
     min-height: 600px;
+    position: relative;
+
+    &::after {
+      background-image: url(@/images/about-us-info-bg.png);
+
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: -90px;
+      width: 150px;
+      height: 180px;
+      z-index: 67;
+      background-size: cover;
+      background-position: center;
+      mix-blend-mode: overlay;
+    }
   }
 
   .slider-wrapper {
@@ -167,6 +183,13 @@
         flex-direction: column-reverse;
       }
 
+      & > .container {
+        @include maxBreakpoints(md) {
+          margin-top: -16rem;
+          background: #73659ae6;
+        }
+      }
+
       &::after {
         content: "";
         width: 100%;
@@ -181,15 +204,15 @@
           width: 70%;
         }
       }
-    }
 
-    .item-description-content {
-      @include breakpoints(md) {
-        width: 56%;
-      }
+      .item-description-content {
+        @include breakpoints(md) {
+          width: 56%;
+        }
 
-      @include maxBreakpoints(md) {
-        @include py(3rem);
+        @include maxBreakpoints(md) {
+          @include py(2rem);
+        }
       }
     }
 
