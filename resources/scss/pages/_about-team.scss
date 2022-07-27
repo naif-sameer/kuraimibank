@@ -33,6 +33,7 @@
       border: 1px solid var(--neutral-base-color);
       max-height: 400px;
       display: flex;
+      overflow: hidden;
 
       img {
         width: 100%;
@@ -45,12 +46,10 @@
 }
 @keyframes scrollY {
   from {
-    // transform: translateY(0);
     transform: translate3d(0);
   }
 
   to {
-    // transform: translateY(-100%);
     transform: translate3d(0, -100%, 0);
   }
 }

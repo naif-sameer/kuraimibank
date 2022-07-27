@@ -46,7 +46,15 @@
   }
 
   &-logo {
-    width: 300px;
+    width: 70%;
+
+    @include breakpoints(md) {
+      max-width: 250px;
+    }
+
+    @include breakpoints(lg) {
+      max-width: 400px;
+    }
   }
 
   .change-lang-link {

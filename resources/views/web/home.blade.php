@@ -1,6 +1,5 @@
 @extends('layouts.web.app')
 
-
 @section('content')
   <main class="home">
     <!------ hero ------>
@@ -28,7 +27,4 @@
     <!------ our points ------>
     <x-web.home.our-points />
   </main>
-@endsection
-
-@section('script')
 @endsection
