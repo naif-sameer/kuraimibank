@@ -18,10 +18,14 @@
     min-width: 1000px;
     z-index: 0;
 
+    .list-ticker-content:nth-of-type(odd) .list {
+      animation-direction: reverse;
+    }
+
     .list {
       display: flex;
       flex-direction: column;
-      animation: scrollY 15s linear normal infinite;
+      animation: scrollY 15s linear infinite;
     }
 
     .item-image {

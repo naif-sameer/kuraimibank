@@ -1,6 +1,4 @@
 <section class="hero hero-overlay">
-
-
   <div class="hero-ticker-images">
     @foreach ($teamRoles as $team)
       <div class="list-ticker-content">
@@ -15,7 +13,6 @@
     @endforeach
 
     @for ($index = 0; $index < 2; $index++)
-      {{-- {{ $teamRoles }} --}}
       <div class="list-ticker-content">
 
         <div class="list">
