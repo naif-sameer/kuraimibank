@@ -28,12 +28,15 @@ Route::controller(Web\HomeController::class)->group(function () {
 
 Route::controller(Web\ServiceController::class)->group(function () {
   Route::get('/services/{service}', 'service')->name('Service');
-  Route::get('/services/{id}/{storyID}', 'serviceStory')->name('ServiceStory');
+  Route::get('/services/{service}/{successStory}', 'serviceStory')->name('ServiceStory');
 });
 
+// 'Web\ServiceStory@index'
 Route::controller(Web\ServicePointsController::class)->group(function () {
   Route::get('/service-points/{id}', 'index')->name('ServicePoints');
 });
+
+
 
 
 

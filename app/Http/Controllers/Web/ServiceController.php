@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
 use App\Models\Service;
+use App\Models\SuccessStory;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -22,8 +24,14 @@ class ServiceController extends Controller
       ->with('otherServices', Service::take(8)->get());
   }
 
-  public function stroy()
+  public function serviceStory(Service $service, SuccessStory $successStory)
   {
-    return view('web.service-story');
+
+    $news = News::take(3)->get();
+
+    // dd($news);
+    return view('web.service-story')
+      ->with('story', $successStory->load('images'))
+      ->with('news', $news);
   }
 }

@@ -80,6 +80,7 @@ return [
   "respect"                               => "نحترم",
   "philanthropy"                          => "حب الخير",
   "board-of-directors"                    => "مجلس الإدارة",
+  "other-news"                            => "أخبار أخرى عن البنك",
 
   "name"                                  => "الاسم",
   "email"                                 => "البريد الالكتروني",
