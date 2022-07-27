@@ -1,0 +1,106 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.about-team .hero {
+  background-color: white;
+  overflow: hidden;
+
+  .hero-ticker-images {
+    @include grid-cols(5);
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    gap: 2rem;
+    width: 100%;
+    min-width: 1000px;
+    z-index: 0;
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      animation: scrollY 15s linear normal infinite;
+    }
+
+    .item-image {
+      margin-top: 2rem;
+      border: 1px solid var(--neutral-base-color);
+      max-height: 400px;
+      display: flex;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+@keyframes scrollY {
+  from {
+    // transform: translateY(0);
+    transform: translate3d(0);
+  }
+
+  to {
+    // transform: translateY(-100%);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.about-team .info {
+  .list {
+    display: grid;
+    gap: 3;
+  }
+
+  .item {
+    &-title {
+      @include my(2rem);
+    }
+
+    &-description {
+      max-width: 400px;
+      line-height: 1.8;
+      font-size: large;
+    }
+  }
+}
+
+.about-team .members-list {
+  display: grid;
+  gap: 2rem;
+
+  @include breakpoints(md) {
+    @include grid-cols(2);
+  }
+
+  @include breakpoints(lg) {
+    @include grid-cols(3);
+  }
+
+  .member {
+    &-title {
+      margin-top: 1rem;
+    }
+  }
+
+  .member-image {
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    height: 400px;
+
+    @include breakpoints(md) {
+      height: 500px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

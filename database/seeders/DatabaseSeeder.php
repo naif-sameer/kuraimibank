@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
       ServicesSeeder::class,
       OurPartnerSeeder::class,
       FinancialReportSeeder::class,
-      AboutUsSeeder::class
+      AboutUsSeeder::class,
+      TeamRoleSeeder::class,
+      TeamMemberSeeder::class,
     ]);
   }
 }

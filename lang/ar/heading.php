@@ -79,6 +79,7 @@ return [
   "commitment"                            => "الالتزام",
   "respect"                               => "نحترم",
   "philanthropy"                          => "حب الخير",
+  "board-of-directors"                    => "مجلس الإدارة",
 
   "name"                                  => "الاسم",
   "email"                                 => "البريد الالكتروني",

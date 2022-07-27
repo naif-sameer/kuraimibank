@@ -1,7 +1,7 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 
-section.hero {
+.hero {
   padding-top: var(--hero-padding-top, 0);
   display: flex;
   justify-content: center;
@@ -26,11 +26,6 @@ section.hero {
     );
   }
 
-  &.hero-overlay > * {
-    position: relative;
-    z-index: 2;
-  }
-
   .hero-title {
     font-size: xxx-large;
     font-weight: bold;
@@ -43,4 +38,9 @@ section.hero {
       max-width: 500px;
     }
   }
+}
+
+.hero-overlay > * {
+  position: relative;
+  z-index: 2;
 }

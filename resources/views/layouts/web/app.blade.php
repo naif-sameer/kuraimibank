@@ -31,6 +31,8 @@
   <script src="https://cdn.jsdelivr.net/gh/naif-sameer/tokyo-lorem@master/dist/lorem-lib.umd.js"></script>
 
   <script src="{{ asset('js/slider.js') }}"></script>
+  <script src="{{ asset('js/ticker.js') }}"></script>
+
   @yield('script')
   @stack('script')
 </body>

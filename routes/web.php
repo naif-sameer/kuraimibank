@@ -19,7 +19,8 @@ use App\Http\Controllers\Web;
 
 Route::controller(Web\HomeController::class)->group(function () {
   Route::get('/', 'index');
-  Route::get('/about-us', 'aboutUS')->name('AboutUs');
+  Route::get('/about-us', 'aboutUs')->name('AboutUs');
+  Route::get('/about-us/team', 'aboutTeam')->name('AboutTeam');
   Route::get('/contact-us', 'contactUs')->name('ContactUs');
   Route::get('/our-partners', 'ourPartners')->name('OurPartners');
   Route::get('/financial-reports', 'financialReports')->name('FinancialReports');

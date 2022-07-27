@@ -11,6 +11,10 @@
     "file": "assets/GESSTwoBold-Bold.1f746dcb.woff2",
     "src": "resources/fonts/GESSTwoBold-Bold.woff2"
   },
+  "resources/images/shape-bg.png": {
+    "file": "assets/shape-bg.b6836ee8.png",
+    "src": "resources/images/shape-bg.png"
+  },
   "resources/images/home-hero-bg.jpg": {
     "file": "assets/home-hero-bg.69bcea83.jpg",
     "src": "resources/images/home-hero-bg.jpg"
@@ -19,17 +23,21 @@
     "file": "assets/pattern-bg.7ddb2171.png",
     "src": "resources/images/pattern-bg.png"
   },
-  "resources/images/shape-bg.png": {
-    "file": "assets/shape-bg.b6836ee8.png",
-    "src": "resources/images/shape-bg.png"
-  },
   "resources/images/sticker-bg.png": {
     "file": "assets/sticker-bg.a151f7d3.png",
     "src": "resources/images/sticker-bg.png"
   },
+  "resources/images/about-us-info-bg.png": {
+    "file": "assets/about-us-info-bg.032c7d6d.png",
+    "src": "resources/images/about-us-info-bg.png"
+  },
   "resources/images/service-bg.png": {
     "file": "assets/service-bg.44c1d0b1.png",
     "src": "resources/images/service-bg.png"
+  },
+  "resources/images/report-item-bg.png": {
+    "file": "assets/report-item-bg.63b41e8e.png",
+    "src": "resources/images/report-item-bg.png"
   },
   "resources/fonts/HacenTunisiaBold.woff": {
     "file": "assets/HacenTunisiaBold.18952640.woff",
@@ -61,7 +69,7 @@
     "isEntry": true
   },
   "resources/scss/app.scss": {
-    "file": "assets/app.01888743.css",
+    "file": "assets/app.a4981eaf.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   }

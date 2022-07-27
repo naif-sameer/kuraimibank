@@ -11,6 +11,7 @@ use App\Models\MainService;
 use App\Models\News;
 use App\Models\OurPartner;
 use App\Models\Service;
+use App\Models\TeamRole;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -55,6 +56,15 @@ class HomeController extends Controller
   {
     $aboutUs = AboutUs::first();
     return view('web.about-us')->with('aboutUs', $aboutUs);
+  }
+
+  public function aboutTeam()
+  {
+
+    $teamRoles = TeamRole::with('members')->get();
+
+    // dd($teamRoles);
+    return view('web.about-team')->with('teamRoles', $teamRoles);
   }
 
   public function financialReports()
