@@ -8,7 +8,6 @@
     <!------ currencies ------>
     <x-web.home.currencies :currencies="$currencies" />
 
-
     <!------ services ------>
     <x-web.home.services :mainServices="$mainServices" />
 

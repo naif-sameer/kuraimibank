@@ -34,6 +34,7 @@
       slider: ".news-slider",
       backBtn: '#news-slider-back-btn',
       forwardBtn: '#news-slider-forward-btn',
+      availableMoveMode: true
     })
   </script>
 @endpush
