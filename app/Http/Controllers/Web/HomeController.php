@@ -48,9 +48,6 @@ class HomeController extends Controller
 
   public function ourPartners()
   {
-    // source: https://stackoverflow.com/a/66224349/19299063
-    // DB::statement("SET SQL_MODE=''");
-
     $partners = OurPartner::whereNull('bank_messaging_country')->get();
     $bankMessagingPartners = OurPartner::whereNotNull('bank_messaging_country')->orderBy('bank_messaging_country')->get();
 

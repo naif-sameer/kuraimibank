@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\ContactInfo;
+use App\Models\OurPartner;
 use App\Models\Service;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
@@ -29,18 +30,20 @@ class AppServiceProvider extends ServiceProvider
   public function boot()
   {
     // navbar data :)
+
+
     $navItems = Service::where('is_main_service', true)->get();
 
-    $contactInfo = ContactInfo::all()->keyBy('key');
-
-    $services = Service::where('is_main_service', false)->get();
+    $footerInfo = new stdClass();
+    $footerInfo->contactInfo = ContactInfo::all()->keyBy('key');
+    $footerInfo->services = Service::where('is_main_service', false)->get();
+    $footerInfo->OurPartners = OurPartner::whereNull('bank_messaging_country')->get();
 
     // dd($services);
     View::share([
-      'locale'        => App::getLocale(),
-      'navItems'      => $navItems,
-      'contactInfo'   => $contactInfo,
-      'services'      => $services
+      'locale'          => App::getLocale(),
+      'navItems'        => $navItems,
+      'footerInfo'      => $footerInfo,
     ]);
   }
 }
