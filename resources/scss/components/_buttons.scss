@@ -21,6 +21,21 @@
   }
 }
 
+.btn-primary {
+  @extend %base-btn;
+
+  font-size: 0.9rem;
+  padding: 0.7rem 1rem;
+  background-color: var(--primary-base-color);
+  color: white;
+  border: 2px solid var(--primary-base-color);
+
+  &:hover {
+    background-color: white;
+    color: var(--primary-base-color);
+  }
+}
+
 .btn-outline {
   @extend %base-btn;
 

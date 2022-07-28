@@ -33,7 +33,7 @@ Route::controller(Web\ServiceController::class)->group(function () {
 
 // 'Web\ServiceStory@index'
 Route::controller(Web\ServicePointsController::class)->group(function () {
-  Route::get('/service-points/{id}', 'index')->name('ServicePoints');
+  Route::get('/service-points', 'index')->name('ServicePoints');
 });
 
 

@@ -1,0 +1,162 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.service-points .hero {
+  @include breakpoints(lg) {
+    --hero-padding-top: 8rem;
+  }
+}
+
+.service-points .info {
+  --super-section-margin-top: -10rem;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 4rem;
+
+  .super-section {
+    @include maxBreakpoints(md) {
+      padding: {
+        left: 1rem;
+        right: 1rem;
+      }
+    }
+  }
+
+  .info-title {
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-inline-start: -6rem;
+
+    @include maxBreakpoints(md) {
+      gap: 1rem;
+      margin-inline-start: -2rem;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 4rem;
+      height: 2px;
+      background-color: var(--primary-base-color);
+    }
+  }
+}
+
+.service-points .info-form {
+  display: flex;
+  gap: 2rem;
+
+  @include maxBreakpoints(md) {
+    flex-wrap: wrap;
+  }
+
+  @include maxBreakpoints(sm) {
+    flex-direction: column;
+  }
+
+  @include breakpoints(md) {
+    gap: 4rem;
+  }
+
+  .form-group {
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: column;
+  }
+
+  label {
+    color: var(--neutral-base-color);
+    font-size: 1.1rem;
+  }
+
+  select {
+    padding: 0.5rem 1rem;
+    min-width: 120px;
+  }
+
+  .form-btn {
+    white-space: nowrap;
+
+    @include breakpoints(md) {
+      align-self: flex-end;
+    }
+
+    @include maxBreakpoints(md) {
+      align-self: flex-start;
+    }
+  }
+}
+
+.service-points .list-wrapper {
+  @include breakpoints(sm) {
+    padding-inline-start: 0;
+  }
+}
+
+.service-points .list {
+  max-width: fit-content;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .item {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid rgb(104 104 104 / 28%);
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 5rem;
+      color: var(--primary-base-color);
+    }
+
+    .icon-bank-branch {
+      color: var(--secondary-base-color);
+    }
+
+    &-header-info {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      span {
+        font-size: 0.8rem;
+      }
+    }
+
+    &-description {
+      color: var(--neutral-base-color);
+    }
+  }
+}
+
+.service-points .list-pagination {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  background: white;
+  padding: 0.5rem;
+
+  &-item {
+    padding: 0.5rem;
+    font-weight: 700;
+    // color: var(--primary-base-color);
+    color: #b9b9b9;
+    transition: all 0.3s ease;
+
+    // width: 40px;
+    // height: 40px;
+    // border-radius: 50%;
+
+    &:hover,
+    &.is-active {
+      // background-color: #e6dcff;
+      color: var(--primary-dark-color);
+    }
+  }
+}
