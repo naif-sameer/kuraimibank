@@ -33,10 +33,14 @@ class AppServiceProvider extends ServiceProvider
 
     $contactInfo = ContactInfo::all()->keyBy('key');
 
+    $services = Service::where('is_main_service', false)->get();
+
+    // dd($services);
     View::share([
       'locale'        => App::getLocale(),
       'navItems'      => $navItems,
-      'contactInfo'   => $contactInfo
+      'contactInfo'   => $contactInfo,
+      'services'      => $services
     ]);
   }
 }

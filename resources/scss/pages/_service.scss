@@ -54,14 +54,26 @@
 
   .service-info-bg {
     position: absolute;
-    top: -390px;
-    left: -125px;
     z-index: 1;
-    width: 700px;
-    height: 600px;
+
+    @include breakpoints(md) {
+      top: -290px;
+      left: -105px;
+      width: 500px;
+      height: 400px;
+    }
+
+    @include breakpoints(lg) {
+      top: -390px;
+      left: -125px;
+      z-index: 1;
+      width: 700px;
+      height: 600px;
+    }
 
     background-image: url(@/images/service-hero-image.png);
     background-size: cover;
+    background-position: -155%;
     display: flex;
     justify-content: center;
     align-items: center;
