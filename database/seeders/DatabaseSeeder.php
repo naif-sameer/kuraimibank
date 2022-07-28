@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SuccessNumber;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
       NewsSeeder::class,
       OurPartnerSeeder::class,
       ServicesSeeder::class,
+      SuccessNumberSeeder::class,
       TeamRoleSeeder::class,
       TeamMemberSeeder::class,
       UserSeeder::class,

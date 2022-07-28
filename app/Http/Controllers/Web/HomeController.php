@@ -9,6 +9,7 @@ use App\Models\FinancialReport;
 use App\Models\News;
 use App\Models\OurPartner;
 use App\Models\Service;
+use App\Models\SuccessNumber;
 use App\Models\TeamRole;
 use App\Models\WebsiteInfo;
 use stdClass;
@@ -27,6 +28,8 @@ class HomeController extends Controller
 
     $mainServices =  Service::where('is_main_service', true)->take(5)->get();
 
+    $successNumbers = SuccessNumber::take(8)->get();
+
     $news = News::take(6)->get();
 
 
@@ -34,7 +37,8 @@ class HomeController extends Controller
       ->with('homeInfo', $homeInfo)
       ->with('currencies', $currencies)
       ->with('mainServices', $mainServices)
-      ->with('news', $news);
+      ->with('news', $news)
+      ->with('successNumbers', $successNumbers);
   }
 
   public function contactUs()
