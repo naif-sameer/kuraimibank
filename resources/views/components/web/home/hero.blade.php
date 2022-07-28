@@ -1,10 +1,8 @@
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <h1 class='hero-title'>حساب في كل بيت يمني </h1>
-      <p class="hero-description">
-        يسهم في التنمية الاقتصادية والاجتماعية
-      </p>
+      <h1 class='hero-title'>{{ $homeInfo->title }}</h1>
+      <p class="hero-description">{!! $homeInfo->description !!}</p>
 
       <div class="hero-navigation">
         <div class="hero-navigation-item is-active"></div>

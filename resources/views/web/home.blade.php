@@ -3,17 +3,16 @@
 @section('content')
   <main class="home">
     <!------ hero ------>
-    <x-web.home.hero />
+    <x-web.home.hero :homeInfo="$homeInfo" />
 
     <!------ currencies ------>
     <x-web.home.currencies :currencies="$currencies" />
-
 
     <!------ services ------>
     <x-web.home.services :mainServices="$mainServices" />
 
     <!------ bank app ------>
-    <x-web.home.bank-app />
+    <x-web.home.bank-app :homeInfo="$homeInfo" />
 
 
     <!------ news ------>

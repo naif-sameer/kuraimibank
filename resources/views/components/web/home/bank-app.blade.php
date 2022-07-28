@@ -5,12 +5,9 @@
     <div class="content">
       <h2 class="section-title">@lang('navbar.bank-apps')</h2>
 
-      <p class="description">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
-        العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا
-        النص
-        هو
-        مثال لنص يمكن أن يستبدل
-      </p>
+      @isset($homeInfo->appDescription)
+        <p class="description">{{ $homeInfo->appDescription }}</p>
+      @endisset
 
 
       <div class="bank-app-slider-wrapper">

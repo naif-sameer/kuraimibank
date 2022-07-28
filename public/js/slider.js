@@ -116,5 +116,16 @@ function superSlide({
   }
 
   // change slider transform when resize
-  window.addEventListener("resize", () => animateSlideItem(activeSlide));
+  window.addEventListener("resize", () => {
+    animateSlideItem(activeSlide);
+
+    baseAvailableMove =
+      totalSlides > 0
+        ? totalSlides -
+          Math.round(getItemWidth(el(slider)) / getItemWidth(slideItems[0])) +
+          1
+        : 0;
+
+    availableMove = baseAvailableMove;
+  });
 }

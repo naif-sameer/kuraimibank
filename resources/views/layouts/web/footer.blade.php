@@ -47,11 +47,14 @@
         </h4>
 
         <div class="item-links">
-          <a href="#" class="item-links-link">خدمات الأفراد</a>
-          <a href="#" class="item-links-link"> خدمات الشركات</a>
+
+          @foreach ($services as $service)
+            <a href="{{ route('Service', $service) }}" class="item-links-link">{{ $service->title }}</a>
+          @endforeach
+          {{-- <a href="#" class="item-links-link"> خدمات الشركات</a>
           <a href="#" class="item-links-link"> كريمي اكسبرس</a>
           <a href="#" class="item-links-link">ام فلوس</a>
-          <a href="#" class="item-links-link">التمويل</a>
+          <a href="#" class="item-links-link">التمويل</a> --}}
         </div>
       </div>
 
@@ -83,12 +86,11 @@
         <h4 class="item-title">
           @lang('heading.connect-with-us')
         </h4>
-
         <div class="item-links">
-          <span class="item-links-link">@lang('heading.telephone'):</span>
-          <span class="item-links-link">@lang('heading.fax'):</span>
-          <span class="item-links-link">@lang('heading.free-call'):</span>
-          <span class="item-links-link">@lang('heading.mail-box'):</span>
+          <span class="item-links-link">@lang('heading.telephone'): {{ $contactInfo['phone']->value }}</span>
+          <span class="item-links-link">@lang('heading.fax'):{{ $contactInfo['fax']->value }}</span>
+          <span class="item-links-link">@lang('heading.free-call'):{{ $contactInfo['free_phone']->value }}</span>
+          <span class="item-links-link">@lang('heading.mail-box'):{{ $contactInfo['mail_box']->value }}</span>
         </div>
       </div>
     </div>
