@@ -26,15 +26,16 @@
 
     {{-- left side --}}
     <div class="header-item-wrapper only-mobile">
-      <div class="header-item">
+      <a href="{{ route('ServicePoints') }}" class="header-item">
         <x-icon icon='location-dot' />
         <span class="item-label"> @lang('navbar.service-points') </span>
-      </div>
+      </a>
 
       <div class="header-item change-lang">
         <x-icon icon='search' />
 
-        <a class="item-label change-lang-link" href="/en">en</a>
+        {{-- TODO remove pointer-events after add en lang --}}
+        <a class="item-label change-lang-link" style="  pointer-events: none;" href="/en">en</a>
       </div>
     </div>
   </div>
@@ -77,7 +78,5 @@
     el('.mobile-open-menu').addEventListener('click', () => {
       el('.nav').classList.add('is-active')
     })
-
-    console.log('test')
   </script>
 @endpush
