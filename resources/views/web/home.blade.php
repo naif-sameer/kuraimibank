@@ -3,7 +3,7 @@
 @section('content')
   <main class="home">
     <!------ hero ------>
-    <x-web.home.hero />
+    <x-web.home.hero :homeInfo="$homeInfo" />
 
     <!------ currencies ------>
     <x-web.home.currencies :currencies="$currencies" />

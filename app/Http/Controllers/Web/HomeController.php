@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\NewsResource;
 use App\Models\AboutUs;
 use App\Models\ExchangeRate;
 use App\Models\FinancialReport;
-use App\Models\MainService;
 use App\Models\News;
 use App\Models\OurPartner;
 use App\Models\Service;
 use App\Models\TeamRole;
-use Illuminate\Support\Facades\DB;
+use App\Models\WebsiteInfo;
+use stdClass;
 
 class HomeController extends Controller
 {
   public function index()
   {
+    $homeInfo = new stdClass();
+    $homeInfo->title = WebsiteInfo::where('table_key', 'home_title')->first()->table_value;
+    $homeInfo->description = WebsiteInfo::where('table_key', 'home_description')->first()->table_value;
+
 
     $currencies  = ExchangeRate::take(3)->get();
 
@@ -27,6 +30,7 @@ class HomeController extends Controller
 
 
     return view('web.home')
+      ->with('homeInfo', $homeInfo)
       ->with('currencies', $currencies)
       ->with('mainServices', $mainServices)
       ->with('news', $news);

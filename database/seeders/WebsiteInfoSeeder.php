@@ -15,6 +15,42 @@ class WebsiteInfoSeeder extends Seeder
    */
   public function run()
   {
+
+    /***************** home page  ******************/
+    WebsiteInfo::create(
+      [
+        'table_key'     => 'home_title',
+        'table_value'   => [
+          "ar" => "حساب في كل بيت يمني",
+          "en" => "An account in every Yemeni house"
+        ],
+        'created_at'    => now()
+      ],
+    );
+    WebsiteInfo::create(
+      [
+        'table_key'     => 'home_description',
+        'table_value'   => [
+          "ar" => "يسهم في التنمية الاقتصادية والاجتماعية",
+          "en" => "Contributes to economic and social development"
+        ],
+        'created_at'    => now()
+      ],
+    );
+
+    WebsiteInfo::create(
+      [
+        'table_key'     => 'home_bank_app_description',
+        'table_value'   => [
+          "ar" => "يسهم في التنمية الاقتصادية والاجتماعية",
+          "en" => "Contributes to economic and social development"
+        ],
+        'created_at'    => now()
+      ],
+    );
+
+
+    /*****************  page  ******************/
     WebsiteInfo::create(
       [
         'table_key'     => 'apply_for_service',
