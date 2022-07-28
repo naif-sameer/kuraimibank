@@ -1,4 +1,4 @@
-<section class="our-points">
+<section class="our-points" style="background-image: url({{ asset('images/home-our-points-map.png') }})">
   <div class="container">
     <div class="content">
       <div class="content-body">

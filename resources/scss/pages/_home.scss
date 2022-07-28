@@ -827,6 +827,16 @@
     bottom: 6rem;
   }
 
+  @include maxBreakpoints(sm) {
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @include breakpoints(sm) {
+    background-image: none !important;
+  }
+
   .content {
     display: flex;
 
