@@ -13,7 +13,7 @@
     <x-web.home.services :mainServices="$mainServices" />
 
     <!------ bank app ------>
-    <x-web.home.bank-app />
+    <x-web.home.bank-app :homeInfo="$homeInfo" />
 
 
     <!------ news ------>

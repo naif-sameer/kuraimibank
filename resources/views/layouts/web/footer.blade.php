@@ -83,12 +83,11 @@
         <h4 class="item-title">
           @lang('heading.connect-with-us')
         </h4>
-
         <div class="item-links">
-          <span class="item-links-link">@lang('heading.telephone'):</span>
-          <span class="item-links-link">@lang('heading.fax'):</span>
-          <span class="item-links-link">@lang('heading.free-call'):</span>
-          <span class="item-links-link">@lang('heading.mail-box'):</span>
+          <span class="item-links-link">@lang('heading.telephone'): {{ $contactInfo['phone']->value }}</span>
+          <span class="item-links-link">@lang('heading.fax'):{{ $contactInfo['fax']->value }}</span>
+          <span class="item-links-link">@lang('heading.free-call'):{{ $contactInfo['free_phone']->value }}</span>
+          <span class="item-links-link">@lang('heading.mail-box'):{{ $contactInfo['mail_box']->value }}</span>
         </div>
       </div>
     </div>

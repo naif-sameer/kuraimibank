@@ -21,6 +21,7 @@ class HomeController extends Controller
     $homeInfo->title = WebsiteInfo::where('table_key', 'home_title')->first()->table_value;
     $homeInfo->description = WebsiteInfo::where('table_key', 'home_description')->first()->table_value;
 
+    $homeInfo->appDescription = WebsiteInfo::where('table_key', 'home_bank_app_description')->first()->table_value;
 
     $currencies  = ExchangeRate::take(3)->get();
 
