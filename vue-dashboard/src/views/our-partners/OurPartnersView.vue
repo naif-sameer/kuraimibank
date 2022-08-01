@@ -18,9 +18,6 @@ import Table from './Table.vue';
 const { t } = useI18n();
 let store = useOurPartnerStore();
 
-// render data from store
-// await store.getOurPartners();
-
 const createModal = ref(false);
 const showCreateModal = () => {
   store.resetItem();
