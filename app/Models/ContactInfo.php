@@ -10,6 +10,8 @@ class ContactInfo extends Model
   use HasFactory;
 
 
+  protected $fillable = ['key', 'value', 'is_active'];
+
   /**
    * get is_active attribute as a boolean.
    */

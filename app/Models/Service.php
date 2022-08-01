@@ -29,7 +29,8 @@ class Service extends Model
     'image',
     'service_slogan',
     'subscription_in_service',
-    'questions'
+    'questions',
+    'is_active'
   ];
 
   /**

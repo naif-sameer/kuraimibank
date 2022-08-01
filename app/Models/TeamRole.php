@@ -22,7 +22,8 @@ class TeamRole extends Model
    */
   protected $fillable = [
     'title',
-    'description'
+    'description',
+    'is_active'
   ];
 
   public function members()

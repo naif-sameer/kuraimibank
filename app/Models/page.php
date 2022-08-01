@@ -16,7 +16,7 @@ class Page extends Model
     'description'
   ];
 
-  protected $fillable = ['table_key', 'title', 'sub_title', 'description'];
+  protected $fillable = ['table_key', 'title', 'sub_title', 'description', 'is_active'];
 
   /**
    * The attributes that should be cast.

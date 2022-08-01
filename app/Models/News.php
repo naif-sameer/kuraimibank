@@ -13,7 +13,7 @@ class News extends Model
 
   public $translatable = ['title', 'description'];
 
-  protected $fillable = ['title', 'description', 'image'];
+  protected $fillable = ['title', 'description', 'image', 'is_active'];
 
   /**
    * The attributes that should be cast.

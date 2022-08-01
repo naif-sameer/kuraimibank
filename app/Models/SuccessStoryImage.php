@@ -9,7 +9,7 @@ class SuccessStoryImage extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['link', 'success_story_id'];
+  protected $fillable = ['link', 'success_story_id', 'is_active'];
 
   /**
    * get is_active attribute as a boolean.

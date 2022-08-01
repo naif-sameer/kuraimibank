@@ -17,6 +17,7 @@ class SuccessNumber extends Model
   protected $fillable = [
     'title',
     'description',
+    'is_active'
   ];
 
   /**

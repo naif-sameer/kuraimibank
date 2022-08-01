@@ -15,7 +15,7 @@ class FinancialReport extends Model
     'description'
   ];
 
-  protected $fillable = ['title', 'description', 'pdf'];
+  protected $fillable = ['title', 'description', 'pdf', 'is_active'];
 
   /**
    * The attributes that should be cast.

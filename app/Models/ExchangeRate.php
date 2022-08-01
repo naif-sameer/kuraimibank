@@ -14,7 +14,7 @@ class ExchangeRate extends Model
     'title',
   ];
 
-  protected $fillable = ['title', 'sale', 'buy'];
+  protected $fillable = ['title', 'sale', 'buy', 'is_active'];
 
   /**
    * The attributes that should be cast.

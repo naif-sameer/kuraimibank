@@ -15,6 +15,17 @@ class WebsiteInfo extends Model
   protected $table = 'website_info';
 
   /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = [
+    'table_key',
+    'table_value',
+    'is_active'
+  ];
+
+  /**
    * The attributes that should be cast.
    *
    * @var array

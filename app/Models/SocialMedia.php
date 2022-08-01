@@ -10,7 +10,7 @@ class SocialMedia extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['title', 'link', 'icon'];
+  protected $fillable = ['title', 'link', 'icon', 'is_active'];
 
   /**
    * get is_active attribute as a boolean.

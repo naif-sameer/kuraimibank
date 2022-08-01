@@ -35,6 +35,7 @@ class AboutUs extends Model
     'respect',
     'philanthropy',
     'image',
+    'is_active'
   ];
 
 

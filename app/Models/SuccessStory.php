@@ -15,7 +15,7 @@ class SuccessStory extends Model
     'description'
   ];
 
-  protected $fillable = ['title', 'description', 'service_id'];
+  protected $fillable = ['title', 'description', 'service_id', 'is_active'];
 
   /**
    * The attributes that should be cast.

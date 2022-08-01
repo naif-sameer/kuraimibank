@@ -16,7 +16,7 @@ class OurPartner extends Model
     'bank_messaging_country'
   ];
 
-  protected $fillable = ['title',  'description', 'bank_messaging_country', 'image',];
+  protected $fillable = ['title',  'description', 'bank_messaging_country', 'image', 'is_active'];
 
   /**
    * The attributes that should be cast.

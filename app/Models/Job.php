@@ -15,7 +15,7 @@ class Job extends Model
     'description'
   ];
 
-  protected $fillable = ['title', 'description'];
+  protected $fillable = ['title', 'description', 'is_active'];
 
   /**
    * The attributes that should be cast.

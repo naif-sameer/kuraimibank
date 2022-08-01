@@ -23,7 +23,8 @@ class TeamMember extends Model
     'name',
     'image',
     'role',
-    'team_role_id'
+    'team_role_id',
+    'is_active'
   ];
 
   /**

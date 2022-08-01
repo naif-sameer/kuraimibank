@@ -16,7 +16,7 @@ class ServicePoint extends Model
     'working_hours'
   ];
 
-  protected $fillable = ['title', 'address', 'working_hours', 'phone', 'second_phone', 'city_id'];
+  protected $fillable = ['title', 'address', 'working_hours', 'phone', 'second_phone', 'city_id', 'is_active'];
 
   public function city()
   {
