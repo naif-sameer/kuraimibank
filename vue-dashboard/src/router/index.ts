@@ -12,6 +12,7 @@ import { useNewsStore } from '@/stores/news.store';
 import { useServicePointStore } from '@/stores/service-points.store';
 import { useServiceStore } from '@/stores/services.store';
 import { usePrivacyPolicyStore } from '@/stores/privacy-policy.store';
+import { useSocialMediaStore } from '@/stores/social-media.store';
 
 const websiteInfoRoutes: RouteRecordRaw = {
   path: '/',
@@ -97,6 +98,11 @@ const websiteInfoRoutes: RouteRecordRaw = {
         subModule: 'social-media',
       },
       component: () => import('@/views/social-media/SocialMediaView.vue'),
+      beforeEnter() {
+        const socialMediaStore = useSocialMediaStore();
+
+        socialMediaStore.getSocialMedia();
+      },
     },
   ],
 };
