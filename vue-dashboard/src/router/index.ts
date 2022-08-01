@@ -4,8 +4,7 @@ import { useLoadingStore } from '@/stores/loading.store';
 import { useCountriesStore } from '@/stores/countries.store';
 import { useExchangeRatesStore } from '@/stores/exchange-rates';
 import { useCitiesStore } from '@/stores/cities.store';
-import { useCategoriesStore } from '@/stores/categories.store';
-import { useSubCategoryStore } from '@/stores/sub-categories.store';
+
 import { useJobsStore } from '@/stores/jobs.store';
 import { useOurPartnerStore } from '@/stores/our-partners.store';
 import { useFinancialReportStore } from '@/stores/financial-reports.store';
@@ -180,27 +179,6 @@ const router = createRouter({
         useLoadingStore().loading = true;
 
         await useCitiesStore().getCities();
-      },
-    },
-
-    {
-      path: '/categories',
-      name: 'categories',
-      component: () => import('@/views/categories/CategoriesView.vue'),
-      async beforeEnter() {
-        useLoadingStore().loading = true;
-
-        await useCategoriesStore().getCategories();
-      },
-    },
-    {
-      path: '/sub-categories',
-      name: 'sub-categories',
-      component: () => import('@/views/sub-categories/SubCategoriesView.vue'),
-      async beforeEnter() {
-        useLoadingStore().loading = true;
-
-        await useSubCategoryStore().getSubCategories();
       },
     },
 

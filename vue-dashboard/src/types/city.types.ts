@@ -1,6 +1,6 @@
 export type CityType = {
   id: number;
-  name: {
+  title: {
     ar: string;
     en: string;
   };

@@ -5,21 +5,19 @@ import { getCitiesApi, createCityApi, updateCityApi, deleteCityApi } from '@/api
 import { useToastStore } from './toast.store';
 import { HttpCodeEnum } from '@/Enum';
 
-const toastStore = useToastStore();
-
 type StateType = { item: CityType; items: Array<CityType>; editModal: boolean };
 
 export const useCitiesStore = defineStore({
   id: 'cities',
   state: (): StateType => ({
-    item: { id: 0, name: { ar: '', en: '' }, country_id: 0, is_active: true },
+    item: { id: 0, title: { ar: '', en: '' }, country_id: 0, is_active: true },
     items: [],
     editModal: false,
   }),
 
   actions: {
     resetItem() {
-      this.item = { id: 0, name: { ar: '', en: '' }, country_id: 0, is_active: true };
+      this.item = { id: 0, title: { ar: '', en: '' }, country_id: 0, is_active: true };
     },
 
     showEditModal(data: any) {
@@ -46,6 +44,7 @@ export const useCitiesStore = defineStore({
     },
 
     async getCities() {
+      const toastStore = useToastStore();
       this.getCache();
 
       // api call
@@ -59,6 +58,7 @@ export const useCitiesStore = defineStore({
     },
 
     async addCity() {
+      const toastStore = useToastStore();
       let { status } = await createCityApi(this.item);
 
       if (status === HttpCodeEnum.Ok) toastStore.makeSuccessToast('add new city successfully');
@@ -66,6 +66,8 @@ export const useCitiesStore = defineStore({
     },
 
     async updateCity() {
+      const toastStore = useToastStore();
+
       const { status } = await updateCityApi(this.item);
 
       if (status === HttpCodeEnum.Ok) {
@@ -76,18 +78,20 @@ export const useCitiesStore = defineStore({
 
         this.editModal = false;
 
-        toastStore.makeSuccessToast(`'${this.item.name.ar}' city updated successfully `);
+        toastStore.makeSuccessToast(`'${this.item.title.ar}' city updated successfully `);
       } else toastStore.makeServerErrorToast();
     },
 
     async activeToggle(id: number, is_active: boolean) {
+      const toastStore = useToastStore();
+
       let { status } = await deleteCityApi(id, is_active);
 
       if (status === HttpCodeEnum.Ok) {
         const items = this.items.map((item) => (item.id === id ? { ...item, is_active: !item.is_active } : item));
         this.setItems(items);
 
-        toastStore.makeSuccessToast(`'${this.item.name.ar}' city active toggle updated successfully `);
+        toastStore.makeSuccessToast(`'${this.item.title.ar}' city active toggle updated successfully `);
       } else toastStore.makeServerErrorToast();
     },
   },

@@ -28,8 +28,8 @@ const { t, locale } = useI18n();
     <!------ table body ------>
     <tbody class="bg-white divide-y text-gray-700">
       <tr v-for="item in store.items">
-        <TableTd long primary>
-          {{ locale === 'en' ? item.name.en : item.name.ar }}
+        <TableTd primary>
+          {{ locale === 'en' ? item.title.en : item.title.ar }}
         </TableTd>
 
         <TableTd>
