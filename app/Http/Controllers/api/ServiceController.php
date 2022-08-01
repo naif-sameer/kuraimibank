@@ -25,10 +25,10 @@ class ServiceController extends Controller
     $fileName = $this->storeImage($request->file('image'));
 
     return Service::create([
-      'title'                   => $request->title,
-      'description'             => $request->description,
-      'other_advantage'         => $request->other_advantage,
-      'service_conditions'      => $request->service_conditions,
+      'title'                   => (array) json_decode($request->title),
+      'description'             => (array) json_decode($request->description),
+      'other_advantage'         => (array) json_decode($request->other_advantage),
+      'service_conditions'      => (array) json_decode($request->service_conditions),
       'service_id'              => $request->service_id,
       'image'                   => $fileName,
     ]);
@@ -42,10 +42,10 @@ class ServiceController extends Controller
     else $fileName = $oldFileName;
 
     $res = $service->update([
-      'title'                   => $request->title,
-      'description'             => $request->description,
-      'other_advantage'         => $request->other_advantage,
-      'service_conditions'      => $request->service_conditions,
+      'title'                   => (array) json_decode($request->title),
+      'description'             => (array) json_decode($request->description),
+      'other_advantage'         => (array) json_decode($request->other_advantage),
+      'service_conditions'      => (array) json_decode($request->service_conditions),
       'service_id'              => $request->service_id,
       'image'                   => $fileName,
     ]);

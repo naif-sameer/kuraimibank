@@ -25,8 +25,8 @@ class NewsController extends Controller
     $fileName = $this->storeImage($request->file('image'));
 
     return News::create([
-      'title'               =>  $request->title,
-      'description'         =>  $request->description,
+      'title'               =>  (array) json_decode($request->title),
+      'description'         =>  (array) json_decode($request->description),
       'image'               =>  $fileName,
     ]);
   }
@@ -39,8 +39,8 @@ class NewsController extends Controller
     else $fileName = $oldFileName;
 
     $res = $news->update([
-      'title'               =>  $request->title,
-      'description'         =>  $request->description,
+      'title'               =>  (array) json_decode($request->title),
+      'description'         =>  (array) json_decode($request->description),
       'image'               =>  $fileName,
     ]);
 

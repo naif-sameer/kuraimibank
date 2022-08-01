@@ -25,8 +25,8 @@ class SocialMediaController extends Controller
     $fileName = $this->storeImage($request->file('icon'));
 
     return SocialMedia::create([
-      'title'      =>  $request->title,
-      'link'       =>  $request->link,
+      'title'      =>  (array) json_decode($request->title),
+      'link'       =>  (array) json_decode($request->link),
       'icon'       =>  $fileName
     ]);
   }
@@ -39,8 +39,8 @@ class SocialMediaController extends Controller
     else $fileName = $oldFileName;
 
     $res = $socialMedia->update([
-      'title'      =>  $request->title,
-      'link'       =>  $request->link,
+      'title'      =>  (array) json_decode($request->title),
+      'link'       =>  (array) json_decode($request->link),
       'icon'       =>  $fileName
     ]);
 
