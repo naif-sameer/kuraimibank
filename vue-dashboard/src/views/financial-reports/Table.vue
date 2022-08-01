@@ -7,7 +7,7 @@ import { useFinancialReportStore } from '@/stores/financial-reports.store';
 import Switch from '@/components/form/Switch.vue';
 import Badge from '@/components/Badge.vue';
 import TableTd from '@/components/table/TableTd.vue';
-import TableTdDescription from '@/components/table/TableTdDescription.vue';
+import { onMounted } from 'vue';
 
 let store = useFinancialReportStore();
 
@@ -16,6 +16,10 @@ defineProps<{
 }>();
 
 const { t, locale } = useI18n();
+
+onMounted(() => {
+  console.log(store);
+});
 </script>
 
 <template>
@@ -26,7 +30,6 @@ const { t, locale } = useI18n();
         <thead class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
           <tr>
             <TableTd> {{ t('title') }} </TableTd>
-            <TableTd> {{ t('description') }} </TableTd>
 
             <TableTd>{{ t('status') }}</TableTd>
             <TableTd>{{ t('updated-date') }}</TableTd>
@@ -42,8 +45,6 @@ const { t, locale } = useI18n();
                 {{ locale === 'en' ? item.title.en : item.title.ar }}
               </a>
             </TableTd>
-
-            <TableTdDescription :description="item.description" />
 
             <TableTd class="w-36">
               <Badge v-if="item.is_active" type="primary">{{ t('active') }}</Badge>

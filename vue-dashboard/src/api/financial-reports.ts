@@ -2,34 +2,25 @@ import axios from '@/helpers/axios';
 import { FinancialReportType } from '@/types';
 
 export async function getFinancialReportsApi() {
-  return (await axios.get('financial-reports')).data.map((item: any) => ({
-    ...item,
-    is_active: !!item.is_active,
-
-    title: item.title,
-    description: item.description,
-    pdf: `http://localhost:8000/uploads/pdf/${item.pdf}`,
-  }));
+  return (await axios.get('financial-reports')).data.data;
 }
 
 export async function createFinancialReportApi(data: FinancialReportType) {
   let formData = new FormData();
 
   formData.append('title', JSON.stringify(data.title));
-  formData.append('description', JSON.stringify(data.description));
   formData.append('pdf', data.pdf);
 
-  return await axios.post(`financial-reports/create`, formData);
+  return await axios.post(`financial-reports`, formData);
 }
 
 export async function updateFinancialReportApi(data: FinancialReportType) {
   let formData = new FormData();
 
   formData.append('title', JSON.stringify(data.title));
-  formData.append('description', JSON.stringify(data.description));
   formData.append('pdf', data.pdf);
 
-  return await axios.post(`/financial-reports/${data.id}/edit`, formData);
+  return await axios.post(`/financial-reports/${data.id}`, formData);
 }
 
 export async function deleteFinancialReportApi(id: number, is_active: boolean) {

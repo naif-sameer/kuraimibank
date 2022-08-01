@@ -5,10 +5,6 @@ export type FinancialReportType = {
     ar: string;
     en: string;
   };
-  description: {
-    ar: string;
-    en: string;
-  };
   pdf: string;
 
   is_active: boolean;
