@@ -17,8 +17,8 @@ export const useServiceAdvantageStore = defineStore({
     item: {
       id: 0,
 
-      name: { ar: '', en: '' },
-      icon: '',
+      title: { ar: '', en: '' },
+      description: { ar: '', en: '' },
       service_id: '',
 
       is_active: true,
@@ -31,8 +31,8 @@ export const useServiceAdvantageStore = defineStore({
       this.item = {
         id: 0,
 
-        name: { ar: '', en: '' },
-        icon: '',
+        title: { ar: '', en: '' },
+        description: { ar: '', en: '' },
         service_id: '',
 
         is_active: true,
