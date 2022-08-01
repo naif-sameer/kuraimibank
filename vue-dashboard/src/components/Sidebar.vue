@@ -73,8 +73,6 @@ const websiteInfoList: Array<{ to: string; text: string; module: string }> = [
 
         <SidebarItem icon="map-location-dot" :text="t('service_points.title')" to="/service-points" />
 
-        <!-- <SidebarItem icon="hand-holding-box" :text="t('main_services.title')" to="/main-services" /> -->
-
         <SidebarItem icon="user-headset" :text="t('services.title')" to="/services" />
 
         <!-- <SidebarItem icon="bank" :text="t('pages')" to="/pages" />      -->
