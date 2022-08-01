@@ -10,4 +10,12 @@ class SuccessStoryImage extends Model
   use HasFactory;
 
   protected $fillable = ['link', 'success_story_id'];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

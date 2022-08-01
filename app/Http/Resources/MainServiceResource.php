@@ -21,8 +21,8 @@ class MainServiceResource extends JsonResource
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => ResourceHelper::toArray($this->title),
-      "image"           => $this->image,
+      "title"           => $this->getTranslations('title'),
+      "image"           => url('uploads/images', $this->image),
     ];
   }
 }

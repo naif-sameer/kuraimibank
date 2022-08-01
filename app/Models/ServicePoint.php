@@ -33,4 +33,12 @@ class ServicePoint extends Model
     'address'         => 'array',
     'working_hours'   => 'array',
   ];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

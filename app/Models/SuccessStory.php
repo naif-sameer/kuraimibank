@@ -36,4 +36,12 @@ class SuccessStory extends Model
   {
     return $this->hasMany(SuccessStoryImage::class, 'success_story_id');
   }
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

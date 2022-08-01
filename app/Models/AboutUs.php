@@ -36,4 +36,13 @@ class AboutUs extends Model
     'philanthropy',
     'image',
   ];
+
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

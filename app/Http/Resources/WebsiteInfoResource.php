@@ -22,7 +22,7 @@ class WebsiteInfoResource extends JsonResource
       'updated_at'      => $this->updated_at,
 
       "table_key"       => $this->table_key,
-      "table_value"     => ResourceHelper::toArray($this->table_value),
+      "table_value"     => $this->getTranslations('table_value'),
     ];
   }
 }

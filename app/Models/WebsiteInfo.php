@@ -22,4 +22,12 @@ class WebsiteInfo extends Model
   protected $casts = [
     'table_value'   => 'array',
   ];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

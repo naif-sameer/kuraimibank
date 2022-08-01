@@ -66,4 +66,12 @@ class Service extends Model
   {
     return $this->hasMany(SuccessStory::class, 'service_id');
   }
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

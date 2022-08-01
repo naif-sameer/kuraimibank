@@ -21,9 +21,9 @@ class ServicePointResource extends JsonResource
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => ResourceHelper::toArray($this->title),
-      "address"         => ResourceHelper::toArray($this->address),
-      "working_hours"   => ResourceHelper::toArray($this->working_hours),
+      "title"           => $this->getTranslations('title'),
+      "address"         => $this->getTranslations('address'),
+      "working_hours"   => $this->getTranslations('working_hours'),
       "phone"           => $this->phone,
       "second_phone"    => $this->second_phone,
       "city_id"         => $this->city_id,

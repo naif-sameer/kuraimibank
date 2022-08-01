@@ -17,13 +17,14 @@ class FinancialReportResource extends JsonResource
   {
     return [
       'id'              => $this->id,
-      "is_active"       => $this->is_active,
+      'is_active'       => $this->is_active,
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => ResourceHelper::toArray($this->title),
-      "description"     => ResourceHelper::toArray($this->description),
-      "pdf"             => $this->pdf,
+      'year'            => $this->year,
+      'title'           => $this->getTranslations('title'),
+      'description'     => $this->getTranslations('description'),
+      'pdf'             => url('uploads/pdf', $this->pdf),
     ];
   }
 }
