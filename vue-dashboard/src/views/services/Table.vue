@@ -55,7 +55,7 @@ const { t, locale } = useI18n();
 
             <TableTd>
               <span class="font-semibold">
-                {{ locale === 'en' ? item.name.en : item.name.ar }}
+                {{ locale === 'en' ? item.title.en : item.title.ar }}
               </span>
             </TableTd>
 
@@ -64,7 +64,7 @@ const { t, locale } = useI18n();
             <TableTdDescription :description="item.service_conditions" />
 
             <TableTd>
-              <span> {{ item.category }} </span>
+              <!-- <span> {{ item.category }} </span> -->
             </TableTd>
 
             <TableTd class="w-36">
