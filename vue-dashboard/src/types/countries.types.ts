@@ -1,6 +1,6 @@
 export type CountriesType = {
   id: number;
-  name: {
+  title: {
     ar: string;
     en: string;
   };

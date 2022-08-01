@@ -1,75 +1,73 @@
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/helpers/useLocalStorage';
 import { CountriesType } from '@/types';
-import {
-  getCountriesApi,
-  createCountryApi,
-  updateCountryApi,
-  deleteCountryApi,
-} from '@/api';
+import { getCountriesApi, createCountryApi, updateCountryApi, deleteCountryApi } from '@/api';
+import { HttpCodeEnum } from '@/Enum';
+import { useToastStore } from './toast.store';
+
+type StateType = {
+  item: CountriesType;
+  items: Array<CountriesType>;
+  editModal: boolean;
+};
 
 export const useCountriesStore = defineStore({
   id: 'countries',
-  state: (): {
-    item: CountriesType;
-    items: Array<CountriesType>;
-  } => ({
-    item: {
-      id: 0,
-      name: {
-        ar: '',
-        en: '',
-      },
-      is_active: true,
-    },
+  state: (): StateType => ({
+    item: { id: 0, title: { ar: '', en: '' }, is_active: true },
     items: [],
+    editModal: false,
   }),
-
-  getters: {
-    getData: ({ item }) => item,
-  },
 
   actions: {
     resetItem() {
-      this.item = {
-        id: 0,
-        name: {
-          ar: '',
-          en: '',
-        },
-        is_active: true,
-      };
+      this.item = { id: 0, title: { ar: '', en: '' }, is_active: true };
+    },
+    showEditModal(data: any) {
+      this.editModal = true;
+      this.item = data;
     },
 
-    getCountries() {
-      const { getData, setData } = useLocalStorage('countries');
+    closeEditModal() {
+      this.editModal = false;
+    },
 
-      if (getData().length > 1) {
-        // @ts-ignore
-        this.items = getData();
-      }
+    getCache() {
+      const { getData } = useLocalStorage('countries');
+
+      // @ts-ignore
+      if (getData().length > 1) this.items = getData();
+    },
+
+    setItems(items: Array<CountriesType>) {
+      const { setData } = useLocalStorage('countries');
+
+      this.items = items;
+      setData(items);
+    },
+
+    async getCountries() {
+      this.getCache();
 
       // api call
-      getCountriesApi().then((res) => {
-        // @ts-ignore
-        this.items = res;
-        setData(res);
-      });
+      let { items, error } = await getCountriesApi();
+
+      if (!error) this.setItems(items);
     },
 
-    addCountry() {
-      createCountryApi(this.getData);
+    async addCountry() {
+      let { error } = await createCountryApi(this.item);
+
+      if (!error) this.getCountries();
+    },
+
+    async updateCountry() {
+      updateCountryApi(this.item);
 
       this.getCountries();
     },
 
-    updateCountry() {
-      updateCountryApi(this.getData);
-
-      this.getCountries();
-    },
-
-    activeToggle(id: number, is_active: boolean) {
+    async activeToggle(id: number, is_active: boolean) {
       deleteCountryApi(id, is_active);
 
       // fetch new data

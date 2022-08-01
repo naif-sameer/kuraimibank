@@ -77,10 +77,10 @@ const updateCountry = () => {
       <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('countries.title')">
         <template #body>
           <!------ arabic name ------>
-          <Input v-model="store.item.name.ar" type="text" :label="t('countries.arabic-name')" />
+          <Input v-model="store.item.title.ar" type="text" :label="t('countries.arabic-name')" />
 
           <!------ english name ------>
-          <Input v-model="store.item.name.en" type="text" :label="t('countries.english-name')" />
+          <Input v-model="store.item.title.en" type="text" :label="t('countries.english-name')" />
         </template>
 
         <template #footer>
@@ -98,10 +98,10 @@ const updateCountry = () => {
       <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('countries.title')">
         <template #body>
           <!------ arabic name ------>
-          <Input v-model="store.item.name.ar" type="text" :label="t('countries.arabic-name')" />
+          <Input v-model="store.item.title.ar" type="text" :label="t('countries.arabic-name')" />
 
           <!------ english name ------>
-          <Input v-model="store.item.name.en" type="text" :label="t('countries.english-name')" />
+          <Input v-model="store.item.title.en" type="text" :label="t('countries.english-name')" />
         </template>
 
         <template #footer>

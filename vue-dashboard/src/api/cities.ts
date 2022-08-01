@@ -7,9 +7,9 @@ export const getCitiesApi = async () => {
   return { status, items: data.data };
 };
 
-export const createCityApi = (data: CityType) => axios.post(`cities/create`, data);
+export const createCityApi = (data: CityType) => axios.post(`cities`, data);
 
-export const updateCityApi = (data: CityType) => axios.put(`/cities/${data.id}/edit`, JSON.stringify(data));
+export const updateCityApi = (data: CityType) => axios.put(`/cities/${data.id}`, JSON.stringify(data));
 
 export const deleteCityApi = (id: number, is_active: boolean) => {
   return axios.put(`cities/${id}/toggle`, { is_active: !is_active });
