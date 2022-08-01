@@ -110,8 +110,8 @@ const servicePointsRoutes: RouteRecordRaw = {
     const citiesStore = useCitiesStore();
     let servicePointStore = useServicePointStore();
 
-    await servicePointStore.getServicePoints();
-    await citiesStore.getCities();
+    servicePointStore.getServicePoints();
+    citiesStore.getCities();
   },
 
   children: [
