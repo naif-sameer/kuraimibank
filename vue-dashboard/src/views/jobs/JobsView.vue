@@ -17,9 +17,6 @@ import Label from '@/components/form/Label.vue';
 const { t } = useI18n();
 let store = useJobsStore();
 
-// render data from store
-// await store.getJobs();
-
 const createModal = ref(false);
 const showCreateModal = () => {
   store.resetItem();
