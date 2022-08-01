@@ -9,7 +9,6 @@ import { useJobsStore } from '@/stores/jobs.store';
 import { useOurPartnerStore } from '@/stores/our-partners.store';
 import { useFinancialReportStore } from '@/stores/financial-reports.store';
 import { useNewsStore } from '@/stores/news.store';
-import { useMainServiceStore } from '@/stores/main-services.store';
 import { useServicePointStore } from '@/stores/service-points.store';
 import { useServiceStore } from '@/stores/services.store';
 
@@ -223,17 +222,6 @@ const router = createRouter({
         useLoadingStore().loading = true;
 
         await useNewsStore().getNews();
-      },
-    },
-
-    {
-      path: '/main-services',
-      name: 'main-services',
-      component: () => import('@/views/main-services/MainServicesView.vue'),
-      async beforeEnter() {
-        useLoadingStore().loading = true;
-
-        await useMainServiceStore().getMainServices();
       },
     },
 
