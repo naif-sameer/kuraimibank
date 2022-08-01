@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebBaseController;
 use App\Models\AboutUs;
 use App\Models\ExchangeRate;
 use App\Models\FinancialReport;
@@ -14,7 +15,7 @@ use App\Models\TeamRole;
 use App\Models\WebsiteInfo;
 use stdClass;
 
-class HomeController extends Controller
+class HomeController extends WebBaseController
 {
   public function index()
   {

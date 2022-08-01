@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebBaseController;
 use App\Models\WebsiteInfo;
 use Illuminate\Http\Request;
 
-class ServicePointsController extends Controller
+class ServicePointsController extends WebBaseController
 {
   public function index()
   {
