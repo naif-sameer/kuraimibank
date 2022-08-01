@@ -17,11 +17,11 @@ class CityResource extends JsonResource
   {
     return [
       'id'              => $this->id,
-      "is_active"       => $this->is_active,
+      "is_active"       => (bool) $this->is_active,
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => ResourceHelper::toArray($this->title),
+      "title"           => $this->getTranslations('title'),
       "city_code"       => $this->city_code,
       "country_id"      => $this->country_id,
       "country"         => new CountryResource($this->country),

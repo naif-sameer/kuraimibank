@@ -76,10 +76,10 @@ const updateExchangeRates = () => {
       <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('exchange-rates')">
         <template #body>
           <!------ arabic name ------>
-          <Input v-model="store.item.name.ar" type="text" :label="t('exchange_rates.currency-arabic-name')" />
+          <Input v-model="store.item.title.ar" type="text" :label="t('exchange_rates.currency-arabic-name')" />
 
           <!------ english name ------>
-          <Input v-model="store.item.name.en" type="text" :label="t('exchange_rates.currency-english-name')" />
+          <Input v-model="store.item.title.en" type="text" :label="t('exchange_rates.currency-english-name')" />
 
           <!------ sale ------>
           <Input v-model="store.item.sale" type="number" :label="t('exchange_rates.sale')" />
@@ -103,10 +103,10 @@ const updateExchangeRates = () => {
       <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('exchange-rates')">
         <template #body>
           <!------ arabic name ------>
-          <Input v-model="store.item.name.ar" type="text" :label="t('exchange_rates.currency-arabic-name')" />
+          <Input v-model="store.item.title.ar" type="text" :label="t('exchange_rates.currency-arabic-name')" />
 
           <!------ english name ------>
-          <Input v-model="store.item.name.en" type="text" :label="t('exchange_rates.currency-english-name')" />
+          <Input v-model="store.item.title.en" type="text" :label="t('exchange_rates.currency-english-name')" />
 
           <!------ sale ------>
           <Input v-model="store.item.sale" type="number" :label="t('exchange_rates.sale')" />

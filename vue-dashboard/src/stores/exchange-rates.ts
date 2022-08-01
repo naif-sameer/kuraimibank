@@ -1,12 +1,8 @@
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/helpers/useLocalStorage';
 import { ExchangeRatesType } from '@/types';
-import {
-  deleteExchangeRatesData,
-  getExchangeRatesData,
-  updateExchangeRatesData,
-  createExchangeRatesData,
-} from '@/api';
+import { deleteExchangeRatesData, getExchangeRatesData, updateExchangeRatesData, createExchangeRatesData } from '@/api';
+import { useToastStore } from './toast.store';
 
 export const useExchangeRatesStore = defineStore({
   id: 'exchange-rates',
@@ -14,38 +10,16 @@ export const useExchangeRatesStore = defineStore({
     item: ExchangeRatesType;
     items: Array<ExchangeRatesType>;
   } => ({
-    item: {
-      id: 0,
-      name: {
-        ar: '',
-        en: '',
-      },
-      sale: '',
-      is_active: true,
-      buy: '',
-    },
+    item: { id: 0, title: { ar: '', en: '' }, sale: '', is_active: true, buy: '' },
     items: [],
   }),
 
-  getters: {
-    getData: ({ item }) => item,
-  },
-
   actions: {
     resetItem() {
-      this.item = {
-        id: 0,
-        name: {
-          ar: '',
-          en: '',
-        },
-        sale: '',
-        is_active: true,
-        buy: '',
-      };
+      this.item = { id: 0, title: { ar: '', en: '' }, sale: '', is_active: true, buy: '' };
     },
 
-    getExchangeRates() {
+    async getExchangeRates() {
       const { getData, setData } = useLocalStorage('exchange-rates');
 
       if (getData().length > 1) {
@@ -54,26 +28,32 @@ export const useExchangeRatesStore = defineStore({
       }
 
       // api call
-      getExchangeRatesData().then((res) => {
+      await getExchangeRatesData().then((res) => {
         // @ts-ignore
         this.items = res;
         setData(res);
       });
     },
 
-    addExchangeRates() {
-      createExchangeRatesData(this.getData);
+    async addExchangeRates() {
+      useToastStore().addDone();
+
+      createExchangeRatesData(this.item);
 
       this.getExchangeRates();
     },
 
-    updateExchangeRates() {
-      updateExchangeRatesData(this.getData);
+    async updateExchangeRates() {
+      useToastStore().updatedDone();
+
+      updateExchangeRatesData(this.item);
 
       this.getExchangeRates();
     },
 
-    activeToggle(id: number, is_active: boolean) {
+    async activeToggle(id: number, is_active: boolean) {
+      useToastStore().updatedDone();
+
       deleteExchangeRatesData(id, is_active);
 
       // fetch new data
