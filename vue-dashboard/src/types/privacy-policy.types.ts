@@ -1,5 +1,6 @@
 export type PrivacyPolicyType = {
   id: number;
+  table_key?: string;
   title: {
     ar: string;
     en: string;

@@ -11,6 +11,7 @@ import { useFinancialReportStore } from '@/stores/financial-reports.store';
 import { useNewsStore } from '@/stores/news.store';
 import { useServicePointStore } from '@/stores/service-points.store';
 import { useServiceStore } from '@/stores/services.store';
+import { usePrivacyPolicyStore } from '@/stores/privacy-policy.store';
 
 const websiteInfoRoutes: RouteRecordRaw = {
   path: '/',
@@ -81,6 +82,11 @@ const websiteInfoRoutes: RouteRecordRaw = {
       meta: {
         module: 'website-info',
         subModule: 'privacy-policy',
+      },
+      beforeEnter() {
+        const privacyStore = usePrivacyPolicyStore();
+
+        privacyStore.getPrivacyPolicy();
       },
     },
     {
