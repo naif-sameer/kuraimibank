@@ -8,17 +8,27 @@ use Illuminate\Database\Seeder;
 
 class PageSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        page::create([
-            'title'             => '{"ar": "سياسية الخصوصية"}',
-            'sub_title'         => '{"ar": "تعد خصوصيتك من الأمور الهامة التي يعني بها بنك الكريمي للتمويل"}',
-            'description'       => '{"ar": "جمع المعلومات الشخصية"}',
-        ]);
-    }
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
+    page::create([
+      "table_key" => "privacy_policy",
+      "title" => [
+        "ar" => "arabic here",
+        "en" => "english"
+      ],
+      "sub_title" => [
+        "ar" => "arabic here",
+        "en" => "english"
+      ],
+      "description" => [
+        "ar" => "arabic here",
+        "en" => "english"
+      ]
+    ]);
+  }
 }

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
       FinancialReportSeeder::class,
       NewsSeeder::class,
       OurPartnerSeeder::class,
+      PageSeeder::class,
       ServicesSeeder::class,
       SuccessNumberSeeder::class,
       TeamRoleSeeder::class,
