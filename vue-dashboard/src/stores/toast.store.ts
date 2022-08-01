@@ -41,5 +41,13 @@ export const useToastStore = defineStore({
         variant: 'danger',
       });
     },
+
+    addDone() {
+      this.makeSuccessToast('item added successfully');
+    },
+
+    updatedDone() {
+      this.makeSuccessToast('item updated successfully');
+    },
   },
 });

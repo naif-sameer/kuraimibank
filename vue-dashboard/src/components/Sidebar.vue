@@ -31,11 +31,12 @@ const websiteInfoList: Array<{ to: string; text: string; module: string }> = [
     text: 'board-members',
     module: 'board-members',
   },
-  {
-    to: '/contact-us',
-    text: 'contact-us',
-    module: 'contact-us',
-  },
+  // TODO enable this
+  // {
+  //   to: '/contact-us',
+  //   text: 'contact-us',
+  //   module: 'contact-us',
+  // },
   {
     to: '/privacy-policy',
     text: t('privacy_policy.title'),
@@ -59,10 +60,6 @@ const websiteInfoList: Array<{ to: string; text: string; module: string }> = [
 
         <SidebarItem icon="bank" :text="t('exchange-rates')" to="/exchange-rates" />
 
-        <SidebarItem icon="map-marker-alt" :text="t('countries.title')" to="/countries" />
-
-        <SidebarItem icon="city" :text="t('cities.title')" to="/cities" />
-
         <SidebarItem icon="toolbox" :text="t('jobs.title')" to="/jobs" />
 
         <SidebarItem icon="user-group" :text="t('our_partners.title')" to="/our-partners" />
@@ -74,6 +71,10 @@ const websiteInfoList: Array<{ to: string; text: string; module: string }> = [
         <SidebarItem icon="map-location-dot" :text="t('service_points.title')" to="/service-points" />
 
         <SidebarItem icon="user-headset" :text="t('services.title')" to="/services" />
+
+        <SidebarItem icon="map-marker-alt" :text="t('countries.title')" to="/countries" />
+
+        <SidebarItem icon="city" :text="t('cities.title')" to="/cities" />
 
         <!-- <SidebarItem icon="bank" :text="t('pages')" to="/pages" />      -->
       </ul>

@@ -9,19 +9,11 @@ import Button from '@/components/form/Button.vue';
 import Label from '@/components/form/Label.vue';
 import Card from '@/components/Card.vue';
 import SectionTitle from '@/components/SectionTitle.vue';
+import { useWebsiteInfoStore } from '@/stores/website.store';
 
 const { t } = useI18n();
 
-let ValuesPrinciplesData = reactive({
-  ar: '',
-  en: '',
-});
-
-// render data from store
-getValuesPrinciplesData().then((res) => {
-  ValuesPrinciplesData.ar = res.ar;
-  ValuesPrinciplesData.en = res.en;
-});
+const websiteStore = useWebsiteInfoStore();
 </script>
 
 <template>
@@ -29,19 +21,19 @@ getValuesPrinciplesData().then((res) => {
   <SectionTitle> {{ t('values_principles.title') }} </SectionTitle>
 
   <Card>
-    <form class="space-y-8" @submit.prevent="updateValuesPrinciplesData(ValuesPrinciplesData)">
+    <form class="space-y-8" @submit.prevent="updateValuesPrinciplesData(websiteStore.valuesPrinciplesData)">
       <!-- arabic section -->
       <div>
         <Label>{{ t('values_principles.arabic_title') }} </Label>
 
-        <ckeditor :editor="ClassicEditor" v-model="ValuesPrinciplesData.ar" tag-name="textarea" />
+        <ckeditor :editor="ClassicEditor" v-model="websiteStore.valuesPrinciplesData.ar" tag-name="textarea" />
       </div>
 
       <!-- english section -->
       <div>
         <Label>{{ t('values_principles.english_title') }} </Label>
 
-        <ckeditor :editor="ClassicEditor" v-model="ValuesPrinciplesData.en" tag-name="textarea" />
+        <ckeditor :editor="ClassicEditor" v-model="websiteStore.valuesPrinciplesData.en" tag-name="textarea" />
       </div>
 
       <Button>{{ t('update') }} </Button>

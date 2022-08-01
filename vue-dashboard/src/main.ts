@@ -12,8 +12,8 @@ import { messages } from '@/locales/i18n';
 
 const i18n = createI18n({
   legacy: false, // you must set `false`, to use Composition API
-  locale: 'en', // set locale
-  fallbackLocale: 'en', // set fallback locale
+  locale: 'ar', // set locale
+  fallbackLocale: 'ar', // set fallback locale
 
   messages,
 });

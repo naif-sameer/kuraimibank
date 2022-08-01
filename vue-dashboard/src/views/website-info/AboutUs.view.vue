@@ -9,18 +9,11 @@ import Card from '@/components/Card.vue';
 import { getAboutUs, updateAboutUs } from '@/api';
 import SectionTitle from '@/components/SectionTitle.vue';
 
+import { useWebsiteInfoStore } from '@/stores/website.store';
+
 const { t } = useI18n();
 
-let aboutUsData = reactive({
-  ar: '',
-  en: '',
-});
-
-// render data from store
-getAboutUs().then((res) => {
-  aboutUsData.ar = res.ar;
-  aboutUsData.en = res.en;
-});
+const websiteStore = useWebsiteInfoStore();
 </script>
 
 <template>
@@ -28,19 +21,19 @@ getAboutUs().then((res) => {
   <SectionTitle class="flex justify-between"> {{ t('about_us.title') }} </SectionTitle>
 
   <Card>
-    <form class="space-y-8" @submit.prevent="updateAboutUs(aboutUsData)">
+    <form class="space-y-8" @submit.prevent="updateAboutUs(websiteStore.aboutUs)">
       <!-- arabic section -->
       <div>
         <Label>{{ t('about_us.arabic_title') }} </Label>
 
-        <ckeditor :editor="ClassicEditor" v-model="aboutUsData.ar" tag-name="textarea" />
+        <ckeditor :editor="ClassicEditor" v-model="websiteStore.aboutUs.ar" tag-name="textarea" />
       </div>
 
       <!-- english section -->
       <div>
         <Label>{{ t('about_us.english_title') }} </Label>
 
-        <ckeditor :editor="ClassicEditor" v-model="aboutUsData.en" tag-name="textarea" />
+        <ckeditor :editor="ClassicEditor" v-model="websiteStore.aboutUs.en" tag-name="textarea" />
       </div>
 
       <Button>{{ t('update') }} </Button>
