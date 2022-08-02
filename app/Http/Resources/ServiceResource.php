@@ -21,14 +21,14 @@ class ServiceResource extends JsonResource
       'created_at'          => $this->created_at,
       'updated_at'          => $this->updated_at,
 
-      "title"               => ResourceHelper::toArray($this->title),
-      "description"         => ResourceHelper::toArray($this->description),
-      "other_advantage"     => ResourceHelper::toArray($this->other_advantage),
-      "service_conditions"  => ResourceHelper::toArray($this->service_conditions),
+      "title"               => $this->getTranslations('title'),
+      "description"         => $this->getTranslations('description'),
+      "other_advantage"     => $this->getTranslations('other_advantage'),
+      "service_conditions"  => $this->getTranslations('service_conditions'),
       "service_id"          => $this->service_id,
-      "image"               => $this->image,
       "sub_services"        => $this->subServices,
-      "service_advantages"  => ServiceAdvantageResource::collection($this->serviceAdvantages)
+      "service_advantages"  => ServiceAdvantageResource::collection($this->serviceAdvantages),
+      "image"               => url('uploads/images', $this->image),
     ];
   }
 }

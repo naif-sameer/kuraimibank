@@ -21,8 +21,8 @@ class JobResource extends JsonResource
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => ResourceHelper::toArray($this->title),
-      "description"     => ResourceHelper::toArray($this->description)
+      "title"           => $this->getTranslations('title'),
+      "description"     => $this->getTranslations('description')
     ];
   }
 }

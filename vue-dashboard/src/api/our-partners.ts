@@ -2,13 +2,7 @@ import axios from '@/helpers/axios';
 import { OurPartnerType } from '@/types';
 
 export async function getOurPartnersApi() {
-  return (await axios.get('our-partners')).data.map((item: any) => ({
-    ...item,
-    is_active: !!item.is_active,
-    title: item.title,
-    description: item.description,
-    image: `http://localhost:8000/uploads/images/${item.image}`,
-  }));
+  return (await axios.get('our-partners')).data.data;
 }
 
 export async function createOurPartnerApi(data: OurPartnerType) {
@@ -18,7 +12,7 @@ export async function createOurPartnerApi(data: OurPartnerType) {
   formData.append('description', JSON.stringify(data.description));
   formData.append('image', data.image);
 
-  return await axios.post(`our-partners/create`, formData);
+  return await axios.post(`our-partners`, formData);
 }
 
 export async function updateOurPartnerApi(data: OurPartnerType) {
@@ -30,7 +24,7 @@ export async function updateOurPartnerApi(data: OurPartnerType) {
   // add image if user select new one
   if (typeof data.image !== 'string') formData.append('image', data.image);
 
-  return await axios.post(`/our-partners/${data.id}/edit`, formData);
+  return await axios.post(`/our-partners/${data.id}`, formData);
 }
 
 export async function deleteOurPartnerApi(id: number, is_active: boolean) {

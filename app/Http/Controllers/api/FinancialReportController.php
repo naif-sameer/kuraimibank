@@ -25,8 +25,8 @@ class FinancialReportController extends Controller
     $fileName = $this->storeFile($request->file('pdf'), 'pdf');
 
     return FinancialReport::create([
-      'title'             =>  $request->title,
-      'description'       =>  $request->description,
+      'title'             =>  (array) json_decode($request->title),
+      'description'       =>  (array) json_decode($request->description),
       'pdf'               =>  $fileName,
     ]);
   }
@@ -38,8 +38,8 @@ class FinancialReportController extends Controller
     if ($request->file('pdf')) $fileName = $this->updateFile($request->file('pdf'), 'pdf', $oldFileName);
 
     $res = $financialReport->update([
-      'title'             =>  $request->title,
-      'description'       =>  $request->description,
+      'title'             =>  (array) json_decode($request->title),
+      'description'       =>  (array) json_decode($request->description),
       'pdf'               =>  $fileName ?? $oldFileName,
     ]);
 

@@ -24,10 +24,6 @@ export const usePrivacyPolicyStore = defineStore({
     },
   }),
 
-  getters: {
-    getData: ({ item }) => item,
-  },
-
   actions: {
     resetItem() {
       this.item = {
@@ -65,7 +61,9 @@ export const usePrivacyPolicyStore = defineStore({
     },
 
     updatePrivacyPolicy() {
-      updatePrivacyPolicyApi(this.getData);
+      // TODO remove this and update requestForm
+      delete this.item.table_key;
+      updatePrivacyPolicyApi(this.item);
 
       this.getPrivacyPolicy();
     },

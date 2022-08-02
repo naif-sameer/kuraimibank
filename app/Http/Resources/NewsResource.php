@@ -21,9 +21,9 @@ class NewsResource extends JsonResource
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => ResourceHelper::toArray($this->title),
-      "description"     => ResourceHelper::toArray($this->description),
-      "image"           => $this->image,
+      "title"           => $this->getTranslations('title'),
+      "description"     => $this->getTranslations('description'),
+      "image"           => url('uploads/images', $this->image),
     ];
   }
 }

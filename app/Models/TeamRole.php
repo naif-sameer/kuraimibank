@@ -22,11 +22,20 @@ class TeamRole extends Model
    */
   protected $fillable = [
     'title',
-    'description'
+    'description',
+    'is_active'
   ];
 
   public function members()
   {
     return $this->hasMany(TeamMember::class, 'team_role_id');
+  }
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
   }
 }

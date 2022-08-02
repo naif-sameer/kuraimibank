@@ -35,5 +35,15 @@ class AboutUs extends Model
     'respect',
     'philanthropy',
     'image',
+    'is_active'
   ];
+
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

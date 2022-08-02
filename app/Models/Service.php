@@ -29,7 +29,8 @@ class Service extends Model
     'image',
     'service_slogan',
     'subscription_in_service',
-    'questions'
+    'questions',
+    'is_active'
   ];
 
   /**
@@ -65,5 +66,13 @@ class Service extends Model
   public function successStories()
   {
     return $this->hasMany(SuccessStory::class, 'service_id');
+  }
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
   }
 }

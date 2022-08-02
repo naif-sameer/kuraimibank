@@ -25,9 +25,9 @@ class OurPartnerController extends Controller
     $fileName = $this->storeImage($request->file('image'));
 
     return OurPartner::create([
-      'title'             =>  $request->title,
-      'description'       =>  $request->description,
-      'image'             =>  $fileName,
+      'title'             => (array) json_decode($request->title),
+      'description'       => (array) json_decode($request->description),
+      'image'             => $fileName,
     ]);
   }
 
@@ -39,9 +39,9 @@ class OurPartnerController extends Controller
     else $fileName = $oldFileName;
 
     $res = $ourPartner->update([
-      'title'             =>  $request->title,
-      'description'       =>  $request->description,
-      'image'             =>  $fileName,
+      'title'             => (array) json_decode($request->title),
+      'description'       => (array) json_decode($request->description),
+      'image'             => $fileName,
     ]);
 
     return $res ? ['message' => "OurPartner data updated"] : ['error' => true];

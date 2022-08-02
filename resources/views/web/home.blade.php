@@ -20,7 +20,7 @@
 
 
     <!------ successes  numbers ------>
-    <x-web.home.successes-numbers />
+    <x-web.home.successes-numbers :successNumbers='$successNumbers' />
 
 
     <!------ our points ------>

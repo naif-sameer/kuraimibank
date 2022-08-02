@@ -22,9 +22,9 @@ class PageResource extends JsonResource
       'updated_at'      => $this->updated_at,
 
       'table_key'      => $this->table_key,
-      "title"           => ResourceHelper::toArray($this->title),
-      "sub_title"       => ResourceHelper::toArray($this->sub_title),
-      "description"     => ResourceHelper::toArray($this->description),
+      "title"           => $this->getTranslations('title'),
+      "sub_title"       => $this->getTranslations('sub_title'),
+      "description"     => $this->getTranslations('description'),
     ];
   }
 }

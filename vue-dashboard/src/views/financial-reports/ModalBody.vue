@@ -14,39 +14,10 @@ const { t } = useI18n();
 
 <template>
   <!------ ar title ------>
-  <Input
-    v-model="item.title.ar"
-    type="text"
-    :label="t('financial_report.arabic-title')"
-  />
+  <Input v-model="item.title.ar" type="text" :label="t('financial_report.arabic-title')" />
 
   <!------ en title ------>
-  <Input
-    v-model="item.title.en"
-    type="text"
-    :label="t('financial_report.english-title')"
-  />
-
-  <hr />
-  <!------ arabic description ------>
-  <div class="text-gray-800">
-    <Label>{{ t('financial_report.arabic-description') }}</Label>
-    <ckeditor
-      :editor="ClassicEditor"
-      v-model="item.description.ar"
-      tag-name="textarea"
-    />
-  </div>
-
-  <!------ english description ------>
-  <div class="text-gray-800">
-    <Label>{{ t('financial_report.english-description') }}</Label>
-    <ckeditor
-      :editor="ClassicEditor"
-      v-model="item.description.en"
-      tag-name="textarea"
-    />
-  </div>
+  <Input v-model="item.title.en" type="text" :label="t('financial_report.english-title')" />
 
   <hr />
 

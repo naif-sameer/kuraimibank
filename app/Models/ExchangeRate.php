@@ -14,7 +14,7 @@ class ExchangeRate extends Model
     'title',
   ];
 
-  protected $fillable = ['title', 'sale', 'buy'];
+  protected $fillable = ['title', 'sale', 'buy', 'is_active'];
 
   /**
    * The attributes that should be cast.
@@ -24,4 +24,12 @@ class ExchangeRate extends Model
   protected $casts = [
     'title'            => 'array',
   ];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

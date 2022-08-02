@@ -5,7 +5,7 @@
         <div class="list">
           @foreach ($team->members as $member)
             <section class="item-image">
-              <img loading="lazy" src="{{ asset('uploads/images/' . $member->image) }}" alt="">
+              <img loading="lazy" src="{{ asset('uploads/images/' . $member->image) }}" alt="item bg">
             </section>
           @endforeach
         </div>

@@ -20,7 +20,7 @@ class ExchangeRateResource extends JsonResource
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => $this->title,
+      "title"           => $this->getTranslations('title'),
       "sale"            => $this->sale,
       "buy"             => $this->buy,
     ];

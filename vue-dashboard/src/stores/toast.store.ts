@@ -25,5 +25,29 @@ export const useToastStore = defineStore({
     closeToast(id: number = 0) {
       this.items = this.items.filter((item) => item.id !== id);
     },
+
+    makeSuccessToast(message: string) {
+      this.makeToast({
+        body: message,
+        title: 'success',
+        variant: 'success',
+      });
+    },
+
+    makeServerErrorToast(message: string | null = null) {
+      this.makeToast({
+        body: message ?? 'check your connection or connect to the support',
+        title: 'connection error',
+        variant: 'danger',
+      });
+    },
+
+    addDone() {
+      this.makeSuccessToast('item added successfully');
+    },
+
+    updatedDone() {
+      this.makeSuccessToast('item updated successfully');
+    },
   },
 });

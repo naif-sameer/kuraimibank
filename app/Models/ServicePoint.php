@@ -16,7 +16,7 @@ class ServicePoint extends Model
     'working_hours'
   ];
 
-  protected $fillable = ['title', 'address', 'working_hours', 'phone', 'second_phone', 'city_id'];
+  protected $fillable = ['title', 'address', 'working_hours', 'phone', 'second_phone', 'city_id', 'is_active'];
 
   public function city()
   {
@@ -33,4 +33,12 @@ class ServicePoint extends Model
     'address'         => 'array',
     'working_hours'   => 'array',
   ];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

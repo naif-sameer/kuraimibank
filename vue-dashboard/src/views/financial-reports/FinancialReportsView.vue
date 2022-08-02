@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 import { FinancialReportType } from '@/types';
 
@@ -14,10 +14,6 @@ import ModalBody from './ModalBody.vue';
 
 const { t } = useI18n();
 let store = useFinancialReportStore();
-
-// render data from store
-
-// await store.getFinancialReports();
 
 const createModal = ref(false);
 const showCreateModal = () => {

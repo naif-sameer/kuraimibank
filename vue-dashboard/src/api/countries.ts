@@ -12,13 +12,7 @@ export async function getCountriesApi() {
     if (status === HttpCodeEnum.Ok) {
       toastStore.makeSuccessToast('get countries list successfully');
 
-      let items = data.map((item: any) => ({
-        ...item,
-        name: item.name,
-        is_active: !!item.is_active,
-      }));
-
-      return { items };
+      return { items: data.data };
     }
   } catch (error) {
     toastStore.makeServerErrorToast();
@@ -31,11 +25,7 @@ export async function createCountryApi(data: CountriesType) {
   const toastStore = useToastStore();
 
   try {
-    let formData = new FormData();
-
-    formData.append('name', JSON.stringify(data.name));
-
-    let { status } = await axios.post(`countries/create`, formData);
+    let { status } = await axios.post(`countries`, data);
 
     if (status === HttpCodeEnum.Ok) toastStore.makeSuccessToast('add new country successfully');
   } catch (error) {
@@ -49,7 +39,7 @@ export async function updateCountryApi(country: CountriesType) {
   const toastStore = useToastStore();
 
   try {
-    let { data, status } = await axios.put(`/countries/${country.id}/edit`, JSON.stringify(country));
+    let { data, status } = await axios.put(`/countries/${country.id}`, JSON.stringify(country));
 
     if (status === HttpCodeEnum.Ok) toastStore.makeSuccessToast('add new country successfully');
   } catch (error) {

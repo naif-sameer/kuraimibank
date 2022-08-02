@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/helpers/useLocalStorage';
 import { JobType } from '@/types';
 import { getJobsApi, createJobApi, updateJobApi, deleteJobApi } from '@/api';
+import { useToastStore } from './toast.store';
 
 export const useJobsStore = defineStore({
   id: 'jobs',
@@ -9,42 +10,16 @@ export const useJobsStore = defineStore({
     item: JobType;
     items: Array<JobType>;
   } => ({
-    item: {
-      id: 0,
-      title: {
-        ar: '',
-        en: '',
-      },
-      description: {
-        ar: '',
-        en: '',
-      },
-      is_active: true,
-    },
+    item: { id: 0, title: { ar: '', en: '' }, description: { ar: '', en: '' }, is_active: true },
     items: [],
   }),
 
-  getters: {
-    getData: ({ item }) => item,
-  },
-
   actions: {
     resetItem() {
-      this.item = {
-        id: 0,
-        title: {
-          ar: '',
-          en: '',
-        },
-        description: {
-          ar: '',
-          en: '',
-        },
-        is_active: true,
-      };
+      this.item = { id: 0, title: { ar: '', en: '' }, description: { ar: '', en: '' }, is_active: true };
     },
 
-    getJobs() {
+    async getJobs() {
       const { getData, setData } = useLocalStorage('jobs');
 
       if (getData().length > 1) {
@@ -53,26 +28,32 @@ export const useJobsStore = defineStore({
       }
 
       // api call
-      getJobsApi().then((res) => {
+      await getJobsApi().then((res) => {
         // @ts-ignore
         this.items = res;
         setData(res);
       });
     },
 
-    addJob() {
-      createJobApi(this.getData);
+    async addJob() {
+      useToastStore().addDone();
+
+      createJobApi(this.item);
 
       this.getJobs();
     },
 
-    updateJob() {
-      updateJobApi(this.getData);
+    async updateJob() {
+      useToastStore().updatedDone();
+
+      updateJobApi(this.item);
 
       this.getJobs();
     },
 
-    activeToggle(id: number, is_active: boolean) {
+    async activeToggle(id: number, is_active: boolean) {
+      useToastStore().updatedDone();
+
       deleteJobApi(id, is_active);
 
       // fetch new data

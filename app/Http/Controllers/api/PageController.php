@@ -22,21 +22,14 @@ class PageController extends Controller
 
   public function store(PageRequest $request)
   {
-    return Page::create([
-      'table_key'         =>  $request->table_key,
-      'title'             =>  $request->title,
-      'sub_title'         =>  $request->sub_title,
-      'description'       =>  $request->description,
-    ]);
+    return Page::create(
+      $request->only(['table_key', 'title', 'sub_title', 'description'])
+      );
   }
 
   public function update(PageRequest $request, $table_key)
   {
-    $res = Page::where('table_key', $table_key)->update([
-      'title'             =>  $request->title,
-      'sub_title'         =>  $request->sub_title,
-      'description'       =>  $request->description,
-    ]);
+    $res = Page::where('table_key', $table_key)->update($request->only(['title', 'sub_title', 'description']));
 
     return $res ? ['message' => "Page data updated"] : ['error' => true];
   }

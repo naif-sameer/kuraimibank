@@ -12,9 +12,6 @@ import Table from './Table.vue';
 
 const { t } = useI18n();
 let citiesStore = useCitiesStore();
-
-// render data from store
-// await citiesStore.getCities();
 </script>
 
 <template>
@@ -45,11 +42,11 @@ let citiesStore = useCitiesStore();
       <form class="space-y-4" @submit.prevent="citiesStore.updateCity">
         <Modal :open="citiesStore.editModal" :hide-modal="citiesStore.closeEditModal" :modal-title="t('cities.title')">
           <template #body>
-            <!------ arabic name ------>
-            <Input v-model="citiesStore.item.name.ar" type="text" :label="t('cities.arabic-name')" />
+            <!------ arabic title ------>
+            <Input v-model="citiesStore.item.title.ar" type="text" :label="t('cities.arabic-name')" />
 
-            <!------ english name ------>
-            <Input v-model="citiesStore.item.name.en" type="text" :label="t('cities.english-name')" />
+            <!------ english title ------>
+            <Input v-model="citiesStore.item.title.en" type="text" :label="t('cities.english-name')" />
           </template>
 
           <template #footer>

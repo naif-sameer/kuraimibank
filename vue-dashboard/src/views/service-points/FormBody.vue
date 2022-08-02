@@ -12,10 +12,10 @@ const { t } = useI18n();
 
 <template>
   <!------ ar name ------>
-  <Input :readonly="isReadonly" v-model="item.name.ar" type="text" :label="t('service_points.arabic-name')" />
+  <Input :readonly="isReadonly" v-model="item.title.ar" type="text" :label="t('service_points.arabic-name')" />
 
   <!------ en name ------>
-  <Input :readonly="isReadonly" v-model="item.name.en" type="text" :label="t('service_points.english-name')" />
+  <Input :readonly="isReadonly" v-model="item.title.en" type="text" :label="t('service_points.english-name')" />
 
   <hr />
 

@@ -4,7 +4,7 @@
     {{-- main partner --}}
     <div class="main-partners-list">
       @foreach ($partners as $partner)
-        <div class="item">
+        <div class="item" id="our-partners-id-{{ $partner->id }}">
           <div class="item-image">
             <img src="{{ asset('uploads/images/' . $partner->image) }}" alt="partner image">
           </div>

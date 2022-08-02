@@ -8,19 +8,11 @@ import Label from '@/components/form/Label.vue';
 import Card from '@/components/Card.vue';
 import { getStrategyStatementData, updateStrategyStatementData } from '@/api';
 import SectionTitle from '@/components/SectionTitle.vue';
+import { useWebsiteInfoStore } from '@/stores/website.store';
 
 const { t } = useI18n();
 
-let StrategyStatementData = reactive({
-  ar: '',
-  en: '',
-});
-
-// render data from store
-getStrategyStatementData().then((res) => {
-  StrategyStatementData.ar = res.ar;
-  StrategyStatementData.en = res.en;
-});
+const websiteStore = useWebsiteInfoStore();
 </script>
 
 <template>
@@ -28,19 +20,19 @@ getStrategyStatementData().then((res) => {
   <SectionTitle> {{ t('strategy_statement.title') }} </SectionTitle>
 
   <Card>
-    <form class="space-y-8" @submit.prevent="updateStrategyStatementData(StrategyStatementData)">
+    <form class="space-y-8" @submit.prevent="updateStrategyStatementData(websiteStore.strategyStatementData)">
       <!-- arabic section -->
       <div>
         <Label>{{ t('strategy_statement.arabic_title') }} </Label>
 
-        <ckeditor :editor="ClassicEditor" v-model="StrategyStatementData.ar" tag-name="textarea" />
+        <ckeditor :editor="ClassicEditor" v-model="websiteStore.strategyStatementData.ar" tag-name="textarea" />
       </div>
 
       <!-- english section -->
       <div>
         <Label>{{ t('strategy_statement.english_title') }} </Label>
 
-        <ckeditor :editor="ClassicEditor" v-model="StrategyStatementData.en" tag-name="textarea" />
+        <ckeditor :editor="ClassicEditor" v-model="websiteStore.strategyStatementData.en" tag-name="textarea" />
       </div>
 
       <Button>{{ t('update') }} </Button>

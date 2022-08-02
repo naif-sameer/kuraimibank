@@ -13,11 +13,11 @@ return new class extends Migration
    */
   public function up()
   {
-    Schema::create('financial_reports', function (Blueprint $table) {
+    Schema::create('success_numbers', function (Blueprint $table) {
       $table->id();
-      $table->json('title')->nullable();
-      $table->string('year');
-      $table->string('pdf');
+
+      $table->string('title');
+      $table->string('description');
 
       $table->boolean('is_active')->default(1);
       $table->timestamps();
@@ -31,6 +31,6 @@ return new class extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('financial_reports');
+    Schema::dropIfExists('success_numbers');
   }
 };

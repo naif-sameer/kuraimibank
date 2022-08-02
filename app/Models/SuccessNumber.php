@@ -6,27 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Page extends Model
+class SuccessNumber extends Model
 {
   use HasFactory, HasTranslations;
 
   public $translatable = [
-    'title',
-    'sub_title',
-    'description'
+    'description',
   ];
 
-  protected $fillable = ['table_key', 'title', 'sub_title', 'description', 'is_active'];
-
-  /**
-   * The attributes that should be cast.
-   *
-   * @var array
-   */
-  protected $casts = [
-    'title'              => 'array',
-    'sub_title'          => 'array',
-    'description'        => 'array',
+  protected $fillable = [
+    'title',
+    'description',
+    'is_active'
   ];
 
   /**

@@ -18,9 +18,6 @@ import Label from '@/components/form/Label.vue';
 const { t } = useI18n();
 let store = useSocialMediaStore();
 
-// render data from store
-// await store.getSocialMedia();
-
 const createModal = ref(false);
 const showCreateModal = () => {
   store.resetItem();
@@ -82,7 +79,7 @@ const updateSocialMedia = () => {
       <Modal :open="createModal" :hide-modal="() => (createModal = false)" :modal-title="t('social-media')">
         <template #body>
           <!------ name ------>
-          <Input v-model="store.item.name" type="text" :label="t('name')" />
+          <Input v-model="store.item.title" type="text" :label="t('name')" />
 
           <!------ link ------>
           <Input v-model="store.item.link" type="url" :label="t('link')" />
@@ -111,7 +108,7 @@ const updateSocialMedia = () => {
       <Modal :open="editModal" :hide-modal="() => (editModal = false)" :modal-title="t('social-media')">
         <template #body>
           <!------ name ------>
-          <Input v-model="store.item.name" type="text" :label="t('name')" />
+          <Input v-model="store.item.title" type="text" :label="t('name')" />
 
           <!------ link ------>
           <Input v-model="store.item.link" type="url" :label="t('link')" />

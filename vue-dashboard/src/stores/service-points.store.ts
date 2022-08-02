@@ -11,7 +11,7 @@ export const useServicePointStore = defineStore({
   } => ({
     item: {
       id: 0,
-      name: { ar: '', en: '' },
+      title: { ar: '', en: '' },
       address: { lat: 0, lon: 0 },
       working_hours: { start: '', end: '' },
 
@@ -28,7 +28,7 @@ export const useServicePointStore = defineStore({
       this.item = {
         id: 0,
 
-        name: { ar: '', en: '' },
+        title: { ar: '', en: '' },
         address: { lat: 0, lon: 0 },
         working_hours: { start: '', end: '' },
         phone: '',

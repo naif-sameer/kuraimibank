@@ -2,14 +2,7 @@ import axios from '@/helpers/axios';
 import { NewsType } from '@/types';
 
 export async function getNewsApi() {
-  return (await axios.get('news')).data.map((item: any) => ({
-    ...item,
-    is_active: !!item.is_active,
-
-    title: item.title,
-    description: item.description,
-    image: `http://localhost:8000/uploads/images/${item.image}`,
-  }));
+  return (await axios.get('news')).data.data;
 }
 
 export async function createNewsApi(data: NewsType) {
@@ -17,10 +10,9 @@ export async function createNewsApi(data: NewsType) {
 
   formData.append('title', JSON.stringify(data.title));
   formData.append('description', JSON.stringify(data.description));
-
   formData.append('image', data.image);
 
-  return await axios.post(`news/create`, formData);
+  return await axios.post(`news`, formData);
 }
 
 export async function updateNewsApi(data: NewsType) {
@@ -32,7 +24,7 @@ export async function updateNewsApi(data: NewsType) {
   // add image if user select new one
   if (typeof data.image !== 'string') formData.append('image', data.image);
 
-  return await axios.post(`/news/${data.id}/edit`, formData);
+  return await axios.post(`/news/${data.id}`, formData);
 }
 
 export async function deleteNewsApi(id: number, is_active: boolean) {

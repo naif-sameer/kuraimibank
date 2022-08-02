@@ -18,7 +18,7 @@ defineProps<{
     <div class="flex">
       <div
         class="font-semibold flex max-w-[8rem] overflow-hidden whitespace-nowrap"
-        v-html="locale === 'en' ? description.en : description.ar"
+        v-html="locale === 'en' ? description.en : description.ar ?? ''"
       ></div>
       <span> ... </span>
     </div>

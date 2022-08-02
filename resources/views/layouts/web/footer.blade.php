@@ -14,13 +14,13 @@
         </h4>
 
         <div class="item-links">
-          <a href="#" class="item-links-link">@lang('heading.about-the-bank')</a>
-          <a href="#" class="item-links-link">@lang('heading.vision')</a>
-          <a href="#" class="item-links-link">@lang('heading.the-message')</a>
-          <a href="#" class="item-links-link">@lang('heading.objectives')</a>
-          <a href="#" class="item-links-link">@lang('heading.values-and-principles')</a>
-          <a href="#" class="item-links-link">@lang('heading.policy-statement')</a>
-          <a href="#" class="item-links-link">@lang('heading.mukafahat-ghasl')</a>
+          <a href="{{ route('AboutUs') }}" class="item-links-link">@lang('heading.about-the-bank')</a>
+          <a href="{{ route('AboutUs') }}" class="item-links-link">@lang('heading.vision')</a>
+          <a href="{{ route('AboutUs') }}" class="item-links-link">@lang('heading.the-message')</a>
+          <a href="{{ route('AboutUs') }}" class="item-links-link">@lang('heading.objectives')</a>
+          <a href="{{ route('AboutUs') }}" class="item-links-link">@lang('heading.values-and-principles')</a>
+          <a href="{{ route('AboutUs') }}" class="item-links-link">@lang('heading.policy-statement')</a>
+          <a href="{{ route('AboutTeam') }}" class="item-links-link">الفريق</a>
           <a href="{{ route('OurPartners') }}" class="item-links-link">@lang('heading.our-partners')</a>
         </div>
       </div>
@@ -32,11 +32,12 @@
         </h4>
 
         <div class="item-links">
-          <a href="#" class="item-links-link">موني جرام</a>
-          <a href="#" class="item-links-link">ماستر كارد</a>
-          <a href="#" class="item-links-link">البنوك المراسلة</a>
-          <a href="#" class="item-links-link">منظمة التمويل الدولية</a>
-          <a href="#" class="item-links-link">تيمينوس</a>
+
+          {{-- {{$footerInfoOurPartners}} --}}
+          @foreach ($footerInfo->OurPartners as $partner)
+            <a href="{{ route('OurPartners') }}#our-partners-id-{{ $partner->id }}"
+              class="item-links-link">{{ $partner->title }}</a>
+          @endforeach
         </div>
       </div>
 
@@ -48,13 +49,9 @@
 
         <div class="item-links">
 
-          @foreach ($services as $service)
+          @foreach ($footerInfo->services as $service)
             <a href="{{ route('Service', $service) }}" class="item-links-link">{{ $service->title }}</a>
           @endforeach
-          {{-- <a href="#" class="item-links-link"> خدمات الشركات</a>
-          <a href="#" class="item-links-link"> كريمي اكسبرس</a>
-          <a href="#" class="item-links-link">ام فلوس</a>
-          <a href="#" class="item-links-link">التمويل</a> --}}
         </div>
       </div>
 
@@ -65,7 +62,9 @@
         </h4>
 
         <div class="item-links">
-          <a href="{{ route('FinancialReports') }}" class="item-links-link">التقارير المالية</a>
+          <a href="{{ route('FinancialReports') }}" class="item-links-link">
+            التقارير المالية
+          </a>
           {{-- <a href="#" class="item-links-link">القوائم المالية</a> --}}
         </div>
       </div>
@@ -77,7 +76,7 @@
         </h4>
 
         <div class="item-links">
-          <a href="#" class="item-links-link">@lang('heading.branches-and-atms')</a>
+          <a href="{{ route('ServicePoints') }}" class="item-links-link">@lang('heading.branches-and-atms')</a>
         </div>
       </div>
 
@@ -87,10 +86,10 @@
           @lang('heading.connect-with-us')
         </h4>
         <div class="item-links">
-          <span class="item-links-link">@lang('heading.telephone'): {{ $contactInfo['phone']->value }}</span>
-          <span class="item-links-link">@lang('heading.fax'):{{ $contactInfo['fax']->value }}</span>
-          <span class="item-links-link">@lang('heading.free-call'):{{ $contactInfo['free_phone']->value }}</span>
-          <span class="item-links-link">@lang('heading.mail-box'):{{ $contactInfo['mail_box']->value }}</span>
+          <span class="item-links-link">@lang('heading.telephone'): {{ $footerInfo->contactInfo['phone']->value }}</span>
+          <span class="item-links-link">@lang('heading.fax'):{{ $footerInfo->contactInfo['fax']->value }}</span>
+          <span class="item-links-link">@lang('heading.free-call'):{{ $footerInfo->contactInfo['free_phone']->value }}</span>
+          <span class="item-links-link">@lang('heading.mail-box'):{{ $footerInfo->contactInfo['mail_box']->value }}</span>
         </div>
       </div>
     </div>

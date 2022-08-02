@@ -50,7 +50,7 @@ const { t, locale } = useI18n();
           <tr v-for="item in store.items">
             <TableTd primary long>
               <RouterLink :to="`/service-points/${item.id}/show`">
-                {{ locale === 'en' ? item.name.en : item.name.ar }}
+                {{ locale === 'en' ? item.title.en : item.title.ar }}
               </RouterLink>
             </TableTd>
 

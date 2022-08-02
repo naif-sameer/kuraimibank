@@ -23,6 +23,15 @@ class TeamMember extends Model
     'name',
     'image',
     'role',
-    'team_role_id'
+    'team_role_id',
+    'is_active'
   ];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

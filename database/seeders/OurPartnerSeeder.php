@@ -22,38 +22,85 @@ class OurPartnerSeeder extends Seeder
     لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة';
 
     OurPartner::create([
-      'title'                         => ['ar' => 'هذا النص هو مثال', 'en' => 'هذا النص هو مثال'],
-      'description'                   => ['ar' => $loremText, 'en' => $loremText],
+      'title'                         => [
+        'ar' => 'موني جرام',
+        'en' => 'موني جرام'
+      ],
+      'description'                   => [
+        'ar' => $loremText, 'en' => $loremText
+      ],
       'image'                         => 'our-partner-1.png',
     ]);
 
     OurPartner::create([
-      'title'                         => ['ar' => 'هذا النص هو مثال', 'en' => 'هذا النص هو مثال'],
-      'description'                   => ['ar' => $loremText, 'en' => $loremText],
+      'title'                         => [
+        'ar' => 'ماستر كارد',
+        'en' => 'ماستر كارد'
+      ],
+      'description'                   => [
+        'ar' => $loremText,
+        'en' => $loremText
+      ],
       'image'                         => 'our-partner-1.png',
     ]);
 
     OurPartner::create([
-      'title'                         => ['ar' => 'هذا النص هو مثال', 'en' => 'هذا النص هو مثال'],
-      'bank_messaging_country'        => ['ar' => 'yemen', 'en' => 'yemen'],
+      'title'                         => [
+        'ar' => 'منظمة التمويل الدولية',
+        'en' => 'International Finance Organization'
+      ],
+      'description'                   => [
+        'ar' => $loremText,
+        'en' => $loremText
+      ],
       'image'                         => 'our-partner-1.png',
     ]);
 
     OurPartner::create([
-      'title'                         => ['ar' => 'هذا النص هو مثال', 'en' => 'هذا النص هو مثال'],
-      'bank_messaging_country'        => ['ar' => 'yemen', 'en' => 'yemen'],
+      'title'                         => [
+        'ar' => 'اكتيف بنك',
+        'en' => 'اكتيف بنك'
+      ],
+      'bank_messaging_country'        => [
+        'ar' => 'yemen',
+        'en' => 'yemen'
+      ],
       'image'                         => 'our-partner-1.png',
     ]);
 
     OurPartner::create([
-      'title'                         => ['ar' => 'هذا النص هو مثال', 'en' => 'هذا النص هو مثال'],
-      'bank_messaging_country'        => ['ar' => 'المملكة العربية السعودية', 'en' => 'المملكة العربية السعودية'],
+      'title'                         => [
+        'ar' => 'موني جرام',
+        'en' => 'موني جرام'
+      ],
+      'bank_messaging_country'        => [
+        'ar' => 'yemen',
+        'en' => 'yemen'
+      ],
       'image'                         => 'our-partner-1.png',
     ]);
 
     OurPartner::create([
-      'title'                         => ['ar' => 'هذا النص هو مثال', 'en' => 'هذا النص هو مثال'],
-      'bank_messaging_country'        => ['ar' => 'المملكة العربية السعودية', 'en' => 'المملكة العربية السعودية'],
+      'title'                         => [
+        'ar' => 'موني جرام',
+        'en' => 'موني جرام'
+      ],
+      'bank_messaging_country'        => [
+        'ar' => 'المملكة العربية السعودية',
+        'en' => 'المملكة العربية السعودية'
+      ],
+      'image'                         => 'our-partner-1.png',
+    ]);
+
+    OurPartner::create([
+      'title'                         => [
+        'ar' => 'موني جرام',
+        'en' => 'موني جرام'
+      ],
+      'bank_messaging_country'        => [
+        'ar' => 'المملكة العربية السعودية',
+        'en' => 'المملكة العربية السعودية'
+      ],
       'image'                         => 'our-partner-1.png',
     ]);
   }

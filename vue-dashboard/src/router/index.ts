@@ -4,15 +4,16 @@ import { useLoadingStore } from '@/stores/loading.store';
 import { useCountriesStore } from '@/stores/countries.store';
 import { useExchangeRatesStore } from '@/stores/exchange-rates';
 import { useCitiesStore } from '@/stores/cities.store';
-import { useCategoriesStore } from '@/stores/categories.store';
-import { useSubCategoryStore } from '@/stores/sub-categories.store';
+
 import { useJobsStore } from '@/stores/jobs.store';
 import { useOurPartnerStore } from '@/stores/our-partners.store';
 import { useFinancialReportStore } from '@/stores/financial-reports.store';
 import { useNewsStore } from '@/stores/news.store';
-import { useMainServiceStore } from '@/stores/main-services.store';
 import { useServicePointStore } from '@/stores/service-points.store';
 import { useServiceStore } from '@/stores/services.store';
+import { usePrivacyPolicyStore } from '@/stores/privacy-policy.store';
+import { useSocialMediaStore } from '@/stores/social-media.store';
+import { useWebsiteInfoStore } from '@/stores/website.store';
 
 const websiteInfoRoutes: RouteRecordRaw = {
   path: '/',
@@ -21,10 +22,8 @@ const websiteInfoRoutes: RouteRecordRaw = {
   meta: {
     module: 'website-info',
   },
-  beforeEnter() {
-    let loadingStore = useLoadingStore();
-
-    loadingStore.loading = true;
+  async beforeEnter() {
+    await useWebsiteInfoStore().getWebsiteInfo();
   },
 
   children: [
@@ -35,6 +34,7 @@ const websiteInfoRoutes: RouteRecordRaw = {
         module: 'website-info',
         subModule: 'about-us',
       },
+      beforeEnter: () => (useLoadingStore().loading = true),
     },
     {
       path: '/apply-for-service',
@@ -43,6 +43,7 @@ const websiteInfoRoutes: RouteRecordRaw = {
         module: 'website-info',
         subModule: 'apply-for-service',
       },
+      beforeEnter: () => (useLoadingStore().loading = true),
     },
     {
       path: '/values-principles',
@@ -51,6 +52,7 @@ const websiteInfoRoutes: RouteRecordRaw = {
         module: 'website-info',
         subModule: 'values-principles',
       },
+      beforeEnter: () => (useLoadingStore().loading = true),
     },
     {
       path: '/strategy-statement',
@@ -59,6 +61,7 @@ const websiteInfoRoutes: RouteRecordRaw = {
         module: 'website-info',
         subModule: 'strategy-statement',
       },
+      beforeEnter: () => (useLoadingStore().loading = true),
     },
     {
       path: '/board-members',
@@ -67,6 +70,7 @@ const websiteInfoRoutes: RouteRecordRaw = {
         module: 'website-info',
         subModule: 'board-members',
       },
+      beforeEnter: () => (useLoadingStore().loading = true),
     },
     {
       path: '/contact-us',
@@ -75,6 +79,7 @@ const websiteInfoRoutes: RouteRecordRaw = {
         module: 'website-info',
         subModule: 'contact-us',
       },
+      beforeEnter: () => (useLoadingStore().loading = true),
     },
     {
       path: '/privacy-policy',
@@ -83,6 +88,11 @@ const websiteInfoRoutes: RouteRecordRaw = {
       meta: {
         module: 'website-info',
         subModule: 'privacy-policy',
+      },
+      beforeEnter() {
+        useLoadingStore().loading = true;
+
+        usePrivacyPolicyStore().getPrivacyPolicy();
       },
     },
     {
@@ -93,6 +103,12 @@ const websiteInfoRoutes: RouteRecordRaw = {
         subModule: 'social-media',
       },
       component: () => import('@/views/social-media/SocialMediaView.vue'),
+      beforeEnter() {
+        useLoadingStore().loading = true;
+        const socialMediaStore = useSocialMediaStore();
+
+        socialMediaStore.getSocialMedia();
+      },
     },
   ],
 };
@@ -106,8 +122,8 @@ const servicePointsRoutes: RouteRecordRaw = {
     const citiesStore = useCitiesStore();
     let servicePointStore = useServicePointStore();
 
-    await servicePointStore.getServicePoints();
-    await citiesStore.getCities();
+    servicePointStore.getServicePoints();
+    citiesStore.getCities();
   },
 
   children: [
@@ -119,11 +135,8 @@ const servicePointsRoutes: RouteRecordRaw = {
       async beforeEnter() {
         useLoadingStore().loading = true;
 
-        const citiesStore = useCitiesStore();
-        let servicePointStore = useServicePointStore();
-
-        await servicePointStore.getServicePoints();
-        await citiesStore.getCities();
+        useCitiesStore().getCities();
+        useServicePointStore().getServicePoints();
       },
     },
     {
@@ -184,27 +197,6 @@ const router = createRouter({
     },
 
     {
-      path: '/categories',
-      name: 'categories',
-      component: () => import('@/views/categories/CategoriesView.vue'),
-      async beforeEnter() {
-        useLoadingStore().loading = true;
-
-        await useCategoriesStore().getCategories();
-      },
-    },
-    {
-      path: '/sub-categories',
-      name: 'sub-categories',
-      component: () => import('@/views/sub-categories/SubCategoriesView.vue'),
-      async beforeEnter() {
-        useLoadingStore().loading = true;
-
-        await useSubCategoryStore().getSubCategories();
-      },
-    },
-
-    {
       path: '/jobs',
       name: 'jobs',
       component: () => import('@/views/jobs/JobsView.vue'),
@@ -245,17 +237,6 @@ const router = createRouter({
         useLoadingStore().loading = true;
 
         await useNewsStore().getNews();
-      },
-    },
-
-    {
-      path: '/main-services',
-      name: 'main-services',
-      component: () => import('@/views/main-services/MainServicesView.vue'),
-      async beforeEnter() {
-        useLoadingStore().loading = true;
-
-        await useMainServiceStore().getMainServices();
       },
     },
 

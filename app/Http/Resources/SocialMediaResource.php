@@ -22,7 +22,7 @@ class SocialMediaResource extends JsonResource
 
       "title"           => $this->title,
       "link"            => $this->link,
-      "icon"            => $this->icon,
+      "icon"            => url('uploads/images', $this->icon),
     ];
   }
 }

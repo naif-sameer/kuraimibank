@@ -39,14 +39,14 @@ Route::prefix('v1')
     Route::apiResource('jobs', Api\JobController::class, ['except' => ['destroy']]);
     Route::put('/jobs/{job}/toggle', [Api\JobController::class, 'activeToggle']);
 
-    // main-services
-    Route::controller(Api\MainServiceController::class)->group(function () {
-      Route::get('/main-services', 'index');
-      Route::get('/main-services/{mainService}', 'show');
-      Route::post('/main-services', 'store');
-      Route::post('/main-services/{mainService}', 'update');
-      Route::put('/main-services/{mainService}/toggle', 'activeToggle');
-    });
+    // // main-services
+    // Route::controller(Api\MainServiceController::class)->group(function () {
+    //   Route::get('/main-services', 'index');
+    //   Route::get('/main-services/{mainService}', 'show');
+    //   Route::post('/main-services', 'store');
+    //   Route::post('/main-services/{mainService}', 'update');
+    //   Route::put('/main-services/{mainService}/toggle', 'activeToggle');
+    // });
 
     // news
     Route::controller(Api\NewsController::class)->group(function () {

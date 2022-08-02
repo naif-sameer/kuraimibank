@@ -15,7 +15,7 @@ class FinancialReport extends Model
     'description'
   ];
 
-  protected $fillable = ['title', 'description', 'pdf'];
+  protected $fillable = ['title', 'description', 'pdf', 'is_active'];
 
   /**
    * The attributes that should be cast.
@@ -26,4 +26,12 @@ class FinancialReport extends Model
     'title'              => 'array',
     'description'        => 'array',
   ];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

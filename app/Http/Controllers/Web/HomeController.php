@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebBaseController;
 use App\Models\AboutUs;
 use App\Models\ExchangeRate;
 use App\Models\FinancialReport;
 use App\Models\News;
 use App\Models\OurPartner;
 use App\Models\Service;
+use App\Models\SuccessNumber;
 use App\Models\TeamRole;
 use App\Models\WebsiteInfo;
 use stdClass;
 
-class HomeController extends Controller
+class HomeController extends WebBaseController
 {
   public function index()
   {
@@ -27,6 +29,8 @@ class HomeController extends Controller
 
     $mainServices =  Service::where('is_main_service', true)->take(5)->get();
 
+    $successNumbers = SuccessNumber::take(8)->get();
+
     $news = News::take(6)->get();
 
 
@@ -34,7 +38,8 @@ class HomeController extends Controller
       ->with('homeInfo', $homeInfo)
       ->with('currencies', $currencies)
       ->with('mainServices', $mainServices)
-      ->with('news', $news);
+      ->with('news', $news)
+      ->with('successNumbers', $successNumbers);
   }
 
   public function contactUs()
@@ -44,9 +49,6 @@ class HomeController extends Controller
 
   public function ourPartners()
   {
-    // source: https://stackoverflow.com/a/66224349/19299063
-    // DB::statement("SET SQL_MODE=''");
-
     $partners = OurPartner::whereNull('bank_messaging_country')->get();
     $bankMessagingPartners = OurPartner::whereNotNull('bank_messaging_country')->orderBy('bank_messaging_country')->get();
 

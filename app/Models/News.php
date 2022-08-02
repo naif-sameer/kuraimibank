@@ -13,7 +13,7 @@ class News extends Model
 
   public $translatable = ['title', 'description'];
 
-  protected $fillable = ['title', 'description', 'image'];
+  protected $fillable = ['title', 'description', 'image', 'is_active'];
 
   /**
    * The attributes that should be cast.
@@ -24,4 +24,13 @@ class News extends Model
     'title'              => 'array',
     'description'        => 'array',
   ];
+
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

@@ -15,7 +15,7 @@ class SuccessStory extends Model
     'description'
   ];
 
-  protected $fillable = ['title', 'description', 'service_id'];
+  protected $fillable = ['title', 'description', 'service_id', 'is_active'];
 
   /**
    * The attributes that should be cast.
@@ -35,5 +35,13 @@ class SuccessStory extends Model
   public function images()
   {
     return $this->hasMany(SuccessStoryImage::class, 'success_story_id');
+  }
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
   }
 }

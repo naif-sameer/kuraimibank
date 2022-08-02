@@ -1,7 +1,7 @@
 export type ServicePointType = {
   id: number;
 
-  name: {
+  title: {
     ar: string;
     en: string;
   };

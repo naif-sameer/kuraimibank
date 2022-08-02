@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebBaseController;
 use App\Models\News;
 use App\Models\Service;
 use App\Models\SuccessStory;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class ServiceController extends WebBaseController
 {
   public function service(Request $request, Service $service)
   {

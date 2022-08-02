@@ -2,23 +2,15 @@ import axios from '@/helpers/axios';
 import { ServicePointType } from '@/types';
 
 export async function getServicePointsApi() {
-  return (await axios.get('service-points')).data.map((item: any) => ({
-    ...item,
-    is_active: !!item.is_active,
-
-    name: item.name,
-    address: item.address,
-    working_hours: item.working_hours,
-    city: item.city.name,
-  }));
+  return (await axios.get('service-points')).data.data;
 }
 
 export async function createServicePointApi(data: ServicePointType) {
-  return await axios.post(`service-points/create`, data);
+  return await axios.post(`service-points`, data);
 }
 
 export async function updateServicePointApi(data: ServicePointType) {
-  return await axios.put(`/service-points/${data.id}/edit`, JSON.stringify(data));
+  return await axios.put(`/service-points/${data.id}`, data);
 }
 
 export async function deleteServicePointApi(id: number, is_active: boolean) {

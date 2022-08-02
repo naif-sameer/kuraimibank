@@ -36,7 +36,7 @@ const { t, locale } = useI18n();
       <tr v-for="item in store.items">
         <TableTd>
           <span class="font-semibold">
-            {{ locale === 'en' ? item.name.en : item.name.ar }}
+            {{ locale === 'en' ? item.title.en : item.title.ar }}
           </span>
         </TableTd>
 

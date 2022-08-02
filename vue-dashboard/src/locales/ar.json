@@ -1,4 +1,231 @@
 {
   "dashboard-title": "Dashboard title",
-  "dashboard": "Dashboard"
+  "dashboard": "Dashboard",
+  "website-info": "Website Info",
+
+  "about_us": {
+    "title": "About us",
+    "arabic_title": "about_us (arabic) ",
+    "english_title": "about_us (english) "
+  },
+
+  "apply_for_service": {
+    "title": "Apply for service",
+    "arabic_title": "apply for service (arabic) ",
+    "english_title": "apply for service (english) "
+  },
+
+  "values_principles": {
+    "title": "Values Principles",
+    "arabic_title": "Values Principles (arabic) ",
+    "english_title": "Values Principles (english) "
+  },
+
+  "strategy_statement": {
+    "title": "Strategy Statement",
+    "arabic_title": "Strategy Statement (arabic) ",
+    "english_title": "Strategy Statement (english) "
+  },
+
+  "board_members": {
+    "title": "Board Members",
+    "arabic_title": "Board Members (arabic) ",
+    "english_title": "Board Members (english) "
+  },
+
+  "contact_us": {
+    "title": "Contact us",
+    "phone": "Phone",
+    "free_phone": "Free phone",
+    "fax": "Fax",
+    "mail_box": "Mail box",
+    "email": "Email"
+  },
+
+  "privacy_policy": {
+    "title": "Privacy and Policy",
+    "sub_title": "sub title",
+    "description": "description",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-sub_title": "Arabic sub_title",
+    "english-sub_title": "English sub_title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
+  "main_services": {
+    "title": "Main Service",
+
+    "ar-name": "arabic name",
+    "en-name": "english name"
+  },
+  "service-name": "Service name",
+
+  "exchange-rates": "Currencies",
+  "exchange_rates": {
+    "currency-name": "Currency name",
+    "currency-arabic-name": "Currency Arabic name",
+    "currency-english-name": "Currency English name",
+    "sale": "Sale",
+    "buy": "Buy",
+    "updated-date": "Updated date"
+  },
+
+  "country": "Country",
+  "countries": {
+    "title": "Countries",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name"
+  },
+
+  "cities": {
+    "title": "Cities",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name"
+  },
+
+  "categories": {
+    "title": "Categories",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name"
+  },
+
+  "jobs": {
+    "title": "Jobs",
+    "description": "job description",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
+  "social-media": "Social Media",
+  "name": "name",
+
+  "our_partners": {
+    "title": "Our partners",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
+  "financial-reports": "Financial report",
+
+  "financial_report": {
+    "title": "Financial report",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
+  "news": {
+    "title": "News",
+
+    "arabic-title": "Arabic title",
+    "english-title": "English title",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
+  "pages": "Pages",
+  "sub_categories": {
+    "title": "Sub Categories",
+
+    "ar-name": "arabic name",
+    "en-name": "english name"
+  },
+
+  "services": {
+    "title": "Services",
+
+    "ar-name": "arabic name",
+    "en-name": "english name",
+
+    "ar-description": "Arabic description",
+    "en-description": "English description",
+
+    "ar-other-advantage": "ar other advantage",
+    "en-other-advantage": "en other advantage",
+
+    "ar-service-condition": "ar service condition",
+    "en-service-condition": "en service condition"
+  },
+
+  "service_advantages": { "title": "Service Advantages" },
+
+  "service_points": {
+    "title": "Service Points",
+
+    "arabic-name": "Arabic name",
+    "english-name": "English name",
+
+    "arabic-address": "Arabic address",
+    "english-address": "English address",
+
+    "arabic-working_hours": "Arabic working_hours",
+    "english-working_hours": "English working_hours",
+
+    "arabic-description": "Arabic description",
+    "english-description": "English description"
+  },
+
+  "update": "Update",
+  "updated-date": "Updated date",
+
+  "add": "Add",
+  "edit": "Edit",
+  "show": "Show",
+  "status": "Status",
+  "action": "Action",
+  "active": "Active",
+  "not-active": "Not Active",
+  "link": "Link",
+  "icon": "Icon",
+  "title": "title",
+
+  "description": "description",
+  "service-conation": "service conation",
+  "other-advantage": "other advantage",
+  "category": "category",
+
+  "phone": "Phone",
+  "second-phone": "second Phone",
+  "city": "City",
+  "road": "Road",
+  "district": "District",
+  "address-details": "Address Details",
+
+  "working-hours": "Working hours",
+  "address": "Address",
+
+  "category-name": "Category Name",
+
+  "image": "Image",
+  "pdf": "PDF file",
+  "pdf-link": "PDF link",
+  "drag-and-drop-here": "Drag and Drop Your files here",
+  "or-select-file": "Or Select File",
+
+  "time": {
+    "from": "من",
+    "am": "صباحا",
+    "pm": "مساءً",
+    "to": "وحتى"
+  }
 }

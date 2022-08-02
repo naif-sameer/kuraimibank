@@ -1,12 +1,7 @@
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/helpers/useLocalStorage';
 import { ServiceType } from '@/types';
-import {
-  getServicesApi,
-  createServiceApi,
-  updateServiceApi,
-  deleteServiceApi,
-} from '@/api';
+import { getServicesApi, createServiceApi, updateServiceApi, deleteServiceApi } from '@/api';
 
 export const useServiceStore = defineStore({
   id: 'services',
@@ -17,11 +12,11 @@ export const useServiceStore = defineStore({
     item: {
       id: 0,
 
-      name: { ar: '', en: '' },
+      title: { ar: '', en: '' },
       description: { ar: '', en: '' },
       other_advantage: { ar: '', en: '' },
       service_conditions: { ar: '', en: '' },
-      category_id: '',
+      service_id: '',
       image: '',
 
       is_active: true,
@@ -34,11 +29,11 @@ export const useServiceStore = defineStore({
       this.item = {
         id: 0,
 
-        name: { ar: '', en: '' },
+        title: { ar: '', en: '' },
         description: { ar: '', en: '' },
         other_advantage: { ar: '', en: '' },
         service_conditions: { ar: '', en: '' },
-        category_id: '',
+        service_id: '',
         image: '',
 
         is_active: true,

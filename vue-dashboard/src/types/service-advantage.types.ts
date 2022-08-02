@@ -1,14 +1,15 @@
 export type ServiceAdvantageType = {
   id: number;
 
-  name: {
+  title: {
     ar: string;
     en: string;
   };
-  icon: string;
+  description: {
+    ar: string;
+    en: string;
+  };
   service_id: string;
-
-  service?: string;
 
   is_active: boolean;
   updated_at?: string;

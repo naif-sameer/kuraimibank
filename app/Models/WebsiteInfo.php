@@ -15,6 +15,17 @@ class WebsiteInfo extends Model
   protected $table = 'website_info';
 
   /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = [
+    'table_key',
+    'table_value',
+    'is_active'
+  ];
+
+  /**
    * The attributes that should be cast.
    *
    * @var array
@@ -22,4 +33,12 @@ class WebsiteInfo extends Model
   protected $casts = [
     'table_value'   => 'array',
   ];
+
+  /**
+   * get is_active attribute as a boolean.
+   */
+  public function getIsActiveAttribute()
+  {
+    return (bool) $this->attributes['is_active'];
+  }
 }

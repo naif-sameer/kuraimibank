@@ -21,7 +21,7 @@ class CountryResource extends JsonResource
       'created_at'      => $this->created_at,
       'updated_at'      => $this->updated_at,
 
-      "title"           => ResourceHelper::toArray($this->title),
+      "title"           => $this->getTranslations('title'),
       "country_code"    => $this->country_code,
     ];
   }

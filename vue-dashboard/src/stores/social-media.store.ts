@@ -1,12 +1,7 @@
 import { defineStore } from 'pinia';
 import { useLocalStorage } from '@/helpers/useLocalStorage';
 import { SocialMediaType } from '@/types';
-import {
-  getSocialMediaApi,
-  createSocialMediaApi,
-  updateSocialMediaApi,
-  deleteSocialMediaApi,
-} from '@/api';
+import { getSocialMediaApi, createSocialMediaApi, updateSocialMediaApi, deleteSocialMediaApi } from '@/api';
 
 export const useSocialMediaStore = defineStore({
   id: 'social-media',
@@ -14,29 +9,13 @@ export const useSocialMediaStore = defineStore({
     item: SocialMediaType;
     items: Array<SocialMediaType>;
   } => ({
-    item: {
-      id: 0,
-      name: '',
-      link: '',
-      icon: '',
-      is_active: true,
-    },
+    item: { id: 0, title: '', link: '', icon: '', is_active: true },
     items: [],
   }),
 
-  getters: {
-    getData: ({ item }) => item,
-  },
-
   actions: {
     resetItem() {
-      this.item = {
-        id: 0,
-        name: '',
-        link: '',
-        icon: '',
-        is_active: true,
-      };
+      this.item = { id: 0, title: '', link: '', icon: '', is_active: true };
     },
 
     getSocialMedia() {
@@ -56,13 +35,13 @@ export const useSocialMediaStore = defineStore({
     },
 
     addSocialMedia() {
-      createSocialMediaApi(this.getData);
+      createSocialMediaApi(this.item);
 
       this.getSocialMedia();
     },
 
     updateSocialMedia() {
-      updateSocialMediaApi(this.getData);
+      updateSocialMediaApi(this.item);
 
       this.getSocialMedia();
     },

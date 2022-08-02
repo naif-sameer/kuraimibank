@@ -1,7 +1,7 @@
 export type ServiceType = {
   id: number;
 
-  name: {
+  title: {
     ar: string;
     en: string;
   };
@@ -18,9 +18,11 @@ export type ServiceType = {
     en: string;
   };
   image: string;
-  category_id: string;
+  service_id: string;
 
-  category?: string;
+  sub_services?: Array<ServiceType>;
+  service?: string;
+  service_advantages?: Array<any>;
 
   is_active: boolean;
   updated_at?: string;

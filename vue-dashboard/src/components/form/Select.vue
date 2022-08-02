@@ -38,7 +38,7 @@ const updateValue = (event: any) => {
       </option>
       <template v-for="option in options" :key="option.id">
         <option :value="option.id" :selected="modelValue === option.id">
-          {{ locale === 'en' ? option.name.en : option.name.ar }}
+          {{ locale === 'en' ? option.title.en : option.title.ar }}
         </option>
       </template>
     </select>

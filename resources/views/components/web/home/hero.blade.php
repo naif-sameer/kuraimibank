@@ -4,7 +4,8 @@
       <h1 class='hero-title'>{{ $homeInfo->title }}</h1>
       <p class="hero-description">{!! $homeInfo->description !!}</p>
 
-      <div class="hero-navigation">
+      {{-- TODO --}}
+      <div class="hero-navigation" style="display: none">
         <div class="hero-navigation-item is-active"></div>
         <div class="hero-navigation-item"></div>
         <div class="hero-navigation-item"></div>
